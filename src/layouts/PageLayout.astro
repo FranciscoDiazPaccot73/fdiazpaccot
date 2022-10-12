@@ -1,0 +1,15 @@
+---
+import '../../global.css';
+
+import Layout from './Layout.astro';
+import Menu from '../components/Menu.astro';
+
+const { meta, router } = Astro.props;
+---
+
+<Layout {meta}>
+	<Menu {router} />
+	<main class="m-0 p-0 mb-16">
+		<slot />
+	</main>
+</Layout>

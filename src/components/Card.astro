@@ -1,0 +1,42 @@
+<section class="px-8 py-6 relative eurostile text-white">
+  <div id='frontend' class="mb-10 h-72 flex items-center flex-col p-6 rounded-xl justify-center bg-neutral-900 border shadow-sm shadow-amber-600 orange-border">
+    <p class="font-semibold text-2xl mb-4 orange-text">Frontend</p>
+  </div>
+  <div id='backend' class="h-72 flex items-center flex-col p-6 rounded-xl justify-center bg-neutral-900 border shadow-sm shadow-amber-600 orange-border">
+    <p class="font-semibold text-2xl mb-4 orange-text">Backend</p>
+  </div>
+</section>
+
+<script>
+  const fillSkills = () => {
+    const FRONTEND = ['ReactJs', 'NextJs', 'JavaScript', 'Svelte', 'React Native', 'SASS', 'CSS', 'Tailwind', 'Webpack'];
+    const BACKEND = ['NodeJs', 'Express', 'Postgresql', 'GraphQl', 'MongoDB', 'MySQL'];
+    const frontend = document.getElementById('frontend');
+    const backend = document.getElementById('backend');
+
+    FRONTEND.forEach(skill => {
+      const p = document.createElement('p');
+      p.className = 'text-sm text-white';
+      p.textContent = skill;
+      frontend.appendChild(p)
+    })
+    
+    BACKEND.forEach(skill => {
+      const p = document.createElement('p');
+      p.className = 'text-sm text-white';
+      p.textContent = skill;
+      backend.appendChild(p)
+    })
+  }
+
+  fillSkills()
+</script>
+
+<style>
+  .orange-border {
+    border-color: var(--orange);
+  }
+  .orange-text {
+    color: var(--orange)
+  }
+</style>

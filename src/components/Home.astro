@@ -1,0 +1,116 @@
+---
+import { Image } from '@astrojs/image/components';
+---
+
+<section class="w-full relative p-6 flex flex-col items-center justify-center overflow-hidden top-85">
+  <div class="stars">
+    <span class="star" />
+    <span class="star" />
+    <span class="star" />
+    <span class="star" />
+    <span class="star" />
+    <span class="star" />
+    <span class="star" />
+  </div>
+  <div class="font-semibold text-4xl text-center orange-text eurostile">
+    Francisco<br>Diaz Paccot<span class="text-4xl text-white ml-1">.</span>
+  </div>
+  <div class="text-xl text-white my-5 eurostile">Fronted Sotfware Engineer</div>
+  <div class="mt-20">
+    <Image width={150} height={150} format="webp" src='/logo-small.webp' alt="Francisco Diaz Paccot" />
+  </div>
+</section>
+
+<style>
+	.top-85 {
+		height: 85vh;
+	}
+  .stars {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: -14px;
+    width: 110%;
+  }
+  .star {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 4px;
+    height: 4px;
+    background: #f16a26;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(241, 106, 38, 0.1),
+      0 0 0 8px rgba(241, 106, 38, 0.1), 0 0 20px rgba(241, 106, 38, .6);
+    animation: animate 3s linear infinite;
+  }
+  .star::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 300px;
+    height: 1px;
+    background: linear-gradient(90deg, rgb(241, 106, 38, .5), transparent);
+  }
+  @keyframes animate {
+    0% {
+      transform: rotate(315deg) translateX(0);
+      opacity: 1;
+    }
+    70% {
+      opacity: 1;
+    }
+    100% {
+      transform: rotate(315deg) translateX(-1500px);
+      opacity: 0;
+    }
+  }
+  .star:nth-child(1) {
+    top: -10px;
+    right: -30px;
+    left: initial;
+    animation-delay: 0;
+    animation-duration: 1s;
+  }
+
+  .star:nth-child(2) {
+    top: -10px;
+    right: 80px;
+    left: initial;
+    animation-delay: 0.2s;
+    animation-duration: 3s;
+  }
+
+  .star:nth-child(3) {
+    top: 80px;
+    right: 0px;
+    left: initial;
+    animation-delay: 0.4s;
+    animation-duration: 2s;
+  }
+
+  .star:nth-child(4) {
+    top: 0;
+    right: 180px;
+    left: initial;
+    animation-delay: 0.6s;
+    animation-duration: 1.5s;
+  }
+
+  .star:nth-child(5) {
+    top: 0;
+    right: 400px;
+    left: initial;
+    animation-delay: 0.8s;
+    animation-duration: 2.5s;
+  }
+
+  .star:nth-child(6) {
+    top: 0;
+    right: 600px;
+    left: initial;
+    animation-delay: 1s;
+    animation-duration: 3s;
+  }
+</style>

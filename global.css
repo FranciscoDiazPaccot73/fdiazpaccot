@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --orange: #f16a26;
+}
+
+.orange-background {
+  background-color: var(--orange);
+}
+
+.orange-text {
+  color: var(--orange)
+}
+
+.eurostile {
+  font-family: "eurostile", sans-serif;
+}
