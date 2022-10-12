@@ -14,19 +14,21 @@
     const frontend = document.getElementById('frontend');
     const backend = document.getElementById('backend');
 
-    FRONTEND.forEach(skill => {
-      const p = document.createElement('p');
-      p.className = 'text-sm text-white';
-      p.textContent = skill;
-      frontend.appendChild(p)
-    })
-    
-    BACKEND.forEach(skill => {
-      const p = document.createElement('p');
-      p.className = 'text-sm text-white';
-      p.textContent = skill;
-      backend.appendChild(p)
-    })
+    if (frontend.childNodes.length !== FRONTEND.length + 3) {
+      FRONTEND.forEach(skill => {
+        const p = document.createElement('p');
+        p.className = 'text-sm text-white';
+        p.textContent = skill;
+        frontend.appendChild(p)
+      })
+      
+      BACKEND.forEach(skill => {
+        const p = document.createElement('p');
+        p.className = 'text-sm text-white';
+        p.textContent = skill;
+        backend.appendChild(p)
+      })
+    }
   }
 
   fillSkills()
