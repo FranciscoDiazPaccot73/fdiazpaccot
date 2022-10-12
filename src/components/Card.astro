@@ -1,15 +1,20 @@
 <section class="px-8 py-6 relative eurostile text-white">
-  <div id='frontend' class="mb-10 h-72 flex items-center flex-col p-6 rounded-xl justify-center bg-neutral-900 border shadow-sm shadow-amber-600 orange-border">
-    <p class="font-semibold text-2xl mb-4 orange-text">Frontend</p>
-  </div>
-  <div id='backend' class="h-72 flex items-center flex-col p-6 rounded-xl justify-center bg-neutral-900 border shadow-sm shadow-amber-600 orange-border">
-    <p class="font-semibold text-2xl mb-4 orange-text">Backend</p>
+  <div class="mb-10 flex flex-col items-center px-6 py-10 rounded-xl bg-neutral-900 border shadow-sm shadow-amber-600 orange-border">
+    <p class="text-2xl font-bold orange-text mb-4">STACK</p>
+    <div class="flex justify-around w-full">
+      <div id='frontend' class="flex items-center flex-col">
+        <p class="font-semibold text-2xl mb-3 orange-text">Frontend</p>
+      </div>
+      <div id='backend' class="flex items-center flex-col">
+        <p class="font-semibold text-2xl mb-3 orange-text">Backend</p>
+      </div>
+    </div>
   </div>
 </section>
 
 <script>
   const fillSkills = () => {
-    const FRONTEND = ['ReactJs', 'NextJs', 'JavaScript', 'Svelte', 'React Native', 'SASS', 'CSS', 'Tailwind', 'Webpack'];
+    const FRONTEND = ['ReactJs', 'NextJs', 'JavaScript', 'Svelte', 'React Native', 'HTML', 'SASS', 'CSS', 'Tailwind', 'Webpack'];
     const BACKEND = ['NodeJs', 'Express', 'Postgresql', 'GraphQl', 'MongoDB', 'MySQL'];
     const frontend = document.getElementById('frontend');
     const backend = document.getElementById('backend');
@@ -41,5 +46,9 @@
   }
   .orange-text {
     color: var(--orange)
+  }
+  .website {
+    right: 0;
+    bottom: 0;
   }
 </style>

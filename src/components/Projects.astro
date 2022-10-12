@@ -5,24 +5,52 @@ import Github from './icons/Github.astro';
 ---
 
 <section class="px-8 py-6 relative eurostile text-white flex items-center flex-col w-full">
-  <p class="my-12 text-xl orange-text">Some of my recent developments</p>
-  <div class="mb-10 flex items-center p-6 rounded-xl justify-center bg-neutral-900 border orange-border">
+  <p class="my-8 text-xl orange-text font-semibold">My Projects</p>
+  <div class="w-full mb-10 flex items-center p-6 rounded-xl justify-center bg-neutral-900 border orange-border">
     <a href="https://www.quepuedover.online/" target="_blank">
-      <Image width={80} height={60} format="webp" src='/qpv.webp' alt="Francisco Diaz Paccot" />
+      <Image width={90} height={60} format="webp" src='/qpv.webp' alt="quepuedover.online" />
     </a>
-    <div class="ml-6 flex items-center flex-col">
+    <div class="ml-6 flex items-center flex-col w-36">
       <a class="text-sm underline underline-offset-2 ml font-semibold orange-text" href="https://www.quepuedover.online/" target="_blank">
-        https://quepuedover.online
+        quepuedover.online
       </a>
       <div class="w-full mt-3 flex items-center flex-1 justify-around">
-        <a href=""><Github color='#f16a26' /></a>
-        <a href="" class="border text-xs p-1 rounded-xl orange-border">Read more</a>
+        <a target="_blank" href="https://github.com/FranciscoDiazPaccot73/que-mirar"><Github color='#f16a26' /></a>
+        <a href="" class="border text-xs py-1 px-2 rounded-xl orange-border">Read more</a>
       </div>
     </div>
   </div>
-  <div class="flex items-center flex-col p-6 rounded-xl justify-center bg-neutral-900 border shadow-sm shadow-amber-600 orange-border">
-    <p class="font-semibold text-2xl mb-4 orange-text">Backend</p>
+  <div class="w-full mb-10 flex items-center p-6 rounded-xl justify-center bg-neutral-900 border orange-border">
+    <a href="https://first-steps-it.vercel.app/" target="_blank">
+      <Image width={60} height={60} format="webp" src='/logo-hiring-jr.png' alt="hiringjr.com" />
+    </a>
+    <div class="ml-6 flex items-center flex-col w-36">
+      <a class="text-sm underline underline-offset-2 ml font-semibold orange-text" href="https://first-steps-it.vercel.app/" target="_blank">
+        hiringjr.com
+      </a>
+      <div class="w-full mt-3 flex items-center flex-1 justify-around">
+        <a href="https://github.com/FranciscoDiazPaccot73/first-steps-it"><Github color='#f16a26' /></a>
+        <a href="" class="border text-xs py-1 px-2 rounded-xl orange-border">Read more</a>
+      </div>
+    </div>
   </div>
+  <div class="w-full mb-10 flex items-center p-6 rounded-xl justify-center bg-neutral-900 border orange-border">
+    <a href="https://astro-tailwind-themed-boilerplate.vercel.app" target="_blank">
+      <Image width={60} height={60} format="webp" src='/astro.png' alt="hiringjr.com" />
+    </a>
+    <div class="ml-6 flex items-center flex-col w-36">
+      <a class="text-sm underline underline-offset-2 ml font-semibold orange-text" href="https://astro-tailwind-themed-boilerplate.vercel.app" target="_blank">
+        Astro+Tailwind+Theme
+      </a>
+      <div class="w-full mt-3 flex items-center flex-1 justify-around">
+        <a href="https://github.com/FranciscoDiazPaccot73/astro-tailwind-themed-boilerplate"><Github color='#f16a26' /></a>
+        <a href="" class="border text-xs py-1 px-2 rounded-xl orange-border">Read more</a>
+      </div>
+    </div>
+  </div>
+  <a href="/portfolio" class="underline underline-offset-3 orange-text">
+    SEE ALL
+  </a>
 </section>
 
 <style>
