@@ -1,7 +1,24 @@
+---
+import { Image } from '@astrojs/image/components';
+
+import Github from './icons/Github.astro';
+---
+
 <section class="px-8 py-6 relative eurostile text-white flex items-center flex-col w-full">
-  <p class="my-12 text-xl orange-text">Some of my developments</p>
-  <div class="mb-10 flex items-center flex-col p-6 rounded-xl justify-center bg-neutral-900 border shadow-sm shadow-amber-600 orange-border">
-    <p class="font-semibold text-2xl mb-4 orange-text">Frontend</p>
+  <p class="my-12 text-xl orange-text">Some of my recent developments</p>
+  <div class="mb-10 flex items-center p-6 rounded-xl justify-center bg-neutral-900 border orange-border">
+    <a href="https://www.quepuedover.online/" target="_blank">
+      <Image width={80} height={60} format="webp" src='/qpv.webp' alt="Francisco Diaz Paccot" />
+    </a>
+    <div class="ml-6 flex items-center flex-col">
+      <a class="text-sm underline underline-offset-2 ml font-semibold orange-text" href="https://www.quepuedover.online/" target="_blank">
+        https://quepuedover.online
+      </a>
+      <div class="w-full mt-3 flex items-center flex-1 justify-around">
+        <a href=""><Github color='#f16a26' /></a>
+        <a href="" class="border text-xs p-1 rounded-xl orange-border">Read more</a>
+      </div>
+    </div>
   </div>
   <div class="flex items-center flex-col p-6 rounded-xl justify-center bg-neutral-900 border shadow-sm shadow-amber-600 orange-border">
     <p class="font-semibold text-2xl mb-4 orange-text">Backend</p>

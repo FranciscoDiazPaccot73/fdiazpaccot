@@ -14,6 +14,7 @@
     const frontend = document.getElementById('frontend');
     const backend = document.getElementById('backend');
 
+    // Prevent double generation
     if (frontend.childNodes.length !== FRONTEND.length + 3) {
       FRONTEND.forEach(skill => {
         const p = document.createElement('p');
