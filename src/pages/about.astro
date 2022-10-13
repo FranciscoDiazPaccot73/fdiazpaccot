@@ -1,0 +1,82 @@
+---
+import { Image } from '@astrojs/image/components';
+
+import PageLayout from '../layouts/PageLayout.astro';
+import Code from '../components/icons/Code.astro';
+import Link from '../components/icons/Link.astro';
+
+const meta = {
+	title: 'About | Francisco Diaz Paccot',
+	description: 'Francisco Diaz Paccot | Frontend Engineer.',
+	logoUrl: "https://i.ibb.co/mFYW5QJ/new-logo-small.webp",
+	url: "https://franciscodiazpaccot.dev",
+}
+
+const steps = [
+    {
+      job: `Ssr Front-End Software Engineer`,
+      title: 'Mercado Libre',
+      duration: 'Dec 2019 - current',
+      location: 'Santa Fe - Argentina',
+      link: 'https://mercadolibre.com',
+      text: `On my first 6 months on MercadoLibre I was working for Mercado Shops team. Mercado Shops its a service ` +
+      `that Mercado Libre provides to sellers to create their own e-commerce page. ` +
+      `There, we worked on an integration with Facebook Shops and Google Shopping to improve the seller marketing tools. ` +
+      `On June of 2020 I started to work on deals team. On this team we provide to sellers the oportunity to create many types of promotions ` +
+      `to their Mercado Libre items.`
+    },
+    {
+      job: `Ssr Full-Stack developer`,
+      title: 'Serfe',
+      duration: 'Oct 2018 - Dec 2019',
+      location: 'Santa Fe - Argentina',
+      link: 'https://serfe.com',
+      text: `When I started to work in Serfe, I joined to a team who provides maintance to a project called Bluejacketeer. ` +
+      `This project had a mobile app(made with Phonegap and Angular), a website (made in React) and an admin site (also made with React). ` +
+      `Then I started to work (I was in carged of the developers team) on the migration of this mobile app to a new technology (React Native).`
+    },
+  ];
+---
+
+<PageLayout {meta} router="/about">
+	<section class="px-8 py-12 relative eurostile text-gray-100">
+    <p class="font-semibold text-3xl mb-4 orange-text">Hello, I'm Francisco</p>
+    <p class="text-l tracking-wide mb-6">Actually I am placed in Parana - Argentina. Connected with the web development industry for many years.</p>
+    <p class="text-l tracking-wide mb-6">Well-organised person, high attention to detail. Fan of NBA, photography, TV series, movies and video games.</p>
+    <p class="text-l tracking-wide mb-6">Interested in the entire frontend technologies. Focused on improve web performance</p>
+    <div class="w-full flex justify-center mt-10">
+      <Image width={180} height={180} format="webp" src='/me.webp' alt="Francisco Diaz Paccot" />
+    </div>
+  </section>
+  <div class="w-full flex items-center justify-center mt-3">
+    <Code />
+  </div>
+  <section class="px-8 py-10 relative eurostile text-gray-100">
+    <p class="font-semibold text-4xl mb-4 orange-text">Timeline</p>
+    <div class="p-6">
+      {steps.map(({ job, title, duration, link, text }) => (
+        <div>
+          <div class="mb-3">
+            <div class="text-gray-100 font-semibold text-xl mb-2">
+              {title}
+            </div>
+            <div class="text-gray-100">
+              {duration}
+            </div>
+          </div>
+          <div>
+            <div class="text-gray-100 text-xl font-semibold mb-3">
+              {job}
+            </div>
+            <div class="hidden md:block">
+              {text}
+            </div>
+            <div class="flex items-center cursor-pointer orange-text">
+              <Link color="#e9552f" width={18} height={18} /><a class="orange-text ml-1" href={link} target="_blank">{link}</a>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+</PageLayout>

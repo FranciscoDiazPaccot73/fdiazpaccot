@@ -1,0 +1,38 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import PortfolioCard from '../components/PortfolioCard.astro';
+
+const meta = {
+	title: 'Portfolio | Francisco Diaz Paccot',
+	description: 'Francisco Diaz Paccot | Frontend Engineer.',
+	logoUrl: "https://i.ibb.co/mFYW5QJ/new-logo-small.webp",
+	url: "https://franciscodiazpaccot.dev",
+}
+
+const qpv = {
+  link: 'https://www.quepuedover.online',
+  text: 'quepuedover.online',
+  logoUrl: '/qpv.webp',
+  logoWidth: 120,
+  logoHeight: 75,
+  stack: 'NextJs, NodeJs, SASS, TypeScript',
+  description: `¿Que Puedo Ver? it's a website that recommends tv series and movies to watch`
+}
+const hiringjr = {
+  link: 'https://first-steps-it.vercel.app',
+  text: 'hiringjr.com',
+  logoUrl: '/logo-hiring-jr.png',
+  logoWidth: 75,
+  logoHeight: 75,
+  stack: 'NextJs, NodeJs, SASS, Google Sheets',
+  description: `HiringJr it's a webpage for connect corporates placed in Entre Rios, Santa Fe or Cordoba with Junior or Trainee developers who are looking for their first job or change their current one.`
+}
+---
+
+<PageLayout {meta} router="/portfolio">
+	<section class="px-8 py-12 relative eurostile text-gray-100">
+    <p class="font-semibold text-gray-100 text-4xl mb-8">My Portfolio</p>
+    <PortfolioCard {...qpv} />
+    <PortfolioCard {...hiringjr} />
+  </section>
+</PageLayout>

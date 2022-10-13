@@ -29,3 +29,6 @@
 .height-calc {
   min-height: calc(100vh - 264px);
 }
+.orange-border {
+  border-color: var(--orange);
+}

@@ -1,51 +1,20 @@
----
-import Website from "./icons/Website.astro";
----
-
 <section class="px-8 py-6 relative eurostile text-white">
-  <div class="mb-10 flex flex-col items-center px-6 py-10 rounded-xl border shadow-sm shadow-amber-600 orange-border black-background">
-    <p class="text-2xl font-bold orange-text mb-4">STACK</p>
-    <div class="flex justify-around w-full">
-      <div id='frontend' class="flex items-center flex-col">
-        <p class="font-semibold text-2xl mb-3 orange-text">Frontend</p>
+  <div class="mb-10 flex flex-col items-center p-6 rounded-xl border shadow-sm shadow-amber-600 orange-border black-background">
+    <p class="text-2xl font-bold orange-text mb-5">My Main Skills</p>
+    <div class="flex justify-around w-full flex-col">
+      <div id='frontend' class="flex items-center flex-col mb-6">
+        <p class="text-xl mb-1 orange-text">Frontend</p>
+        <p class="text-sm text-white text-center">ReactJs, NextJs, JavaScript, Svelte, React Native, HTML, SASS, CSS, Tailwind, Webpack</p>
       </div>
       <div id='backend' class="flex items-center flex-col">
-        <p class="font-semibold text-2xl mb-3 orange-text">Backend</p>
+        <p class="text-xl mb-1 orange-text">Backend</p>
+        <p class="text-sm text-white text-center">NodeJs, Express, Postgresql, GraphQl, MongoDB, MySQL</p>
       </div>
     </div>
   </div>
   <div class="absolute bottom-20 right-0 black-background">
-    <Website />
   </div>
 </section>
-
-<script>
-  const fillSkills = () => {
-    const FRONTEND = ['ReactJs', 'NextJs', 'JavaScript', 'Svelte', 'React Native', 'HTML', 'SASS', 'CSS', 'Tailwind', 'Webpack'];
-    const BACKEND = ['NodeJs', 'Express', 'Postgresql', 'GraphQl', 'MongoDB', 'MySQL'];
-    const frontend = document.getElementById('frontend');
-    const backend = document.getElementById('backend');
-
-    // Prevent double generation
-    if (frontend.childNodes.length !== FRONTEND.length + 3) {
-      FRONTEND.forEach(skill => {
-        const p = document.createElement('p');
-        p.className = 'text-sm text-white';
-        p.textContent = skill;
-        frontend.appendChild(p)
-      })
-      
-      BACKEND.forEach(skill => {
-        const p = document.createElement('p');
-        p.className = 'text-sm text-white';
-        p.textContent = skill;
-        backend.appendChild(p)
-      })
-    }
-  }
-
-  fillSkills()
-</script>
 
 <style>
   .orange-border {

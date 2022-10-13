@@ -1,0 +1,14 @@
+---
+import { Image } from '@astrojs/image/components';
+
+const { link, text, logoUrl, stack, description, logoWidth, logoHeight } = Astro.props;
+---
+
+<div class="w-full mb-10 flex flex-col items-center p-6 rounded-xl justify-center border orange-border black-background">
+  <a href={link} target="_blank" class="flex w-full flex-col items-center justify-center mb-4">
+    <Image width={logoWidth} height={logoHeight} format="webp" src={logoUrl} alt={text} />
+    <span class="text-sm underline underline-offset-1 orange-text">{text}</span>
+  </a>
+  <p class="text-sm">{description}</p>
+  <p class="mt-6 text-sm"><strong>Stack: </strong>{stack}</p>
+</div>
