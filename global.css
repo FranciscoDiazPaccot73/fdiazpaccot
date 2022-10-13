@@ -3,7 +3,8 @@
 @tailwind utilities;
 
 :root {
-  --orange: #f16a26;
+  --orange: #e9552f;
+  --black: #16080e;
 }
 
 .orange-background {
@@ -16,4 +17,15 @@
 
 .eurostile {
   font-family: "eurostile", sans-serif;
+}
+
+.black-background {
+  background-color: var(--black);
+}
+
+.black-text {
+  color: var(--black)
+}
+.height-calc {
+  min-height: calc(100vh - 264px);
 }
