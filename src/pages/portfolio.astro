@@ -1,6 +1,7 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
 import PortfolioCard from '../components/PortfolioCard.astro';
+import Github from '../components/icons/Github.astro';
 
 const meta = {
 	title: 'Portfolio | Francisco Diaz Paccot',
@@ -10,22 +11,69 @@ const meta = {
 }
 
 const qpv = {
+  id: 'quepuedover',
+  github: 'https://github.com/FranciscoDiazPaccot73/que-mirar',
   link: 'https://www.quepuedover.online',
   text: 'quepuedover.online',
   logoUrl: '/qpv.webp',
-  logoWidth: 120,
-  logoHeight: 75,
+  logoWidth: 90,
+  logoHeight: 55,
   stack: 'NextJs, NodeJs, SASS, TypeScript',
   description: `¿Que Puedo Ver? it's a website that recommends tv series and movies to watch`
 }
 const hiringjr = {
+  id: 'hiringjr',
+  github: 'https://github.com/FranciscoDiazPaccot73/first-steps-it',
   link: 'https://first-steps-it.vercel.app',
   text: 'hiringjr.com',
   logoUrl: '/logo-hiring-jr.png',
-  logoWidth: 75,
-  logoHeight: 75,
+  logoWidth: 55,
+  logoHeight: 55,
   stack: 'NextJs, NodeJs, SASS, Google Sheets',
   description: `HiringJr it's a webpage for connect corporates placed in Entre Rios, Santa Fe or Cordoba with Junior or Trainee developers who are looking for their first job or change their current one.`
+}
+const letters = {
+  id: 'letters',
+  github: 'https://github.com/FranciscoDiazPaccot73/letters',
+  link: 'https://letters.franciscodiazpaccot.dev/',
+  text: 'Random Letters',
+  logoUrl: '/svelte.png',
+  logoWidth: 55,
+  logoHeight: 55,
+  stack: 'TypeScript, Svelte, JavaScript, CSS',
+  description: `Randoms Letters select a random letter. It used for play "Tutti Frutti" game.`
+}
+const filipa = {
+  id: 'filipa',
+  github: 'https://github.com/FranciscoDiazPaccot73/filipabazar',
+  link: 'https://www.filipabazar.com.ar/',
+  text: 'filipabazar.com.ar',
+  logoUrl: '/filipa.jpg',
+  logoWidth: 55,
+  logoHeight: 55,
+  stack: 'NextJs, NodeJs, SASS, TypeScript, Google Sheets',
+  description: `FILIPA Bazar & Deco it's a webpage made for an Instagram business focused on sell gift and home articles. It has an entire catalog and it has Whatsapp checkout.`
+}
+const lista = {
+  id: 'list',
+  github: 'https://github.com/FranciscoDiazPaccot73/mi-lista',
+  link: 'https://lista.franciscodiazpaccot.dev',
+  text: 'Mi Lista',
+  logoUrl: '/vercel.png',
+  logoWidth: 55,
+  logoHeight: 55,
+  stack: 'NextJs, JavaScript, TypeScript, SASS, ChakraUI',
+  description: `Here you can save important links and make list of TODOs.`
+}
+const iustaAdmin = {
+  id: 'iustaadmin',
+  link: 'https://iusta-admin.vercel.app',
+  text: 'Iusta Admin',
+  logoUrl: '/iusta.png',
+  logoWidth: 55,
+  logoHeight: 55,
+  stack: 'NextJs, NodeJs, GraphQL, SASS.',
+  description: `The new admin panel to manage https://iusta.com.ar`
 }
 ---
 
@@ -34,5 +82,17 @@ const hiringjr = {
     <p class="font-semibold text-gray-100 text-4xl mb-8">My Portfolio</p>
     <PortfolioCard {...qpv} />
     <PortfolioCard {...hiringjr} />
+    <PortfolioCard {...filipa} />
+    <PortfolioCard {...letters} />
+    <PortfolioCard {...lista} />
+    <PortfolioCard {...iustaAdmin} />
+    <div class="w-full flex items-center justify-center">
+      <a
+        class="flex items-center py-2 px-3 mt-4 font-semibold rounded-md text-sm orange-background black-text"
+        href="https://github.com/FranciscoDiazPaccot73" target="_blank"
+      >
+        Go to my <span class="mx-1"><Github color="#16080e" height={20} width={20} /></span> profile
+      </a>
+    </div>
   </section>
 </PageLayout>

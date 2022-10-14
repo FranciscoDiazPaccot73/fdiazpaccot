@@ -7,6 +7,10 @@
   --black: #16080e;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .orange-background {
   background-color: var(--orange);
 }
