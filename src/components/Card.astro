@@ -1,14 +1,83 @@
+---
+import React from "./icons/React.astro";
+import Next from "./icons/Next.astro";
+import Javascript from "./icons/Javascript.astro";
+import Svelte from "./icons/Svelte.astro";
+import Typescript from "./icons/Typescript.astro";
+import ReactNative from "./icons/ReactNative.astro";
+import Webpack from "./icons/Webpack.astro";
+import HtmlComponent from "./icons/Html.astro";
+import Css from "./icons/Css.astro";
+import Sass from "./icons/Sass.astro";
+import Tailwind from "./icons/Tailwind.astro";
+import Node from "./icons/Node.astro";
+import Graphql from "./icons/Graphql.astro";
+import Postgresql from "./icons/Postgresql.astro";
+import Mysql from "./icons/Mysql.astro";
+import Mongodb from "./icons/Mongodb.astro";
+---
+
 <section class="px-8 py-6 relative eurostile text-white">
   <div class="mb-10 flex flex-col items-center p-6 rounded-xl border shadow-sm shadow-amber-600 orange-border black-background">
     <p class="text-2xl font-bold orange-text mb-5">My Main Skills</p>
     <div class="flex justify-around w-full flex-col">
-      <div id='frontend' class="flex items-center flex-col mb-6">
-        <p class="text-xl mb-1 orange-text">Frontend</p>
-        <p class="text-sm text-white text-center">ReactJs, NextJs, JavaScript, Svelte, React Native, HTML, SASS, CSS, Tailwind, Webpack</p>
+      <div id='frontend' class="flex items-center flex-col mb-7">
+        <p class="text-xl mb-2 orange-text">Frontend</p>
+        <div class="grid gap-2 grid-class">
+          <div class="card-background">
+            <React />
+          </div>
+          <div class="card-background">
+            <Next />
+          </div>
+          <div class="card-background">
+            <Javascript />
+          </div>
+          <div class="card-background">
+            <Svelte />
+          </div>
+          <div class="card-background">
+            <Typescript />
+          </div>
+          <div class="card-background">
+            <ReactNative />
+          </div>
+          <div class="card-background">
+            <Webpack />
+          </div>
+          <div class="card-background">
+            <HtmlComponent />
+          </div>
+          <div class="card-background">
+            <Css />
+          </div>
+          <div class="card-background">
+            <Sass />
+          </div>
+          <div class="card-background">
+            <Tailwind />
+          </div>
+        </div>
       </div>
       <div id='backend' class="flex items-center flex-col">
-        <p class="text-xl mb-1 orange-text">Backend</p>
-        <p class="text-sm text-white text-center">NodeJs, Express, Postgresql, GraphQl, MongoDB, MySQL</p>
+        <p class="text-xl mb-2 orange-text">Backend</p>
+        <div class="grid gap-2 grid-class">
+          <div class="card-background">
+            <Node />
+          </div>
+          <div class="card-background">
+            <Graphql />
+          </div>
+          <div class="card-background">
+            <Postgresql />
+          </div>
+          <div class="card-background">
+            <Mysql />
+          </div>
+          <div class="card-background">
+            <Mongodb />
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -26,5 +95,13 @@
   .website {
     right: 0;
     bottom: 0;
+  }
+  .card-background {
+    background-color: #5c5357;
+    border-radius: 20px;
+    padding: 6px;
+  }
+  .grid-class {
+    grid-template-columns: repeat(6, fit-content(100%));
   }
 </style>
