@@ -1,0 +1,76 @@
+---
+import { Image } from '@astrojs/image/components';
+import Github from './icons/Github.astro';
+
+const { router } = Astro.props;
+---
+
+<header
+	class="hidden md:block md:sticky top-0 z-40 flex-none mx-auto w-full backdrop-blur-sm black-background"
+>
+	<div class="py-3 px-3 mx-auto w-full md:flex md:justify-between max-w-6xl md:px-4">
+		<div class="flex justify-between">
+			<a class="flex items-center" href='/'>
+				<Image
+					src="/logo-small.webp"
+					width={40}
+					height={40}
+					alt="Logo"
+					format="webp"
+				/>
+			</a>
+		</div>
+		<nav
+			class="w-auto flex text-slate-200 h-auto"
+			aria-label="Main navigation"
+			id="menu"
+		>
+			<ul
+				class="flex pt-0 flex-row self-center collapse w-auto collapsed text-base"
+			>
+				<li>
+					<a
+						class={`font-medium hover:text-white px-4 py-3 flex items-center transition duration-150 ease-in-out ${router === '/' ? 'active' : ''}`}
+						href="/">Home
+          </a>
+				</li>
+        <li>
+					<a
+						class={`font-medium hover:text-white px-4 py-3 flex items-center transition duration-150 ease-in-out ${router.includes('/about') ? 'active' : ''}`}
+						href="/about">About Me
+          </a>
+				</li>
+        <li>
+					<a
+						class={`font-medium hover:text-white px-4 py-3 flex items-center transition duration-150 ease-in-out ${router.includes('/portfolio') ? 'active' : ''}`}
+						href="/portfolio">Portfolio
+          </a>
+				</li>
+        <li>
+					<a
+						class="font-medium hover:text-white px-4 py-3 flex items-center transition duration-150 ease-in-out"
+						href="mailto:frandiazpaccot73@gmail.com">Contact
+          </a>
+				</li>
+			</ul>
+			<div class="self-center flex items-center mb-0 ml-2">
+				<div class="items-center flex">
+					<a
+						href="https://github.com/FranciscoDiazPaccot73/astro-tailwind-themed-boilerplate"
+						class="inline-block text-gray-400 hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-700 rounded-lg text-sm p-2.5"
+						aria-label="Github"
+					>
+						<Github color="#e9552f" />
+					</a>
+				</div>
+			</div>
+		</nav>
+	</div>
+</header>
+
+<style>
+  .active,
+  .active:hover {
+    color: var(--orange)
+  }
+</style>

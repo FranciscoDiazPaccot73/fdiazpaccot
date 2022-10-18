@@ -3,6 +3,7 @@ import '../../global.css';
 
 import Layout from './Layout.astro';
 import Menu from '../components/Menu.astro';
+import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 
 const { meta, router } = Astro.props;
@@ -10,6 +11,7 @@ const { meta, router } = Astro.props;
 
 <Layout {meta}>
 	<Menu {router} />
+	<Navbar {router} />
 	<main class="m-0 p-0 mb-10 height-calc">
 		<slot />
 	</main>

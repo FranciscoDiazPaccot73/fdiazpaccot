@@ -4,11 +4,30 @@
 
 :root {
   --orange: #e9552f;
+  --orange-dark: #ca4a0a;
+  --orange-darkest: #973403;
   --black: #16080e;
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+body::-webkit-scrollbar {
+  width: 5px;
+}
+  
+body::-webkit-scrollbar-track {
+  background: #5c5357;
+}
+  
+body::-webkit-scrollbar-thumb {
+  background: var(--orange-dark);
+}
+  
+body::-webkit-scrollbar-thumb:hover {
+  background: var(--orange-darkest); 
+  cursor: pointer;
 }
 
 .orange-background {
