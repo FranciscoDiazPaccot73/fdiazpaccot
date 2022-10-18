@@ -7,6 +7,8 @@
   --orange-dark: #ca4a0a;
   --orange-darkest: #973403;
   --black: #16080e;
+  --hover-scale-transform: scale(1.05);
+  --hover-scale-transition: all 200ms ease;
 }
 
 html {
@@ -54,4 +56,9 @@ body::-webkit-scrollbar-thumb:hover {
 }
 .orange-border {
   border-color: var(--orange);
+}
+
+@font-face {
+  font-family: 'eurostile';
+  src: url('/fonts/eurostile.woff2') format('truetype');
 }

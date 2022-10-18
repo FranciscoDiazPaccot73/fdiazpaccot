@@ -78,17 +78,19 @@ const iustaAdmin = {
 ---
 
 <PageLayout {meta} router="/portfolio">
-	<section class="px-8 py-12 relative eurostile text-gray-100">
-    <p class="font-semibold text-gray-100 text-4xl mb-8">My Portfolio</p>
-    <PortfolioCard {...qpv} />
-    <PortfolioCard {...hiringjr} />
-    <PortfolioCard {...letters} />
-    <PortfolioCard {...lista} />
-    <PortfolioCard {...filipa} />
-    <PortfolioCard {...iustaAdmin} />
+	<section class="px-8 py-12 relative text-gray-100 md:mx-auto md:w-full md:max-w-6xl">
+    <p class="font-semibold text-gray-100 text-3xl mb-8 eurostile">My Portfolio</p>
+    <div class="md:grid md:gap-4 grid-portfolio">
+      <PortfolioCard {...qpv} />
+      <PortfolioCard {...hiringjr} />
+      <PortfolioCard {...letters} />
+      <PortfolioCard {...lista} />
+      <PortfolioCard {...filipa} />
+      <PortfolioCard {...iustaAdmin} />
+    </div>
     <div class="w-full flex items-center justify-center">
       <a
-        class="flex items-center py-2 px-3 mt-4 font-semibold rounded-md text-sm orange-background black-text"
+        class="flex items-center py-2 px-3 mt-4 font-semibold rounded-md text-sm orange-background black-text github-link"
         href="https://github.com/FranciscoDiazPaccot73" target="_blank"
       >
         GO TO MY <span class="mx-1"><Github color="#16080e" height={20} width={20} /></span> PROFILE
@@ -96,3 +98,15 @@ const iustaAdmin = {
     </div>
   </section>
 </PageLayout>
+
+<style>
+  @media(min-width: 768px) {
+    .grid-portfolio {
+      grid-template-columns: repeat(3, fit-content(100%));
+    }
+    .github-link:hover {
+      transform: var(--hover-scale-transform);
+      transition: var(--hover-scale-transition);
+    }
+  }
+</style>
