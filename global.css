@@ -57,8 +57,3 @@ body::-webkit-scrollbar-thumb:hover {
 .orange-border {
   border-color: var(--orange);
 }
-
-@font-face {
-  font-family: 'eurostile';
-  src: url('/fonts/eurostile.woff2') format('truetype');
-}

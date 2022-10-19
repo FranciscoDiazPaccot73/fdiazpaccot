@@ -10,7 +10,7 @@ const { router } = Astro.props;
 >
 	<div class="py-3 mx-auto w-full flex justify-between max-w-6xl px-4">
 		<div class="flex justify-between">
-			<a class="flex items-center" href='/'>
+			<a class="flex items-center" href='/' aria-label="Click to return to Home">
 				<Image
 					src="/logo-small.webp"
 					width={40}
@@ -30,24 +30,28 @@ const { router } = Astro.props;
 			>
 				<li>
 					<a
+						aria-label="Click to go to Home page"
 						class={`font-medium hover:text-white px-4 py-3 flex items-center transition duration-150 ease-in-out ${router === '/' ? 'active' : ''}`}
 						href="/">Home
           </a>
 				</li>
         <li>
 					<a
+						aria-label="Click to go to About page"
 						class={`font-medium hover:text-white px-4 py-3 flex items-center transition duration-150 ease-in-out ${router.includes('/about') ? 'active' : ''}`}
 						href="/about">About Me
           </a>
 				</li>
         <li>
 					<a
+						aria-label="Click to go to Portfolio page"
 						class={`font-medium hover:text-white px-4 py-3 flex items-center transition duration-150 ease-in-out ${router.includes('/portfolio') ? 'active' : ''}`}
 						href="/portfolio">Portfolio
           </a>
 				</li>
         <li>
 					<a
+						aria-label="Click to send an email to Francisco"
 						class="font-medium hover:text-white px-4 py-3 flex items-center transition duration-150 ease-in-out"
 						href="mailto:frandiazpaccot73@gmail.com">Contact
           </a>
@@ -57,8 +61,8 @@ const { router } = Astro.props;
 				<div class="items-center flex">
 					<a
 						href="https://github.com/FranciscoDiazPaccot73/astro-tailwind-themed-boilerplate"
-						class="inline-block text-gray-400 hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-700 rounded-lg text-sm p-2.5"
-						aria-label="Github"
+						class="inline-block text-gray-400 hover:bg-neutral-900 focus:outline-none focus:ring-4 focus:ring-neutral-900 rounded-lg text-sm p-2.5"
+						aria-label="Click to go to Github"
 					>
 						<Github color="#e9552f" />
 					</a>
