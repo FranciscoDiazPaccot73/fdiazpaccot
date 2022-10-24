@@ -75,6 +75,17 @@ const iustaAdmin = {
   stack: ['NextJs', 'NodeJs', 'GraphQL', 'SASS'],
   description: `The new admin panel to manage https://iusta.com.ar`
 }
+const markdown = {
+  id: 'markdowngen',
+  github: 'https://github.com/FranciscoDiazPaccot73/markdown-generator',
+  link: 'https://markdown.franciscodiazpaccot.dev',
+  text: 'Markdown Generator',
+  logoUrl: '/markdown.png',
+  logoWidth: 40,
+  logoHeight: 40,
+  stack: ['NextJs', 'Javascript', 'CSS'],
+  description: `A simple markdown file generator. You could generate, preview and download your markdown file.`
+}
 ---
 
 <PageLayout {meta} router="/portfolio">
@@ -82,9 +93,10 @@ const iustaAdmin = {
     <p class="font-semibold text-gray-100 text-3xl mb-8 eurostile">My Portfolio</p>
     <div class="md:grid md:gap-4 grid-portfolio">
       <PortfolioCard {...qpv} />
-      <PortfolioCard {...hiringjr} />
+      <PortfolioCard {...markdown} />
       <PortfolioCard {...letters} />
       <PortfolioCard {...lista} />
+      <PortfolioCard {...hiringjr} />
       <PortfolioCard {...filipa} />
       <PortfolioCard {...iustaAdmin} />
     </div>
