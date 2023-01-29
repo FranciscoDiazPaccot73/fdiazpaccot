@@ -97,6 +97,16 @@ const markdown = {
   stack: ['NextJs', 'Javascript', 'CSS'],
   description: `A simple markdown file generator. You could generate, preview and download your markdown file.`
 }
+const marquez = {
+  id: 'elmarquez',
+  link: 'https://elmarquez.vercel.app/',
+  text: 'El Marquez',
+  logoUrl: '/marquez.png',
+  logoWidth: 40,
+  logoHeight: 40,
+  stack: ['Astro', 'JavaScript', 'Tailwindcss'],
+  description: `A pizza store.`
+}
 ---
 
 <PageLayout {meta} router="/portfolio">
@@ -111,6 +121,7 @@ const markdown = {
       <PortfolioCard {...hiringjr} />
       <PortfolioCard {...filipa} />
       <PortfolioCard {...iustaAdmin} />
+      <PortfolioCard {...marquez} />
     </div>
     <div class="w-full flex items-center justify-center">
       <a
