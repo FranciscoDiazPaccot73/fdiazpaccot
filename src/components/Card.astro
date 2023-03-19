@@ -15,6 +15,23 @@ import Graphql from "./icons/Graphql.astro";
 import Postgresql from "./icons/Postgresql.astro";
 import Mysql from "./icons/Mysql.astro";
 import Mongodb from "./icons/Mongodb.astro";
+
+const reactProps = { href: "https://react.dev/", title: "ReactJs" };
+const nextProps = { href: "https://nextjs.org/", title: "NextJs" };
+const jsProps = { href: "https://www.javascript.com/", title: "JavaScript" };
+const svelteProps = { href: "https://svelte.dev/", title: "Svelte" };
+const tsProps = { href: "https://www.typescriptlang.org/", title: "TypeScript" };
+const rnProps = { href: "https://reactnative.dev/", title: "React Native" };
+const webpackProps = { href: "https://webpack.js.org/", title: "Webpack" };
+const htmlProps = { href: "https://html.com/", title: "HTML" };
+const cssProps = { href: "https://developer.mozilla.org/en-US/docs/Web/CSS", title: "CSS" };
+const sassProps = { href: "https://sass-lang.com/", title: "Sass" };
+const tailwindProps = { href: "https://tailwindcss.com/", title: "TailwindCSS" };
+const nodejsProps = { href: "https://nodejs.org/en", title: "NodeJs" };
+const graphProps = { href: "https://graphql.org/", title: "GraphQL" };
+const postgresProps = { href: "https://www.postgresql.org/", title: "PostgreSQL" };
+const mysqlProps = { href: "https://www.mysql.com/", title: "MySQL" };
+const mongoProps = { href: "https://www.mongodb.com/", title: "MongoDB" };
 ---
 
 <section class="px-8 py-6 relative text-white">
@@ -24,59 +41,59 @@ import Mongodb from "./icons/Mongodb.astro";
       <div id='frontend' class="flex items-center flex-col mb-7">
         <p class="text-xl mb-2 orange-text">Frontend</p>
         <div class="grid gap-2 grid-class">
-          <div class="card-background">
+          <a {...reactProps} target="_blank" class="card-background">
             <React />
-          </div>
-          <div class="card-background">
+          </a>
+          <a {...nextProps} target="_blank" class="card-background">
             <Next />
-          </div>
-          <div class="card-background">
+          </a>
+          <a {...jsProps} target="_blank" class="card-background">
             <Javascript />
-          </div>
-          <div class="card-background">
+          </a>
+          <a {...svelteProps} class="card-background">
             <Svelte />
-          </div>
-          <div class="card-background">
+          </a>
+          <a {...tsProps} class="card-background">
             <Typescript />
-          </div>
-          <div class="card-background">
+          </a>
+          <a {...rnProps} class="card-background">
             <ReactNative />
-          </div>
-          <div class="card-background">
+          </a>
+          <a {...webpackProps} class="card-background">
             <Webpack />
-          </div>
-          <div class="card-background">
+          </a>
+          <a {...htmlProps} class="card-background">
             <HtmlComponent />
-          </div>
-          <div class="card-background">
+          </a>
+          <a {...cssProps} class="card-background">
             <Css />
-          </div>
-          <div class="card-background">
+          </a>
+          <a {...sassProps} class="card-background">
             <Sass />
-          </div>
-          <div class="card-background">
+          </a>
+          <a {...tailwindProps} class="card-background">
             <Tailwind />
-          </div>
+          </a>
         </div>
       </div>
       <div id='backend' class="flex items-center flex-col">
         <p class="text-xl mb-2 orange-text">Backend</p>
         <div class="grid gap-2 grid-class">
-          <div class="card-background">
+          <a {...nodejsProps} class="card-background">
             <Node />
-          </div>
-          <div class="card-background">
+          </a>
+          <a {...graphProps} class="card-background">
             <Graphql />
-          </div>
-          <div class="card-background">
+          </a>
+          <a {...postgresProps} class="card-background">
             <Postgresql />
-          </div>
-          <div class="card-background">
+          </a>
+          <a {...mysqlProps} class="card-background">
             <Mysql />
-          </div>
-          <div class="card-background">
+          </a>
+          <a {...mongoProps} class="card-background">
             <Mongodb />
-          </div>
+          </a>
         </div>
       </div>
     </div>
