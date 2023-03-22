@@ -57,3 +57,38 @@ body::-webkit-scrollbar-thumb:hover {
 .orange-border {
   border-color: var(--orange);
 }
+
+.bg-arrow::before {
+  background-color: var(--orange);
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  content: "";
+  display: block;
+  height: 50px;
+  left: 0;
+  position: absolute;
+  top: -50px;
+  width: 100%;
+  z-index: -1;
+}
+
+.bg-arrow-lg::before {
+  background-color: var(--orange);
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  content: "";
+  display: block;
+  height: 70.1px;
+  left: 0;
+  position: absolute;
+  top: -70px;
+  width: 100%;
+  z-index: 1;
+}
+
+/* PROGRESS */
+
+@keyframes progress {
+  to {
+    background-color: var(--orange);
+    width: 100%;
+  }
+}

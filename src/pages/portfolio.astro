@@ -146,3 +146,10 @@ const marquez = {
     }
   }
 </style>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const calculation = window.pageYOffset / (document.body.offsetHeight - window.innerHeight);
+    document.body.style.setProperty('--scroll', calculation.toString()), false;
+  })
+</script>
