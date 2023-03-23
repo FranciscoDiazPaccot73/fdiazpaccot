@@ -5,16 +5,16 @@ import Github from './icons/Github.astro';
 const { link, text, logoUrl, stack, description, logoWidth, logoHeight, id, github } = Astro.props;
 ---
 
-<div id={id ?? ''} class="w-full mb-20 flex relative flex-col items-center p-4 rounded-md justify-center border md:justify-start orange-border black-background">
-  <a href={link} aria-label={`Click to go to "${text}" webpage`} target="_blank" class="absolute logo-about scale">
+<div id={id ?? ''} class="w-full mb-32 flex relative flex-col items-center p-6 pt-16 rounded-md justify-center border md:justify-start md:mb-24 orange-border black-background elevate">
+  <a href={link} aria-label={`Click to go to "${text}" webpage`} target="_blank" class="absolute logo-about">
     <Image width={logoWidth} height={logoHeight} format="webp" src={logoUrl} alt={text} />
   </a>
-  <div class="flex w-full h-10 flex-col items-center justify-center mb-4 orange-text">
-    <span class="font-semibold">{text}</span>
+  <div class="flex w-full h-10 flex-col items-center justify-center mb-8 md:mb-6 orange-text">
+    <span class="font-semibold text-2xl">{text}</span>
   </div>
   <div class="flex justify-between flex-col h-full md:mt-6">
-    <p class="text-sm">{description}</p>
-    <ul class="mt-6 text-sm flex gap-2 flex-wrap">
+    <p class="text-sm md:text-base">{description}</p>
+    <ul class="mt-10 text-sm flex gap-2 flex-wrap">
       {stack.map(tec => <li class="px-2 py-1 text-center text-xs uppercase rounded-md orange-background black-text">{tec}</li>)}
     </ul>
   </div>
@@ -27,13 +27,14 @@ const { link, text, logoUrl, stack, description, logoWidth, logoHeight, id, gith
     transition: var(--hover-scale-transition);
   }
 
+  .elevate:hover {
+    transform: translateY(-0.5rem);
+    transition: all 200ms ease-in;
+  }
+
   .logo-about {
     left: 50%;
     transform: translateX(-50%);
-    top: 0;
-  }
-
-  .scale:hover {
-    @apply active-scale
+    top: -3rem;
   }
 </style>
