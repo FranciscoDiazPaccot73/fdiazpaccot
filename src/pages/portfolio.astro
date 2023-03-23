@@ -16,8 +16,8 @@ const qpv = {
   link: 'https://www.quepuedover.online',
   text: '¿Qué puedo ver?',
   logoUrl: '/qpv.webp',
-  logoWidth: 55,
-  logoHeight: 40,
+  logoWidth: 110,
+  logoHeight: 80,
   stack: ['NextJs', 'NodeJs', 'SASS', 'TypeScript'],
   description: `¿Que Puedo Ver? it's a website that recommends tv series and movies to watch`
 }
@@ -27,8 +27,8 @@ const hiringjr = {
   link: 'https://first-steps-it.vercel.app',
   text: 'Hiring Jr',
   logoUrl: '/logo-hiring-jr.png',
-  logoWidth: 40,
-  logoHeight: 40,
+  logoWidth: 80,
+  logoHeight: 80,
   stack: ['NextJs', 'NodeJs', 'SASS', 'Google Sheets'],
   description: `HiringJr it's a webpage for connect corporates placed in Entre Rios, Santa Fe or Cordoba with Junior or Trainee developers who are looking for their first job or change their current one.`
 }
@@ -92,8 +92,8 @@ const markdown = {
   link: 'https://markdown.franciscodiazpaccot.dev',
   text: 'Markdown Generator',
   logoUrl: '/markdown.png',
-  logoWidth: 40,
-  logoHeight: 40,
+  logoWidth: 80,
+  logoHeight: 80,
   stack: ['NextJs', 'Javascript', 'CSS'],
   description: `A simple markdown file generator. You could generate, preview and download your markdown file.`
 }
@@ -112,7 +112,7 @@ const marquez = {
 <PageLayout {meta} router="/portfolio">
 	<section class="px-8 py-12 relative text-gray-100 md:mx-auto md:w-full md:max-w-6xl">
     <p class="font-semibold text-gray-100 text-3xl mb-8 eurostile">My Portfolio</p>
-    <div class="md:grid md:gap-4 grid-portfolio">
+    <div class="md:grid md:gap-10 grid-portfolio">
       <PortfolioCard {...qpv} />
       <PortfolioCard {...markdown} />
       <PortfolioCard {...fifawc} />
@@ -137,12 +137,15 @@ const marquez = {
 
 <style>
   @media(min-width: 768px) {
-    .grid-portfolio {
-      grid-template-columns: repeat(3, fit-content(100%));
-    }
-    .github-link:hover {
+    .scale {
       transform: var(--hover-scale-transform);
       transition: var(--hover-scale-transition);
+    }
+    .github-link:hover {
+      @apply scale
+    }
+    .grid-portfolio {
+      grid-template-columns: repeat(2, fit-content(100%));
     }
   }
 </style>

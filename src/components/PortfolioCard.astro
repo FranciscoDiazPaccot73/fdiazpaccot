@@ -5,8 +5,10 @@ import Github from './icons/Github.astro';
 const { link, text, logoUrl, stack, description, logoWidth, logoHeight, id, github } = Astro.props;
 ---
 
-<div id={id ?? ''} class="w-full mb-10 flex relative flex-col items-center p-4 rounded-xl justify-center border orange-border md:justify-start black-background">
-  <a href={link} aria-label={`Click to go to "${text}" webpage`} target="_blank" class="absolute top-4 left-4"><Image width={logoWidth} height={logoHeight} format="webp" src={logoUrl} alt={text} /></a>
+<div id={id ?? ''} class="w-full mb-20 flex relative flex-col items-center p-4 rounded-md justify-center border md:justify-start orange-border black-background">
+  <a href={link} aria-label={`Click to go to "${text}" webpage`} target="_blank" class="absolute logo-about scale">
+    <Image width={logoWidth} height={logoHeight} format="webp" src={logoUrl} alt={text} />
+  </a>
   <div class="flex w-full h-10 flex-col items-center justify-center mb-4 orange-text">
     <span class="font-semibold">{text}</span>
   </div>
@@ -16,5 +18,22 @@ const { link, text, logoUrl, stack, description, logoWidth, logoHeight, id, gith
       {stack.map(tec => <li class="px-2 py-1 text-center text-xs uppercase rounded-md orange-background black-text">{tec}</li>)}
     </ul>
   </div>
-  {github ? <a aria-label={`Click to go to ${text} github page`} href={github} target="_blank" class="absolute top-4 right-4"><Github width={32} height={32} color="#e9552f" /></a> : null}
+  {github ? <a aria-label={`Click to go to ${text} github page`} href={github} target="_blank" class="absolute top-4 right-4 scale"><Github width={32} height={32} color="#e9552f" /></a> : null}
 </div>
+
+<style>
+  .active-scale {
+    transform: var(--hover-scale-transform);
+    transition: var(--hover-scale-transition);
+  }
+
+  .logo-about {
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+  }
+
+  .scale:hover {
+    @apply active-scale
+  }
+</style>
