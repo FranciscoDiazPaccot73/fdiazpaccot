@@ -10,10 +10,41 @@ const { meta, router } = Astro.props;
 ---
 
 <Layout {meta}>
+	<div class="progress" />
 	<Menu {router} />
 	<Navbar {router} />
-	<main class="m-0 p-0 mb-10 height-calc">
+	<main class="m-0 p-0 mb-10 relative height-calc">
 		<slot />
 	</main>
 	<Footer />
 </Layout>
+
+<style>
+	.progress {
+    height: 2px;
+    width: 0%;
+    background-color: var(--orange-darkest);
+    position: fixed;
+    bottom: 56px;
+    left: 0;
+    animation: progress 1s linear;
+    z-index: 1000;
+  }
+
+  :root * {
+    /* Pause the animation */
+    animation-play-state: paused;
+    /* Bind the animation to scroll */
+    animation-delay: calc(var(--scroll) * -1s);
+    /* These last 2 properites clean up overshoot weirdness */
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+  }
+
+	@media (min-width: 768px) {
+		.progress {
+			bottom: 0;
+			top: 72px;
+		}
+	}
+</style>

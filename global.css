@@ -4,6 +4,7 @@
 
 :root {
   --orange: #e9552f;
+  --orange-35: #e9552f35;
   --orange-dark: #ca4a0a;
   --orange-darkest: #973403;
   --black: #16080e;
@@ -36,6 +37,10 @@ body::-webkit-scrollbar-thumb:hover {
   background-color: var(--orange);
 }
 
+.orange-background-secondary {
+  background-color: var(--orange-35);
+}
+
 .orange-text {
   color: var(--orange)
 }
@@ -56,4 +61,42 @@ body::-webkit-scrollbar-thumb:hover {
 }
 .orange-border {
   border-color: var(--orange);
+}
+.orange-t-border {
+  border-top: 1px solid var(--orange);
+}
+
+.bg-arrow::before {
+  background-color: var(--orange);
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  content: "";
+  display: block;
+  height: 50px;
+  left: 0;
+  position: absolute;
+  top: -50px;
+  width: 100%;
+  z-index: -1;
+}
+
+.bg-arrow-lg::before {
+  background-color: var(--orange);
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  content: "";
+  display: block;
+  height: 70.1px;
+  left: 0;
+  position: absolute;
+  top: -70px;
+  width: 100%;
+  z-index: 1;
+}
+
+/* PROGRESS */
+
+@keyframes progress {
+  to {
+    background-color: var(--orange);
+    width: 100%;
+  }
 }

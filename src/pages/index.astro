@@ -16,6 +16,19 @@ const meta = {
 <PageLayout {meta} router="/">
 	<Home />
 	<About />
-	<Card />
+	{false && <Card />}
 	<Projects />
 </PageLayout>
+
+<script>
+	window.addEventListener('scroll', () => {
+    const element = document.getElementById('about-section-home')
+		if (window.pageYOffset >= 75 && !element.classList.contains('orange-background')) {
+			element.classList.add('orange-background')
+		}
+		
+		if (window.pageYOffset < 75) {
+			element.classList.remove('orange-background')
+		}
+  })
+</script>
