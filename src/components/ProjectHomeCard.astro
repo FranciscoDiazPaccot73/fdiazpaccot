@@ -1,0 +1,23 @@
+---
+import { Image } from '@astrojs/image/components';
+
+import Github from './icons/Github.astro';
+
+const { square, label, webpage, ariaWebpageLabel, imageProps, githubHref, githubAriaLabel, siteHrefProps } = Astro.props;
+---
+
+<li class="w-full mb-10 flex flex-col align-center pt-14 rounded-xl justify-center border orange-border black-background">
+  <a class="px-10 h-20 flex justify-center items-center gap-4 font-bold orange-text" href={webpage} target="_blank" aria-label={ariaWebpageLabel}>
+    <Image width={square ? 60 : 90} height={60} format="webp" {...imageProps} />
+    {label}
+  </a>
+  <div class="flex-col p-5 mt-14 w-full border-t orange-t-border orange-background-secondary">
+    <a class="underline underline-offset-2 font-semibold" href={webpage} target="_blank" aria-label={ariaWebpageLabel}>
+      {label}
+    </a>
+    <div class="w-full mt-6 flex items-center flex-1 justify-around">
+      <a target="_blank" href={githubHref} aria-label={githubAriaLabel}><Github color='#fff' /></a>
+      <a href={siteHrefProps} class="border text-xs py-2 px-4 rounded-2xl white-border white-text" {...siteHrefProps}>Read more</a>
+    </div>
+  </div>
+</li>

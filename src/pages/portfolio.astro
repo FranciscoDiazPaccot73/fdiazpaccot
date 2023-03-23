@@ -16,8 +16,8 @@ const qpv = {
   link: 'https://www.quepuedover.online',
   text: '¿Qué puedo ver?',
   logoUrl: '/qpv.webp',
-  logoWidth: 55,
-  logoHeight: 40,
+  logoWidth: 110,
+  logoHeight: 80,
   stack: ['NextJs', 'NodeJs', 'SASS', 'TypeScript'],
   description: `¿Que Puedo Ver? it's a website that recommends tv series and movies to watch`
 }
@@ -27,8 +27,8 @@ const hiringjr = {
   link: 'https://first-steps-it.vercel.app',
   text: 'Hiring Jr',
   logoUrl: '/logo-hiring-jr.png',
-  logoWidth: 40,
-  logoHeight: 40,
+  logoWidth: 80,
+  logoHeight: 80,
   stack: ['NextJs', 'NodeJs', 'SASS', 'Google Sheets'],
   description: `HiringJr it's a webpage for connect corporates placed in Entre Rios, Santa Fe or Cordoba with Junior or Trainee developers who are looking for their first job or change their current one.`
 }
@@ -38,8 +38,8 @@ const fifawc = {
   link: 'https://fifawc.franciscodiazpaccot.dev/',
   text: 'Fifawc',
   logoUrl: '/fifawc.png',
-  logoWidth: 40,
-  logoHeight: 40,
+  logoWidth: 80,
+  logoHeight: 80,
   stack: ['Astro', 'JavaScript', 'Tailwindcss'],
   description: `Fifawc is a webpage to check the last Fifa World Cup results.`
 }
@@ -49,8 +49,8 @@ const letters = {
   link: 'https://letters.franciscodiazpaccot.dev/',
   text: 'Random Letters',
   logoUrl: '/letters.png',
-  logoWidth: 40,
-  logoHeight: 40,
+  logoWidth: 80,
+  logoHeight: 80,
   stack: ['TypeScript', 'Svelte', 'JavaScript', 'CSS'],
   description: `Randoms Letters select a random letter. It used for play "Tutti Frutti" game.`
 }
@@ -60,8 +60,8 @@ const filipa = {
   link: 'https://www.filipabazar.com.ar/',
   text: 'Filipa Bazar',
   logoUrl: '/filipa.jpg',
-  logoWidth: 40,
-  logoHeight: 40,
+  logoWidth: 80,
+  logoHeight: 80,
   stack: ['NextJs', 'NodeJs', 'SASS', 'TypeScript', 'Google Sheets'],
   description: `FILIPA Bazar & Deco it's a webpage made for an Instagram business focused on sell gift and home articles. It has an entire catalog and it has Whatsapp checkout.`
 }
@@ -71,8 +71,8 @@ const lista = {
   link: 'https://lista.franciscodiazpaccot.dev',
   text: 'Mi Lista',
   logoUrl: '/vercel.png',
-  logoWidth: 40,
-  logoHeight: 40,
+  logoWidth: 80,
+  logoHeight: 80,
   stack: ['NextJs', 'JavaScript', 'TypeScript', 'SASS', 'ChakraUI'],
   description: `Here you can save important links and make list of TODOs.`
 }
@@ -81,8 +81,8 @@ const iustaAdmin = {
   link: 'https://iusta-admin.vercel.app',
   text: 'Iusta Admin',
   logoUrl: '/iusta.jpg',
-  logoWidth: 40,
-  logoHeight: 40,
+  logoWidth: 80,
+  logoHeight: 80,
   stack: ['NextJs', 'NodeJs', 'GraphQL', 'SASS'],
   description: `The new admin panel to manage https://iusta.com.ar`
 }
@@ -92,8 +92,8 @@ const markdown = {
   link: 'https://markdown.franciscodiazpaccot.dev',
   text: 'Markdown Generator',
   logoUrl: '/markdown.png',
-  logoWidth: 40,
-  logoHeight: 40,
+  logoWidth: 80,
+  logoHeight: 80,
   stack: ['NextJs', 'Javascript', 'CSS'],
   description: `A simple markdown file generator. You could generate, preview and download your markdown file.`
 }
@@ -102,8 +102,8 @@ const marquez = {
   link: 'https://elmarquez.vercel.app/',
   text: 'El Marquez',
   logoUrl: '/marquez.png',
-  logoWidth: 40,
-  logoHeight: 40,
+  logoWidth: 80,
+  logoHeight: 80,
   stack: ['Astro', 'JavaScript', 'Tailwindcss'],
   description: `A pizza store.`
 }
@@ -112,7 +112,7 @@ const marquez = {
 <PageLayout {meta} router="/portfolio">
 	<section class="px-8 py-12 relative text-gray-100 md:mx-auto md:w-full md:max-w-6xl">
     <p class="font-semibold text-gray-100 text-3xl mb-8 eurostile">My Portfolio</p>
-    <div class="md:grid md:gap-4 grid-portfolio">
+    <div class="mt-24 md:grid md:gap-10 grid-portfolio">
       <PortfolioCard {...qpv} />
       <PortfolioCard {...markdown} />
       <PortfolioCard {...fifawc} />
@@ -137,12 +137,15 @@ const marquez = {
 
 <style>
   @media(min-width: 768px) {
-    .grid-portfolio {
-      grid-template-columns: repeat(3, fit-content(100%));
-    }
-    .github-link:hover {
+    .scale {
       transform: var(--hover-scale-transform);
       transition: var(--hover-scale-transition);
+    }
+    .github-link:hover {
+      @apply scale
+    }
+    .grid-portfolio {
+      grid-template-columns: repeat(2, fit-content(100%));
     }
   }
 </style>
