@@ -1,0 +1,66 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import Button from '../components/Button.astro';
+
+const meta = {
+	title: 'Francisco Diaz Paccot',
+	description: 'Francisco Diaz Paccot | Frontend Software Engineer.',
+	logoUrl: "https://i.ibb.co/mFYW5QJ/new-logo-small.webp",
+	url: "https://franciscodiazpaccot.dev",
+}
+---
+
+<PageLayout {meta} router="/">
+  <section class="px-8 py-12 relative text-black md:mx-auto md:w-full md:max-w-6xl">
+    <p class="font-semibold text-gray-100 text-3xl mb-8 eurostile">My Resume</p>
+    <div class="hidden md:flex letter">
+      <p class="text-2xl font-bold">FRANCISCO DIAZ PACCOT</p>
+      <p class="text-lg font-bold mb-6">Frontend Software Engineer</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod porta tempor. Donec pulvinar turpis nec velit pellentesque quis rhoncus sapien facilisis. Mauris quis massa dui, rhoncus viverra quam. Nulla tempus, augue ut consectetur facilisis, arcu elit pellentesque arcu, sed rutrum orci turpis pulvinar augue. Donec eget arcu mauris. Vestibulum tristique consequat lacus eget laoreet. Integer sed nisl sed nibh pulvinar ornare quis nec quam. Aenean rhoncus ligula ut lectus placerat a commodo quam vulputate. In eu metus turpis.</p>
+      <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus facilisis erat in nibh auctor at aliquet velit vestibulum. Curabitur turpis diam, malesuada eu consequat eget, ultricies sed nunc. Aenean sed odio massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ornare vulputate congue. Quisque leo metus, condimentum nec molestie et, egestas luctus libero.</p>
+      <p>Mauris porta odio augue. Nam turpis dui, volutpat id feugiat vitae, sagittis a justo. Nam iaculis aliquet erat non varius. Suspendisse justo arcu, tincidunt sed auctor sit amet, fermentum id turpis. Suspendisse sed enim quis lorem vestibulum fermentum a ut nulla.</p>
+      <p>Nullam tincidunt elit quis nibh blandit interdum. Duis ullamcorper pellentesque pretium. Nulla facilisi. Morbi semper nisi et justo varius non fermentum metus ornare. Proin vehicula, mi vel volutpat accumsan, libero lacus euismod massa, id feugiat velit enim nec ligula. Aliquam ipsum est, volutpat aliquam tincidunt id, sagittis et velit. Nunc vitae massa vel dui facilisis consectetur vel id sem.</p>
+    
+      <p>Aenean pulvinar, lacus ultrices euismod viverra, nulla diam interdum ligula, id mollis mi erat quis lectus. Morbi quis felis ut turpis condimentum dictum porttitor id mauris. Nam non tincidunt mauris. Donec viverra eleifend pharetra. Nulla eu ipsum et elit consectetur rutrum. Integer lorem purus, ultricies ac laoreet quis, feugiat vel dolor. Donec eu turpis neque. Nullam molestie sapien eu nibh semper sed convallis est pretium.</p>
+    </div>
+    <Button href='docs/resume.pdf' download="Francisco Diaz Paccot - Resume">
+      Download Resume
+    </Button>
+  </section>
+</PageLayout>
+
+<style>
+  .letter {
+    align-items: center;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    flex-direction: column;
+    margin: 26px auto 0;
+    max-width: 550px;
+    min-height: 300px;
+    padding: 4rem 3rem;
+    position: relative;
+    width: 80%;
+  }
+  .letter:before, .letter:after {
+    content: "";
+    height: 98%;
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+  }
+  .letter:before {
+    background: #fafafa;
+    box-shadow: 0 0 8px rgba(0,0,0,0.2);
+    left: -5px;
+    top: 4px;
+    transform: rotate(-2.5deg);
+  }
+  .letter:after {
+    background: #f6f6f6;
+    box-shadow: 0 0 3px rgba(0,0,0,0.2);
+    right: -3px;
+    top: 1px;
+    transform: rotate(1.4deg);
+  }
+</style>
