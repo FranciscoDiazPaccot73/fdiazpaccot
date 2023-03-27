@@ -1,0 +1,7 @@
+---
+const { label, className } = Astro.props;
+---
+
+<div class={`font-bold border-b-2 border-black mb-2 ${className}`}>
+  <p>{label.toUpperCase()}</p>
+</div>
