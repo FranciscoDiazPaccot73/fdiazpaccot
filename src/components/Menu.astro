@@ -33,7 +33,7 @@ const settings = {
       const iconColor = setting.link === router ? "#e9552f" : '#c9c9c9';
   
       return (
-        <a href={setting.link} class="items-center flex justify-center relative w-3/12" aria-label={`Click to go to "${setting.name}" page`}>
+        <a href={setting.link} class="items-center flex justify-center relative w-3/12" aria-label={`${setting.name} page`}>
           <div class="items-center h-14 flex font-semibold justify-center w-full">
             <Home hidden={value !== 'home'} color={iconColor} />
             <Info hidden={value !== 'about'} color={iconColor} />
