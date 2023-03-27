@@ -1,0 +1,26 @@
+---
+const { href, className, ...otherProps } = Astro.props;
+---
+
+<div class="w-full flex items-center justify-center">
+  <a
+    class={`flex items-center py-2 px-3 mt-4 font-semibold rounded-md text-sm orange-background black-text github-link`}
+    href={href} target="_blank"
+    aria-label="Click to go to my github page"
+    {...otherProps}
+  >
+    <slot />
+  </a>
+</div>
+
+<style>
+  @media(min-width: 768px) {
+    .scale {
+      transform: var(--hover-scale-transform);
+      transition: var(--hover-scale-transition);
+    }
+    .github-link:hover {
+      @apply scale
+    }
+  }
+</style>

@@ -4,6 +4,7 @@ import { Image } from '@astrojs/image/components';
 import PageLayout from '../layouts/PageLayout.astro';
 import Code from '../components/icons/Code.astro';
 import Link from '../components/icons/Link.astro';
+import Button from '../components/Button.astro';
 
 const meta = {
 	title: 'About | Francisco Diaz Paccot',
@@ -85,6 +86,9 @@ const steps = [
         </div>
       ))}
     </div>
+    <Button href='src/docs/resume.pdf' download="Francisco Diaz Paccot - Resume">
+      Download Resume
+    </Button>
   </section>
 </PageLayout>
 
