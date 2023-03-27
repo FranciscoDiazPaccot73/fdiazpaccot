@@ -1,5 +1,6 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
+import Button from '../components/Button.astro';
 
 const meta = {
 	title: 'Francisco Diaz Paccot',
@@ -18,9 +19,9 @@ const meta = {
     <div class="not-found-text">
       <span class="not_found__text_oops">Oops!</span> I think you are lost.
     </div>
-    <a href='/' class="not_found__button border-neutral-900">
+    <Button href='/'>
       Take me Home
-    </a>
+    </Button>
   </section>
 </PageLayout>
 
