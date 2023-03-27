@@ -2,7 +2,7 @@
 import { Image } from '@astrojs/image/components';
 ---
 
-<section class="w-full relative p-6 flex flex-col items-center justify-center overflow-hidden top-85">
+<section class="w-full relative p-6 flex flex-col items-center justify-center overflow-hidden top-100">
   <div class="stars">
     <span class="star" />
     <span class="star" />
@@ -22,8 +22,8 @@ import { Image } from '@astrojs/image/components';
 </section>
 
 <style>
-	.top-85 {
-		height: 85vh;
+	.top-100 {
+		height: calc(100vh - 50px);
     min-height: 500px;
 	}
   .stars {
