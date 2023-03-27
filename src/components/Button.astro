@@ -4,7 +4,7 @@ const { href, className, ...otherProps } = Astro.props;
 
 <div class="w-full flex items-center justify-center">
   <a
-    class={`flex items-center py-2 px-3 mt-4 font-semibold rounded-md text-sm orange-background black-text github-link`}
+    class={`flex items-center py-2 px-3 mt-4 font-semibold rounded-md text-sm orange-background black-text github-link ${className}`}
     href={href} target="_blank"
     aria-label="Click to go to my github page"
     {...otherProps}
