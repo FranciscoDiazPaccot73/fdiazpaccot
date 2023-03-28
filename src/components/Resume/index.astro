@@ -45,6 +45,7 @@ const spanish = isSpanish ? 'ESPAÑOL' : 'SPANISH';
 const english = isSpanish ? 'INGLES' : 'ENGLISH';
 const nativeLabel = isSpanish ? 'Nativo' : 'Native';
 const skillsLabel = isSpanish ? 'HABILIDADES' : 'SKILLS';
+const resumeLocation = isSpanish ? 'docs/cv.pdf' : 'docs/resume.pdf';
 ---
 
 <section class="px-8 py-12 relative text-black md:mx-auto md:w-full md:max-w-6xl">
@@ -76,7 +77,7 @@ const skillsLabel = isSpanish ? 'HABILIDADES' : 'SKILLS';
       <p class="text-sm">JavaScript, HTML, CSS, Sass, ReactJs, NodeJs, NextJs, Astro, Git, Github, SQL, Looker, GraphQL...</p>
     </div>
   </div>
-  <Button href='docs/resume.pdf' download="Francisco Diaz Paccot - Resume">
+  <Button href={resumeLocation} download="Francisco Diaz Paccot - Resume">
     Download Resume
   </Button>
 </section>
