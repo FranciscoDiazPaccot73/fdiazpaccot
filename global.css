@@ -41,10 +41,6 @@ body::-webkit-scrollbar-thumb:hover {
   background-color: var(--orange-35);
 }
 
-.orange-text {
-  color: var(--orange)
-}
-
 .eurostile {
   font-family: "eurostile", sans-serif;
 }
@@ -56,6 +52,11 @@ body::-webkit-scrollbar-thumb:hover {
 .black-text {
   color: var(--black)
 }
+
+.orange-text {
+  color: var(--orange)
+}
+
 .height-calc {
   min-height: calc(100vh - 264px);
 }
