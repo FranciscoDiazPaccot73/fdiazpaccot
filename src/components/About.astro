@@ -1,10 +1,23 @@
+---
+import Button from './Button.astro';
+---
+
 <section class="px-8 py-20 relative text-stone-900 transition-300 orange-background">
   <div class="md:mx-auto md:w-full md:max-w-6xl">
-    <p class="font-semibold text-3xl mb-4 black-text eurostile">Hello, I'm Francisco</p>
-    <p class="text-xl tracking-wide mb-6">Currently based in Parana - Argentina. Connected with the web development industry for many years.</p>
-    <p class="text-xl tracking-wide mb-6">Well-organised person, high attention to detail. Fan of NBA, photography, TV series, movies and video games.</p>
-    <p class="text-xl tracking-wide mb-12">Interested in the entire frontend technologies. Focused on improve web performance.</p>
-    <a href="/about" class="font-semibold underline underline-offset-2 text-lg black-text eurostile">Learn more about me!</a>
+    <p id='about-title' class="font-semibold text-3xl mb-4 black-text eurostile" />
+    <p id='about-first-text' class="text-xl tracking-wide mb-6" />
+    <p id='about-second-text' class="text-xl tracking-wide mb-12" />
+    <div class="flex-col flex gap-4 items-center md:flex-row">
+      <a href="/about" class="font-semibold underline underline-offset-2 text-lg black-text eurostile mt-4">Know a little more!</a>
+      <Button
+        containerClass="w-56 font-bold"
+        size="text-lg border border-black black-background orange-text"
+        href='docs/resume.pdf'
+        download="Francisco Diaz Paccot - Resume"
+      >
+        Download Resume
+      </Button>
+    </div>
   </div>
 </section>
 
@@ -13,3 +26,25 @@
     transition: all 300ms ease-in-out;
   }
 </style>
+
+<script type="text/javascript">
+  const userLang = navigator.language || navigator.userLanguage;
+  const enTitle = "Hello, I'm Francisco";
+  const esTitle = "Hola! Soy Francisco.";
+
+  const enFirst = 'Currently based in Argentina. Connected with the web development industry for +5 years.';
+  const esFirst = 'Actualmente vivo en Argentina. Conectado con la industria del desarrollo web por mas de 5 años.';
+
+  const enSecond = 'Well-organised person, high attention to detail. Interested in the entire frontend technologies. Improving web performance.'
+  const esSecond = 'Muy organizado y con gran atencion a los detalles. Interesado en todas las tecnologias de forntend. Mejorando la performance de la web :).'
+
+  const aboutTitleComponent = document.getElementById('about-title');
+  const aboutFirstComponent = document.getElementById('about-first-text');
+  const aboutSecondComponent = document.getElementById('about-second-text');
+
+  if (aboutTitleComponent && aboutFirstComponent && aboutSecondComponent) {
+    aboutTitleComponent.innerText = `${userLang.includes('en') ? enTitle : esTitle}`;
+    aboutFirstComponent.innerText = `${userLang.includes('en') ? enFirst : esFirst}`;
+    aboutSecondComponent.innerText = `${userLang.includes('en') ? enSecond : esSecond}`;
+  }
+</script>
