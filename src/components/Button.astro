@@ -1,10 +1,10 @@
 ---
-const { href, className, target = '_blank', ...otherProps } = Astro.props;
+const { href, className, target = '_blank', containerClass = 'w-full', size = 'text-sm', ...otherProps } = Astro.props;
 ---
 
-<div class="w-full flex items-center justify-center">
+<div class={`${containerClass} flex items-center justify-center`}>
   <a
-    class={`flex items-center py-2 px-3 mt-4 font-semibold rounded-md text-sm orange-background black-text github-link ${className}`}
+    class={`flex items-center py-2 px-3 mt-4 font-semibold rounded-full black-text ${size} orange-background github-link ${className}`}
     href={href}
     target={target}
     aria-label="Click to go to my github page"

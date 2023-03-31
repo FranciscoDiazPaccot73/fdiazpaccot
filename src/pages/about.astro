@@ -1,10 +1,8 @@
 ---
-import { Image } from '@astrojs/image/components';
-
 import PageLayout from '../layouts/PageLayout.astro';
 import Code from '../components/icons/Code.astro';
-import Link from '../components/icons/Link.astro';
-import Button from '../components/Button.astro';
+import AboutIntro from '../components/AboutIntro.astro';
+import AboutTimeline from '../components/AboutTimeline.astro';
 
 const meta = {
 	title: 'About | Francisco Diaz Paccot',
@@ -13,127 +11,15 @@ const meta = {
 	url: "https://franciscodiazpaccot.dev",
 }
 
-const steps = [
-    {
-      job: `Sr Front-End Software Engineer`,
-      title: 'Mercado Libre',
-      duration: 'Dec 2019 - current',
-      location: 'Santa Fe - Argentina',
-      link: 'https://mercadolibre.com',
-      text: `On my first 6 months on MercadoLibre I was working for Mercado Shops team. Mercado Shops its a service ` +
-      `that Mercado Libre provides to sellers to create their own e-commerce page. ` +
-      `There, we worked on an integration with Facebook Shops and Google Shopping to improve the seller marketing tools. ` +
-      `On June of 2020 I started to work on deals team. On this team we provide to sellers the oportunity to create many types of promotions ` +
-      `to their Mercado Libre items.`
-    },
-    {
-      job: `Ssr Full-Stack developer`,
-      title: 'Serfe',
-      duration: 'Oct 2018 - Dec 2019',
-      location: 'Santa Fe - Argentina',
-      link: 'https://serfe.com',
-      text: `When I started to work in Serfe, I joined to a team who provides maintance to a project called Bluejacketeer. ` +
-      `This project had a mobile app(made with Phonegap and Angular), a website (made in React) and an admin site (also made with React). ` +
-      `Then I started to work (I was in carged of the developers team) on the migration of this mobile app to a new technology (React Native).`
-    },
-  ];
 ---
 
 <PageLayout {meta} router="/about">
-	<section class="px-8 py-12 relative text-gray-100 md:mx-auto md:w-full md:max-w-6xl">
-    <p class="font-semibold text-3xl mb-4 pt-8 orange-text">Hello, I'm Francisco</p>
-    <p class="text-l tracking-wide mb-6">Currently based in Parana - Argentina. Connected with the web development industry for many years.</p>
-    <p class="text-l tracking-wide mb-6">Well-organised person, high attention to detail. Fan of NBA, photography, TV series, movies and video games.</p>
-    <p class="text-l tracking-wide mb-6">Interested in the entire frontend technologies. Focused on improve web performance.</p>
-    <div id="me-about" class="w-full flex justify-center mt-20 relative md:mt-20 my-picture">
-      <div class="picture-border">
-        <div class="image">
-          <Image width={280} height={280} format="webp" src='/me-hq.jpg' alt="Francisco Diaz Paccot" />
-        </div>
-      </div>
-    </div>
-  </section>
+	<AboutIntro />
   <div class="w-full flex items-center justify-center mt-3">
     <Code />
   </div>
-  <section class="px-8 py-10 relative text-gray-100 md:mx-auto md:w-full md:max-w-6xl">
-    <p class="font-semibold text-4xl mb-4 orange-text eurostile">Timeline</p>
-    <div class="p-6 relative">
-      {steps.map(({ job, title, duration, link, text }) => (
-        <div class="relative steps">
-          <svg class="absolute separator" width="40" height="40" viewBox="0 0 24 24" stroke-width="2" stroke="#e9552f" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-            <line x1="12" y1="4" x2="12" y2="20" />
-          </svg>
-          <div class="mb-14">
-            <div class="mb-3">
-              <div class="font-semibold text-3xl mb-2 orange-text">
-                {title} <br /> <span class="font-normal text-sm text-gray-400">{duration}</span>
-              </div>
-            </div>
-            <div>
-              <div class="text-gray-100 text-xl font-semibold mb-3">
-                {job}
-              </div>
-              <div class="hidden md:block">
-                {text}
-              </div>
-              <div class="flex items-center cursor-pointer md:mt-3 orange-text">
-                <Link color="#e9552f" width={18} height={18} /><a class="orange-text ml-1" href={link} target="_blank" aria-label={`Click to go to ${text} page`}>{link}</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      ))}
-    </div>
-    <Button href='docs/resume.pdf' download="Francisco Diaz Paccot - Resume">
-      Download Resume
-    </Button>
-  </section>
+  <AboutTimeline />
 </PageLayout>
-
-<style>
-  .steps:first-of-type .separator {
-    display: none;
-  }
-  .separator {
-    top: -46px;
-  }
-
-  .my-picture {
-    opacity: 0;
-    transition: all 200ms ease-in-out;
-  }
-
-  .picture-border {
-    border: 0.115rem solid var(--orange);
-    height: 280px;
-    margin: 0;
-    position: relative;
-    width: 280px;
-    z-index: -1;
-    margin-left: 1.5rem;
-  }
-
-  .my-picture.show {
-    opacity: 1;
-  }
-
-  .image {
-    margin: -1.5rem 0 0 -1.5rem;
-  }
-
-  @media(min-width: 768px) {
-    .my-picture.show {
-      transition: all 500ms ease-in-out;
-    }
-
-    .picture-border {
-      left: 42px;
-      top: 22px;
-    }
-  }
-</style>
 
 <script>
   window.addEventListener('scroll', () => {
