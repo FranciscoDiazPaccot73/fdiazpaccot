@@ -1,124 +1,76 @@
 ---
-import React from "./icons/React.astro";
-import Next from "./icons/Next.astro";
-import Javascript from "./icons/Javascript.astro";
-import Svelte from "./icons/Svelte.astro";
-import Typescript from "./icons/Typescript.astro";
-import ReactNative from "./icons/ReactNative.astro";
-import Webpack from "./icons/Webpack.astro";
-import HtmlComponent from "./icons/Html.astro";
-import Css from "./icons/Css.astro";
-import Sass from "./icons/Sass.astro";
-import Tailwind from "./icons/Tailwind.astro";
-import Node from "./icons/Node.astro";
-import Graphql from "./icons/Graphql.astro";
-import Postgresql from "./icons/Postgresql.astro";
-import Mysql from "./icons/Mysql.astro";
-import Mongodb from "./icons/Mongodb.astro";
+import { Image } from '@astrojs/image/components';
 
-const reactProps = { href: "https://react.dev/", title: "ReactJs" };
-const nextProps = { href: "https://nextjs.org/", title: "NextJs" };
-const jsProps = { href: "https://www.javascript.com/", title: "JavaScript" };
-const svelteProps = { href: "https://svelte.dev/", title: "Svelte" };
-const tsProps = { href: "https://www.typescriptlang.org/", title: "TypeScript" };
-const rnProps = { href: "https://reactnative.dev/", title: "React Native" };
-const webpackProps = { href: "https://webpack.js.org/", title: "Webpack" };
-const htmlProps = { href: "https://html.com/", title: "HTML" };
-const cssProps = { href: "https://developer.mozilla.org/en-US/docs/Web/CSS", title: "CSS" };
-const sassProps = { href: "https://sass-lang.com/", title: "Sass" };
-const tailwindProps = { href: "https://tailwindcss.com/", title: "TailwindCSS" };
-const nodejsProps = { href: "https://nodejs.org/en", title: "NodeJs" };
-const graphProps = { href: "https://graphql.org/", title: "GraphQL" };
-const postgresProps = { href: "https://www.postgresql.org/", title: "PostgreSQL" };
-const mysqlProps = { href: "https://www.mysql.com/", title: "MySQL" };
-const mongoProps = { href: "https://www.mongodb.com/", title: "MongoDB" };
+import Github from './icons/Github.astro';
+import Chrome from './icons/Chrome.astro';
+
+const { link, github, imageText = false, label, HeaderElem, headerProps, headerClasses, imageProps, id, customClass } = Astro.props;
 ---
 
-<section class="px-8 py-6 relative text-white">
-  <div class="mb-10 flex flex-col items-center p-6 rounded-xl border shadow-sm shadow-amber-600 orange-border black-background md:mx-auto md:max-w-2xl">
-    <p class="text-2xl font-bold orange-text mb-5 eurostile">My Main Skills</p>
-    <div class="flex justify-around w-full flex-col md:flex-row">
-      <div id='frontend' class="flex items-center flex-col mb-7">
-        <p class="text-xl mb-2 orange-text">Frontend</p>
-        <div class="grid gap-2 grid-class">
-          <a {...reactProps} target="_blank" class="card-background">
-            <React />
-          </a>
-          <a {...nextProps} target="_blank" class="card-background">
-            <Next />
-          </a>
-          <a {...jsProps} target="_blank" class="card-background">
-            <Javascript />
-          </a>
-          <a {...svelteProps} class="card-background">
-            <Svelte />
-          </a>
-          <a {...tsProps} class="card-background">
-            <Typescript />
-          </a>
-          <a {...rnProps} class="card-background">
-            <ReactNative />
-          </a>
-          <a {...webpackProps} class="card-background">
-            <Webpack />
-          </a>
-          <a {...htmlProps} class="card-background">
-            <HtmlComponent />
-          </a>
-          <a {...cssProps} class="card-background">
-            <Css />
-          </a>
-          <a {...sassProps} class="card-background">
-            <Sass />
-          </a>
-          <a {...tailwindProps} class="card-background">
-            <Tailwind />
-          </a>
-        </div>
-      </div>
-      <div id='backend' class="flex items-center flex-col">
-        <p class="text-xl mb-2 orange-text">Backend</p>
-        <div class="grid gap-2 grid-class">
-          <a {...nodejsProps} class="card-background">
-            <Node />
-          </a>
-          <a {...graphProps} class="card-background">
-            <Graphql />
-          </a>
-          <a {...postgresProps} class="card-background">
-            <Postgresql />
-          </a>
-          <a {...mysqlProps} class="card-background">
-            <Mysql />
-          </a>
-          <a {...mongoProps} class="card-background">
-            <Mongodb />
-          </a>
-        </div>
-      </div>
+<li id={id} class={`w-full overflow-hidden mb-10 flex flex-col align-center rounded-xl justify-center border orange-border relative black-background shadow ${customClass}`}>
+  <HeaderElem {...headerProps} class={headerClasses}>
+    <Image format="webp" {...imageProps} />
+    {imageText ? <span class="white-text">{label}</span> : null}
+  </HeaderElem>
+  <div class="black-background z-10 mt-auto">
+    <div class="flex-col p-5 w-full border-t orange-t-border orange-background-secondary">
+      <slot />
     </div>
   </div>
-  <div class="absolute bottom-20 right-0 black-background">
-  </div>
-</section>
+  {github ? <a aria-label={`Click to go to ${label} github page`} href={github} target="_blank" class="absolute top-4 right-4 card-home"><Github width={32} height={32} color="#e9552f" /></a> : null}
+  {github ? <a aria-label={`Click to go to ${label} github page`} href={link} target="_blank" class="absolute top-4 left-4 card-home"><Chrome width={32} height={32} color="#e9552f" /></a> : null}
+</li>
 
 <style>
-  .orange-border {
-    border-color: var(--orange);
+  .scale-card {
+    transform: var(--hover-scale-transform);
+    transition: var(--hover-scale-transition);
   }
-  .orange-text {
-    color: var(--orange)
+  .card-home:hover {
+    @apply scale-card
   }
-  .website {
-    right: 0;
-    bottom: 0;
+
+  .letters-background::before {
+    background-image: url(/random-letters.jpg);
   }
-  .card-background {
-    background-color: #5c5357;
-    border-radius: 20px;
-    padding: 6px;
+  
+  .qpv-background::before {
+    background-image: url(/qpv.jpg);
   }
-  .grid-class {
-    grid-template-columns: repeat(6, fit-content(100%));
+  
+  .markdown-background::before {
+    background-image: url(/markdown.jpg);
+  }
+  
+  .hiringjr-background::before {
+    background-image: url(/hiringjr.jpg);
+  }
+
+  .image-bg::before {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; 
+    content: ' ';
+    display: block;
+    height: 100%;
+    left: 0;
+    opacity: 0.15;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  .shadow {
+    box-shadow: 0 5px 8px 0px hsla(12, 81%, 55%, 0.42);
+  }
+
+  .elevate {
+    transition: all 200ms ease-in;
+  }
+  
+  .elevate:hover {
+    transform: translateY(-0.5rem);
+    transition: all 200ms ease-in;
+    box-shadow: 0px 10px 16px 2px hsla(12, 81%, 55%, 0.42);
   }
 </style>

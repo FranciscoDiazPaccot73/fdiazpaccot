@@ -1,0 +1,52 @@
+---
+import { Image } from '@astrojs/image/components';
+---
+
+<section class="px-8 py-12 relative text-gray-100 md:mx-auto md:w-full md:max-w-6xl">
+  <p class="font-semibold text-3xl mb-4 pt-8 orange-text">Hello, I'm Francisco</p>
+  <p class="text-l tracking-wide mb-6">Currently based in Argentina. Connected with the web development industry for +5 years.</p>
+  <p class="text-l tracking-wide mb-6">Well-organised person, high attention to detail. Interested in the entire frontend technologies. Trying to improve web performance.</p>
+  <div id="me-about" class="w-full flex justify-center mt-20 relative md:mt-20 my-picture">
+    <div class="picture-border">
+      <div class="image">
+        <Image width={280} height={280} format="webp" src='/me-hq.jpg' alt="Francisco Diaz Paccot" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .my-picture {
+    opacity: 0;
+    transition: all 200ms ease-in-out;
+  }
+
+  .picture-border {
+    border: 0.115rem solid var(--orange);
+    height: 280px;
+    margin: 0;
+    position: relative;
+    width: 280px;
+    z-index: -1;
+    margin-left: 1.5rem;
+  }
+
+  .my-picture.show {
+    opacity: 1;
+  }
+
+  .image {
+    margin: -1.5rem 0 0 -1.5rem;
+  }
+
+  @media(min-width: 768px) {
+    .my-picture.show {
+      transition: all 500ms ease-in-out;
+    }
+
+    .picture-border {
+      left: 42px;
+      top: 22px;
+    }
+  }
+</style>

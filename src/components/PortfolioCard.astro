@@ -1,16 +1,22 @@
 ---
 import { Image } from '@astrojs/image/components';
-import Github from './icons/Github.astro';
-import Chrome from './icons/Chrome.astro';
+import Card from './Card.astro';
 
 const { link, text, logoUrl, stack, description, logoWidth, logoHeight, id, github } = Astro.props;
 ---
 
-<div id={id ?? ''} class="w-full mb-32 flex relative flex-col items-center p-6 pt-16 rounded-md justify-center border md:justify-start md:mb-24 orange-border elevate">
-  <div class={`absolute top-0 left-0 h-full w-full -z-10 black-background image-bg ${id}-background`} />
-  <div class="absolute logo-about">
-    <Image width={logoWidth} height={logoHeight} format="webp" src={logoUrl} alt={text} />
-  </div>
+<Card
+  label={text}
+  webpage={link}
+  HeaderElem='div'
+  headerClasses={`px-10 h-48 font-bold flex justify-center items-center gap-4 relative image-bg ${id}-background`}
+  customClass='elevate'
+  imageProps={{
+    width: logoWidth, height: logoHeight, src: logoUrl, alt: text,
+  }}
+  github={github}
+  link={link}
+>
   <div class="flex w-full h-10 flex-col items-center justify-center mb-8 md:mb-6 orange-text">
     <span class="font-semibold text-2xl">{text}</span>
   </div>
@@ -20,9 +26,7 @@ const { link, text, logoUrl, stack, description, logoWidth, logoHeight, id, gith
       {stack.map(tec => <li class="px-2 py-1 text-center text-xs uppercase rounded-md orange-background black-text">{tec}</li>)}
     </ul>
   </div>
-  {github ? <a aria-label={`Click to go to ${text} github page`} href={github} target="_blank" class="absolute top-4 right-4"><Github width={32} height={32} color="#e9552f" /></a> : null}
-  {github ? <a aria-label={`Click to go to ${text} github page`} href={link} target="_blank" class="absolute top-4 left-4"><Chrome width={32} height={32} color="#e9552f" /></a> : null}
-</div>
+</Card>
 
 <style>
   .active-scale {
@@ -30,49 +34,8 @@ const { link, text, logoUrl, stack, description, logoWidth, logoHeight, id, gith
     transition: var(--hover-scale-transition);
   }
 
-  .elevate {
+  .shadow {
     box-shadow: 0 5px 8px 0px hsla(12, 81%, 55%, 0.42);
-    transition: all 200ms ease-in;
-  }
-  
-  .elevate:hover {
-    transform: translateY(-0.5rem);
-    transition: all 200ms ease-in;
-    box-shadow: 0px 10px 16px 2px hsla(12, 81%, 55%, 0.42);
-  }
-
-  .letters-background::before {
-    background-image: url(random-letters.jpg);
-  }
-  
-  .qpv-background::before {
-    background-image: url(qpv.jpg);
-  }
-  
-  .markdown-background::before {
-    background-image: url(markdown.jpg);
-  }
-  
-  .fifawc-background::before {
-    background-image: url(fifawc.jpg);
-  }
-  
-  .hiringjr-background::before {
-    background-image: url(hiringjr.jpg);
-  }
-
-  .image-bg::before {
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover; 
-    content: ' ';
-    display: block;
-    height: 100%;
-    left: 0;
-    opacity: 0.15;
-    position: absolute;
-    top: 0;
-    width: 100%;
   }
 
   .logo-about {

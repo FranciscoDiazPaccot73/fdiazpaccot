@@ -8,7 +8,9 @@ import ProjectHomeCard from './ProjectHomeCard.astro';
     <ProjectHomeCard
       webpage="https://www.quepuedover.online/"
       ariaWebpageLabel="Click to go to Que Puedo ver? webpage"
-      imageProps={{src: '/qpv.webp', alt: "quepuedover.online"}}
+      imageProps={
+        {src: '/qpv.webp', alt: "quepuedover.online", width: 90, height: 60 }
+      }
       githubHref="https://github.com/FranciscoDiazPaccot73/que-mirar"
       githubAriaLabel="Click to go to Que puedo Ver? Github"
       siteHrefProps={{ href: "/portfolio#quepuedover", 'aria-label': "Click to go read more about Que Puedo Ver?" }}
@@ -18,23 +20,25 @@ import ProjectHomeCard from './ProjectHomeCard.astro';
     <ProjectHomeCard
       webpage="https://markdown.franciscodiazpaccot.dev/"
       ariaWebpageLabel="Click to go to Markdown generator webpage"
-      imageProps={{src: '/markdown.png', alt: "markdown generator"}}
+      imageProps={
+        {src: '/markdown.png', alt: "markdown generator", width: 60, height: 60}
+      }
       githubHref="https://github.com/FranciscoDiazPaccot73/markdown-generator"
       githubAriaLabel="Click to go to Markdown Generator Github"
       siteHrefProps={{ href: "/portfolio#markdowngen", 'aria-label': "Click to go read more about Markdown Generator" }}
       label="Markdown Generator"
-      square
       id='markdown'
     />
     <ProjectHomeCard
       webpage="https://letters.franciscodiazpaccot.dev/"
       ariaWebpageLabel="Click to go to Random Letters webpage"
-      imageProps={{src: '/letters.png', alt: "random letters"}}
+      imageProps={
+        {src: '/letters.png', alt: "random letters", width: 60, height: 60}
+      }
       githubHref="https://github.com/FranciscoDiazPaccot73/letters"
       githubAriaLabel="Click to go to Random Letters Github"
       siteHrefProps={{ href: "/portfolio#letters", 'aria-label': "Click to go read more about Random Letters" }}
       label="Random Letters"
-      square
       id='letters'
     />
   </ul>
