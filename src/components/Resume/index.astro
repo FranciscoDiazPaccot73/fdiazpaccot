@@ -45,7 +45,8 @@ const spanish = isSpanish ? 'ESPAÑOL' : 'SPANISH';
 const english = isSpanish ? 'INGLES' : 'ENGLISH';
 const nativeLabel = isSpanish ? 'Nativo' : 'Native';
 const skillsLabel = isSpanish ? 'HABILIDADES' : 'SKILLS';
-const resumeLocation = isSpanish ? 'docs/cv.pdf' : 'docs/resume.pdf';
+const resumeLocation = isSpanish ? 'docs/FranciscoDiazPaccot-cv.pdf' : 'docs/FranciscoDiazPaccot-resume.pdf';
+const buttonlabel = isSpanish ? 'Descargar CV' : 'Download Resume';
 ---
 
 <section class="px-8 py-12 relative text-black md:mx-auto md:w-full md:max-w-6xl">
@@ -78,7 +79,7 @@ const resumeLocation = isSpanish ? 'docs/cv.pdf' : 'docs/resume.pdf';
     </div>
   </div>
   <Button href={resumeLocation} download="Francisco Diaz Paccot - Resume">
-    Download Resume
+    {buttonlabel}
   </Button>
 </section>
 
