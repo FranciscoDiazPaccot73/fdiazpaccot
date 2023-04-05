@@ -108,6 +108,16 @@ const marquez = {
   stack: ['Astro', 'JavaScript', 'Tailwindcss'],
   description: `A pizza store.`
 }
+const dossiers = {
+  id: 'dossiers',
+  link: 'https://demo-cases.franciscodiazpaccot.dev/casos',
+  text: 'Dossiers',
+  logoUrl: '/vercel.png',
+  logoWidth: 80,
+  logoHeight: 80,
+  stack: ['NextJs', 'JavaScript', 'Sass', 'Firebase'],
+  description: `It's a website to administer and manage the dossiers of a lawyer firm.`
+}
 ---
 
 <PageLayout {meta} router="/portfolio">
@@ -116,13 +126,14 @@ const marquez = {
     <div class="mt-24 md:grid md:gap-10 grid-portfolio">
       <PortfolioCard {...qpv} />
       <PortfolioCard {...markdown} />
-      <PortfolioCard {...fifawc} />
-      <PortfolioCard {...letters} />
+      <PortfolioCard {...dossiers} />
       <PortfolioCard {...lista} />
       <PortfolioCard {...hiringjr} />
+      <PortfolioCard {...letters} />
+      <PortfolioCard {...fifawc} />
+      <PortfolioCard {...marquez} />
       <PortfolioCard {...filipa} />
       <PortfolioCard {...iustaAdmin} />
-      <PortfolioCard {...marquez} />
     </div>
     <Button href="https://github.com/FranciscoDiazPaccot73">
       GO TO MY <span class="mx-1"><Github color="#16080e" height={20} width={20} /></span> PROFILE

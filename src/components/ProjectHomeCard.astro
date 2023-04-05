@@ -22,7 +22,7 @@ const { githubHref, githubAriaLabel, siteHrefProps, label, webpage, ariaWebpageL
     {label}
   </a>
   <div class="w-full mt-6 flex items-center flex-1 justify-around">
-    <a class="card-home" target="_blank" href={githubHref} aria-label={githubAriaLabel}><Github color='#fff' /></a>
+    {githubHref ? <a class="card-home" target="_blank" href={githubHref} aria-label={githubAriaLabel}><Github color='#fff' /></a> : null}
     <a class="border text-xs py-2 px-4 rounded-2xl hover:bg-white hover:text-black white-border white-text" {...siteHrefProps}>What is '{label}'?</a>
   </div>
 </Card>

@@ -9,7 +9,7 @@ const { link, github, imageText = false, label, HeaderElem, headerProps, headerC
 
 <li id={id} class={`w-full overflow-hidden mb-10 flex flex-col align-center rounded-xl justify-center border orange-border relative black-background shadow ${customClass}`}>
   <HeaderElem {...headerProps} class={headerClasses}>
-    <Image format="webp" {...imageProps} />
+    {imageProps ? <Image format="webp" {...imageProps} /> : null}
     {imageText ? <span class="white-text">{label}</span> : null}
   </HeaderElem>
   <div class="black-background z-10 mt-auto">
@@ -17,8 +17,8 @@ const { link, github, imageText = false, label, HeaderElem, headerProps, headerC
       <slot />
     </div>
   </div>
-  {github ? <a aria-label={`Click to go to ${label} github page`} href={github} target="_blank" class="absolute top-4 right-4 card-home"><Github width={32} height={32} color="#e9552f" /></a> : null}
-  {github ? <a aria-label={`Click to go to ${label} github page`} href={link} target="_blank" class="absolute top-4 left-4 card-home"><Chrome width={32} height={32} color="#e9552f" /></a> : null}
+  {github ? <a aria-label={`${label} github page`} href={github} target="_blank" class="absolute top-4 right-4 card-home"><Github width={32} height={32} color="#e9552f" /></a> : null}
+  {link ? <a aria-label={`${label} web page`} href={link} target="_blank" class="absolute top-4 left-4 card-home"><Chrome width={32} height={32} color="#e9552f" /></a> : null}
 </li>
 
 <style>
@@ -44,6 +44,10 @@ const { link, github, imageText = false, label, HeaderElem, headerProps, headerC
   
   .hiringjr-background::before {
     background-image: url(/hiringjr.jpg);
+  }
+  
+  .dossiers-background::before {
+    background-image: url(/dossiers.jpg);
   }
 
   .image-bg::before {
