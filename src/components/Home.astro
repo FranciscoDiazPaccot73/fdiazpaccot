@@ -1,31 +1,40 @@
 ---
-import { Image } from '@astrojs/image/components';
+import { Image } from "@astrojs/image/components";
 ---
 
-<section class="w-full relative p-6 flex flex-col items-center justify-center overflow-hidden top-100">
+<section
+  class="w-full relative p-6 flex flex-col items-center justify-center overflow-hidden top-100"
+>
   <div class="stars">
-    <span class="star" />
-    <span class="star" />
-    <span class="star" />
-    <span class="star" />
-    <span class="star" />
-    <span class="star" />
-    <span class="star" />
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
   </div>
   <div class="font-semibold text-4xl text-center orange-text eurostile">
-    Francisco<br>Diaz Paccot<span class="text-4xl text-white ml-1">.</span>
+    Francisco<br />Diaz Paccot<span class="text-4xl text-white ml-1">.</span>
   </div>
   <div class="text-xl text-white my-5">Fronted Sotfware Engineer</div>
   <div class="mt-16">
-    <Image width={150} height={150} loading="eager" format="webp" src='/logo-small.webp' alt="Francisco Diaz Paccot" />
+    <Image
+      width={150}
+      height={150}
+      loading="eager"
+      format="webp"
+      src="/logo-small.webp"
+      alt="Francisco Diaz Paccot"
+    />
   </div>
 </section>
 
 <style>
-	.top-100 {
-		height: calc(100vh - 50px);
+  .top-100 {
+    height: calc(100vh - 50px);
     min-height: 500px;
-	}
+  }
   .stars {
     height: 100%;
     left: 0;
@@ -42,7 +51,7 @@ import { Image } from '@astrojs/image/components';
     background: #e9552f;
     border-radius: 50%;
     box-shadow: 0 0 0 4px rgba(241, 106, 38, 0.1),
-      0 0 0 8px rgba(241, 106, 38, 0.1), 0 0 20px rgba(241, 106, 38, .6);
+      0 0 0 8px rgba(241, 106, 38, 0.1), 0 0 20px rgba(241, 106, 38, 0.6);
     animation: animate 3s linear infinite;
   }
   .star::before {
@@ -52,7 +61,7 @@ import { Image } from '@astrojs/image/components';
     transform: translateY(-50%);
     width: 300px;
     height: 1px;
-    background: linear-gradient(90deg, rgb(241, 106, 38, .5), transparent);
+    background: linear-gradient(90deg, rgb(241, 106, 38, 0.5), transparent);
   }
   @keyframes animate {
     0% {

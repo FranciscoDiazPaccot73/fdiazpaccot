@@ -5,23 +5,32 @@ const { siteTitle, title, description, logoUrl, url } = Astro.props;
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width" />
-  <title>{`${siteTitle ? `${siteTitle} | ` : ''}${title}`}</title>
-  <meta name="title" content={`${siteTitle ? `${siteTitle} | ` : ''}${title}`} />
+  <title>{`${siteTitle ? `${siteTitle} | ` : ""}${title}`}</title>
+  <meta
+    name="title"
+    content={`${siteTitle ? `${siteTitle} | ` : ""}${title}`}
+  />
   <meta name="description" content={description} />
   <meta property="og:type" content="website" />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:site_name" content={siteTitle} />
-  <meta property='og:image' content={logoUrl} />
-  <meta property='og:url' content={url} />
+  <meta property="og:image" content={logoUrl} />
+  <meta property="og:url" content={url} />
   <meta property="twitter:card" content="summary_large_image" />
   <meta property="twitter:creator" content="@Pancho_xor" />
-  <meta property='twitter:image' content={logoUrl} />
-  <meta property='twitter:url' content={url} />
+  <meta property="twitter:image" content={logoUrl} />
+  <meta property="twitter:url" content={url} />
   <meta property="twitter:title" content={title} />
   <meta property="twitter:description" content={description} />
   <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
-  <link rel='prefetch' href='/me.jpg' />
-  <link rel='prefetch' href='/logo-small.webp' />
-  <link rel="preload" href='/fonts/eurostile.woff2' as='font' type='font/woff2' cross-origin="" />
+  <link rel="prefetch" href="/me.jpg" />
+  <link rel="prefetch" href="/logo-small.webp" />
+  <link
+    rel="preload"
+    href="/fonts/eurostile.woff2"
+    as="font"
+    type="font/woff2"
+    cross-origin=""
+  />
 </head>

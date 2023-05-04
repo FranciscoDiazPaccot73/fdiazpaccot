@@ -9,40 +9,48 @@ const { router } = Astro.props;
 const settings = {
   home: {
     name: "Home",
-    link: '/'
+    link: "/",
   },
   about: {
     name: "About me",
-    link: '/about'
+    link: "/about",
   },
   portfolio: {
     name: "Portfolio",
-    link: '/portfolio'
+    link: "/portfolio",
   },
   contact: {
     name: "Contact",
-    link: 'mailto:frandiazpaccot73@gmail.com',
+    link: "mailto:frandiazpaccot73@gmail.com",
   },
-}
+};
 ---
 
-<div class="md:hidden z-20 flex h-14 justify-center fixed w-full bottom-0 black-background">
-  <div class="flex w-full flex-1 justify-between" >
-    {['home', 'about', 'portfolio', 'contact'].map(value => {
-      const setting = settings[value] ?? {};
-      const iconColor = setting.link === router ? "#e9552f" : '#c9c9c9';
-  
-      return (
-        <a href={setting.link} class="items-center flex justify-center relative w-3/12" aria-label={`${setting.name} page`}>
-          <div class="items-center h-14 flex font-semibold justify-center w-full">
-            <Home hidden={value !== 'home'} color={iconColor} />
-            <Info hidden={value !== 'about'} color={iconColor} />
-            <Portfolio hidden={value !== 'portfolio'} color={iconColor} />
-            <Contact hidden={value !== 'contact'} color={iconColor} />
-            <span class="hidden">{setting.name}</span>
-          </div>
-        </a>
-      )
-    })}
+<div
+  class="md:hidden z-20 flex h-14 justify-center fixed w-full bottom-0 black-background"
+>
+  <div class="flex w-full flex-1 justify-between">
+    {
+      ["home", "about", "portfolio", "contact"].map((value) => {
+        const setting = settings[value] ?? {};
+        const iconColor = setting.link === router ? "#e9552f" : "#c9c9c9";
+
+        return (
+          <a
+            href={setting.link}
+            class="items-center flex justify-center relative w-3/12"
+            aria-label={`${setting.name} page`}
+          >
+            <div class="items-center h-14 flex font-semibold justify-center w-full">
+              <Home hidden={value !== "home"} color={iconColor} />
+              <Info hidden={value !== "about"} color={iconColor} />
+              <Portfolio hidden={value !== "portfolio"} color={iconColor} />
+              <Contact hidden={value !== "contact"} color={iconColor} />
+              <span class="hidden">{setting.name}</span>
+            </div>
+          </a>
+        );
+      })
+    }
   </div>
 </div>
