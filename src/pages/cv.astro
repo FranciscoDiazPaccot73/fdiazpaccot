@@ -1,15 +1,15 @@
 ---
-import PageLayout from '../layouts/PageLayout.astro';
-import Resume from '../components/Resume/index.astro'
+import PageLayout from "../layouts/PageLayout.astro";
+import Resume from "../components/Resume/index.astro";
 
 const meta = {
-	title: 'Francisco Diaz Paccot',
-	description: 'CV | Francisco Diaz Paccot | Frontend Software Engineer.',
+	title: "Francisco Diaz Paccot",
+	description: "CV | Francisco Diaz Paccot | Frontend Software Engineer.",
 	logoUrl: "https://i.ibb.co/mFYW5QJ/new-logo-small.webp",
 	url: "https://franciscodiazpaccot.dev",
-}
+};
 ---
 
 <PageLayout {meta} router="/cv">
-  <Resume lang='es' />
+	<Resume lang="es" />
 </PageLayout>

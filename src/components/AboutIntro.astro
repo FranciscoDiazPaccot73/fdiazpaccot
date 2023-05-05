@@ -1,15 +1,36 @@
 ---
-import { Image } from '@astrojs/image/components';
+import { Image } from "@astrojs/image/components";
+
+const p1 =
+  "As a seasoned web developer with over five years of experience, I have a strong passion for building innovative and user-friendly web applications. I specialize in using JavaScript, Node.js, and React.js to design and develop scalable and high-performance web solutions.";
+const p2 =
+  "I am particularly focused on optimizing web performance to ensure that web applications load quickly and efficiently, providing users with a seamless experience. I thrive in fast-paced and collaborative environments where I can leverage my problem-solving and analytical skills to deliver successful projects.";
+const p3 =
+  "When I'm not coding, you can find me exploring new technologies and discovering ways to improve my craft.";
 ---
 
-<section class="px-8 py-12 relative text-gray-100 md:mx-auto md:w-full md:max-w-6xl">
-  <p class="font-semibold text-3xl mb-4 pt-8 orange-text">Hello, I'm Francisco</p>
-  <p class="text-l tracking-wide mb-6">Currently based in Argentina. Connected with the web development industry for +5 years.</p>
-  <p class="text-l tracking-wide mb-6">Well-organised person, high attention to detail. Interested in the entire frontend technologies. Trying to improve web performance.</p>
-  <div id="me-about" class="w-full flex justify-center mt-20 relative md:mt-20 my-picture">
+<section
+  class="px-8 py-12 relative text-gray-100 md:mx-auto md:w-full md:max-w-6xl"
+>
+  <p class="font-semibold text-3xl mb-4 pt-8 orange-text">
+    Hello, I'm Francisco
+  </p>
+  <p class="text-l tracking-wide mb-6">{p1}</p>
+  <p class="text-l tracking-wide mb-6">{p2}</p>
+  <p class="text-l tracking-wide mb-6">{p3}</p>
+  <div
+    id="me-about"
+    class="w-full flex justify-center mt-20 relative md:mt-20 my-picture"
+  >
     <div class="picture-border">
       <div class="image">
-        <Image width={280} height={280} format="webp" src='/me-hq.jpg' alt="Francisco Diaz Paccot" />
+        <Image
+          width={280}
+          height={280}
+          format="webp"
+          src="/me-hq.jpg"
+          alt="Francisco Diaz Paccot"
+        />
       </div>
     </div>
   </div>
@@ -39,7 +60,7 @@ import { Image } from '@astrojs/image/components';
     margin: -1.5rem 0 0 -1.5rem;
   }
 
-  @media(min-width: 768px) {
+  @media (min-width: 768px) {
     .my-picture.show {
       transition: all 500ms ease-in-out;
     }

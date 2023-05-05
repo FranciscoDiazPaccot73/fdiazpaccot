@@ -1,5 +1,5 @@
 ---
-import MetaTags from '../components/MetaTags.astro';
+import MetaTags from "../components/MetaTags.astro";
 
 export interface Props {
 	title: string;
@@ -9,7 +9,7 @@ const { meta = {} } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html class="black-background">
+<html lang="en" class="black-background">
 	<head>
 		<MetaTags {...meta} />
 	</head>

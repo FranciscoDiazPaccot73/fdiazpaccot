@@ -1,24 +1,74 @@
 ---
-import { Image } from '@astrojs/image/components';
+import { Image } from "@astrojs/image/components";
 
-import Github from './icons/Github.astro';
-import Chrome from './icons/Chrome.astro';
+import Chrome from "./icons/Chrome.astro";
+import Github from "./icons/Github.astro";
+import PerformanceMetrics from './PerformanceMetrics';
 
-const { link, github, imageText = false, label, HeaderElem, headerProps, headerClasses, imageProps, id, customClass } = Astro.props;
+const {
+  link,
+  github,
+  imageText = false,
+  label,
+  HeaderElem,
+  headerProps,
+  headerClasses,
+  imageProps,
+  id,
+  customClass,
+  lighthouse,
+} = Astro.props;
 ---
 
-<li id={id} class={`w-full overflow-hidden mb-10 flex flex-col align-center rounded-xl justify-center border orange-border relative black-background shadow ${customClass}`}>
+<li
+  id={id}
+  class={`w-full overflow-hidden mb-10 flex flex-col align-center rounded-xl justify-center border orange-border relative black-background shadow ${customClass}`}
+>
   <HeaderElem {...headerProps} class={headerClasses}>
-    <Image format="webp" {...imageProps} />
+    {imageProps ? <Image format="webp" {...imageProps} /> : null}
     {imageText ? <span class="white-text">{label}</span> : null}
+    {
+      lighthouse ? (
+        <PerformanceMetrics
+          client:visible
+          id={id}
+          info={lighthouse}
+          label={`${label} Google Lighthouse performance result`}
+        />
+      ) : null
+    }
   </HeaderElem>
   <div class="black-background z-10 mt-auto">
-    <div class="flex-col p-5 w-full border-t orange-t-border orange-background-secondary">
+    <div
+      class="flex-col p-5 w-full border-t orange-t-border orange-background-secondary"
+    >
       <slot />
     </div>
   </div>
-  {github ? <a aria-label={`Click to go to ${label} github page`} href={github} target="_blank" class="absolute top-4 right-4 card-home"><Github width={32} height={32} color="#e9552f" /></a> : null}
-  {github ? <a aria-label={`Click to go to ${label} github page`} href={link} target="_blank" class="absolute top-4 left-4 card-home"><Chrome width={32} height={32} color="#e9552f" /></a> : null}
+  {
+    github ? (
+      <a
+        aria-label={`${label} github page`}
+        href={github}
+        target="_blank"
+        class="absolute top-4 right-4 card-home z-[6]"
+      >
+        <Github width={32} height={32} color="#e9552f" />
+      </a>
+    ) : null
+  }
+  {
+    link ? (
+      <a
+        aria-label={`${label} web page`}
+        href={link}
+        target="_blank"
+        class="absolute top-4 left-4 card-home z-[6]"
+      >
+        <Chrome width={32} height={32} color="#e9552f" />
+      </a>
+    ) : null
+  }
 </li>
 
 <style>
@@ -27,30 +77,34 @@ const { link, github, imageText = false, label, HeaderElem, headerProps, headerC
     transition: var(--hover-scale-transition);
   }
   .card-home:hover {
-    @apply scale-card
+    @apply scale-card;
   }
 
   .letters-background::before {
     background-image: url(/random-letters.jpg);
   }
-  
+
   .qpv-background::before {
     background-image: url(/qpv.jpg);
   }
-  
+
   .markdown-background::before {
     background-image: url(/markdown.jpg);
   }
-  
+
   .hiringjr-background::before {
     background-image: url(/hiringjr.jpg);
+  }
+
+  .dossiers-background::before {
+    background-image: url(/dossiers.jpg);
   }
 
   .image-bg::before {
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover; 
-    content: ' ';
+    background-size: cover;
+    content: " ";
     display: block;
     height: 100%;
     left: 0;
@@ -67,7 +121,7 @@ const { link, github, imageText = false, label, HeaderElem, headerProps, headerC
   .elevate {
     transition: all 200ms ease-in;
   }
-  
+
   .elevate:hover {
     transform: translateY(-0.5rem);
     transition: all 200ms ease-in;

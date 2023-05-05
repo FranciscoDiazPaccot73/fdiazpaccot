@@ -1,56 +1,82 @@
 ---
-import Link from '../components/icons/Link.astro';
-import Button from '../components/Button.astro';
+import Link from "../components/icons/Link.astro";
+import Button from "../components/Button.astro";
 
 const steps = [
-    {
-      job: `Sr Front-End Software Engineer`,
-      title: 'Mercado Libre',
-      duration: 'Dec 2019 - current',
-      location: 'Santa Fe - Argentina',
-      link: 'https://mercadolibre.com',
-      tId: 'meli-timeline',
-    },
-    {
-      job: `Ssr Full-Stack developer`,
-      title: 'Serfe',
-      duration: 'Oct 2018 - Dec 2019',
-      location: 'Santa Fe - Argentina',
-      link: 'https://serfe.com',
-      tId: 'serfe-timeline',
-    },
-  ];
+  {
+    job: `Sr Front-End Software Engineer`,
+    title: "Mercado Libre",
+    duration: "Dec 2019 - current",
+    location: "Santa Fe - Argentina",
+    link: "https://mercadolibre.com",
+    tId: "meli-timeline",
+  },
+  {
+    job: `Ssr Full-Stack developer`,
+    title: "Serfe",
+    duration: "Oct 2018 - Dec 2019",
+    location: "Santa Fe - Argentina",
+    link: "https://serfe.com",
+    tId: "serfe-timeline",
+  },
+];
 ---
 
-<section class="px-8 py-10 relative text-gray-100 md:mx-auto md:w-full md:max-w-6xl">
+<section
+  class="px-8 py-10 relative text-gray-100 md:mx-auto md:w-full md:max-w-6xl"
+>
   <p class="font-semibold text-4xl mb-4 orange-text eurostile">Timeline</p>
   <div class="p-6 relative">
-    {steps.map(({ job, title, duration, link, tId }) => (
-      <div class="relative steps">
-        <svg class="absolute separator" width="40" height="40" viewBox="0 0 24 24" stroke-width="2" stroke="#e9552f" fill="none" stroke-linecap="round" stroke-linejoin="round">
-          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-          <line x1="12" y1="4" x2="12" y2="20" />
-        </svg>
-        <div class="mb-14">
-          <div class="mb-3">
-            <div class="font-semibold text-3xl mb-2 orange-text">
-              {title} <br /> <span class="font-normal text-sm text-gray-400">{duration}</span>
+    {
+      steps.map(({ job, title, duration, link, tId }) => (
+        <div class="relative steps">
+          <svg
+            class="absolute separator"
+            width="40"
+            height="40"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke="#e9552f"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <line x1="12" y1="4" x2="12" y2="20" />
+          </svg>
+          <div class="mb-14">
+            <div class="mb-3">
+              <div class="font-semibold text-3xl mb-2 orange-text">
+                {title} <br />{" "}
+                <span class="font-normal text-sm text-gray-400">
+                  {duration}
+                </span>
+              </div>
             </div>
-          </div>
-          <div>
-            <div class="text-gray-100 text-xl font-semibold mb-3">
-              {job}
-            </div>
-            <div id={tId} class="hidden md:block md:pl-3" />
-            <div class="flex items-center cursor-pointer md:mt-3 orange-text">
-              <Link color="#e9552f" width={18} height={18} /><a class="orange-text ml-1" href={link} target="_blank" aria-label={`Click to go to ${title} page`}>{link}</a>
+            <div>
+              <div class="text-gray-100 text-xl font-semibold mb-3">{job}</div>
+              <div id={tId} class="hidden md:block md:pl-3" />
+              <div class="flex items-center cursor-pointer md:mt-3 orange-text">
+                <Link color="#e9552f" width={18} height={18} />
+                <a
+                  class="orange-text ml-1"
+                  href={link}
+                  target="_blank"
+                  aria-label={`Click to go to ${title} page`}
+                >
+                  {link}
+                </a>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    ))}
+      ))
+    }
   </div>
-  <Button href='docs/resume.pdf' download="Francisco Diaz Paccot - Resume">
+  <Button
+    href="docs/FranciscoDiazPaccot-resume.pdf"
+    download="Francisco Diaz Paccot - Resume"
+  >
     Download Resume
   </Button>
 </section>
@@ -65,32 +91,29 @@ const steps = [
 </style>
 
 <script>
-  const meliTimeline = document.getElementById('meli-timeline');
-  const serfeTimeline = document.getElementById('serfe-timeline');
+  const meliTimeline = document.getElementById("meli-timeline");
+  const serfeTimeline = document.getElementById("serfe-timeline");
 
   if (meliTimeline) {
     const meliDescription = `
       <ul>
         <li>
-          &#x2022; Contribute to the initial experience of marketing tools for Mercado Shops.
+          &#x2022;  Played a key role in the development of marketing tools for Mercado Shops from the ground up, contributing to the project's initial stages and ensuring a successful outcome.
         </li>
         <li>
-          &#x2022; Develop the frontend of the "Central de Promociones" (space where Mercado Libre platform sellers can create offers for their products) and all related applications for the massive upload of items in their promotions.
+          &#x2022; Designed and developed the frontend of the "Central de Promociones," a critical application that enables sellers on the Mercado Libre platform to create product offers and upload items in bulk to their promotions. This project involved working with large datasets and complex business logic to provide a seamless experience for users.
         </li>
         <li>
-          &#x2022; Contributing to the development of the components in the internal UI Library of the company (called "Andes").
+          &#x2022; Contributed to the development of components in Andes, the company's internal UI library, improving the consistency and usability of the platform's interfaces.
         </li>
         <li>
-          &#x2022; Participate in the early stages of the Performance team within the Frontend Platform team.
+          &#x2022; Played a critical role in the formation of the Frontend Performance team, working on projects to optimize the performance of web applications and ensure they load quickly and efficiently.
         </li>
         <li>
-          &#x2022; Being part of the Benefits initiative enablement team, where we provide technical support to all the other
-          teams of the initiative, in order to get involved with them when they have any kind of problem in their
-          developments. In addition, we develop tools to automate the metrics collection in order to understand and find
-          out quickly whenever our frontends are downgraded in a certain aspect.
+          &#x2022; Collaborated with the Benefits initiative enablings team to provide technical support and develop tools that automated the collection of performance metrics. These efforts allowed for quick identification and resolution of issues, resulting in improved frontend stability and overall user experience.
         </li>
       </ul>
-    `
+    `;
 
     meliTimeline.innerHTML = meliDescription;
   }
@@ -99,19 +122,19 @@ const steps = [
     const serfeDescription = `
       <ul>
         <li>
-          &#x2022; Maintenance of legacy mobile application made with phonegap and Angular 1.2.
+          &#x2022; Conducted maintenance of a legacy mobile application built with PhoneGap and Angular 1.2, ensuring its continued usability and stability.
         </li>
         <li>
-          &#x2022; Lead a team of 3 developers to build a new React Native mobile app.
+          &#x2022; Led a team of 3 developers in building a new React Native mobile app, overseeing the project's entire lifecycle from conception to deployment.
         </li>
         <li>
-          &#x2022; Be part of the web platform development team for this application and we made it in react.
+          &#x2022; Contributed to the development of the web platform for the application, utilizing React to create a modern and user-friendly interface.
         </li>
         <li>
-          &#x2022; Be part of the backend development team of the application. We made it in NodeJs.
+          &#x2022;Worked as a part of the backend development team for the application, utilizing Node.js to develop robust and scalable APIs and services that supported the frontend application.
         </li>
       </ul>
-    `
+    `;
 
     serfeTimeline.innerHTML = serfeDescription;
   }

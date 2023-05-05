@@ -1,28 +1,52 @@
 ---
-import Card from './Card.astro';
+import Card from "./Card.astro";
 
-const { link, text, logoUrl, stack, description, logoWidth, logoHeight, id, github } = Astro.props;
+const {
+  link,
+  text,
+  logoUrl,
+  stack,
+  description,
+  logoWidth,
+  logoHeight,
+  id,
+  github,
+  lighthouse,
+} = Astro.props;
 ---
 
 <Card
   label={text}
   webpage={link}
-  HeaderElem='div'
+  HeaderElem="div"
   headerClasses={`px-10 h-48 font-bold flex justify-center items-center gap-4 relative image-bg ${id}-background`}
-  customClass='elevate'
+  customClass="elevate"
   imageProps={{
-    width: logoWidth, height: logoHeight, src: logoUrl, alt: text,
+    width: logoWidth,
+    height: logoHeight,
+    src: logoUrl,
+    alt: text,
   }}
   github={github}
   link={link}
+  id={id}
+  lighthouse={lighthouse}
 >
-  <div class="flex w-full h-10 flex-col items-center justify-center mb-8 md:mb-6 orange-text">
+  <div
+    class="flex w-full h-10 flex-col items-center justify-center mb-8 md:mb-6 orange-text"
+  >
     <span class="font-semibold text-2xl">{text}</span>
   </div>
   <div class="flex justify-between flex-col h-full md:mt-6">
     <p class="text-sm md:text-base">{description}</p>
     <ul class="mt-10 text-sm flex gap-2 flex-wrap">
-      {stack.map(tec => <li class="px-2 py-1 text-center text-xs uppercase rounded-md orange-background black-text">{tec}</li>)}
+      {
+        stack.map((tec) => (
+          <li class="px-2 py-1 text-center text-xs uppercase rounded-md orange-background black-text">
+            {tec}
+          </li>
+        ))
+      }
     </ul>
   </div>
 </Card>

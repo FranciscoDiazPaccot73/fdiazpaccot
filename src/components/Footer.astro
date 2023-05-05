@@ -6,41 +6,104 @@ import Linkedin from "./icons/Linkedin.astro";
 import Twitter from "./icons/Twitter.astro";
 ---
 
-<footer class="w-full pt-6 pb-20 h-56 md:pb-10 md:h-48 md:mt-24 relative orange-background">
+<footer
+  class="w-full pt-6 pb-20 h-56 md:pb-10 md:h-48 md:mt-24 relative orange-background"
+>
   <div class="relative">
-    <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-    viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
-    <defs>
-    <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
-    </defs>
-    <g class="parallax">
-    <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(233,85,47,0.7)" />
-    <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(233,85,47,0.5)" />
-    <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(233,85,47,0.3)" />
-    <use xlink:href="#gentle-wave" x="48" y="7" fill="rgba(233,85,47,1)" />
-    </g>
+    <svg
+      class="waves"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      viewBox="0 24 150 28"
+      preserveAspectRatio="none"
+      shape-rendering="auto"
+    >
+      <defs>
+        <path
+          id="gentle-wave"
+          d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"
+        ></path>
+      </defs>
+      <g class="parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(233,85,47,0.7)"
+        ></use>
+        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(233,85,47,0.5)"
+        ></use>
+        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(233,85,47,0.3)"
+        ></use>
+        <use xlink:href="#gentle-wave" x="48" y="7" fill="rgba(233,85,47,1)"
+        ></use>
+      </g>
     </svg>
   </div>
   <div class="px-6 md:mx-auto md:w-full md:max-w-6xl">
-    <a href="mailto:frandiazpaccot73@gmail.com" class="font-semibold underline underline-offset-2 text-lg black-text eurostile">Say Hello!</a>
-    <div class='flex items-center flex-row justify-center my-4 container'>
-      <a href='https://github.com/FranciscoDiazPaccot73' target="_blank" class="item" rel="noopener noreferrer" aria-label="Click to go to Github" >
-        <Github color="#16080e" width={30} height={30} /><span class="hidden">Github</span>
+    <a
+      href="mailto:frandiazpaccot73@gmail.com"
+      class="font-semibold underline underline-offset-2 text-lg black-text eurostile"
+      >Say Hello!</a
+    >
+    <div class="flex items-center flex-row justify-center my-4 container">
+      <a
+        href="https://github.com/FranciscoDiazPaccot73"
+        target="_blank"
+        class="item"
+        rel="noopener noreferrer"
+        aria-label="Click to go to Github"
+      >
+        <Github color="#16080e" width={30} height={30} /><span class="hidden"
+          >Github</span
+        >
       </a>
-      <a href="https://www.instagram.com/frandiazpaccot/" target="_blank" class="item" rel="noopener noreferrer" aria-label="Click to go to Instagram" >
-        <Instagram color="#16080e" width={30} height={30} /><span class="hidden">Instagram</span>
+      <a
+        href="https://www.instagram.com/frandiazpaccot/"
+        target="_blank"
+        class="item"
+        rel="noopener noreferrer"
+        aria-label="Click to go to Instagram"
+      >
+        <Instagram color="#16080e" width={30} height={30} /><span class="hidden"
+          >Instagram</span
+        >
       </a>
-      <a href="https://www.linkedin.com/in/francisco-diaz-paccot-a98a36130/" target="_blank" class="item" rel="noopener noreferrer" aria-label="Click to go to Linkedin" >
-        <Linkedin color="#16080e" width={30} height={30} /><span class="hidden">Linkedin</span>
+      <a
+        href="https://www.linkedin.com/in/francisco-diaz-paccot-a98a36130/"
+        target="_blank"
+        class="item"
+        rel="noopener noreferrer"
+        aria-label="Click to go to Linkedin"
+      >
+        <Linkedin color="#16080e" width={30} height={30} /><span class="hidden"
+          >Linkedin</span
+        >
       </a>
-      <a href="https://twitter.com/Pancho_xor" target="_blank" class="item" rel="noopener noreferrer" aria-label="Click to go to Twitter" >
-        <Twitter color="#16080e" width={30} height={30} /><span class="hidden">Twitter</span>
+      <a
+        href="https://twitter.com/Pancho_xor"
+        target="_blank"
+        class="item"
+        rel="noopener noreferrer"
+        aria-label="Click to go to Twitter"
+      >
+        <Twitter color="#16080e" width={30} height={30} /><span class="hidden"
+          >Twitter</span
+        >
       </a>
     </div>
-    <div class='cursor-default w-full flex mt-8 text-xs justify-center black-text'>
-      <>Made with <span class="hearth"> &#9829; </span> by</>
-      <a class="cursor-pointer font-semibold ml-0.5 decoration-0 black-text" href="/about" aria-label="Click to go to Francisco's About page"> Francisco Diaz Paccot</a>
-      <span class="flex ml-2 items-center"><Copyright color="#16080e" height={12} width={12} /><span class="ml-0.5">{`2018-${new Date().getFullYear()}`}</span></span>
+    <div
+      class="cursor-default w-full flex mt-8 text-xs justify-center black-text"
+    >
+      <>Made with <span class="hearth"> &#9829;</span> by</>
+      <a
+        class="cursor-pointer font-semibold ml-0.5 decoration-0 black-text"
+        href="/about"
+        aria-label="Click to go to Francisco's About page"
+      >
+        Francisco Diaz Paccot</a
+      >
+      <span class="flex ml-2 items-center"
+        ><Copyright color="#16080e" height={12} width={12} /><span
+          class="ml-0.5">{`2018-${new Date().getFullYear()}`}</span
+        >
+      </span>
     </div>
   </div>
 </footer>
@@ -57,7 +120,7 @@ import Twitter from "./icons/Twitter.astro";
     cursor: pointer;
     font-size: 0;
     height: 32px;
-    line-height: 0; 
+    line-height: 0;
     margin: 0 16px;
     padding: 5px 5px;
   }
@@ -65,18 +128,18 @@ import Twitter from "./icons/Twitter.astro";
     transform: var(--hover-scale-transform);
     transition: var(--hover-scale-transition);
   }
-  
+
   .waves {
     position: absolute;
     width: 100%;
     height: 12vh;
-    margin-bottom:-7px; /*Fix for safari gap*/
+    margin-bottom: -7px; /*Fix for safari gap*/
     min-height: 100px;
     top: -120px;
   }
 
   .parallax > use {
-    animation: move-forever 25s cubic-bezier(.55,.5,.45,.5)     infinite;
+    animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
   }
   .parallax > use:nth-child(1) {
     animation-delay: -2s;
@@ -97,14 +160,14 @@ import Twitter from "./icons/Twitter.astro";
 
   @keyframes move-forever {
     0% {
-    transform: translate3d(-90px,0,0);
+      transform: translate3d(-90px, 0, 0);
     }
-    100% { 
-      transform: translate3d(85px,0,0);
+    100% {
+      transform: translate3d(85px, 0, 0);
     }
   }
 
-  @media(max-width: 768px) {
+  @media (max-width: 768px) {
     .waves {
       height: 60px;
       min-height: 60px;

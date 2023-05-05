@@ -1,29 +1,57 @@
 ---
-import Card from './Card.astro';
-import Github from './icons/Github.astro';
+import Card from "./Card.astro";
+import Github from "./icons/Github.astro";
 
-const { githubHref, githubAriaLabel, siteHrefProps, label, webpage, ariaWebpageLabel, id, ...cardProps } = Astro.props;
+const {
+  githubHref,
+  githubAriaLabel,
+  siteHrefProps,
+  label,
+  webpage,
+  ariaWebpageLabel,
+  id,
+  ...cardProps
+} = Astro.props;
 ---
 
 <Card
   {...cardProps}
   label={label}
   webpage={webpage}
-  HeaderElem='a'
+  HeaderElem="a"
   headerProps={{
     href: webpage,
     target: "_blank",
-    'aria-label': ariaWebpageLabel
+    "aria-label": ariaWebpageLabel,
   }}
   headerClasses={`px-10 h-48 font-bold flex justify-center items-center gap-4 relative card-home image-bg ${id}-background`}
   imageText
 >
-  <a class="underline underline-offset-2 font-semibold" href={webpage} target="_blank" aria-label={ariaWebpageLabel}>
+  <a
+    class="underline underline-offset-2 font-semibold"
+    href={webpage}
+    target="_blank"
+    aria-label={ariaWebpageLabel}
+  >
     {label}
   </a>
   <div class="w-full mt-6 flex items-center flex-1 justify-around">
-    <a class="card-home" target="_blank" href={githubHref} aria-label={githubAriaLabel}><Github color='#fff' /></a>
-    <a class="border text-xs py-2 px-4 rounded-2xl hover:bg-white hover:text-black white-border white-text" {...siteHrefProps}>Read more</a>
+    {
+      githubHref ? (
+        <a
+          class="card-home"
+          target="_blank"
+          href={githubHref}
+          aria-label={githubAriaLabel}
+        >
+          <Github color="#fff" />
+        </a>
+      ) : null
+    }
+    <a
+      class="border text-xs py-2 px-4 rounded-2xl hover:bg-white hover:text-black white-border white-text"
+      {...siteHrefProps}>What is '{label}'?</a
+    >
   </div>
 </Card>
 
@@ -33,6 +61,6 @@ const { githubHref, githubAriaLabel, siteHrefProps, label, webpage, ariaWebpageL
     transition: var(--hover-scale-transition);
   }
   .card-home:hover {
-    @apply scale-card
+    @apply scale-card;
   }
 </style>
