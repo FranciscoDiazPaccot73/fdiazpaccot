@@ -1,128 +1,144 @@
 ---
-import PageLayout from '../layouts/PageLayout.astro';
-import PortfolioCard from '../components/PortfolioCard.astro';
-import Button from '../components/Button.astro';
-import Github from '../components/icons/Github.astro';
+import Button from "../components/Button.astro";
+import Github from "../components/icons/Github.astro";
+import PortfolioCard from "../components/PortfolioCard.astro";
+import PageLayout from "../layouts/PageLayout.astro";
 
 const meta = {
-	title: 'Portfolio | Francisco Diaz Paccot',
-	description: 'Francisco Diaz Paccot | Frontend Software Engineer.',
-	logoUrl: "https://i.ibb.co/mFYW5QJ/new-logo-small.webp",
-	url: "https://franciscodiazpaccot.dev",
-}
+  title: "Portfolio | Francisco Diaz Paccot",
+  description: "Francisco Diaz Paccot | Frontend Software Engineer.",
+  logoUrl: "https://i.ibb.co/mFYW5QJ/new-logo-small.webp",
+  url: "https://franciscodiazpaccot.dev",
+};
 
 const qpv = {
-  id: 'qpv',
-  github: 'https://github.com/FranciscoDiazPaccot73/que-mirar',
-  link: 'https://www.quepuedover.online',
-  text: '¿Qué puedo ver?',
-  logoUrl: '/qpv.webp',
+  id: "qpv",
+  github: "https://github.com/FranciscoDiazPaccot73/que-mirar",
+  link: "https://www.quepuedover.online",
+  text: "¿Qué puedo ver?",
+  logoUrl: "/qpv.webp",
   logoWidth: 110,
   logoHeight: 80,
-  stack: ['NextJs', 'NodeJs', 'SASS', 'TypeScript'],
-  description: `¿Que Puedo Ver? it's a website that recommends tv series and movies to watch`
-}
+  stack: ["NextJs", "NodeJs", "SASS", "TypeScript"],
+  description: `¿Que Puedo Ver? it's a website that recommends tv series and movies to watch`,
+  lighthouse: {
+    performance: 99,
+    accessibility: 97,
+    bestPracticies: 92,
+    seo: 100
+  },
+};
 const hiringjr = {
-  id: 'hiringjr',
-  github: 'https://github.com/FranciscoDiazPaccot73/first-steps-it',
-  link: 'https://first-steps-it.vercel.app',
-  text: 'Hiring Jr',
-  logoUrl: '/logo-hiring-jr.png',
+  id: "hiringjr",
+  github: "https://github.com/FranciscoDiazPaccot73/first-steps-it",
+  link: "https://first-steps-it.vercel.app",
+  text: "Hiring Jr",
+  logoUrl: "/logo-hiring-jr.png",
   logoWidth: 80,
   logoHeight: 80,
-  stack: ['NextJs', 'NodeJs', 'SASS', 'Google Sheets'],
-  description: `HiringJr it's a webpage for connect corporates placed in Entre Rios, Santa Fe or Cordoba with Junior or Trainee developers who are looking for their first job or change their current one.`
-}
+  stack: ["NextJs", "NodeJs", "SASS", "Google Sheets"],
+  description: `HiringJr it's a webpage for connect corporates placed in Entre Rios, Santa Fe or Cordoba with Junior or Trainee developers who are looking for their first job or change their current one.`,
+};
 const fifawc = {
-  id: 'fifawc',
-  github: 'https://github.com/FranciscoDiazPaccot73/world-cup-results',
-  link: 'https://fifawc.franciscodiazpaccot.dev/',
-  text: 'Fifawc',
-  logoUrl: '/fifawc.png',
+  id: "fifawc",
+  github: "https://github.com/FranciscoDiazPaccot73/world-cup-results",
+  link: "https://fifawc.franciscodiazpaccot.dev/",
+  text: "Fifawc",
+  logoUrl: "/fifawc.png",
   logoWidth: 80,
   logoHeight: 80,
-  stack: ['Astro', 'JavaScript', 'Tailwindcss'],
-  description: `Fifawc is a webpage to check the last Fifa World Cup results.`
-}
+  stack: ["Astro", "JavaScript", "Tailwindcss"],
+  description: `Fifawc is a webpage to check the last Fifa World Cup results.`,
+};
 const letters = {
-  id: 'letters',
-  github: 'https://github.com/FranciscoDiazPaccot73/letters',
-  link: 'https://letters.franciscodiazpaccot.dev/',
-  text: 'Random Letters',
-  logoUrl: '/letters.png',
+  id: "letters",
+  github: "https://github.com/FranciscoDiazPaccot73/letters",
+  link: "https://letters.franciscodiazpaccot.dev/",
+  text: "Random Letters",
+  logoUrl: "/letters.png",
   logoWidth: 80,
   logoHeight: 80,
-  stack: ['TypeScript', 'Svelte', 'JavaScript', 'CSS'],
-  description: `Randoms Letters select a random letter. It used for play "Tutti Frutti" game.`
-}
+  stack: ["TypeScript", "Svelte", "JavaScript", "CSS"],
+  description: `Randoms Letters select a random letter. It used for play "Tutti Frutti" game.`,
+};
 const filipa = {
-  id: 'filipa',
-  github: 'https://github.com/FranciscoDiazPaccot73/filipabazar',
-  link: 'https://www.filipabazar.com.ar/',
-  text: 'Filipa Bazar',
-  logoUrl: '/filipa.jpg',
+  id: "filipa",
+  github: "https://github.com/FranciscoDiazPaccot73/filipabazar",
+  link: "https://www.filipabazar.com.ar/",
+  text: "Filipa Bazar",
+  logoUrl: "/filipa.jpg",
   logoWidth: 80,
   logoHeight: 80,
-  stack: ['NextJs', 'NodeJs', 'SASS', 'TypeScript', 'Google Sheets'],
-  description: `FILIPA Bazar & Deco it's a webpage made for an Instagram business focused on sell gift and home articles. It has an entire catalog and it has Whatsapp checkout.`
-}
+  stack: ["NextJs", "NodeJs", "SASS", "TypeScript", "Google Sheets"],
+  description: `FILIPA Bazar & Deco it's a webpage made for an Instagram business focused on sell gift and home articles. It has an entire catalog and it has Whatsapp checkout.`,
+};
 const lista = {
-  id: 'list',
-  github: 'https://github.com/FranciscoDiazPaccot73/mi-lista',
-  link: 'https://lista.franciscodiazpaccot.dev',
-  text: 'Mi Lista',
-  logoUrl: '/vercel.png',
+  id: "list",
+  github: "https://github.com/FranciscoDiazPaccot73/mi-lista",
+  link: "https://lista.franciscodiazpaccot.dev",
+  text: "Mi Lista",
+  logoUrl: "/vercel.png",
   logoWidth: 80,
   logoHeight: 80,
-  stack: ['NextJs', 'JavaScript', 'TypeScript', 'SASS', 'ChakraUI'],
-  description: `Here you can save important links and make list of TODOs.`
-}
+  stack: ["NextJs", "JavaScript", "TypeScript", "SASS", "ChakraUI"],
+  description: `Here you can save important links and make list of TODOs.`,
+};
 const iustaAdmin = {
-  id: 'iustaadmin',
-  link: 'https://iusta-admin.vercel.app',
-  text: 'Iusta Admin',
-  logoUrl: '/iusta.jpg',
+  id: "iustaadmin",
+  link: "https://iusta-admin.vercel.app",
+  text: "Iusta Admin",
+  logoUrl: "/iusta.jpg",
   logoWidth: 80,
   logoHeight: 80,
-  stack: ['NextJs', 'NodeJs', 'GraphQL', 'SASS'],
-  description: `The new admin panel to manage https://iusta.com.ar`
-}
+  stack: ["NextJs", "NodeJs", "GraphQL", "SASS"],
+  description: `The new admin panel to manage https://iusta.com.ar`,
+};
 const markdown = {
-  id: 'markdown',
-  github: 'https://github.com/FranciscoDiazPaccot73/markdown-generator',
-  link: 'https://markdown.franciscodiazpaccot.dev',
-  text: 'Markdown Generator',
-  logoUrl: '/markdown.png',
+  id: "markdown",
+  github: "https://github.com/FranciscoDiazPaccot73/markdown-generator",
+  link: "https://markdown.franciscodiazpaccot.dev",
+  text: "Markdown Generator",
+  logoUrl: "/markdown.png",
   logoWidth: 80,
   logoHeight: 80,
-  stack: ['NextJs', 'Javascript', 'CSS'],
-  description: `A simple markdown file generator. You could generate, preview and download your markdown file.`
-}
+  stack: ["NextJs", "Javascript", "CSS"],
+  description: `A simple markdown file generator. You could generate, preview and download your markdown file.`,
+};
 const marquez = {
-  id: 'elmarquez',
-  link: 'https://elmarquez.vercel.app/',
-  text: 'El Marquez',
-  logoUrl: '/marquez.png',
+  id: "elmarquez",
+  link: "https://elmarquez.vercel.app/",
+  text: "El Marquez",
+  logoUrl: "/marquez.png",
   logoWidth: 80,
   logoHeight: 80,
-  stack: ['Astro', 'JavaScript', 'Tailwindcss'],
-  description: `A pizza store.`
-}
+  stack: ["Astro", "JavaScript", "Tailwindcss"],
+  description: `A pizza store.`,
+};
 const dossiers = {
-  id: 'dossiers',
-  link: 'https://demo-cases.franciscodiazpaccot.dev/casos',
-  text: 'Dossiers',
-  logoUrl: '/vercel.png',
+  id: "dossiers",
+  link: "https://demo-cases.franciscodiazpaccot.dev/casos",
+  text: "Dossiers",
+  logoUrl: "/vercel.png",
   logoWidth: 80,
   logoHeight: 80,
-  stack: ['NextJs', 'JavaScript', 'Sass', 'Firebase'],
-  description: `It's a website to administer and manage the dossiers of a lawyer firm.`
-}
+  stack: ["NextJs", "JavaScript", "Sass", "Firebase"],
+  description: `It's a website to administer and manage the dossiers of a lawyer firm.`,
+  lighthouse: {
+    performance: 100,
+    accessibility: 100,
+    bestPracticies: 100,
+    seo: 100
+  },
+};
 ---
 
 <PageLayout {meta} router="/portfolio">
-	<section class="px-8 py-12 relative text-gray-100 md:mx-auto md:w-full md:max-w-6xl">
-    <p class="font-semibold text-gray-100 text-3xl mb-8 eurostile">My Portfolio</p>
+  <section
+    class="px-8 py-12 relative text-gray-100 md:mx-auto md:w-full md:max-w-6xl"
+  >
+    <p class="font-semibold text-gray-100 text-3xl mb-8 eurostile">
+      My Portfolio
+    </p>
     <div class="mt-24 md:grid md:gap-10 grid-portfolio">
       <PortfolioCard {...qpv} />
       <PortfolioCard {...markdown} />
@@ -136,13 +152,15 @@ const dossiers = {
       <PortfolioCard {...iustaAdmin} />
     </div>
     <Button href="https://github.com/FranciscoDiazPaccot73">
-      GO TO MY <span class="mx-1"><Github color="#16080e" height={20} width={20} /></span> PROFILE
+      GO TO MY <span class="mx-1"
+        ><Github color="#16080e" height={20} width={20} />
+      </span> PROFILE
     </Button>
   </section>
 </PageLayout>
 
 <style>
-  @media(min-width: 768px) {
+  @media (min-width: 768px) {
     .grid-portfolio {
       grid-template-columns: repeat(2, fit-content(100%));
     }
@@ -150,8 +168,9 @@ const dossiers = {
 </style>
 
 <script>
-  window.addEventListener('scroll', () => {
-    const calculation = window.pageYOffset / (document.body.offsetHeight - window.innerHeight);
-    document.body.style.setProperty('--scroll', calculation.toString()), false;
-  })
+  window.addEventListener("scroll", () => {
+    const calculation =
+      window.pageYOffset / (document.body.offsetHeight - window.innerHeight);
+    document.body.style.setProperty("--scroll", calculation.toString()), false;
+  });
 </script>

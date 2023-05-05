@@ -1,18 +1,29 @@
 ---
-import Button from './Button.astro';
+import Button from "./Button.astro";
 ---
 
-<section class="px-8 py-20 relative text-stone-900 transition-300 orange-background">
+<section
+  class="px-8 py-20 relative text-stone-900 transition-300 orange-background"
+>
   <div class="md:mx-auto md:w-full md:max-w-6xl">
-    <p id='about-title' class="font-semibold text-3xl mb-4 black-text eurostile" />
-    <p id='about-first-text' class="text-xl tracking-wide mb-6" />
-    <p id='about-second-text' class="text-xl tracking-wide mb-12" />
+    <p
+      id="about-title"
+      class="font-semibold text-3xl mb-4 black-text eurostile"
+    >
+    </p>
+    <p id="about-first-text" class="text-xl tracking-wide mb-6"></p>
+    <p id="about-second-text" class="text-xl tracking-wide mb-6"></p>
+    <p id="about-third-text" class="text-xl tracking-wide mb-12"></p>
     <div class="flex-col flex gap-4 items-center md:flex-row">
-      <a href="/about" class="font-semibold underline underline-offset-2 text-lg black-text eurostile mt-4">Know a little more!</a>
+      <a
+        href="/about"
+        class="font-semibold underline underline-offset-2 text-lg black-text eurostile mt-4"
+        >Know a little more!</a
+      >
       <Button
         containerClass="w-56 font-bold"
         size="text-lg border border-black black-background orange-text"
-        href='docs/FranciscoDiazPaccot-resume.pdf'
+        href="docs/FranciscoDiazPaccot-resume.pdf"
         download="Francisco Diaz Paccot - Resume"
       >
         Download Resume
@@ -32,19 +43,38 @@ import Button from './Button.astro';
   const enTitle = "Hello, I'm Francisco";
   const esTitle = "Hola! Soy Francisco.";
 
-  const enFirst = 'Currently based in Argentina. Connected with the web development industry for +5 years.';
-  const esFirst = 'Actualmente vivo en Argentina. Conectado con la industria del desarrollo web por mas de 5 años.';
+  const enFirst =
+    "As a seasoned web developer with over five years of experience, I have a strong passion for building innovative and user-friendly web applications. I specialize in using JavaScript, Node.js, and React.js to design and develop scalable and high-performance web solutions.";
+  const esFirst =
+    "Como desarrollador web experimentado con más de cinco años de experiencia, tengo una gran pasión por la construcción de aplicaciones web innovadoras y fáciles de usar. Me especializo en el uso de JavaScript, Node.js y React.js para diseñar y desarrollar soluciones web escalables y de alto rendimiento.";
 
-  const enSecond = 'Well-organised person, high attention to detail. Interested in the entire frontend technologies. Trying to improve web performance.'
-  const esSecond = 'Muy organizado y con gran atencion a los detalles. Interesado en todas las tecnologias de forntend. Mejorando la performance de la web :).'
+  const enSecond =
+    "I am particularly focused on optimizing web performance to ensure that web applications load quickly and efficiently, providing users with a seamless experience. I thrive in fast-paced and collaborative environments where I can leverage my problem-solving and analytical skills to deliver successful projects.";
+  const esSecond =
+    "Estoy especialmente centrado en la optimización del rendimiento web para garantizar que las aplicaciones web se cargan de forma rápida y eficiente, proporcionando a los usuarios una experiencia fluida. Me desenvuelvo bien en entornos dinámicos y de colaboración en los que puedo aprovechar mi capacidad analítica y de resolución de problemas para llevar a cabo proyectos con éxito.";
 
-  const aboutTitleComponent = document.getElementById('about-title');
-  const aboutFirstComponent = document.getElementById('about-first-text');
-  const aboutSecondComponent = document.getElementById('about-second-text');
+  const enThird =
+    "When I'm not coding, you can find me exploring new technologies and discovering ways to improve my craft.";
+  const esThird =
+    "Cuando no estoy programando, me encuentro explorando nuevas tecnologías y descubriendo formas de mejorar mi oficio.";
+
+  const aboutTitleComponent = document.getElementById("about-title");
+  const aboutFirstComponent = document.getElementById("about-first-text");
+  const aboutSecondComponent = document.getElementById("about-second-text");
+  const aboutThirdComponent = document.getElementById("about-third-text");
 
   if (aboutTitleComponent && aboutFirstComponent && aboutSecondComponent) {
-    aboutTitleComponent.innerText = `${userLang.includes('en') ? enTitle : esTitle}`;
-    aboutFirstComponent.innerText = `${userLang.includes('en') ? enFirst : esFirst}`;
-    aboutSecondComponent.innerText = `${userLang.includes('en') ? enSecond : esSecond}`;
+    aboutTitleComponent.innerText = `${
+      userLang.includes("en") ? enTitle : esTitle
+    }`;
+    aboutFirstComponent.innerText = `${
+      userLang.includes("en") ? enFirst : esFirst
+    }`;
+    aboutSecondComponent.innerText = `${
+      userLang.includes("en") ? enSecond : esSecond
+    }`;
+    aboutThirdComponent.innerText = `${
+      userLang.includes("en") ? enThird : esThird
+    }`;
   }
 </script>

@@ -1,6 +1,6 @@
 ---
-import { Image } from '@astrojs/image/components';
-import Github from './icons/Github.astro';
+import { Image } from "@astrojs/image/components";
+import Github from "./icons/Github.astro";
 
 const { router } = Astro.props;
 ---
@@ -10,7 +10,11 @@ const { router } = Astro.props;
 >
 	<div class="py-3 mx-auto w-full flex justify-between max-w-6xl px-4">
 		<div class="flex justify-between">
-			<a class="flex items-center" href='/' aria-label="Click to return to Home">
+			<a
+				class="flex items-center"
+				href="/"
+				aria-label="Click to return to Home"
+			>
 				<Image
 					src="/logo-small.webp"
 					width={40}
@@ -31,30 +35,40 @@ const { router } = Astro.props;
 				<li>
 					<a
 						aria-label="Click to go to Home page"
-						class={`font-medium hover:text-white px-4 py-3 flex items-center transition duration-150 ease-in-out ${router === '/' ? 'active' : ''}`}
-						href="/">Home
-          </a>
+						class={`font-medium hover:text-white px-4 py-3 flex items-center transition duration-150 ease-in-out ${
+							router === "/" ? "active" : ""
+						}`}
+						href="/"
+						>Home
+					</a>
 				</li>
-        <li>
+				<li>
 					<a
 						aria-label="Click to go to About page"
-						class={`font-medium hover:text-white px-4 py-3 flex items-center transition duration-150 ease-in-out ${router.includes('/about') ? 'active' : ''}`}
-						href="/about">About Me
-          </a>
+						class={`font-medium hover:text-white px-4 py-3 flex items-center transition duration-150 ease-in-out ${
+							router.includes("/about") ? "active" : ""
+						}`}
+						href="/about"
+						>About Me
+					</a>
 				</li>
-        <li>
+				<li>
 					<a
 						aria-label="Click to go to Portfolio page"
-						class={`font-medium hover:text-white px-4 py-3 flex items-center transition duration-150 ease-in-out ${router.includes('/portfolio') ? 'active' : ''}`}
-						href="/portfolio">Portfolio
-          </a>
+						class={`font-medium hover:text-white px-4 py-3 flex items-center transition duration-150 ease-in-out ${
+							router.includes("/portfolio") ? "active" : ""
+						}`}
+						href="/portfolio"
+						>Portfolio
+					</a>
 				</li>
-        <li>
+				<li>
 					<a
 						aria-label="Click to send an email to Francisco"
 						class="font-medium hover:text-white px-4 py-3 flex items-center transition duration-150 ease-in-out"
-						href="mailto:frandiazpaccot73@gmail.com">Contact
-          </a>
+						href="mailto:frandiazpaccot73@gmail.com"
+						>Contact
+					</a>
 				</li>
 			</ul>
 			<div class="self-center flex items-center mb-0 ml-2">
@@ -73,8 +87,8 @@ const { router } = Astro.props;
 </header>
 
 <style>
-  .active,
-  .active:hover {
-    color: var(--orange)
-  }
+	.active,
+	.active:hover {
+		color: var(--orange);
+	}
 </style>

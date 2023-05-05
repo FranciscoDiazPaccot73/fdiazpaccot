@@ -1,5 +1,12 @@
 ---
-const { href, className, target = '_blank', containerClass = 'w-full', size = 'text-sm', ...otherProps } = Astro.props;
+const {
+  href,
+  className,
+  target = "_blank",
+  containerClass = "w-full",
+  size = "text-sm",
+  ...otherProps
+} = Astro.props;
 ---
 
 <div class={`${containerClass} flex items-center justify-center`}>
@@ -15,13 +22,13 @@ const { href, className, target = '_blank', containerClass = 'w-full', size = 't
 </div>
 
 <style>
-  @media(min-width: 768px) {
+  @media (min-width: 768px) {
     .scale {
       transform: var(--hover-scale-transform);
       transition: var(--hover-scale-transition);
     }
     .github-link:hover {
-      @apply scale
+      @apply scale;
     }
   }
 </style>

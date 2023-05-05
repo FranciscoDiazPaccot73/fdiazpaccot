@@ -3,7 +3,7 @@ const { content } = Astro.props;
 ---
 
 <ul class="mb-10">
-  {content.map(bullet => <li class="mb-2 text-sm">{bullet}</li>)}
+  {content.map((bullet) => <li class="mb-2 text-sm">{bullet}</li>)}
 </ul>
 
 <style>
