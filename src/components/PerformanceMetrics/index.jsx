@@ -26,16 +26,16 @@ const PerformanceMetrics = ({ label, info, id }) => {
         <img {...lighthouseImageProps} />
       </div>
       <div className={infoClasses}>
-        <div className={`progress-bar ${id}-performance`}>
+        <div title="Performance" className={`progress-bar ${id}-performance`}>
           <progress id={`${id}-performance`} max="100" value={info.performance} />
         </div>
-        <div className={`progress-bar ${id}-accessibility`}>
+        <div title="Accessibility" className={`progress-bar ${id}-accessibility`}>
           <progress id={`${id}-accessibility`} max="100" value={info.accessibility} />
         </div>
-        <div className={`progress-bar ${id}-best-practicies`}>
+        <div title="Best Practicies" className={`progress-bar ${id}-best-practicies`}>
           <progress id={`${id}-best-practicies`} max="100" value={info.bestPracticies} />
         </div>
-        <div className={`progress-bar ${id}-seo`}>
+        <div title="Seo" className={`progress-bar ${id}-seo`}>
           <progress id={`${id}-seo`} max="100" value={info.seo} />
         </div>
       </div>
