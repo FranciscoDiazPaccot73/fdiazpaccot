@@ -1,0 +1,164 @@
+@property --progress-value {
+  syntax: "<integer>";
+  inherits: false;
+  initial-value: 0;
+}
+
+.progress-bar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+
+  /* to center the percentage value */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.progress-bar::before {
+  counter-reset: percentage var(--progress-value);
+  content: counter(percentage);
+  font-size: 14px;
+}
+
+progress {
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+
+/* PERFORMANCE */
+
+.qpv-performance {
+  background: radial-gradient(closest-side, var(--black) 79%, transparent 80% 100%),
+    conic-gradient(#e9552f calc(var(--progress-value) * 1%), #e9552f75 0);
+  animation: qpv-performance-progress 2s 1 forwards;
+}
+
+.qpv-performance::before {
+  animation: qpv-performance-progress 2s 1 forwards;
+}
+
+@keyframes qpv-performance-progress {
+  to {
+    --progress-value: 99;
+  }
+}
+
+.dossiers-performance {
+  background: radial-gradient(closest-side, var(--black) 79%, transparent 80% 100%),
+    conic-gradient(#e9552f calc(var(--progress-value) * 1%), #e9552f75 0);
+  animation: dossiers-performance-progress 2s 1 forwards;
+}
+
+.dossiers-performance::before {
+  animation: dossiers-performance-progress 2s 1 forwards;
+}
+
+@keyframes dossiers-performance-progress {
+  to {
+    --progress-value: 100;
+  }
+}
+
+/* ACCESSIBILITY */
+
+.qpv-accessibility {
+  background: radial-gradient(closest-side, var(--black) 79%, transparent 80% 100%),
+    conic-gradient(#e9552f calc(var(--progress-value) * 1%), #e9552f75 0);
+  animation: qpv-accessibility-progress 2s 1 forwards;
+}
+
+.qpv-accessibility::before {
+  animation: qpv-accessibility-progress 2s 1 forwards;
+}
+
+@keyframes qpv-accessibility-progress {
+  to {
+    --progress-value: 97;
+  }
+}
+
+.dossiers-accessibility {
+  background: radial-gradient(closest-side, var(--black) 79%, transparent 80% 100%),
+    conic-gradient(#e9552f calc(var(--progress-value) * 1%), #e9552f75 0);
+  animation: dossiers-accessibility-progress 2s 1 forwards;
+}
+
+.dossiers-accessibility::before {
+  animation: dossiers-accessibility-progress 2s 1 forwards;
+}
+
+@keyframes dossiers-accessibility-progress {
+  to {
+    --progress-value: 100;
+  }
+}
+
+/* BEST PRACTICIES */
+
+.qpv-best-practicies {
+  background: radial-gradient(closest-side, var(--black) 79%, transparent 80% 100%),
+    conic-gradient(#e9552f calc(var(--progress-value) * 1%), #e9552f75 0);
+  animation: qpv-best-practicies-progress 2s 1 forwards;
+}
+
+.qpv-best-practicies::before {
+  animation: qpv-best-practicies-progress 2s 1 forwards;
+}
+
+@keyframes qpv-best-practicies-progress {
+  to {
+    --progress-value: 92;
+  }
+}
+
+.dossiers-best-practicies {
+  background: radial-gradient(closest-side, var(--black) 79%, transparent 80% 100%),
+    conic-gradient(#e9552f calc(var(--progress-value) * 1%), #e9552f75 0);
+  animation: dossiers-best-practicies-progress 2s 1 forwards;
+}
+
+.dossiers-best-practicies::before {
+  animation: dossiers-best-practicies-progress 2s 1 forwards;
+}
+
+@keyframes dossiers-best-practicies-progress {
+  to {
+    --progress-value: 100;
+  }
+}
+
+/* SEO */
+
+.qpv-seo {
+  background: radial-gradient(closest-side, var(--black) 79%, transparent 80% 100%),
+    conic-gradient(#e9552f calc(var(--progress-value) * 1%), #e9552f75 0);
+  animation: qpv-seo-progress 2s 1 forwards;
+}
+
+.qpv-seo::before {
+  animation: qpv-seo-progress 2s 1 forwards;
+}
+
+@keyframes qpv-seo-progress {
+  to {
+    --progress-value: 100;
+  }
+}
+
+.dossiers-seo {
+  background: radial-gradient(closest-side, var(--black) 79%, transparent 80% 100%),
+    conic-gradient(#e9552f calc(var(--progress-value) * 1%), #e9552f75 0);
+  animation: dossiers-seo-progress 2s 1 forwards;
+}
+
+.dossiers-seo::before {
+  animation: dossiers-seo-progress 2s 1 forwards;
+}
+
+@keyframes dossiers-seo-progress {
+  to {
+    --progress-value: 100;
+  }
+}

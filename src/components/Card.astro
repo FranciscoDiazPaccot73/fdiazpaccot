@@ -1,9 +1,9 @@
 ---
 import { Image } from "@astrojs/image/components";
 
-import Github from "./icons/Github.astro";
 import Chrome from "./icons/Chrome.astro";
-import PerformanceMetrics from "./PerformanceMetrics/QpvMetrics.astro";
+import Github from "./icons/Github.astro";
+import PerformanceMetrics from './PerformanceMetrics';
 
 const {
   link,
@@ -30,8 +30,9 @@ const {
     {
       lighthouse ? (
         <PerformanceMetrics
-          info={lighthouse}
+          client:visible
           id={id}
+          info={lighthouse}
           label={`${label} Google Lighthouse performance result`}
         />
       ) : null
@@ -50,7 +51,7 @@ const {
         aria-label={`${label} github page`}
         href={github}
         target="_blank"
-        class="absolute top-4 right-4 card-home"
+        class="absolute top-4 right-4 card-home z-[6]"
       >
         <Github width={32} height={32} color="#e9552f" />
       </a>
@@ -62,7 +63,7 @@ const {
         aria-label={`${label} web page`}
         href={link}
         target="_blank"
-        class="absolute top-4 left-4 card-home"
+        class="absolute top-4 left-4 card-home z-[6]"
       >
         <Chrome width={32} height={32} color="#e9552f" />
       </a>
