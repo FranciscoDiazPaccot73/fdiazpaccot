@@ -12,7 +12,7 @@ const PerformanceMetrics = ({ label, info, id }) => {
     format: "webp",
   };
 
-  const logoClasses = `absolute right-4 transition-all cursor-pointer z-[9] ${isActive ? 'bottom-1' : '-bottom-4 grayscale hover:grayscale-0 hover:bottom-1'}`
+  const logoClasses = `absolute right-4 transition-all cursor-pointer z-[9] bottom-1 ${!isActive ? 'grayscale md:-bottom-4 md:hover:grayscale-0 md:hover:bottom-1' : ''}`
   const infoClasses = `absolute transition-all h-full w-full flex gap-4 items-center justify-center bg-main-bg ${isActive ? "bottom-0" : '-bottom-full'}`
   const reportsClasses = `absolute flex gap-3 bottom-2 left-4 transition-all text-xs font-normal underline md:text-sm ${isActive ? 'opacity-1 duration-500' : 'opacity-0'}`
 
