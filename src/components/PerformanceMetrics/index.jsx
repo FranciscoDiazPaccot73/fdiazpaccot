@@ -7,7 +7,7 @@ const PerformanceMetrics = ({ label, info, id }) => {
   const lighthouseImageProps = {
     width: 40,
     height: 40,
-    src: "lighthouse.png",
+    src: "lighthouse.webp",
     alt: "Lighthouse reports",
     format: "webp",
   };
