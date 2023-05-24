@@ -1,6 +1,7 @@
 ---
 import Button from "../components/Button.astro";
 import Link from "../components/icons/Link.astro";
+import TimelineItem from './AboutTimelineSection.astro';
 
 const steps = [
   {
@@ -25,8 +26,9 @@ const steps = [
 <section
   class="px-8 py-10 relative text-gray-100 md:mx-auto md:w-full md:max-w-6xl"
 >
-  <p class="font-semibold text-4xl mb-4 orange-text eurostile">Timeline</p>
+  <p class="font-semibold text-4xl mb-4 orange-text eurostile">Resume</p>
   <div class="p-6 relative">
+    <TimelineItem color="meli" />
     {
       steps.map(({ job, title, duration, link, tId }) => (
         <div class="relative steps">

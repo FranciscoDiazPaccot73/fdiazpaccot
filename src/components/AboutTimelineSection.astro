@@ -1,0 +1,21 @@
+---
+const { color } = Astro.props;
+
+const colors = {
+  meli: '#fce64d'
+}
+
+const hexColor = colors[color]
+---
+
+<div class="flex justify-center w-full">
+  <div class="relative pr-11 md:flex md:flex-col md:items-end md:w-1/2">
+    Mercado Libre
+    <div class="border-l rounded-tl-full rounded-bl-full absolute h-1 w-10 -right-1 top-3" style={{ backgroundColor: hexColor }} />
+  </div>
+  <aside class={`hidden pl-4 border-l-[12px] w-1/2 border-[${hexColor}] md:block`}>
+    <div>Item 1</div>
+    <div> Item 2</div>
+    <div>Item 3</div>
+  </aside>
+</div>
