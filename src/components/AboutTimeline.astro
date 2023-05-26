@@ -1,6 +1,7 @@
 ---
 import Button from "../components/Button.astro";
 import TimelineItem from './AboutTimelineSection.astro';
+import ArrowUp from './icons/ArrowUp.astro';
 
 const steps = [
   {
@@ -51,14 +52,15 @@ const steps = [
 >
   <p class="font-semibold text-4xl mb-4 orange-text eurostile">Resume</p>
   <div class="p-6 relative flex flex-col items-center gap-4">
-    <p class="font-semibold text-2xl text-gray-400">Present</p>
+    <p class="font-semibold text-xl text-gray-400">Present</p>
     {steps.map(({tId, duration, ...others}, index) => (
       <TimelineItem color={tId} {...others} order={(index + 1) % 2 ? 'left' : 'right'} />
-      <p class="font-semibold text-2xl text-gray-400">{duration}</p>
+      <span class="md:hidden"><ArrowUp color="#e9552f" width={40} height={40} /></span>
+      <p class="font-semibold text-xl text-gray-400">{duration}</p>
     ))}
-    <span class="relative flex h-2 w-2">
+    <span class="relative flex h-4 w-4">
       <span class="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 orange-background"></span>
-      <span class="relative inline-flex rounded-full h-2 w-2 orange-background"></span>
+      <span class="relative inline-flex rounded-full h-4 w-4 orange-background"></span>
     </span>
   </div>
   <Button
