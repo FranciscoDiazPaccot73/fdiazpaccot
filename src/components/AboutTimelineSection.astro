@@ -1,7 +1,8 @@
 ---
+import { Image } from "@astrojs/image/components";
 import Link from "../components/icons/Link.astro";
 
-const { color, job, title, link, order = 'left' } = Astro.props;
+const { color, job, title, link, order = 'left', logo, logoW, description } = Astro.props;
 
 const colors = {
   meli: '#fce64d',
@@ -11,12 +12,16 @@ const colors = {
 
 const orders = {
   left: {
-    job: 'md:pr-12 md:border-r-[6px]',
-    description: 'md:pl-6 md:border-l-[6px]',
+    job: 'md:pr-12 md:border-r-[6px] md:items-end',
+    description: 'md:pl-12 md:border-l-[6px]',
+    jobConnection: 'border-l rounded-tl-full rounded-bl-full -right-[4.5rem]',
+    descConnection: 'border-r rounded-tr-full rounded-br-full -left-[2rem]',
   },
   right: {
-    job: 'md:pl-12 md:border-l-[6px] order-1',
-    description: 'pr-6 border-r-[6px]',
+    job: 'md:pl-12 md:border-l-[6px] md:items-start order-1',
+    description: 'pr-12 border-r-[6px]',
+    jobConnection: 'border-r rounded-tr-full rounded-br-full -left-[2rem]',
+    descConnection: 'border-l rounded-tl-full rounded-bl-full -right-[4.5rem]',
   }
 }
 
@@ -25,11 +30,19 @@ const orderStyle = orders[order];
 ---
 
 <div class="flex justify-center w-full relative">
-  <div class={`relative md:flex md:flex-col md:items-end md:w-1/2 ${orderStyle.job}`} style={{ borderColor: hexColor }}>
-    <div class="rounded-xl border orange-border relative black-background shadow py-3 px-5 md:mt-6">
-      <p class="text-center font-semibold text-3xl" style={{ color: hexColor }}>{title}</p>
+  <div class={`relative md:flex md:flex-col md:w-1/2 ${orderStyle.job}`} style={{ borderColor: hexColor }}>
+    <div class="rounded-xl border orange-border relative black-background shadow py-3 px-5 md:my-6">
+      <div class="flex items-center justify-center mb-2" title={title}>
+        <Image
+          src={logo}
+          width={logoW}
+          height={60}
+          alt="Logo"
+          format="webp"
+        />
+      </div>
       <p class="text-center text-gray-100 text-xl font-semibold">{job}</p>
-      <div class="flex items-center cursor-pointer md:mt-3 orange-text">
+      <div class="flex items-center cursor-pointer md:mt-3 orange-text justify-end">
         <Link color="#e9552f" width={18} height={18} />
         <a
           class="orange-text ml-1"
@@ -37,15 +50,18 @@ const orderStyle = orders[order];
           target="_blank"
           aria-label={`Click to go to ${title} page`}
         >
-          {link}
+          {title}
         </a>
       </div>
-      <div class="hidden md:block border-l rounded-tl-full rounded-bl-full absolute h-1 w-10 -right-[4.5rem] top-1/2 -translate-x-1/2" style={{ backgroundColor: hexColor, borderColor: hexColor }} />
+      <div class={`hidden md:block absolute h-1 w-10 top-1/2 -translate-x-1/2 ${orderStyle.jobConnection}`} style={{ backgroundColor: hexColor, borderColor: hexColor }} />
     </div>
   </div>
-  <aside class={`hidden pl-4 w-1/2 md:block ${orderStyle.description}`} style={{ borderColor: hexColor }}>
-    <div>Item 1</div>
-    <div> Item 2</div>
-    <div>Item 3</div>
+  <aside class={`hidden pl-4 w-1/2 md:flex md:flex-col md:gap-6 md:py-4 ${orderStyle.description}`} style={{ borderColor: hexColor }}>
+    {description?.map(descr => (
+      <div class="md:relative">
+        <p class="text-sm">&#x2022; {descr}</p>
+        <div class={`absolute h-1 w-10 top-1/2 -translate-x-1/2 ${orderStyle.descConnection}`} style={{ backgroundColor: hexColor, borderColor: hexColor }} />
+      </div>
+    ))}
   </aside>
 </div>
