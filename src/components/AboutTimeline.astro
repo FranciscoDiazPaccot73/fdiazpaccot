@@ -1,24 +1,28 @@
 ---
 import Button from "../components/Button.astro";
-import Link from "../components/icons/Link.astro";
 import TimelineItem from './AboutTimelineSection.astro';
 
 const steps = [
   {
-    job: `Sr Front-End Software Engineer`,
-    title: "Mercado Libre",
-    duration: "Dec 2019 - current",
-    location: "Santa Fe - Argentina",
+    job: `Sr. Software Engineer`,
+    title: "Strike",
+    duration: "May 2023",
     link: "https://mercadolibre.com",
-    tId: "meli-timeline",
+    tId: "strike",
   },
   {
-    job: `Ssr Full-Stack developer`,
+    job: `Sr. Front-End Software Engineer`,
+    title: "Mercado Libre",
+    duration: "Dec 2019",
+    link: "https://mercadolibre.com",
+    tId: "meli",
+  },
+  {
+    job: `Ssr. Full-Stack developer`,
     title: "Serfe",
-    duration: "Oct 2018 - Dec 2019",
-    location: "Santa Fe - Argentina",
+    duration: "Oct 2018",
     link: "https://serfe.com",
-    tId: "serfe-timeline",
+    tId: "serfe",
   },
 ];
 ---
@@ -27,9 +31,13 @@ const steps = [
   class="px-8 py-10 relative text-gray-100 md:mx-auto md:w-full md:max-w-6xl"
 >
   <p class="font-semibold text-4xl mb-4 orange-text eurostile">Resume</p>
-  <div class="p-6 relative">
-    <TimelineItem color="meli" />
-    {
+  <div class="p-6 relative flex flex-col items-center gap-4">
+    <p>Present</p>
+    {steps.map(({tId, duration, ...others}, index) => (
+      <TimelineItem color={tId} {...others} order={(index + 1) % 2 ? 'left' : 'right'} />
+      <p>{duration}</p>
+    ))}
+    {/*
       steps.map(({ job, title, duration, link, tId }) => (
         <div class="relative steps">
           <svg
@@ -73,7 +81,7 @@ const steps = [
           </div>
         </div>
       ))
-    }
+    */}
   </div>
   <Button
     href="docs/FranciscoDiazPaccot-resume.pdf"
