@@ -1,0 +1,10 @@
+---
+const { height = 24, width = 24, color = '#c9c9c9', hidden = false } = Astro.props;
+---
+
+<svg class={`${hidden ? 'hidden' : ''}`} height={height} width={width} viewBox="0 0 24 24" stroke-width="2" stroke={color} fill="none" stroke-line-cap="round" stroke-line-join="round">
+  <desc />
+  <line x1="12" y1="17" x2="12" y2="3" />
+  <path d="M15 6l-3 -3l-3 3" />
+  <circle cx="12" cy="19" r="2" />
+</svg>
