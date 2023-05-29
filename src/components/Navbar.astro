@@ -70,6 +70,17 @@ const { router } = Astro.props;
 						>Contact
 					</a>
 				</li>
+				<li>
+					<a
+						aria-label="Click to go to Blog page"
+						class={`font-medium hover:text-white px-4 py-3 flex items-center transition duration-150 ease-in-out border-l border-l-orange border-opacity-30 ${
+							router.includes("/blog") ? "active" : ""
+						}`}
+						href="/blog"
+					>
+						Blog
+					</a>
+				</li>
 			</ul>
 			<div class="self-center flex items-center mb-0 ml-2">
 				<div class="items-center flex">

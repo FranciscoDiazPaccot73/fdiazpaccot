@@ -1,0 +1,32 @@
+---
+import { getCollection } from 'astro:content';
+
+import PageLayout from "../../layouts/PageLayout.astro";
+
+import Content from '../../components/blog/Content';
+
+const meta = {
+	title: "Blog | Francisco Diaz Paccot",
+	description: "Francisco Diaz Paccot | Sr. Frontend Software Engineer.",
+	logoUrl: "https://i.ibb.co/mFYW5QJ/new-logo-small.webp",
+	url: "https://franciscodiazpaccot.dev",
+};
+
+const dataPosts = await getCollection('blog');
+
+dataPosts.forEach((post: any) => {
+	const timestamp = new Date(post.data.pubDate).getTime();
+	post.timestamp = timestamp;
+});
+
+const posts = dataPosts;
+---
+
+<PageLayout {meta} router="/blog">
+  <section class="px-8 py-12 relative text-gray-100 md:mx-auto md:w-full md:max-w-3xl">
+    <p class="font-semibold text-gray-100 text-3xl mb-8 eurostile">
+      Blog
+    </p>
+    <Content client:load posts={posts} />
+  </section>
+</PageLayout>

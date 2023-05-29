@@ -1,4 +1,19 @@
 @tailwind base;
+
+h1 {
+  @apply mt-8 text-2xl;
+}
+h2 {
+  @apply mt-6 text-xl;
+}
+h3 {
+  @apply mt-4 text-lg;
+}
+code {
+  font-family: monospace
+}
+
+
 @tailwind components;
 @tailwind utilities;
 

@@ -1,0 +1,130 @@
+---
+import { CollectionEntry, getCollection } from 'astro:content';
+
+import PageLayout from "../../layouts/PageLayout.astro";
+import FormattedDate from '../../components/FormattedDate.astro';
+import ChevronLeft from '../../components/icons/ChevronLeft.astro';
+
+export async function getStaticPaths() {
+	const posts = await getCollection('blog');
+	return posts.map((post) => ({
+		params: { slug: post.slug },
+		props: post,
+	}));
+}
+type Props = CollectionEntry<'blog'>;
+
+const post = Astro.props;
+
+const { Content } = await post.render();
+
+const meta = {
+	title: `${post.data.title} | Francisco Diaz Paccot`,
+	description: "Francisco Diaz Paccot | Sr. Frontend Software Engineer.",
+	logoUrl: "https://i.ibb.co/mFYW5QJ/new-logo-small.webp",
+	url: "https://franciscodiazpaccot.dev",
+};
+---
+
+<PageLayout {meta} router={`/blog/${post.slug}`}>
+	<article class="mx-auto max-w-4xl font-sans antialiased min-h-screen flex flex-col items-center">
+		<div class="p-5 text-white">
+			<div class="flex items-center gap-2">
+				<a
+					href="/blog"
+					class="inline-block text-gray-400 hover:bg-neutral-900 focus:outline-none focus:ring-4 focus:ring-neutral-900 rounded-lg text-sm p-2.5"
+					aria-label="Click to go Blogs"
+				>
+					<ChevronLeft />
+				</a>
+				<h1 class="text-orange font-bold my-3">{post.data.title}</h1>
+			</div>
+			<div>
+				<FormattedDate locale='es-AR' date={post.data.pubDate} className='text-gray-400' />
+				<span class="ml-2 italic text-gray-400 text-sm">{`${post.data.readingTime} min read`}</span>
+			</div>
+			{post.data.updatedDate && (
+				<div class="italic text-gray-400 text-sm">
+					Last updated on <FormattedDate locale='es-AR' date={post.data.updatedDate} />
+				</div>
+			)}
+			<hr />
+			{post.data.image && (
+				<div class="flex items-center justify-center my-5">
+					<img width={720} height={360} src={post.data.image} alt={post.data.title} />
+				</div>
+			)}
+			<p class="my-4">{post.data.description}</p>
+			<Content />
+			<div class="w-full flex flex-col justify-end items-end mt-12 text-white">
+				<span class="text-xs inline-block">Compartir</span>
+				<div class="flex share-list">
+					<a id='whatsapp' class="wp-h"><img src="https://img.icons8.com/material-rounded/24/000000/whatsapp--v1.png"/></a>
+					<a id='facebook' class='fb-h' ><img src="https://img.icons8.com/material-rounded/24/000000/facebook-new.png"/></a>
+					<a id='twitter' class='tw-h' ><img src="https://img.icons8.com/material-rounded/24/000000/twitter-squared.png"/></a>
+					<a id='linkedin' class='li-h' ><img src="https://img.icons8.com/material-rounded/24/000000/linkedin--v1.png"/></a>
+				</div>
+			</div>
+		</div>
+	</article>
+</PageLayout>
+
+<script>
+	const pageLink = window.location.href;
+	const pageTitle = String(document.title).replace(/\&/g, '%26');
+
+	const wpButton = document.getElementById('whatsapp');
+	const fbButton = document.getElementById('facebook');
+	const twButton = document.getElementById('twitter');
+	const lnButton = document.getElementById('linkedin');
+
+	if (wpButton) {
+		wpButton.addEventListener('click', () => {
+			window.open(`https://api.whatsapp.com/send?text=${pageLink}`)
+		})
+	}
+
+	if (fbButton) {
+		fbButton.addEventListener('click', () => {
+			window.open(`http://www.facebook.com/sharer.php?u=${pageLink}&quote=${pageTitle}`,'sharer','toolbar=0,status=0,width=626,height=436');
+		})
+	}
+
+	if (twButton) {
+		twButton.addEventListener('click', () => {
+			window.open(`https://twitter.com/intent/tweet?text=${pageTitle}&url=${pageLink}`,'sharer','toolbar=0,status=0,width=626,height=436');
+		})
+	}
+
+	if (lnButton) {
+		lnButton.addEventListener('click', () => {
+			window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${pageLink}`,'sharer','toolbar=0,status=0,width=626,height=436');
+		})
+	}
+</script>
+
+<style>
+	.share-list a {
+		border-radius: 100px;
+		width: 40px;
+		height: 40px;
+		padding: 7px;
+		margin: 10px;
+		cursor: pointer;
+		overflow: hidden;
+		display: flex;
+		align-items: color;
+		justify-content: center;
+		
+		img {
+			width: 100%;
+			height: 100%;
+			filter: invert(100%);
+		}
+	}
+
+	a.fb-h { background: #3B5998; }
+	a.tw-h { background: #00acee; }
+	a.li-h { background: #0077B5; }
+	a.wp-h { background: #69c060; }
+</style>
