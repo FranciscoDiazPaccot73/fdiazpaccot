@@ -66,7 +66,10 @@ const Content = ({ posts }) => {
                     {post.data.description}
                   </p>
                 </div>
-                <p className='text-xs text-orange opacity-80 h-4'>{post.data.readingTime ? `${post.data.readingTime} min read` : ''}</p>
+                <p className='text-xs text-orange opacity-80 h-4 flex justify-between items-center'>
+                  {post.data.readingTime ? `${post.data.readingTime} min read` : ''}
+                  <img alt='Spanish' src='/spain.svg' width={18} height={18} className='mr-2' />
+                </p>
               </div>
               {post.data.image &&
                 <img className="object-contain order-first md:order-2" width={720} height={360} src={post.data.image} alt="" />
