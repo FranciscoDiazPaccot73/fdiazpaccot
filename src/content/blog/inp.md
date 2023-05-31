@@ -1,7 +1,7 @@
 ---
 title: "INP ¡¿Qué es eso?!"
 description: "A menos de 1 año de la fecha de lanzamiento (Marzo de 2024) del Interaction to Next Paint (INP), la nueva métrica de las Core Web Vitals de Google, es importante que podamos entender cómo funcionara, cómo medir nuestros sitios web y cómo poder obtener buenos resultados en esta métrica."
-pubDate: "05/28/2023"
+pubDate: "05/30/2023"
 image: "/INP.png"
 tags: "PERFORMANCE,WEB VITALS"
 readingTime: "8"
@@ -88,11 +88,15 @@ Esta fase puede ser considerablemente larga, y esto podría darse por tener much
 Otro aspecto muy importante de interactividad es durante la carga del sitio web. Por lo que, es importante recordar que aunque nuestra página web esté renderizada, no significa que esté completamente cargada. Dependiendo de cuántos recursos se necesiten para que esté completamente funcional, es posible que los usuarios intenten interactuar con la página web, mientras esta está aún cargando.
 La evaluación de scripts durante la carga de nuestro sitio web, también puede aumentar el input delay. Recordemos que una vez que nuestro sitio descarga un archivo js, hay cosas que debe resolver antes de poder ejecutarlo (análisis de la sintaxis para asegurarse que es correcta, compilarlo en bytecode y finalmente ejecutarlo). Dependiendo del tamaño de estos scripts, puede introducir tareas largas dentro de nuestro hilo principal.
 
+<br/>
+
 **Processing time**
 Lo mejor que se puede hacer para esta fase, es reducir lo más posible el trabajo que hace cada evento callback. Si la tarea es demasiado compleja y no se puede reducir lo que se realiza en ella, la mejor alternativa es intentar dividirla en distintas tareas.
 Otra acción que se puede aplicar, es solo mantener en la tarea que se está ejecutando, la lógica necesaria para poder aplicar el cambio visual del siguiente frame. El resto, se debe mover a la siguiente tarea.
 
 Otra forma de evitar optimizar esta fase, es evitando el layout trashing. Eso es un problema de performance de renderizado que ocurre cuando se actualizan estilos dentro de un javascript y luego se leen dentro de la misma tarea. Algunas de las propiedades mas comunes que generan este problema son: <code>elem.clientWidth, elem.scrollTo(), elem.focus()</code> (para mas informacion sobre estas propiedades, se puede leer el siguiente texto: **[https://gist.github.com/paulirish/5d52fb081b3570c81e3a](https://gist.github.com/paulirish/5d52fb081b3570c81e3a)**)
+
+<br/>
 
 **Presentation delay**
 El conservar el tamaño del DOM lo más pequeño posible es muy importante, dado que si bien la relación entre el tiempo de renderizado y el tamaño del DOM no es lineal, si está claro que mientras más grande sea su tamaño, mas tiempo va a demorar en renderizar ya que requieren más trabajo. También es sabido que un DOM grande suele tener problemas en dos casos: durante el renderizado inicial de la página, ya que requiere mucho más trabajo para renderizar el estado inicial de la página. Por otro lado la respuesta a interacciones de usuarios ya las actualizaciones del renderizado se vuelve muy costosa, lo que hace que al navegador le lleve más tiempo poder mostrar el próximo frame.
