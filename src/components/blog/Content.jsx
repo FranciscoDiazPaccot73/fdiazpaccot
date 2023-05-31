@@ -67,7 +67,7 @@ const Content = ({ posts }) => {
                   </p>
                 </div>
                 <p className='text-xs text-orange opacity-80 h-4 flex justify-between items-center'>
-                  {post.data.readingTime ? `${post.data.readingTime} min read` : ''}
+                  {post.data.readingTime ? `~${post.data.readingTime} min read` : ''}
                   <img alt='Spanish' src='/spain.svg' width={18} height={18} className='mr-2' />
                 </p>
               </div>
