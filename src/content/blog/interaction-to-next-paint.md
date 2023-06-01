@@ -58,7 +58,9 @@ web con gran cantidad de interacciones, se toma el percentil 99 o 98.
 
 <br/>
 
-![The life of an interaction.](/blog/inp.png)
+<a href="/blog/inp.png" alt="The life of an interaction." target="_blank">
+<img src="/blog/inp.png" alt="The life of an interaction." />
+</a>
 
 <br/>
 
