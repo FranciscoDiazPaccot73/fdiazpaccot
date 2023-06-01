@@ -20,7 +20,7 @@ const { Content } = await post.render();
 
 const meta = {
   title: `${post.data.title} | Blog | Francisco Diaz Paccot`,
-  description: "Francisco Diaz Paccot | Sr. Frontend Software Engineer.",
+  description: post.data.description,
   logoUrl: "https://i.ibb.co/mFYW5QJ/new-logo-small.webp",
   url: "https://franciscodiazpaccot.dev",
 };
@@ -72,7 +72,9 @@ const meta = {
           </div>
         )
       }
-      <p class="my-4">{post.data.description}</p>
+      <p class="my-4 text-center text-xl text-orange">
+        {post.data.description}
+      </p>
       <Content />
       <div class="w-full flex flex-col justify-end items-end mt-12 text-white">
         <span class="text-xs inline-block">Compartir</span>
@@ -182,3 +184,11 @@ const meta = {
     background: #69c060;
   }
 </style>
+
+<script>
+  window.addEventListener("scroll", () => {
+    const calculation =
+      window.pageYOffset / (document.body.offsetHeight - window.innerHeight);
+    document.body.style.setProperty("--scroll", calculation.toString()), false;
+  });
+</script>
