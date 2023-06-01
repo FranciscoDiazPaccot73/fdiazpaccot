@@ -9,6 +9,7 @@ module.exports = {
 				primary: colors.blue,
 				secondary: colors.pink,
 				'main-bg': "#16080e",
+				'orange': '#e9552f'
 			},
 			fontFamily: {
 				sans: ["'InterVariable'", ...defaultTheme.fontFamily.sans],
