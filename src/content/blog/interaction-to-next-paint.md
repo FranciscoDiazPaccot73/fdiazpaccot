@@ -1,7 +1,7 @@
 ---
 title: "INP ¡¿Qué es eso?!"
 description: "Interaction to Next Paint (INP), el reemplazo del First Input Delay (FID)."
-pubDate: "05/30/2023"
+pubDate: "06/02/2023"
 image: "/INP.png"
 tags: "PERFORMANCE,WEB VITALS"
 readingTime: "6"
@@ -11,6 +11,8 @@ Siendo que falta menos de 1 año para su lanzamiento (Marzo de 2024) el INP es l
 nueva métrica de las Core Web Vitals que incorpora Google. Es importante que
 podamos entender cómo funcionara, cómo medir nuestros sitios web en base al INP
 y cómo mejorar esos resultados.
+
+<br/>
 
 Las Core Web Vitals miden actualmente tres métricas principales en un sitio web:
 la carga, con el **Largest Contentful Paint (LCP)**; la interactividad, con el
@@ -186,3 +188,7 @@ HTML usando JavaScript. Este proceso pasa por el
 **Critical Rendering Path**</a>, incluyendo el análisis del HTML, la aplicación
 de estilos, los cálculos del layout y el renderizado del layout. Estos pasos son
 inevitables y afectan directamente a la interactividad de nuestro sitio web.
+
+<br/>
+
+## **Muchas gracias por leer :)**
