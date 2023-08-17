@@ -42,48 +42,47 @@ const Content = ({ posts }) => {
   const [postsToShow, setPostsToShow] = useState(posts.sort((a,b) => b.timestamp - a.timestamp));
 
   return (
-    <ul className="flex flex-col">
+    <ul className="flex flex-col mt-10 border-t border-orange border-opacity-70">
       {postsToShow.map((post) => {
         const description = post.data.description ?? '';
         const { month, day, year } = getDateLabels(post?.data?.pubDate)
         const stack = post.data.tags?.split(',') ?? [];
 
         return (
-          <a href={`/blog/${post.slug}/`} key={`${post.timestamp}-${post.slug}`} className='border-b border-opacity-40 border-b-orange py-6 px-1 md:max-h-[168px]'>
-            <li              
-              style={{ gridTemplateColumns: "15% 55% 30%" }}
-              className="overflow-hidden w-full gap-2 flex flex-col md:grid md:grid-cols-custom md:items-center"
-            >
-              <div className="hidden w-full text-center font-semibold gap-2 text-2xl md:block md:w-20">
-                <p className='md:text-lg'>{month}</p>
-                <p className='md:text-2xl md:text-orange'>{day}</p>
-                <p className='md:text-sm font-normal'>{year}</p>
-              </div>
-              <div className="flex flex-col">                
-                <div className="dark:text-white font-bold">
-                  <p className='text-orange text-xl'>{post.data.title}</p>
-                  <p title={description.toString()} className="overflow-hidden whitespace-nowrap text-ellipsis dark:text-gray-400 font-normal text-sm">
+          <a href={`/blog/${post.slug}/`} key={`${post.timestamp}-${post.slug}`} className='border-b border-opacity-40 border-b-orange py-6 px-1'>
+            <li className='py-6 px-1'>
+              <article className="flex max-w-xl flex-col items-start justify-between">
+                <div className="flex items-center gap-x-4 text-xs">
+                  <p className="text-gray-400">{`${month} ${day}, ${year}`}</p>
+                  {stack && (
+                    <ul className="ml-2 flex gap-2 flex-wrap">
+                      {stack.map((tec) => (
+                        <li key={`${post.timestamp}-${tec}`} className="relative z-10 rounded-lg text-[10px] orange-background px-1 py-[2px] font-medium black-text">
+                          {tec}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+                <div className="font-bold relative">
+                  <h3 className='text-orange text-xl'>{post.data.title}</h3>
+                  <p title={description.toString()} className="mt-5 font-normal line-clamp-3 text-sm leading-6 text-gray-200">
                     {post.data.description}
                   </p>
                 </div>
-                <p className='text-xs text-orange opacity-80 h-4 flex justify-between items-center'>
+                <p className='text-xs text-orange opacity-80 h-4 flex justify-between items-center mt-2'>
                   {post.data.readingTime ? `~${post.data.readingTime} min read` : ''}
-                  <img alt='Spanish' src='/spain.svg' width={18} height={18} className='mr-2' />
+                  <img alt='Spanish' src='/spain.svg' width={18} height={18} className='ml-4' />
                 </p>
-              </div>
-              {post.data.image &&
-                <img className="max-h-20 object-contain order-first md:order-2 md:max-h-16" width={720} height={360} src={post.data.image} alt="" />
-              }
+                <div className="relative mt-8 flex items-center md:items-start">
+                  <div className="text-sm leading-6">
+                    {post.data.image &&
+                      <img className="max-h-20 object-contain order-first" width={720} height={360} src={post.data.image} alt="" />
+                    }
+                  </div>
+                </div>
+              </article>
             </li>
-            {stack && (
-              <ul className="mt-5 ml-2 flex gap-2 flex-wrap">
-                {stack.map((tec) => (
-                  <li key={`${post.timestamp}-${tec}`} className="px-1 py-[2px] text-center text-[10px] uppercase rounded-md orange-background black-text">
-                    {tec}
-                  </li>
-                ))}
-              </ul>
-            )}
           </a>
         )
       })}
