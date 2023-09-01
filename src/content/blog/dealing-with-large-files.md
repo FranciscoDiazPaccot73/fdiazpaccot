@@ -60,29 +60,49 @@ Los datos que vamos a necesitar para todo el proceso son, como mínimo:
 
 <br/>
 
+En este punto ya simplemente deberiamos armar un FormData para cada elemento del array de chunks. Luego usando algun metodo para palalelizar request (como usar Promise.all() o Promise.allSettled()) enviamos cada uno de nuestro chunk al servidor. En este ejemplo, este endpoint sera el **/upload**
+
+<br />
+
+Por ultimo, una vez que ya recibimos el 200 de cada una de la request, y sabemos que todos los chunks se subieron correctamente, queda emitir la request para avisarle a nuestro server que debe juntar todos los chunks, para poder guardar el archivo en su formato original. A este endpoint lo llamaremos **/merge**
+
 <p style="color:#e9552f;margin-top:32px;margin-bottom:16px;font-size:20px;font-weight:600">
-2- ¿Qué es el INP?
+2- El Servidor
 </p>
 
-El INP es la métrica que mide la interactividad general de las interacciones del
-usuario, registrando la latencia de todos los clicks, toques e interacciones del
-teclado que ocurren durante toda la visita del usuario a una página web. Por
-tanto, el valor final del INP es el mayor observado, ignorando los valores
-atípicos. Para calcularlo, en páginas web con pocas interacciones, se toma el
-peor tiempo observado, es decir, el percentil 100. Sin embargo, en las páginas
-web con gran cantidad de interacciones, se toma el percentil 99 o 98.
+> _`Nota: Suponiendo que ya tenemos un servidor node configurado y funcionando, vamos a pasar directamente a los endpoints que consumimos desde nuestro cliente.`_
 
 <br/>
 
-> _`Nota: Se considera como interacción al conjunto de event handlers que se ejecutan durante el mismo gesto lógico del usuario. La latencia de una interacción es la duración más larga de un grupo de event handlers que desencadenan la interacción, desde el momento en que el usuario comienza hasta el momento en que se presenta el próximo fotograma con alguna información visual.`_
+En nuestro servidor, por el momento tenemos que agregar 2 endpoints. Uno para recibir cada uno de los chunks y un segundo enpoint para volver a convertir ese conjunto de chunks en el archivo original.
 
 <br/>
 
-<a href="/blog/inp.png" alt="The life of an interaction." target="_blank">
-<img src="/blog/inp.png" alt="The life of an interaction." />
+> _`Nota: Vamos a usar la librería fs-extra para el manejo de nuestros archivos y multiparty para procesar el body de la request.`_
+
+<br />
+
+Para el primer endpoint, al cual llamamos **/upload**, lo que necesitamos realizar es bastante simple. Solamente usaremos la libreria **multiparty** para extraer cada una de los atributos de nuestro chunk que enviams en el body.
+
+<br />
+
+Luego vamos a definir tanto la carpeta donde guardaremos todos los chunks (esto deberia ser siempre el mismo path para todos los chunks que recibamos) y tambien la ubicacion donde guardaremos el chunk en especifico que estamos procesando. Una vez que tenemos toda esta informacion, simplemente nos queda el hacer algunas validaciones usando algun metodo de manejo de archivos, como es fs-extra.
+
+<br />
+
+Una vez que verificamos que no exista el archivo final (para evitar cargarlo mas de una vez), que el chunk no exista y que la carpeta que va a contener todos los chunks ya este creada, usamos la funcion **move** de fs-extra para guardar el chunk en nuestra carpeta contenedora.
+
+<a href="/blog/dealing-with-large-files/handle-form.webp" alt="The life of an interaction." target="_blank">
+<img src="/blog/dealing-with-large-files/handle-form.webp" alt="The life of an interaction." />
 </a>
 
 <br/>
+
+Con esto obtendremos algo como lo siguiente:
+
+<a href="/blog/dealing-with-large-files/loaded-chunks.webp" alt="The life of an interaction." target="_blank">
+<img src="/blog/dealing-with-large-files/loaded-chunks.webp" alt="The life of an interaction." />
+</a>
 
 <p style="color:#e9552f;margin-top:32px;margin-bottom:16px;font-size:20px;font-weight:600">
 3- ¿Cómo sé si el INP de mi página web es bueno?
