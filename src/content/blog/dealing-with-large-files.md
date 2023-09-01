@@ -64,7 +64,7 @@ En este punto ya simplemente deberiamos armar un FormData para cada elemento del
 
 <br />
 
-Por ultimo, una vez que ya recibimos el 200 de cada una de la request, y sabemos que todos los chunks se subieron correctamente, queda emitir la request para avisarle a nuestro server que debe juntar todos los chunks, para poder guardar el archivo en su formato original. A este endpoint lo llamaremos **/merge**
+Por ultimo, una vez que ya recibimos el 200 de cada una de la request, y sabemos que todos los chunks se subieron correctamente, queda emitir la request para avisarle a nuestro server que debe juntar todos los chunks, para poder guardar el archivo en su formato original. A este endpoint lo llamaremos **/merge**. En este endpoint lo que deberemos mandar en nuestro body son dos valores que enviamos en la request de **/upload**, que son: fileHash y size. Pero, adicionalmente, deberiamos enviar el nombre original de nuestro archivo.
 
 <p style="color:#e9552f;margin-top:32px;margin-bottom:16px;font-size:20px;font-weight:600">
 2- El Servidor
@@ -90,7 +90,7 @@ Luego vamos a definir tanto la carpeta donde guardaremos todos los chunks (esto 
 
 <br />
 
-Una vez que verificamos que no exista el archivo final (para evitar cargarlo mas de una vez), que el chunk no exista y que la carpeta que va a contener todos los chunks ya este creada, usamos la funcion **move** de fs-extra para guardar el chunk en nuestra carpeta contenedora.
+Una vez que verificamos que no exista el archivo final (para evitar cargarlo más de una vez), que el chunk no exista y que la carpeta que va a contener todos los chunks ya esté creada, usamos la función **move** de fs-extra para guardar el chunk en nuestra carpeta contenedora.
 
 <a href="/blog/dealing-with-large-files/handle-form.webp" alt="The life of an interaction." target="_blank">
 <img src="/blog/dealing-with-large-files/handle-form.webp" alt="The life of an interaction." />
@@ -103,6 +103,18 @@ Con esto obtendremos algo como lo siguiente:
 <a href="/blog/dealing-with-large-files/loaded-chunks.webp" alt="The life of an interaction." target="_blank">
 <img src="/blog/dealing-with-large-files/loaded-chunks.webp" alt="The life of an interaction." />
 </a>
+
+<br />
+
+En este punto ya deberíamos tener todos los chunks guardados en una carpeta, de manera ordenada. Por lo que es momento de realizar la función de juntar todos los chunks en el archivo original nuevamente, es decir el endpoint al cual llamamos **/merge**
+
+<br />
+
+Lo primero que deberíamos hacer es calcular el path donde están nuestros chunks. Con esa información, el hash de nuestro file y el tamaño de cada chunk (que nos llega por el body de la request) podemos realizar la funcionalidad en sí, es decir, el merge de nuestros chunks para obtener el archivo original.
+
+<br />
+
+Deberíamos leer la carpeta que contiene todos los chunks usando la función **readdir** de fs-extra. Luego de esto, el paso muy importante es ordenar esta lista de chunks, para asegurarnos de volver a armar el archivo de la forma correcta.
 
 <p style="color:#e9552f;margin-top:32px;margin-bottom:16px;font-size:20px;font-weight:600">
 3- ¿Cómo sé si el INP de mi página web es bueno?
