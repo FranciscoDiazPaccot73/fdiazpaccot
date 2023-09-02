@@ -76,6 +76,13 @@ declare module 'astro:content' {
 
 	const entryMap: {
 		"blog": {
+"dealing-with-large-files.md": {
+  id: "dealing-with-large-files.md",
+  slug: "dealing-with-large-files",
+  body: string,
+  collection: "blog",
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] },
 "interaction-to-next-paint.md": {
   id: "interaction-to-next-paint.md",
   slug: "interaction-to-next-paint",
