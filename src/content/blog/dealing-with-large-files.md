@@ -1,5 +1,5 @@
 ---
-title: "Lidiar con grandes archivos y timeouts"
+title: "Manejar grandes archivos, evitando timeouts"
 description: "Optimizando la Subida de Grandes Archivos a tu Servidor Web: Evitando los Problemas de timeouts."
 pubDate: "09/02/2023"
 image: "/blog/timeout.webp"
@@ -34,7 +34,9 @@ Lo primero que deberíamos hacer es procesar el archivo que cargamos en nuestra 
 
 <br/>
 
+<a href="/blog/dealing-with-large-files/slice-file.webp" title="code: Slice file." target="_blank">
 <img src="/blog/dealing-with-large-files/slice-file.webp" alt="Code: slice file" />
+</a>
 
 <br/>
 
@@ -46,7 +48,9 @@ Una vez que ya tenemos esta lista de chunks, podemos armar cada uno de los body 
 
 <br/>
 
-<img src="/blog/dealing-with-large-files/body-request.webp" alt="Code: Construct body request" />
+<a href="/blog/dealing-with-large-files/body-request.webp" title="Code: Construct body request." target="_blank">
+<img src="/blog/dealing-with-large-files/body-request.webp" alt="Code: Construct body request." />
+</a>
 
 <br/>
 
@@ -94,16 +98,16 @@ Luego vamos a definir tanto la carpeta donde guardaremos todos los chunks (esto 
 
 Una vez que verificamos que no exista el archivo final (para evitar cargarlo más de una vez), que el chunk no exista y que la carpeta que va a contener todos los chunks ya esté creada, usamos la función **move** de fs-extra para guardar el chunk en nuestra carpeta contenedora.
 
-<a href="/blog/dealing-with-large-files/handle-form.webp" alt="The life of an interaction." target="_blank">
-<img src="/blog/dealing-with-large-files/handle-form.webp" alt="The life of an interaction." />
+<a href="/blog/dealing-with-large-files/handle-form.webp" title="Code: Handling form data." target="_blank">
+<img src="/blog/dealing-with-large-files/handle-form.webp" alt="Code: Handling form data." />
 </a>
 
 <br/>
 
 Con esto obtendremos algo como lo siguiente:
 
-<a href="/blog/dealing-with-large-files/loaded-chunks.webp" alt="The life of an interaction." target="_blank">
-<img src="/blog/dealing-with-large-files/loaded-chunks.webp" alt="The life of an interaction." />
+<a href="/blog/dealing-with-large-files/loaded-chunks.webp" title="Loaded chunks." target="_blank">
+<img src="/blog/dealing-with-large-files/loaded-chunks.webp" alt="Loaded chunks." />
 </a>
 
 <br />
@@ -122,16 +126,16 @@ Deberíamos leer la carpeta que contiene todos los chunks usando la función **r
 
 Con el listado de chunks ordenado, vamos a iterar para a cada elemento generar una promise que lea cada uno de estos archivos, y luego haga un pipe del mismo a donde va a ser el archivo final. Para esta parte de escritura en el archivo final, es importante tener en cuenta a qué porción de nuestro archivo pertenece cada chunk, para eso si usamos la función **createWriteStream** de fs-extra podemos pasarle como option un valor **start**, que va a indicar en qué lugar del archivo vamos a escribir la porción que se esta está iterando, y por último, se elimina el chunk del directorio donde lo tenemos guardado. Para finalizar usamos **Promise.all()** para ejecutar todas estas promesas. Una vez terminado esto, ya podemos eliminar el directorio donde estaban todos los chunks.
 
-<a href="/blog/dealing-with-large-files/pipe-stream.webp" alt="The life of an interaction." target="_blank">
-<img src="/blog/dealing-with-large-files/pipe-stream.webp" alt="The life of an interaction." />
+<a href="/blog/dealing-with-large-files/pipe-stream.webp" title="Code: Pipe stream" target="_blank">
+<img src="/blog/dealing-with-large-files/pipe-stream.webp" alt="Code: Pipe stream" />
 </a>
 
 <br />
 
 De esta forma, vamos a obtener nuevamente el archivo original, quedandonos de esta manera:
 
-<a href="/blog/dealing-with-large-files/final-result.webp" alt="The life of an interaction." target="_blank">
-<img src="/blog/dealing-with-large-files/final-result.webp" alt="The life of an interaction." />
+<a href="/blog/dealing-with-large-files/final-result.webp" title="Final result" target="_blank">
+<img src="/blog/dealing-with-large-files/final-result.webp" alt="Final result" />
 </a>
 
 <br />
