@@ -2,6 +2,7 @@
 import Button from "../components/Button.astro";
 import Github from "../components/icons/Github.astro";
 import PortfolioCard from "../components/PortfolioCard.astro";
+import PortfolioItem from "../components/PortfolioItem.astro";
 import PageLayout from "../layouts/PageLayout.astro";
 
 const meta = {
@@ -17,6 +18,7 @@ const qpv = {
   link: "https://www.quepuedover.online",
   text: "¿Qué puedo ver?",
   logoUrl: "/qpv.webp",
+  bg: "/projects/qpv-bg.webp",
   logoWidth: 110,
   logoHeight: 80,
   stack: ["NextJs", "NodeJs", "SASS", "TypeScript"],
@@ -25,7 +27,7 @@ const qpv = {
     performance: 99,
     accessibility: 97,
     bestPracticies: 92,
-    seo: 100
+    seo: 100,
   },
 };
 const hiringjr = {
@@ -107,7 +109,7 @@ const markdown = {
     performance: 100,
     accessibility: 92,
     bestPracticies: 92,
-    seo: 100
+    seo: 100,
   },
 };
 const marquez = {
@@ -133,9 +135,22 @@ const dossiers = {
     performance: 100,
     accessibility: 100,
     bestPracticies: 100,
-    seo: 100
+    seo: 100,
   },
 };
+
+const ITEMS = [
+  qpv,
+  markdown,
+  dossiers,
+  lista,
+  hiringjr,
+  letters,
+  fifawc,
+  marquez,
+  filipa,
+  iustaAdmin,
+];
 ---
 
 <PageLayout {meta} router="/portfolio">
@@ -157,6 +172,36 @@ const dossiers = {
       <PortfolioCard {...filipa} />
       <PortfolioCard {...iustaAdmin} />
     </ul>
+    <Button href="https://github.com/FranciscoDiazPaccot73">
+      GO TO MY <span class="mx-1"
+        ><Github color="#16080e" height={20} width={20} />
+      </span> PROFILE
+    </Button>
+  </section>
+  <section class="py-4 px-2 md:px-4 md:py-16">
+    <div class="px-4 max-w-2xl mx-auto mt-10 md:max-w-7xl">
+      <div class="max-w-3xl">
+        <p class="font-semibold text-gray-100 text-3xl mb-8 eurostile">
+          My Portfolio
+        </p>
+        <p class="text-gray-400 mt-4">
+          Cada uno de estos exquisitos diseños es una tabula rasa, lista para
+          ser transformada en un reflejo único de tu visión. Cada plantilla es
+          una paleta en blanco, lista para ser pintada con tus ideas y tu
+          esencia, permitiendo que moldees tanto su contenido como los matices
+          de su paleta de colores a tu antojo.
+        </p>
+      </div>
+      <div
+        class="pt-10 mt-10 flex flex-col gap-8 border-t border-orange-35 md:pt-16 md:mt-16"
+      >
+        {
+          ITEMS?.map((item, index) => (
+            <PortfolioItem {...item} isReverse={index % 2 !== 0} />
+          ))
+        }
+      </div>
+    </div>
     <Button href="https://github.com/FranciscoDiazPaccot73">
       GO TO MY <span class="mx-1"
         ><Github color="#16080e" height={20} width={20} />
