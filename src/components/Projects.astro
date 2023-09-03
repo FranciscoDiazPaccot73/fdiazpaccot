@@ -9,22 +9,26 @@ import ProjectHomeCard from "./ProjectHomeCard.astro";
     Recent Projects
   </p>
   <ul class="w-full md:w-auto md:grid md:gap-6 grid-space">
-    <ProjectHomeCard
-      webpage="https://blabi.com.ar/"
-      ariaWebpageLabel="Click to go to Blabi webpage"
-      imageProps={{
-        src: "/blabi-logo.webp",
-        alt: "Blabi webpages",
-        width: 40,
-        height: 40,
-      }}
-      siteHrefProps={{
-        href: "/portfolio#blabi",
-        "aria-label": "Blabi info",
-      }}
-      label="Blabi websites"
-      id="blabi"
-    />
+    {
+      /*
+      <ProjectHomeCard
+        webpage="https://blabi.com.ar/"
+        ariaWebpageLabel="Click to go to Blabi webpage"
+        imageProps={{
+          src: "/blabi-logo.webp",
+          alt: "Blabi webpages",
+          width: 40,
+          height: 40,
+        }}
+        siteHrefProps={{
+          href: "/portfolio#blabi",
+          "aria-label": "Blabi info",
+        }}
+        label="Blabi websites"
+        id="blabi"
+      />
+     */
+    }
     <ProjectHomeCard
       webpage="https://www.quepuedover.online/"
       ariaWebpageLabel="Click to go to Que Puedo ver? webpage"
