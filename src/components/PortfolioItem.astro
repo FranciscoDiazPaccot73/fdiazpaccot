@@ -70,11 +70,23 @@ const startClass = isReverse ? "md:col-start-1" : "";
   <div class={`flex-auto md:row-start-1 md:col-span-7 ${startClass}`}>
     <div class="rounded-lg overflow-hidden relative">
       <a href={link} class="relative group">
-        <img
-          src={bg || logoUrl}
-          alt={text}
-          class="object-cover opacity-90 object-center bg-center bg-cover border border-orange-35"
-        />
+        {
+          bg ? (
+            <img
+              src={bg}
+              alt={text}
+              class="object-cover opacity-90 object-center bg-center bg-cover border border-orange-35"
+            />
+          ) : (
+            <div class="h-full w-full min-h-[90px] border border-orange-35 bg-orange-35 flex items-center justify-center md:min-h-[180px]">
+              {logoUrl ? (
+                <img class="block md:hidden" {...imageProps} />
+              ) : (
+                <p class="text-orange font-bold text-xl md:text-4xl">{text}</p>
+              )}
+            </div>
+          )
+        }
         {
           logoUrl ? (
             <img

@@ -1,7 +1,6 @@
 ---
 import Button from "../components/Button.astro";
 import Github from "../components/icons/Github.astro";
-import PortfolioCard from "../components/PortfolioCard.astro";
 import PortfolioItem from "../components/PortfolioItem.astro";
 import PageLayout from "../layouts/PageLayout.astro";
 
@@ -30,12 +29,31 @@ const qpv = {
     seo: 100,
   },
 };
+
+const blabi = {
+  id: "blabi",
+  link: "https://blabi.com.ar/",
+  text: "Blabi Websites",
+  logoUrl: "/blabi-logo.webp",
+  bg: "/projects/blabi.webp",
+  logoWidth: 40,
+  logoHeight: 40,
+  stack: ["Astro", "JavaScript", "Tailwindcss"],
+  description: `Blabi offers the possibility to create a website quickly and easily.`,
+  lighthouse: {
+    performance: 100,
+    accessibility: 100,
+    bestPracticies: 100,
+    seo: 100,
+  },
+};
 const hiringjr = {
   id: "hiringjr",
   github: "https://github.com/FranciscoDiazPaccot73/first-steps-it",
   link: "https://first-steps-it.vercel.app",
   text: "Hiring Jr",
   logoUrl: "/logo-hiring-jr.png",
+  bg: "/projects/hiringjr.webp",
   logoWidth: 80,
   logoHeight: 80,
   stack: ["NextJs", "NodeJs", "SASS", "Google Sheets"],
@@ -58,6 +76,7 @@ const letters = {
   link: "https://letters.franciscodiazpaccot.dev/",
   text: "Random Letters",
   logoUrl: "/letters.png",
+  bg: "/projects/random-letters.webp",
   logoWidth: 80,
   logoHeight: 80,
   stack: ["TypeScript", "Svelte", "JavaScript", "CSS"],
@@ -79,7 +98,6 @@ const lista = {
   github: "https://github.com/FranciscoDiazPaccot73/mi-lista",
   link: "https://lista.franciscodiazpaccot.dev",
   text: "Mi Lista",
-  logoUrl: "/vercel.png",
   logoWidth: 80,
   logoHeight: 80,
   stack: ["NextJs", "JavaScript", "TypeScript", "SASS", "ChakraUI"],
@@ -103,6 +121,7 @@ const markdown = {
   logoUrl: "/markdown.png",
   logoWidth: 80,
   logoHeight: 80,
+  bg: "/projects/markdown.webp",
   stack: ["NextJs", "Javascript", "CSS"],
   description: `A simple markdown file generator. You could generate, preview and download your markdown file.`,
   lighthouse: {
@@ -126,9 +145,7 @@ const dossiers = {
   id: "dossiers",
   link: "https://demo-cases.franciscodiazpaccot.dev/casos",
   text: "Dossiers",
-  logoUrl: "/vercel.png",
-  logoWidth: 80,
-  logoHeight: 80,
+  bg: "/projects/dossiers.webp",
   stack: ["NextJs", "JavaScript", "Sass", "Firebase"],
   description: `It's a website to administer and manage the dossiers of a lawyer firm.`,
   lighthouse: {
@@ -139,7 +156,8 @@ const dossiers = {
   },
 };
 
-const ITEMS = [
+const PORTFOLIO_ITEMS = [
+  blabi,
   qpv,
   markdown,
   dossiers,
@@ -154,49 +172,19 @@ const ITEMS = [
 ---
 
 <PageLayout {meta} router="/portfolio">
-  <section
-    class="px-8 py-12 relative text-gray-100 md:mx-auto md:w-full md:max-w-6xl"
-  >
-    <p class="font-semibold text-gray-100 text-3xl mb-8 eurostile">
-      My Portfolio
-    </p>
-    <ul class="mt-24 md:grid md:gap-10 grid-portfolio">
-      <PortfolioCard {...qpv} />
-      <PortfolioCard {...markdown} />
-      <PortfolioCard {...dossiers} />
-      <PortfolioCard {...lista} />
-      <PortfolioCard {...hiringjr} />
-      <PortfolioCard {...letters} />
-      <PortfolioCard {...fifawc} />
-      <PortfolioCard {...marquez} />
-      <PortfolioCard {...filipa} />
-      <PortfolioCard {...iustaAdmin} />
-    </ul>
-    <Button href="https://github.com/FranciscoDiazPaccot73">
-      GO TO MY <span class="mx-1"
-        ><Github color="#16080e" height={20} width={20} />
-      </span> PROFILE
-    </Button>
-  </section>
   <section class="py-4 px-2 md:px-4 md:py-16">
-    <div class="px-4 max-w-2xl mx-auto mt-10 md:max-w-7xl">
+    <div class="px-4 max-w-2xl mx-auto my-10 md:max-w-7xl">
       <div class="max-w-3xl">
         <p class="font-semibold text-gray-100 text-3xl mb-8 eurostile">
           My Portfolio
         </p>
-        <p class="text-gray-400 mt-4">
-          Cada uno de estos exquisitos diseños es una tabula rasa, lista para
-          ser transformada en un reflejo único de tu visión. Cada plantilla es
-          una paleta en blanco, lista para ser pintada con tus ideas y tu
-          esencia, permitiendo que moldees tanto su contenido como los matices
-          de su paleta de colores a tu antojo.
-        </p>
+        <p class="text-gray-400 mt-4">Some of my personal projects.</p>
       </div>
       <div
-        class="pt-10 mt-10 flex flex-col gap-8 border-t border-orange-35 md:pt-16 md:mt-16"
+        class="pt-10 mt-10 flex flex-col gap-12 border-t border-orange-35 md:pt-16 md:mt-16 md:gap-20"
       >
         {
-          ITEMS?.map((item, index) => (
+          PORTFOLIO_ITEMS?.map((item, index) => (
             <PortfolioItem {...item} isReverse={index % 2 !== 0} />
           ))
         }
