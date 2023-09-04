@@ -1,9 +1,7 @@
 ---
-import { Image } from "@astrojs/image/components";
-
 import Chrome from "./icons/Chrome.astro";
 import Github from "./icons/Github.astro";
-import PerformanceMetrics from './PerformanceMetrics';
+import PerformanceMetrics from "./PerformanceMetrics";
 
 const {
   link,
@@ -25,7 +23,7 @@ const {
   class={`w-full overflow-hidden mb-10 flex flex-col align-center rounded-xl justify-center border orange-border relative black-background shadow ${customClass}`}
 >
   <HeaderElem {...headerProps} class={headerClasses}>
-    {imageProps ? <Image format="webp" {...imageProps} /> : null}
+    {imageProps ? <img {...imageProps} /> : null}
     {imageText ? <span class="white-text">{label}</span> : null}
     {
       lighthouse ? (
@@ -98,6 +96,9 @@ const {
 
   .dossiers-background::before {
     background-image: url(/dossiers.jpg);
+  }
+  .blabi-background::before {
+    background-image: url(/projects/blabi.webp);
   }
 
   .image-bg::before {
