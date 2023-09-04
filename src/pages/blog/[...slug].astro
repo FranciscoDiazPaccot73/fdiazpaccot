@@ -1,5 +1,6 @@
 ---
-import { CollectionEntry, getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
 
 import PageLayout from "../../layouts/PageLayout.astro";
 import FormattedDate from "../../components/FormattedDate.astro";
@@ -64,7 +65,8 @@ const meta = {
         )
       }
       <hr />
-      {/*
+      {
+        /*
         <div class="relative">
         <div class="w-full flex justify-between text-white absolute bg-[#9da3ae] rounded-bl-md rounded-br-md left-0 share-list share-hidden">
           <a id="whatsapp"
@@ -89,7 +91,8 @@ const meta = {
           >
         </div>
       </div>
-      */}
+      */
+      }
       {
         post.data.image && (
           <div class="flex items-center justify-center my-5">
@@ -108,20 +111,27 @@ const meta = {
       </p>
       <Content />
     </div>
-    {post.data.mediumBlog || post.data.devBlog ? (
-      <div class="flex mb-6 w-full justify-end items-center mr-8">
-        {post.data.mediumBlog && (
-          <a href={post.data.mediumBlog} target="_blank">
-            <img class="h-16 w-16 border border-orange" src="/medium.png" />
-          </a>
-        )}
-        {post.data.devBlog && (
-          <a href={post.data.devBlog} target="_blank">
-            <img class="h-16 w-16" src="/dev-to.png" />
-          </a>
-        )}
-      </div>
-    ) : null}
+    {
+      post.data.mediumBlog || post.data.devBlog ? (
+        <div class="flex mb-6 gap-2 w-full justify-end items-center mr-8">
+          <p class="text-orange text-sm">Read also in: </p>
+          {post.data.mediumBlog && (
+            <a
+              href={post.data.mediumBlog}
+              target="_blank"
+              class="rounded-full overflow-hidden border border-orange"
+            >
+              <img class="h-6 w-6" src="/medium.png" alt="Medium blog" />
+            </a>
+          )}
+          {post.data.devBlog && (
+            <a href={post.data.devBlog} target="_blank">
+              <img class="h-16 w-16" src="/dev-to.png" />
+            </a>
+          )}
+        </div>
+      ) : null
+    }
   </article>
 </PageLayout>
 

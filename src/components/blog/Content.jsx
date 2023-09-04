@@ -57,7 +57,7 @@ const Content = ({ posts }) => {
                   {stack && (
                     <ul className="ml-2 flex gap-2 flex-wrap">
                       {stack.map((tec) => (
-                        <li key={`${post.timestamp}-${tec}`} className="relative z-10 rounded-lg text-[10px] orange-background px-1 py-[2px] font-medium black-text">
+                        <li key={`${post.timestamp}-${tec}`} className="relative z-10 rounded-md text-[10px] orange-background px-1 py-[2px] font-medium black-text">
                           {tec}
                         </li>
                       ))}
