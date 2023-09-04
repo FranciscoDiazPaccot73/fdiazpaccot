@@ -1,0 +1,112 @@
+---
+import PerformanceMetrics from "./PerformanceMetrics";
+import Github from "./icons/Github.astro";
+
+const {
+  link,
+  text,
+  logoUrl,
+  stack,
+  description,
+  logoWidth,
+  logoHeight,
+  id,
+  github,
+  bg,
+  lighthouse,
+  isReverse = false,
+} = Astro.props;
+
+const imageProps = {
+  width: logoWidth,
+  height: logoHeight,
+  src: logoUrl,
+  alt: text,
+};
+
+const startClass = isReverse ? "md:col-start-1" : "";
+---
+
+<div
+  class="flex flex-col-reverse md:gap-x-8 md:items-center md:grid-cols-12 md:grid"
+>
+  <div
+    class="mt-6 col-span-5 col-start-1 row-start-1 overflow-hidden relative md:col-span-5 md:mt-0"
+  >
+    <h3 class="text-orange font-medium text-lg md:text-3xl">{text}</h3>
+    <p class="text-gray-300 text-sm mt-2 md:text-md">{description}</p>
+    <ul class="mt-6 text-sm flex gap-2 flex-wrap w-4/5">
+      {
+        stack.map((tec: string) => (
+          <li class="px-2 py-1 text-center text-xs uppercase rounded-md bg-orange-35 text-orange">
+            {tec}
+          </li>
+        ))
+      }
+    </ul>
+    {
+      lighthouse ? (
+        <PerformanceMetrics
+          client:visible
+          id={id}
+          info={lighthouse}
+          label={`${text} Google Lighthouse performance result`}
+        />
+      ) : null
+    }
+    {
+      github ? (
+        <a
+          aria-label={`${text} github page`}
+          href={github}
+          target="_blank"
+          class="absolute top-0 right-0 card-home z-[6] md:top-2 md:right-2"
+        >
+          <Github width={28} height={28} color="#e9552f" />
+        </a>
+      ) : null
+    }
+  </div>
+  <div class={`flex-auto md:row-start-1 md:col-span-7 ${startClass}`}>
+    <div class="rounded-lg overflow-hidden relative">
+      <a href={link} class="relative group">
+        {
+          bg ? (
+            <img
+              src={bg}
+              alt={text}
+              class="object-cover opacity-90 object-center bg-center bg-cover border border-orange-35"
+            />
+          ) : (
+            <div class="h-full w-full min-h-[90px] border border-orange-35 bg-orange-35 flex items-center justify-center md:min-h-[180px]">
+              {logoUrl ? (
+                <img class="block md:hidden" {...imageProps} />
+              ) : (
+                <p class="text-orange font-bold text-xl md:text-4xl">{text}</p>
+              )}
+            </div>
+          )
+        }
+        {
+          logoUrl ? (
+            <img
+              {...imageProps}
+              class="hidden absolute top-2 left-2 transition-all duration-500 ease-in-out transform md:group-hover:scale-125 md:top-8 md:left-8 md:block"
+            />
+          ) : null
+        }
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+  .scale-card {
+    transform: var(--hover-scale-transform);
+    transition: var(--hover-scale-transition);
+  }
+
+  .card-home:hover {
+    @apply scale-card;
+  }
+</style>

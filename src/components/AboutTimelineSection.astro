@@ -2,21 +2,42 @@
 const { job, title, link, logo, description, duration, present } = Astro.props;
 ---
 
-<li class="mb-10 ml-6 last-of-type:mb-0">            
-  <span class="absolute flex items-center justify-center w-6 h-6 bg-orange-35 rounded-full -left-3 ring-8 ring-orange-35">
+<li class="mb-10 ml-6 last-of-type:mb-0">
+  <span
+    class="absolute flex items-center justify-center w-6 h-6 bg-orange-35 rounded-full -left-3 ring-8 ring-orange-35"
+  >
     <img src={logo} />
   </span>
-  <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-100 ml-2">{title}
-    {present && <span class="bg-orange-35 text-orange text-sm font-medium mr-2 px-2.5 py-0.5 rounded ml-3">Present</span>}
+  <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-100 ml-2">
+    {title}
+    {
+      present && (
+        <span class="bg-orange-35 text-orange text-sm font-medium mr-2 px-2.5 py-0.5 rounded ml-3">
+          Present
+        </span>
+      )
+    }
   </h3>
   <div class="flex flex-col gap-2 ml-2 mb-2 md:flex-row md:items-center">
     <p>{job}</p>
-    {duration && <time class="block text-sm font-normal leading-none text-orange-dark">Since: {duration}</time>}
+    {
+      duration && (
+        <time class="block text-sm font-normal leading-none text-orange-dark">
+          Since: {duration}
+        </time>
+      )
+    }
   </div>
   <div class="flex flex-col ml-2">
-    {description?.map(descr => (
-      <p class="mb-4 text-base font-normal text-gray-400">{descr}</p>
-    ))}
+    {
+      description?.map((descr: string) => (
+        <p class="mb-4 text-base font-normal text-gray-400">- {descr}</p>
+      ))
+    }
   </div>
-  <a href={link} class="inline-flex items-center px-3 py-1 text-sm font-medium text-orange bg-orange-35 border border-orange-35 rounded-lg hover:bg-orange hover:text-gray-900">{link}</a>
+  <a
+    href={link}
+    class="inline-flex items-center px-3 py-1 text-sm font-medium text-orange bg-orange-35 border border-orange-35 rounded-lg hover:bg-orange hover:text-gray-900"
+    >{link}</a
+  >
 </li>
