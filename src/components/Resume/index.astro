@@ -92,11 +92,11 @@ const buttonlabel = isSpanish ? "Descargar CV" : "Download Resume";
     </div>
     <div class="w-full">
       <Title label={experienceLabel} />
+      <TextSplitted left="STRIKE" />
+      <TextSplitted left="Sr. Software Engineer" right={`2023-${nowText}`} />
+      <Bullets content={strikeBullets} />
       <TextSplitted left="MERCADO LIBRE" right="Argentina" />
-      <TextSplitted
-        left="Sr. Frontend Software Engineer"
-        right={`2019-${nowText}`}
-      />
+      <TextSplitted left="Sr. Frontend Software Engineer" right={`2019-2023`} />
       <Bullets content={meliBullets} />
       <TextSplitted left="Serfe" right="Argentina" />
       <TextSplitted left="Ssr. Full-Stack Developer" right="2018-2019" />
