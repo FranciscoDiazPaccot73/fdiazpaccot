@@ -32,7 +32,7 @@ const PerformanceMetrics = ({ label, info, id }) => {
           alt='Google Lighthouse desktop report'
           title='Google Lighthouse desktop report'
           target="_blank"
-          class="inline-flex items-center px-3 py-1 text-sm font-medium text-orange bg-orange-35 border border-orange-35 rounded-lg hover:bg-orange hover:text-gray-900"
+          className="inline-flex items-center px-3 py-1 text-sm font-medium text-orange bg-orange-35 border border-orange-35 rounded-lg hover:bg-orange hover:text-gray-900"
         >
           Download desktop report
         </a>
@@ -41,7 +41,7 @@ const PerformanceMetrics = ({ label, info, id }) => {
           alt='Google Lighthouse mobile report'
           title='Google Lighthouse mobile report'
           target="_blank"
-          class="inline-flex items-center px-3 py-1 text-sm font-medium text-orange bg-orange-35 border border-orange-35 rounded-lg hover:bg-orange hover:text-gray-900"
+          className="inline-flex items-center px-3 py-1 text-sm font-medium text-orange bg-orange-35 border border-orange-35 rounded-lg hover:bg-orange hover:text-gray-900"
         >
           Download Mobile report
         </a>

@@ -35,11 +35,21 @@ const serfeBulletsEs = [
   "Formar parte del equipo de desarrollo del backend de la aplicación. Hecho en NodeJs.",
 ];
 
+const strikeBulletsEn = [
+  "As a prominent member of the team responsible for conceiving and bringing to life our company's innovative landing page, I have played a pivotal role in creating a fresh and rejuvenated image.",
+  "I have taken on the full responsibility for the comprehensive development of the new pentest creation workflow, the cornerstone of our company and the essential tool to meet the needs of all our valuable clients.",
+];
+const strikeBulletsEs = [
+  "Como miembro destacado del equipo encargado de concebir y dar vida a la innovadora landing page de nuestra empresa, he desempeñado un papel fundamental en la creación de una imagen fresca y renovada.",
+  "He asumido la responsabilidad completa del desarrollo integral del nuevo flujo de creación de pentests, la piedra angular de nuestra empresa y la herramienta esencial para satisfacer las necesidades de todos nuestros valiosos clientes.",
+];
+
 const isSpanish = lang === "es";
 const experienceLabel = isSpanish ? "EXPERIENCIA" : "EXPERIENCE";
 const nowText = isSpanish ? "Actualidad" : "Current";
 const meliBullets = isSpanish ? meliBulletsEs : meliBulletsEn;
 const serfeBullets = isSpanish ? serfeBulletsEs : serfeBulletsEn;
+const strikeBullets = isSpanish ? strikeBulletsEs : strikeBulletsEn;
 const langLabel = isSpanish ? "IDIOMAS" : "LANGUAGES";
 const spanish = isSpanish ? "ESPAÑOL" : "SPANISH";
 const english = isSpanish ? "INGLES" : "ENGLISH";
@@ -82,11 +92,11 @@ const buttonlabel = isSpanish ? "Descargar CV" : "Download Resume";
     </div>
     <div class="w-full">
       <Title label={experienceLabel} />
+      <TextSplitted left="STRIKE" />
+      <TextSplitted left="Sr. Software Engineer" right={`2023-${nowText}`} />
+      <Bullets content={strikeBullets} />
       <TextSplitted left="MERCADO LIBRE" right="Argentina" />
-      <TextSplitted
-        left="Sr. Frontend Software Engineer"
-        right={`2019-${nowText}`}
-      />
+      <TextSplitted left="Sr. Frontend Software Engineer" right={`2019-2023`} />
       <Bullets content={meliBullets} />
       <TextSplitted left="Serfe" right="Argentina" />
       <TextSplitted left="Ssr. Full-Stack Developer" right="2018-2019" />

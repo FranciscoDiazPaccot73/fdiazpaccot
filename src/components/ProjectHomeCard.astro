@@ -27,15 +27,15 @@ const {
   headerClasses={`px-10 h-48 font-bold flex justify-center items-center gap-4 relative min-w-[300px] card-home image-bg ${id}-background`}
   imageText
 >
-  <a
-    class="underline underline-offset-2 font-semibold"
-    href={webpage}
-    target="_blank"
-    aria-label={ariaWebpageLabel}
-  >
-    {label}
-  </a>
-  <div class="w-full mt-6 flex items-center flex-1 justify-around">
+  <div class="w-full flex items-center flex-1 gap-2 justify-around">
+    <a
+      class="underline-offset-2 font-semibold hover:underline"
+      href={webpage}
+      target="_blank"
+      aria-label={ariaWebpageLabel}
+    >
+      {label}
+    </a>
     {
       githubHref ? (
         <a
@@ -49,8 +49,8 @@ const {
       ) : null
     }
     <a
-      class="border text-xs py-2 px-4 rounded-2xl hover:bg-white hover:text-black white-border white-text"
-      {...siteHrefProps}>What is '{label}'?</a
+      class="text-xs rounded-2xl underline text-gray-200 hover:text-white"
+      {...siteHrefProps}>Learn more</a
     >
   </div>
 </Card>

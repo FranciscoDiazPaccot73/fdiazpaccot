@@ -30,6 +30,22 @@ import ProjectHomeCard from "./ProjectHomeCard.astro";
      */
     }
     <ProjectHomeCard
+      webpage="https://blabi.com.ar/"
+      ariaWebpageLabel="Click to go to Blabi webpage"
+      imageProps={{
+        src: "/blabi-logo.webp",
+        alt: "Blabi webpages",
+        width: 40,
+        height: 40,
+      }}
+      siteHrefProps={{
+        href: "/portfolio#blabi",
+        "aria-label": "Blabi info",
+      }}
+      label="Blabi websites"
+      id="blabi"
+    />
+    <ProjectHomeCard
       webpage="https://www.quepuedover.online/"
       ariaWebpageLabel="Click to go to Que Puedo ver? webpage"
       imageProps={{
@@ -71,7 +87,7 @@ import ProjectHomeCard from "./ProjectHomeCard.astro";
     class="underline underline-offset-3 tracking-widest white-text"
     aria-label="Click to see all my projects"
   >
-    SEE ALL
+    SEE ALL PROJECTS
   </a>
 </section>
 
