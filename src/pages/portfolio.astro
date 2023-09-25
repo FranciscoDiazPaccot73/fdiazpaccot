@@ -209,7 +209,7 @@ const PORTFOLIO_ITEMS = [
 <script>
   window.addEventListener("scroll", () => {
     const calculation =
-      window.pageYOffset / (document.body.offsetHeight - window.innerHeight);
+      window.scrollY / (document.body.offsetHeight - window.innerHeight);
     document.body.style.setProperty("--scroll", calculation.toString()), false;
   });
 </script>
