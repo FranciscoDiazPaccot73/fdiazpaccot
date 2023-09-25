@@ -1,7 +1,7 @@
 ---
 import Button from "../components/Button.astro";
-import TimelineItem from './AboutTimelineSection.astro';
-import ArrowUp from './icons/ArrowUp.astro';
+import TimelineItem from "./AboutTimelineSection.astro";
+import ArrowUp from "./icons/ArrowUp.astro";
 
 const steps = [
   {
@@ -9,16 +9,20 @@ const steps = [
     title: "Strike",
     duration: "May 2023",
     link: "https://strike.sh",
-    logo: '/strike-logo.ico',
+    logo: "/strike-logo.ico",
     tId: "strike",
+    description: [
+      "As a prominent member of the team responsible for conceiving and bringing to life our company's innovative landing page, I have played a pivotal role in creating a fresh and rejuvenated image.",
+      "I have taken on the full responsibility for the comprehensive development of the new pentest creation workflow, the cornerstone of our company and the essential tool to meet the needs of all our valuable clients.",
+    ],
     present: true,
   },
   {
     job: `Sr. Front-End Software Engineer`,
     title: "Mercado Libre",
-    duration: "Dec 2019 to May 2023",
+    duration: "Dec 2019 to May 2023 (3yr 5mo)",
     link: "https://mercadolibre.com",
-    logo: '/meli-logo.png',
+    logo: "/meli-logo.png",
     tId: "meli",
     description: [
       "Played a key role in the development of marketing tools for Mercado Shops from the ground up, contributing to the project's initial stages and ensuring a successful outcome.",
@@ -26,21 +30,21 @@ const steps = [
       `Contributed to the development of components in Andes, the company's internal UI library, improving the consistency and usability of the platform's interfaces.`,
       `Played a critical role in the formation of the Frontend Performance team, working on projects to optimize the performance of web applications and ensure they load quickly and efficiently.`,
       `Collaborated with the Benefits initiative enablings team to provide technical support and develop tools that automated the collection of performance metrics. These efforts allowed for quick identification and resolution of issues, resulting in improved frontend stability and overall user experience.`,
-    ]
+    ],
   },
   {
     job: `Ssr. Full-Stack developer`,
     title: "Serfe",
-    duration: "Oct 2018 to Dec 2019",
+    duration: "Oct 2018 to Dec 2019 (1yr 3mo)",
     link: "https://serfe.com",
-    logo: '/serfe-logo2.png',
+    logo: "/serfe-logo2.png",
     tId: "serfe",
     description: [
       `Conducted maintenance of a legacy mobile application built with PhoneGap and Angular 1.2, ensuring its continued usability and stability.`,
       `Led a team of 3 developers in building a new React Native mobile app, overseeing the project's entire lifecycle from conception to deployment.`,
       `Contributed to the development of the web platform for the application, utilizing React to create a modern and user-friendly interface.`,
       `Worked as a part of the backend development team for the application, utilizing Node.js to develop robust and scalable APIs and services that supported the frontend application.`,
-    ]
+    ],
   },
 ];
 ---
@@ -50,13 +54,22 @@ const steps = [
 >
   <p class="font-semibold text-4xl mb-16 orange-text eurostile">Resume</p>
   <ol class="relative border-l border-orange-35">
-    {steps.map(({tId, ...others}, index) => (
-      <TimelineItem color={tId} {...others} order={(index + 1) % 2 ? 'left' : 'right'} />
-    ))}
+    {
+      steps.map(({ tId, ...others }, index) => (
+        <TimelineItem
+          color={tId}
+          {...others}
+          order={(index + 1) % 2 ? "left" : "right"}
+        />
+      ))
+    }
   </ol>
   <span class="relative flex h-4 w-4 -ml-2 mt-2">
-    <span class="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 orange-background"></span>
-    <span class="relative inline-flex rounded-full h-4 w-4 orange-background"></span>
+    <span
+      class="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 orange-background"
+    ></span>
+    <span class="relative inline-flex rounded-full h-4 w-4 orange-background"
+    ></span>
   </span>
   <Button
     href="docs/FranciscoDiazPaccot-resume.pdf"

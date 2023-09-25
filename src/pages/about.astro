@@ -23,12 +23,12 @@ const meta = {
 <script>
   window.addEventListener("scroll", () => {
     const calculation =
-      window.pageYOffset / (document.body.offsetHeight - window.innerHeight);
+      window.scrollY / (document.body.offsetHeight - window.innerHeight);
     document.body.style.setProperty("--scroll", calculation.toString()), false;
 
     const me = document.getElementById("me-about");
-    if (window.pageYOffset >= 50 && !me.classList.contains("show")) {
-      me.classList.add("show");
+    if (window.scrollY >= 50 && !me?.classList.contains("show")) {
+      me?.classList.add("show");
     }
   });
 </script>
