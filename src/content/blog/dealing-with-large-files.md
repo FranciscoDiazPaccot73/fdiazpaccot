@@ -6,6 +6,8 @@ image: "/blog/timeout.webp"
 tags: "JAVASCRIPT,NODEJS,FILES"
 mediumBlog: "https://medium.com/@fran.diazpaccot/manejar-grandes-archivos-evitando-timeouts-4e248b27e3e4"
 readingTime: "6"
+languages: ['es']
+blogLanguage: 'es'
 ---
 
 <br/>
