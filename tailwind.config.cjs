@@ -8,10 +8,11 @@ module.exports = {
       colors: {
         primary: colors.blue,
         secondary: colors.pink,
-        "main-bg": "#16080e",
+        "main-bg": "#080305",
         orange: "#e9552f",
         "orange-35": "#e9552f35",
         "orange-dark": "#ca4a0a",
+        "gray-bg": "#2a2a2a"
       },
       fontFamily: {
         sans: ["'InterVariable'", ...defaultTheme.fontFamily.sans],

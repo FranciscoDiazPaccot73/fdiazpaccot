@@ -19,6 +19,8 @@ const blog = defineCollection({
 		readingTime: z.string().optional(),
 		mediumBlog: z.string().optional(),
 		devBlog: z.string().optional(),
+		languages: z.array(z.string()).optional(),
+		blogLanguage: z.string().optional()
 	}),
 });
 

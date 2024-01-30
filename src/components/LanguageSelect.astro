@@ -1,0 +1,38 @@
+---
+const { slug } = Astro.props;
+
+console.log(slug);
+const selected = slug.includes("/en") ? "en" : "es";
+---
+
+<select
+  id="languages"
+  data-location={slug}
+  class="bg-transparent border cursor-pointer border-orange text-orange text-sm rounded-lg block p-1 absolute right-1 top-2 md:top-9 md:right-4"
+>
+  <option id="option-en" selected={selected === "en"} value="en">
+    English
+  </option>
+  <option selected={selected === "es"} value="es"> Español</option>
+</select>
+
+<script>
+  const selectButton = document.getElementById("languages");
+  if (selectButton) {
+    selectButton.addEventListener("change", (event) => {
+      const { value } = event.target as any;
+      const { location } = selectButton.dataset;
+
+      if (value === "es") {
+        const newLocation = location?.replaceAll("/en", "") || location;
+        window.location.assign(newLocation as string);
+      }
+
+      if (value === "en") {
+        const newLocation =
+          location?.replaceAll("/blog", "/blog/en") || location;
+        window.location.assign(newLocation as string);
+      }
+    });
+  }
+</script>
