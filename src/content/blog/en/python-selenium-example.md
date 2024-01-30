@@ -4,7 +4,7 @@ description: "Deploying Python + Selenium applications without the need for dock
 pubDate: "01/30/2024"
 image: "/blog/python-selenium-example/python-selenium-example.webp"
 tags: "PYTHON,SELENIUM,API"
-mediumBlog: "https://medium.com/@fran.diazpaccot/manejar-grandes-archivos-evitando-timeouts-4e248b27e3e4"
+mediumBlog: "https://medium.com/@fran.diazpaccot/python-and-selenium-unleashed-without-docker-c526b3a6c2aa"
 readingTime: "2"
 languages: ['es', 'en']
 blogLanguage: 'en'
@@ -74,5 +74,19 @@ In this instruction, the first part establishes the path where the Chrome execut
 <br/>
 
 By implementing these steps, it is expected that our Python application can run Selenium seamlessly, having properly configured the render.com environment, installed Chrome, and defined the necessary dependencies in the build script and start command. This set of measures provides a solid framework for the smooth operation of the application in the desired environment.
+
+<br/>
+
+<br/>
+
+**Github:** <a style="text-decoration:underline" href="https://github.com/FranciscoDiazPaccot73/selenium-python-example" target="_blank">
+https://github.com/FranciscoDiazPaccot73/selenium-python-example</a>
+
+<br/>
+
+**Deploy:** <a style="text-decoration:underline" href="https://python-selenium-example.onrender.com/test" target="_blank">
+https://python-selenium-example.onrender.com/test</a>
+
+<br/>
 
 ## **Thanks for reading :)**
