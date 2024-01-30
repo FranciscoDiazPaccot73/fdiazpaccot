@@ -5,6 +5,8 @@ pubDate: "06/02/2023"
 image: "/INP.png"
 tags: "PERFORMANCE,WEB VITALS"
 readingTime: "6"
+languages: ['es']
+blogLanguage: 'es'
 ---
 
 Siendo que falta menos de 1 año para su lanzamiento (Marzo de 2024) el INP es la
