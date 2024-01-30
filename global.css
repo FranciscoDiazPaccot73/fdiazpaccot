@@ -25,7 +25,8 @@ code {
   --orange-35: #e9552f35;
   --orange-dark: #ca4a0a;
   --orange-darkest: #973403;
-  --black: #16080e;
+  --black-old: #16080e;
+  --black: #11060b;
   --hover-scale-transform: scale(1.05);
   --hover-scale-transition: all 200ms ease;
 }

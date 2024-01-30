@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const getDateLabels = (date) => {
   const day = new Date(date).getDate();
@@ -35,11 +35,11 @@ const getDateLabels = (date) => {
     12: "DEC",
   }
 
-  return {month: months[month + 1] || '', day, year};
+  return { month: months[month + 1] || '', day, year };
 }
 
 const Content = ({ posts }) => {
-  const [postsToShow, setPostsToShow] = useState(posts.sort((a,b) => b.timestamp - a.timestamp));
+  const postsToShow = posts.sort((a, b) => b.timestamp - a.timestamp);
 
   return (
     <ul className="flex flex-col mt-10 border-t border-orange border-opacity-70">
@@ -47,9 +47,10 @@ const Content = ({ posts }) => {
         const description = post.data.description ?? '';
         const { month, day, year } = getDateLabels(post?.data?.pubDate)
         const stack = post.data.tags?.split(',') ?? [];
+        const hasEnglish = post.data.languages?.includes('en')
 
         return (
-          <a href={`/blog/${post.slug}/`} key={`${post.timestamp}-${post.slug}`} className='border-b border-opacity-40 border-b-orange py-6 px-1'>
+          <a href={`/blog/${hasEnglish ? 'en/' : ''}${post.slug}/`} key={`${post.timestamp}-${post.slug}`} className='border-b border-opacity-40 border-b-orange py-6 px-1'>
             <li className='py-6 px-1'>
               <article className="flex max-w-xl flex-col items-start justify-between">
                 <div className="flex items-center gap-x-4 text-xs">
@@ -72,7 +73,8 @@ const Content = ({ posts }) => {
                 </div>
                 <p className='text-xs text-orange opacity-80 h-4 flex justify-between items-center mt-2'>
                   {post.data.readingTime ? `~${post.data.readingTime} min read` : ''}
-                  <img alt='Spanish' src='/spain.svg' width={18} height={18} className='ml-4' />
+                  {post.data.languages?.includes('en') && <img alt='English' src='/usa.png' width={18} height={18} className='ml-4' />}
+                  {post.data.languages?.includes('es') && <img alt='Spanish' src='/spain.svg' width={18} height={18} className='ml-4' />}
                 </p>
                 <div className="relative mt-8 flex items-center md:items-start">
                   <div className="text-sm leading-6">
