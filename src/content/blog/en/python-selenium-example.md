@@ -5,6 +5,7 @@ pubDate: "01/30/2024"
 image: "/blog/python-selenium-example/python-selenium-example.webp"
 tags: "PYTHON,SELENIUM,API"
 mediumBlog: "https://medium.com/@fran.diazpaccot/python-and-selenium-unleashed-without-docker-c526b3a6c2aa"
+devBlog: "https://dev.to/frandiazpaccot/python-and-selenium-unleashed-without-docker-4kcm"
 readingTime: "2"
 languages: ['es', 'en']
 blogLanguage: 'en'
@@ -18,7 +19,6 @@ In recent days, I have been dedicated to the development of a Python-based Appli
 
 In this way, I discovered that by using <a style="text-decoration:underline" href="https://render.com/" target="_blank">
 **render.com**</a> as a hosting platform, it is feasible to execute bash scripts on the server intended for the implementation of our application. This capability provides us with the opportunity to install Chrome directly on the mentioned server.
-For this purpose, through this simple bash script, we can install Chrome on our server if it is not already present.
 
 <br/>
 
