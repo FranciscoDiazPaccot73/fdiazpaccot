@@ -1,7 +1,7 @@
 {
   "name": "fdiazpaccot",
   "type": "module",
-  "version": "3.1.1",
+  "version": "3.1.2",
   "private": true,
   "homepage": "https://www.franciscodiazpaccot.dev/",
   "author": {
@@ -14,7 +14,8 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "open": "code . & yarn dev"
   },
   "dependencies": {
     "@astrojs/react": "^2.1.3",

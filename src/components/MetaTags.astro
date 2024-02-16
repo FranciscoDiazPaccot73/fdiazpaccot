@@ -23,6 +23,7 @@ const { siteTitle, title, description, logoUrl, url } = Astro.props;
   <meta property="twitter:url" content={url} />
   <meta property="twitter:title" content={title} />
   <meta property="twitter:description" content={description} />
+  <link rel="canonical" href={url} />
   <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
