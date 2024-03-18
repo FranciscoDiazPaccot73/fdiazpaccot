@@ -105,7 +105,7 @@ npm install --save commander shelljs
 
 Una vez instaladas estas dependencias, puedes utilizar commander para instanciar el CLI.
 
-Y añadimos el manejo de esta opción.
+Y añadir el manejo de esta opción.
 
 <br />
 
@@ -129,19 +129,17 @@ if (options.compare) {
  const baseStatsFilePath = path.join(process.cwd(), baseStats)
  compare(baseStatsFilePath, 'webpack-stats.json');
 }
-
 </pre>
 
-Como observamos en esta sección, esperamos recibir un atributo que indique la ubicación del archivo que vamos a utilizar como base. Adicionalmente, falta la implementacion de la función <i>compare()</i> que es la que se encargara de hacer toda la comparación.
+Falta la implementación de la función <i>compare()</i> que es la que se encargara de hacer toda la comparación.
 
 <br />
 
-Lo siguiente que debemos hacer es, una vez que ejecutemos el CLI dentro de una aplicación, instalar las dependencias y realizar la compilación (build) de la misma. Con estos dos pasos completados, deberíamos haber generado el nuevo archivo de estadísticas (dado que agregamos el plugin en las configuraciones de Webpack en el paso anterior). Por último, podremos comparar ambos archivos para identificar las diferencias.
+Lo siguiente que debemos hacer -una vez que ejecutemos el CLI dentro de una aplicación- es instalar las dependencias y realizar la compilación (build) de la misma. Con estos dos pasos completos, se debería haber generado el nuevo archivo de estadísticas (dado que agregamos el plugin en las configuraciones de Webpack en el paso anterior). Por último, podremos comparar ambos archivos para identificar las diferencias.
 
 <br />
 
-A continuación, vamos a ver cómo implementar esto en código:
-Primero, utilizaremos ShellJS para ejecutar los comandos <i>npm install</i> y luego <i>npm run build</i>. Y el siguiente paso consiste en buscar ambos archivos que hemos generado y compararlos entre sí.
+A continuación, vamos a ver cómo implementar esto en código. Primero, utilizar ShellJS para ejecutar los comandos <i>npm install</i> y luego <i>npm run build</i>. Y el siguiente paso, consiste en buscar ambos archivos que se han generado y compararlos entre sí.
 
 <br />
 
@@ -208,7 +206,7 @@ async function compare() {
 }
 </pre>
 
-Con esto, deberíamos obtener como resultado una tabla que compare la cantidad de JavaScript que había antes con lo que estamos sumando o restando con este Pull Request (PR).
+Con esto deberíamos obtener como resultado, una tabla que compare la cantidad de JavaScript que había antes con lo que estamos sumando o restando con este Pull Request (PR).
 
 <br />
 
@@ -216,13 +214,13 @@ Con esto, deberíamos obtener como resultado una tabla que compare la cantidad d
 
 <br />
 
-Hasta este punto, hemos desarrollado el CLI para ejecutarlo en cualquiera de nuestras aplicaciones, pero esto se limita únicamente a un entorno local. Podemos llevarlo un paso más allá e integrarlo directamente en nuestros PRs, lo que nos permitirá controlar cada Pull Request que se envíe a nuestra rama principal.
+Hasta este punto hemos desarrollado el CLI para ejecutarlo en cualquiera de nuestras aplicaciones, pero esto se limita únicamente a un entorno local. Podemos llevarlo un paso más allá e integrarlo directamente en nuestros PRs, lo que nos permitirá controlar cada Pull Request que se envíe a nuestra rama principal.
 
 <p style="color:#e9552f;margin-top:32px;margin-bottom:16px;font-size:20px;font-weight:600">
 4- CLI desde una Github Action
 </p>
 
-Para ejecutar nuestro CLI desde un GitHub Action, primero debemos publicarlo. Una forma eficiente de hacer esto automáticamente cada vez que actualicemos nuestro CLI es creando un GitHub Action específicamente para esta tarea.
+Para ejecutar nuestro CLI desde un GitHub Action, primero debemos publicarlo. Una forma eficiente de hacer esto automáticamente (cada vez que actualicemos nuestro CLI) es creando un GitHub Action específicamente para esta tarea.
 
 <br />
 
@@ -231,7 +229,7 @@ Para lograr esto, necesitaríamos generar un token desde nuestro perfil de npm y
 <br />
 
 <pre style="background: #2a2a2a; border-left: 1px solid #e9552f; color: #89cff0; page-break-inside: avoid; font-family: monospace; font-size: 15px; line-height: 1.6; margin-bottom: 1.6em; overflow: auto; padding: 10px; display: block; word-wrap: break-word;overflow-x: auto;max-width:calc(100vw - 20px)">
-<span style="color:#62a333">// .github/workflows/publish.yml de nuestro CLI</span>
+<span style="color:#62a333">// .github/workflows/publish.yml del CLI</span>
 name: "Publish package to npm"
 
 
@@ -262,7 +260,7 @@ Ahora, simplemente debemos crear la acción en nuestra aplicación Next.js para 
 <br />
 
 <pre style="background: #2a2a2a; border-left: 1px solid #e9552f; color: #89cff0; page-break-inside: avoid; font-family: monospace; font-size: 15px; line-height: 1.6; margin-bottom: 1.6em; overflow: auto; padding: 10px; display: block; word-wrap: break-word;overflow-x: auto;max-width:calc(100vw - 20px)">
-<span style="color:#62a333">// .github/workflows/analize.yml de nuestra app</span>
+<span style="color:#62a333">// .github/workflows/analize.yml de la app a medir</span>
 name: "Analyze webpack stats"
 
 
@@ -293,7 +291,7 @@ jobs:
          GH_REPO: ${{secrets.GH_REPO}}
 </pre>
 
-Al ejecutarlo en un entorno de Integración Continua (CI), ya no podríamos ver las salidas de las console.table que realizamos directamente en la consola, sin entrar a ver la acción en sí. Por lo tanto, sería necesario, para simplificar y comprender rápidamente los resultados, agregar un comentario en el Pull Request con el resultado de la acción. Para lograr esto, podemos utilizar <i>@octokit/rest</i> para agregar comentarios a nuestro PR.
+Al ejecutarlo en un entorno de Integración Continua (CI) ya no podríamos ver las salidas del comando <i>console.table</i> que realizamos directamente en la consola, sin entrar a ver la acción en sí. Por lo tanto, sería necesario para simplificar y comprender rápidamente los resultados, agregar un comentario en el Pull Request con el resultado de la acción. Para lograr esto, podemos utilizar <i>@octokit/rest</i> para agregar el comentario.
 
 <br />
 
@@ -341,7 +339,8 @@ Después de que la ejecución de nuestra acción termine, obtendríamos algo sim
 
 <br />
 
-Lo que ocurra a continuación está sujeto a cuánto deseemos profundizar en este tema. Podemos analizar los chunks que cada asset consume al agregar más cantidad de JavaScript, e incluso identificar el punto de entrada exacto donde esto ocurre.
+Lo que se desarrollo hasta este punto, es solamente la base. Todo lo querramos extender esta solución, esta sujero a cuánto querramos profundizar en esta solución.
+Se podría analizar los chunks que cada asset consume al agregar más cantidad de JavaScript, e incluso identificar el punto de entrada exacto donde esto ocurre.
 
 <br />
 
