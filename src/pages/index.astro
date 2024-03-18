@@ -3,6 +3,7 @@ import PageLayout from "../layouts/PageLayout.astro";
 import Home from "../components/Home.astro";
 import About from "../components/About.astro";
 import Projects from "../components/Projects.astro";
+import BlogHome from "../components/sections/BlogHome.astro";
 
 const meta = {
 	title: "Francisco Diaz Paccot",
@@ -15,90 +16,6 @@ const meta = {
 <PageLayout {meta} router="/">
 	<Home />
 	<About />
-	<section
-		class="px-8 py-6 relative text-white flex items-center flex-col w-full md:mx-auto md:w-full md:max-w-6xl"
-	>
-		<div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
-			<div class="mx-auto max-w-screen-sm text-center lg:mb-16 mb-8">
-				<h2
-					class="mb-4 text-3xl lg:text-4xl tracking-tight font-extrabold text-orange"
-				>
-					Blog
-				</h2>
-				<p class="font-light text-xl text-gray-400">
-					Some of my ideas, thoughts and knowledge.
-				</p>
-			</div>
-			<div class="grid gap-8 lg:grid-cols-2">
-				<article
-					class="p-6 bg-orange-35 rounded-lg border border-orange shadow-md"
-				>
-					<div class="flex justify-end items-center mb-5 text-gray-300">
-						<span class="text-sm">Mar 18, 2024</span>
-					</div>
-					<h2 class="mb-2 text-2xl font-bold tracking-tight text-white">
-						<a href="/blog/webpack-stats-file/">Webpack stats file</a>
-					</h2>
-					<p class="mb-5 font-light text-gray-400">
-						Analizar la cantidad de JavaScript que estamos añadiendo en un pull
-						request (PR) en una aplicación Next.js utilizando el archivo de
-						estadísticas de Webpack. (es)
-					</p>
-					<div class="flex justify-end items-center">
-						<a
-							href="/blog/webpack-stats-file/"
-							class="inline-flex items-center font-medium text-orange hover:underline"
-						>
-							Read more
-							<svg
-								class="ml-2 w-4 h-4"
-								fill="currentColor"
-								viewBox="0 0 20 20"
-								xmlns="http://www.w3.org/2000/svg"
-								><path
-									fill-rule="evenodd"
-									d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-									clip-rule="evenodd"></path></svg
-							>
-						</a>
-					</div>
-				</article>
-				<article
-					class="p-6 bg-orange-35 rounded-lg border border-orange shadow-md"
-				>
-					<div class="flex justify-end items-center mb-5 text-gray-300">
-						<span class="text-sm">Jan 30, 2024</span>
-					</div>
-					<h2 class="mb-2 text-2xl font-bold tracking-tight text-white">
-						<a href="/blog/en/python-selenium-example/"
-							>Python and Selenium, Unleashed without Docker</a
-						>
-					</h2>
-					<p class="mb-5 font-light text-gray-400">
-						Deploying Python + Selenium applications without the need for
-						dockerize it.
-					</p>
-					<div class="flex justify-end items-center">
-						<a
-							href="/blog/en/python-selenium-example/"
-							class="inline-flex items-center font-medium text-orange hover:underline"
-						>
-							Read more
-							<svg
-								class="ml-2 w-4 h-4"
-								fill="currentColor"
-								viewBox="0 0 20 20"
-								xmlns="http://www.w3.org/2000/svg"
-								><path
-									fill-rule="evenodd"
-									d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-									clip-rule="evenodd"></path></svg
-							>
-						</a>
-					</div>
-				</article>
-			</div>
-		</div>
-	</section>
+	<BlogHome />
 	<Projects />
 </PageLayout>

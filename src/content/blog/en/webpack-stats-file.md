@@ -1,45 +1,47 @@
 ---
 title: "Webpack stats file"
-description: "Analizar la cantidad de JavaScript que estamos añadiendo en un pull request (PR) en una aplicación Next.js utilizando el archivo de estadísticas de Webpack."
+description: "Analyze the amount of JavaScript we are adding in a pull request (PR) in a Next.js application using the Webpack stats file."
 pubDate: "03/18/2024"
 image: "/blog/webpack-stats-file/webpack-react.webp"
 tags: "WEBPACK,NEXTJS,CLI,PERFORMANCE"
+mediumBlog: "https://medium.com/@fran.diazpaccot/webpack-stats-file-84179474101a"
+devBlog: "https://dev.to/frandiazpaccot/webpack-stats-file-3hi2"
 readingTime: "5"
 languages: ["es", 'en']
-blogLanguage: "es"
+blogLanguage: "en"
 ---
 
 <br/>
 
-Para comenzar, es importante decir que cuando nos referimos a performance es crucial comprender que a medida que incorporamos más JavaScript en nuestras aplicaciones frontend -especialmente si utilizamos React como base- es más probable que experimentemos problemas de rendimiento. Por esta razón, considero fundamental poder ejercer cierto control sobre la cantidad de JavaScript que agregamos a medida que avanzamos con los pull requests en nuestra aplicación.
+To begin with, it is important to say that when we refer to performance it is crucial to understand that as we incorporate more JavaScript in our frontend applications -especially if we use React as a base- we are more likely to experience performance issues. For this reason, I consider it critical to be able to exercise some control over the amount of JavaScript we add as we move forward with pull requests in our application.
 
 <br/>
 
-Para abordar este desafío (dado que la mayoría de las aplicaciones que emplean React como librería también utilizan Webpack como empaquetador) podemos aprovechar una herramienta muy poderosa que nos proporciona este bundle. Esta herramienta consiste en generar el archivo de estadísticas (stats file) de nuestra aplicación al crear el build. Puedes encontrar más información sobre esto en la documentación oficial de <a style="text-decoration:underline" href="https://webpack.js.org/api/stats/" target="_blank">**Webpack**</a>
+To address this challenge (since most applications that use React as a library also use Webpack as a packager) we can take advantage of a very powerful tool provided by this bundle. This tool consists in generating the stats file of our application when creating the build. You can find more information about this in the official <a style="text-decoration:underline" href="https://webpack.js.org/api/stats/" target="_blank">**Webpack**</a> documentation.
 
 <br/>
 
-Teniendo estas herramientas en mente, una práctica altamente recomendable antes de agregar código a nuestra rama principal es detectar qué estamos incorporando a la aplicación. Esto implica tener claridad sobre la cantidad de JavaScript, CSS, imágenes y otros recursos que estamos añadiendo.
+With these tools in mind, a highly recommended practice before adding code to our main branch is to detect what we are adding to the application. This involves being clear about the amount of JavaScript, CSS, images and other resources we are adding.
 
 <br />
 
-Este archivo no se genera de manera automática al realizar el build de nuestra aplicación. En este blog exploraremos cómo podemos generar este archivo y, además, cómo evaluarlo para comprender mejor qué estamos agregando cada vez que hacemos un push de nuestro código.
+This file is not generated automatically when building our application. In this blog we will explore how we can generate this file and also how to evaluate it to better understand what we are adding each time we push our code.
 
 <p style="color:#e9552f;margin-top:32px;margin-bottom:16px;font-size:20px;font-weight:600">
-1- Pre-requisitos
+1- Prerequisites
 </p>
 
--- Tener una aplicación que utilice Webpack. Para este ejemplo, crearemos una aplicación utilizando Next.js que, por defecto utiliza Webpack.
+-- Have an application that uses Webpack. For this example, we will create an application using Next.js which, by default, uses Webpack.
 
--- Instalar el plugin webpack-stats-plugin, que nos permitirá generar los archivos de estadísticas de Webpack. En este caso, usaré <a style="text-decoration:underline" href="https://www.npmjs.com/package/webpack-stats-plugin" target="_blank">**webpack-stats-plugin**</a>
+-- Install the <a style="text-decoration:underline" href="https://www.npmjs.com/package/webpack-stats-plugin" target="_blank">**webpack-stats-plugin**</a> plugin, which will allow us to generate Webpack statistics files.
 
--- Escribir un script (para este caso, en Node.js) que evalúe el archivo de estadísticas generado y nos proporcione conclusiones útiles sobre los recursos agregados a nuestra aplicación.
+-- Create a script (in this case, using Node.js) that evaluates the generated statistics file and provides us with useful conclusions about the resources added to our application.
 
 <p style="color:#e9552f;margin-top:32px;margin-bottom:16px;font-size:20px;font-weight:600">
-2- Aplicación que queremos medir
+2- Application to be measured
 </p>
 
-Lo primero que se debe hacer es instalar el plugin <i>webpack-stats-plugin</i> o cualquier otro plugin que nos permita generar los archivos de estadísticas de Webpack.
+The first thing to do is to install the <i>webpack-stats-plugin</i> plugin or any other plugin that allows us to generate Webpack statistics files.
 
 <br />
 
@@ -49,7 +51,7 @@ npm install -–save webpack-stats-file
 
 <br />
 
-Una vez instalada la librería, es necesario ajustar la configuración de Webpack para integrar el plugin. Dado que, estamos trabajando con una aplicación Next.js, esto implica realizar modificaciones en el archivo <i>next.config.js</i> específicamente.
+Once the library is installed, it is necessary to adjust the Webpack configuration to integrate the plugin. Since, we are working with a Next.js application, this involves making modifications to the <i>next.config.js</i> file specifically.
 
 <br />
 
@@ -81,21 +83,21 @@ module.exports = nextConfig;
 
 <br />
 
-Con la configuración establecida, al ejecutar el comando <i>npm run build</i>, deberíamos observar un nuevo archivo JSON en la raíz de nuestra aplicación. Este archivo llevará el nombre que especificamos en la configuración, en este caso, <i>webpack-stats-base.json</i>.
+With the configuration set up, when running the <i>npm run build</i> command, we should notice a new JSON file in the root of our application. This file will have the name we specified in the configuration, in this case, <i>webpack-stats-base.json</i>.
 
 <br />
 
-> _`Nota: En el ejemplo proporcionado, dentro de las configuraciones estamos incluyendo assets: true. Sin embargo, para ampliar aún más el contenido del archivo de estadísticas, podemos incluir otros atributos como entrypoints, chunks, entre otros. Para comprender el propósito de cada atributo y su funcionamiento, te recomendamos consultar la documentación oficial de Webpack en el siguiente enlace: `<a style="text-decoration:underline" href="https://webpack.js.org/api/stats/" target="_blank">https://webpack.js.org/api/stats/</a>_
+> _`Note: In the example provided, within the configurations we are including assets: true. However, to further expand the content of the statistics file, we can include other attributes such as entrypoints, chunks, among others. To understand the purpose of each attribute and how it works, we recommend that you consult the official Webpack documentation at the following link: `<a style="text-decoration:underline" href="https://webpack.js.org/api/stats/" target="_blank">https://webpack.js.org/api/stats/</a>_
 
 <br />
 
-Lo ideal en este punto sería generar este archivo de control desde nuestra rama principal (main). Una vez que hayamos creado el CLI y esté listo para su uso, deberíamos guardar el archivo de estadísticas generado en el repositorio. Esto garantizará que siempre tengamos acceso a la información sobre los recursos agregados a nuestra aplicación en la rama principal del proyecto.
+Ideally at this point we should generate this control file from our main branch. Once we have created the CLI and it is ready for use, we should save the generated statistics file in the repository. This will ensure that we always have access to information about the resources added to our application in the main branch of the project.
 
 <p style="color:#e9552f;margin-top:32px;margin-bottom:16px;font-size:20px;font-weight:600">
-3- CLI
+3- The CLI
 </p>
 
-Para instalar <i>commander</i> y <i>shelljs</i>, se puede ejecutar el siguiente comando:
+To install <i>commander</i> and <i>shelljs</i>, you can run the following command:
 
 <br />
 
@@ -103,9 +105,9 @@ Para instalar <i>commander</i> y <i>shelljs</i>, se puede ejecutar el siguiente 
 npm install --save commander shelljs
 </pre>
 
-Una vez instaladas estas dependencias, se instancia el CLI utilizando commander.
+Once these dependencies are installed, the CLI is instantiated using commander.
 
-Y luego, añadir el manejo de esta opción.
+And then, add the handling of this option.
 
 <br />
 
@@ -131,15 +133,15 @@ if (options.compare) {
 }
 </pre>
 
-Falta la implementación de la función <i>compare()</i> que es la que se encargara de hacer toda la comparación.
+The implementation of the <i>compare()</i> function is missing, which is the one that will be in charge of doing all the comparison.
 
 <br />
 
-Lo siguiente que debemos hacer -una vez que ejecutemos el CLI dentro de una aplicación- es instalar las dependencias y realizar la compilación (build) de la misma. Con estos dos pasos completos, se debería haber generado el nuevo archivo de estadísticas (dado que agregamos el plugin en las configuraciones de Webpack en el paso anterior). Por último, podremos comparar ambos archivos para identificar las diferencias.
+The next thing to do -once we run the CLI inside an application- is to install the dependencies and perform the build of the application. With these two steps completed, the new statistics file should have been generated (since we added the plugin in the Webpack settings in the previous step). Finally, we can compare both files to identify the differences.
 
 <br />
 
-A continuación, vamos a ver cómo implementar esto en código. Primero, utilizar ShellJS para ejecutar los comandos <i>npm install</i> y luego <i>npm run build</i>. Y el siguiente paso, consiste en buscar ambos archivos que se han generado y compararlos entre sí.
+Next, let's see how to implement this in code. First, use ShellJS to execute the <i>npm install</i> and then <i>npm run build</i> commands. And the last step is to find both files that have been generated and compare them with each other.
 
 <br />
 
@@ -206,7 +208,7 @@ async function compare() {
 }
 </pre>
 
-Con esto deberíamos obtener como resultado, una tabla que compare la cantidad de JavaScript que había antes con lo que estamos sumando o restando con este Pull Request (PR).
+With this we should obtain as a result, a table that compares the amount of JavaScript that was there before with what we are adding or subtracting with this Pull Request (PR).
 
 <br />
 
@@ -214,17 +216,17 @@ Con esto deberíamos obtener como resultado, una tabla que compare la cantidad d
 
 <br />
 
-Hasta este punto hemos desarrollado el CLI para ejecutarlo en cualquiera de nuestras aplicaciones, pero esto se limita únicamente a un entorno local. Podemos llevarlo un paso más allá e integrarlo directamente en nuestros PRs, lo que nos permitirá controlar cada Pull Request que se envíe a nuestra rama principal.
+Up to this point we have developed the CLI to run in any of our applications, but this is limited to a local environment only. We can take it a step further and integrate it directly into our PRs, which will allow us to control every Pull Request that is sent to our main branch.
 
 <p style="color:#e9552f;margin-top:32px;margin-bottom:16px;font-size:20px;font-weight:600">
-4- CLI desde una Github Action
+4- CLI from a Github Action
 </p>
 
-Para ejecutar nuestro CLI desde un GitHub Action, primero debemos publicarlo. Una forma eficiente de hacer esto automáticamente (cada vez que actualicemos nuestro CLI) es creando un GitHub Action específicamente para esta tarea.
+To run our CLI from a GitHub Action, we must first publish it. An efficient way to do this automatically (every time we update our CLI) is to create a GitHub Action specifically for this task.
 
 <br />
 
-Para lograr esto, necesitaríamos generar un token desde nuestro perfil de npm y luego agregar ese token como una variable secreta dentro de GitHub. En este ejemplo, llamémoslo <i>NPM_AUTH_TOKEN</i>. Luego, podemos tener un archivo llamado publish.yml dentro de la carpeta <i>.github/workflows</i> en nuestro repositorio, donde configuraremos el flujo de trabajo para publicar nuestro paquete en npm.
+To accomplish this, we would need to generate a token from our npm profile and then add that token as a secret variable within GitHub. In this example, let's call it <i>NPM_AUTH_TOKEN</i>. Then, we can have a file called publish.yml inside the <i>.github/workflows</i> folder in our repository, where we will configure the workflow to publish our package in npm.
 
 <br />
 
@@ -255,7 +257,7 @@ jobs:
          NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
 </pre>
 
-Ahora, simplemente debemos crear la acción en nuestra aplicación Next.js para que ejecute nuestro CLI cada vez que generemos un Pull Request contra nuestra rama principal (main).
+Now, we simply create the action in our Next.js application to execute our CLI every time we generate a Pull Request against our main branch.
 
 <br />
 
@@ -291,7 +293,7 @@ jobs:
          GH_REPO: ${{secrets.GH_REPO}}
 </pre>
 
-Al ejecutarlo en un entorno de Integración Continua (CI) ya no podríamos ver las salidas del comando <i>console.table</i> que realizamos directamente en la consola, sin entrar a ver la acción en sí. Por lo tanto, sería necesario para simplificar y comprender rápidamente los resultados, agregar un comentario en el Pull Request con el resultado de la acción. Para lograr esto, podemos utilizar <i>@octokit/rest</i> para agregar el comentario.
+When running it in a Continuous Integration (CI) environment we would no longer be able to see the outputs of the <i>console.table</i> command that we perform directly in the console, without going to see the action itself. Therefore, in order to simplify and quickly understand the results, it would be necessary to add a comment in the Pull Request with the result of the action. To accomplish this, we can use <i>@octokit/rest</i> to add the comment.
 
 <br />
 
@@ -331,7 +333,7 @@ ${comments}`
 }
 </pre>
 
-Cuando el github action finalice, podremos observar un resultado similar al siguiente:
+When the github action finishes, we will see a result similar to the following:
 
 <br/>
 
@@ -339,13 +341,13 @@ Cuando el github action finalice, podremos observar un resultado similar al sigu
 
 <br />
 
-Lo que se desarrollo hasta este punto, es solamente la base. Todo lo querramos extender esta solución, esta sujero a cuánto querramos profundizar en esta solución.
-Se podría analizar los chunks que cada asset consume al agregar más cantidad de JavaScript, e incluso identificar el punto de entrada exacto donde esto ocurre.
+What has been developed up to this point is only the basis. As much as we want to extend this solution, it is subject to how much we want to go deeper into this solution.
+We could analyze the chunks that each asset consumes when adding more JavaScript, and even identify the exact entry point where this occurs.
 
 <br />
 
-¡Espero que esta información les sea útil para evitar la inyección descontrolada de cantidades excesivas de JavaScript en sus aplicaciones!
+I hope you find this information useful to avoid uncontrolled injection of excessive amounts of JavaScript into your applications!
 
 <br/>
 
-## **Muchas gracias por leer :)**
+## **Thanks for reading :)**

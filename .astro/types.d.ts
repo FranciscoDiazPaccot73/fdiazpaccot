@@ -116,6 +116,13 @@ declare module 'astro:content' {
   collection: "blog",
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] },
+"en/webpack-stats-file.md": {
+  id: "en/webpack-stats-file.md",
+  slug: "en/webpack-stats-file",
+  body: string,
+  collection: "blog",
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] },
 "interaction-to-next-paint.md": {
   id: "interaction-to-next-paint.md",
   slug: "interaction-to-next-paint",
