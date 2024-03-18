@@ -79,7 +79,7 @@ const Content = ({ posts }) => {
                 <div className="relative mt-8 flex items-center md:items-start">
                   <div className="text-sm leading-6">
                     {post.data.image &&
-                      <img className="max-h-20 object-contain order-first" width={720} height={360} src={post.data.image} alt="" />
+                      <img className="object-contain order-first" width={720} src={post.data.image} alt="" />
                     }
                   </div>
                 </div>

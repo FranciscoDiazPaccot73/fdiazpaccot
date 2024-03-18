@@ -39,7 +39,7 @@ Este archivo no se genera de manera automática al realizar el build de nuestra 
 2- Aplicación que queremos medir
 </p>
 
-Para este paso, lo primero que debemos hacer es instalar el plugin webpack-stats-plugin o cualquier otro plugin que nos permita generar los archivos de estadísticas de Webpack. Vamos a utilizar el siguiente comando para instalarlo:
+Lo primero que se debe hacer es instalar el plugin <i>webpack-stats-plugin</i> o cualquier otro plugin que nos permita generar los archivos de estadísticas de Webpack.
 
 <br />
 
@@ -49,12 +49,12 @@ npm install -–save webpack-stats-file
 
 <br />
 
-Después, necesitamos ajustar la configuración de Webpack para integrar el plugin. Dado que, estamos trabajando con una aplicación Next.js, esto implica realizar modificaciones en el archivo <i>next.config.js</i> específicamente.
+Una vez instalada la librería, es necesario ajustar la configuración de Webpack para integrar el plugin. Dado que, estamos trabajando con una aplicación Next.js, esto implica realizar modificaciones en el archivo <i>next.config.js</i> específicamente.
 
 <br />
 
+<span style="color:#ffffff">**next.config.js**</span>
 <pre style="background: #2a2a2a; border-left: 1px solid #e9552f; color: #89cff0; page-break-inside: avoid; font-family: monospace; font-size: 15px; line-height: 1.6; margin-bottom: 1.6em; overflow: auto; padding: 10px; display: block; word-wrap: break-word;overflow-x: auto;max-width:calc(100vw - 20px)">
-<span style="color:#62a333">//next.config.js</span>
 const { StatsWriterPlugin } = require('webpack-stats-plugin')
 
 
@@ -95,7 +95,7 @@ Lo ideal en este punto sería generar este archivo de control desde nuestra rama
 3- CLI
 </p>
 
-Para instalar <i>commander</i> y <i>shelljs</i>, puedes ejecutar el siguiente comando:
+Para instalar <i>commander</i> y <i>shelljs</i>, se puede ejecutar el siguiente comando:
 
 <br />
 
@@ -103,9 +103,9 @@ Para instalar <i>commander</i> y <i>shelljs</i>, puedes ejecutar el siguiente co
 npm install --save commander shelljs
 </pre>
 
-Una vez instaladas estas dependencias, puedes utilizar commander para instanciar el CLI.
+Una vez instaladas estas dependencias, se instancia el CLI utilizando commander.
 
-Y añadir el manejo de esta opción.
+Y luego, añadir el manejo de esta opción.
 
 <br />
 
@@ -228,8 +228,8 @@ Para lograr esto, necesitaríamos generar un token desde nuestro perfil de npm y
 
 <br />
 
+<span style="color:#ffffff">**.github/workflows/publish.yml within the CLI**</span>
 <pre style="background: #2a2a2a; border-left: 1px solid #e9552f; color: #89cff0; page-break-inside: avoid; font-family: monospace; font-size: 15px; line-height: 1.6; margin-bottom: 1.6em; overflow: auto; padding: 10px; display: block; word-wrap: break-word;overflow-x: auto;max-width:calc(100vw - 20px)">
-<span style="color:#62a333">// .github/workflows/publish.yml del CLI</span>
 name: "Publish package to npm"
 
 
@@ -259,8 +259,8 @@ Ahora, simplemente debemos crear la acción en nuestra aplicación Next.js para 
 
 <br />
 
+<span style="color:#ffffff">**.github/workflows/analize.yml within the application to measure**</span>
 <pre style="background: #2a2a2a; border-left: 1px solid #e9552f; color: #89cff0; page-break-inside: avoid; font-family: monospace; font-size: 15px; line-height: 1.6; margin-bottom: 1.6em; overflow: auto; padding: 10px; display: block; word-wrap: break-word;overflow-x: auto;max-width:calc(100vw - 20px)">
-<span style="color:#62a333">// .github/workflows/analize.yml de la app a medir</span>
 name: "Analyze webpack stats"
 
 
@@ -295,8 +295,8 @@ Al ejecutarlo en un entorno de Integración Continua (CI) ya no podríamos ver l
 
 <br />
 
+<span style="color:#ffffff">**.github/workflows/analize.yml within the application to measure**</span>
 <pre style="background: #2a2a2a; border-left: 1px solid #e9552f; color: #89cff0; page-break-inside: avoid; font-family: monospace; font-size: 15px; line-height: 1.6; margin-bottom: 1.6em; overflow: auto; padding: 10px; display: block; word-wrap: break-word;overflow-x: auto;max-width:calc(100vw - 20px)">
-<span style="color:#62a333">// .github/workflows/analize.yml de nuestra app</span>
 async function addComment(values: any[]) {
   const token = process.env.GH_TOKEN;
   const user = process.env.GH_USER
@@ -331,7 +331,7 @@ ${comments}`
 }
 </pre>
 
-Después de que la ejecución de nuestra acción termine, obtendríamos algo similar a lo siguiente:
+Cuando el github action finalice, podremos observar un resultado similar al siguiente:
 
 <br/>
 
