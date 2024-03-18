@@ -5,17 +5,17 @@ pubDate: "03/18/2024"
 image: "/blog/webpack-stats-file/webpack-react.webp"
 tags: "WEBPACK,NEXTJS,CLI,PERFORMANCE"
 readingTime: "5"
-languages: ['es']
-blogLanguage: 'es'
+languages: ["es"]
+blogLanguage: "es"
 ---
 
 <br/>
 
-Cuando nos referimos a la performance, es crucial comprender que a medida que incorporamos más JavaScript en nuestras aplicaciones frontend, especialmente si utilizamos React como base, es más probable que experimentemos problemas de rendimiento. Por esta razón, considero fundamental poder ejercer cierto control sobre la cantidad de JavaScript que agregamos a medida que avanzamos con los pull requests en nuestra aplicación.
+Para comenzar, es importante decir que cuando nos referimos a performance es crucial comprender que a medida que incorporamos más JavaScript en nuestras aplicaciones frontend -especialmente si utilizamos React como base- es más probable que experimentemos problemas de rendimiento. Por esta razón, considero fundamental poder ejercer cierto control sobre la cantidad de JavaScript que agregamos a medida que avanzamos con los pull requests en nuestra aplicación.
 
 <br/>
 
-Para abordar este desafío, dado que la mayoría de las aplicaciones que emplean React como librería también utilizan Webpack como empaquetador, podemos aprovechar una herramienta muy poderosa que nos proporciona este bundle. Esta herramienta consiste en generar el archivo de estadísticas (stats file) de nuestra aplicación al crear el build. Puedes encontrar más información sobre esto en la documentación oficial de <a style="text-decoration:underline" href="https://webpack.js.org/api/stats/" target="_blank">**Webpack**</a>
+Para abordar este desafío (dado que la mayoría de las aplicaciones que emplean React como librería también utilizan Webpack como empaquetador) podemos aprovechar una herramienta muy poderosa que nos proporciona este bundle. Esta herramienta consiste en generar el archivo de estadísticas (stats file) de nuestra aplicación al crear el build. Puedes encontrar más información sobre esto en la documentación oficial de <a style="text-decoration:underline" href="https://webpack.js.org/api/stats/" target="_blank">**Webpack**</a>
 
 <br/>
 
@@ -23,17 +23,17 @@ Teniendo estas herramientas en mente, una práctica altamente recomendable antes
 
 <br />
 
-Este archivo no se genera de manera automática al realizar el build de nuestra aplicación. En este blog, exploraremos cómo podemos generar este archivo y, además, cómo evaluarlo para comprender mejor qué estamos agregando cada vez que hacemos un push de nuestro código.
+Este archivo no se genera de manera automática al realizar el build de nuestra aplicación. En este blog exploraremos cómo podemos generar este archivo y, además, cómo evaluarlo para comprender mejor qué estamos agregando cada vez que hacemos un push de nuestro código.
 
 <p style="color:#e9552f;margin-top:32px;margin-bottom:16px;font-size:20px;font-weight:600">
 1- Pre-requisitos
 </p>
 
--- Asegúrate de tener una aplicación que utilice Webpack. Para este ejemplo, crearemos una aplicación utilizando Next.js, que por defecto utiliza Webpack.
+-- Tener una aplicación que utilice Webpack. Para este ejemplo, crearemos una aplicación utilizando Next.js que, por defecto utiliza Webpack.
 
--- Instalaremos el plugin webpack-stats-plugin, que nos permitirá generar los archivos de estadísticas de Webpack. En este caso, voy a usar <a style="text-decoration:underline" href="https://www.npmjs.com/package/webpack-stats-plugin" target="_blank">**webpack-stats-plugin**</a>
+-- Instalar el plugin webpack-stats-plugin, que nos permitirá generar los archivos de estadísticas de Webpack. En este caso, usaré <a style="text-decoration:underline" href="https://www.npmjs.com/package/webpack-stats-plugin" target="_blank">**webpack-stats-plugin**</a>
 
--- Escribiremos un script (para este caso, en Node.js) que evalúe el archivo de estadísticas generado y nos proporcione conclusiones útiles sobre los recursos agregados a nuestra aplicación.
+-- Escribir un script (para este caso, en Node.js) que evalúe el archivo de estadísticas generado y nos proporcione conclusiones útiles sobre los recursos agregados a nuestra aplicación.
 
 <p style="color:#e9552f;margin-top:32px;margin-bottom:16px;font-size:20px;font-weight:600">
 2- Aplicación que queremos medir
@@ -49,7 +49,7 @@ npm install -–save webpack-stats-file
 
 <br />
 
-Después, necesitamos ajustar la configuración de Webpack para integrar el plugin. Dado que estamos trabajando con una aplicación Next.js, esto implica realizar modificaciones en el archivo <i>next.config.js</i> específicamente.
+Después, necesitamos ajustar la configuración de Webpack para integrar el plugin. Dado que, estamos trabajando con una aplicación Next.js, esto implica realizar modificaciones en el archivo <i>next.config.js</i> específicamente.
 
 <br />
 
