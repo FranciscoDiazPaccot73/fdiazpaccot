@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import Github from "./icons/Github.astro";
 
 const { router } = Astro.props;
@@ -14,12 +15,7 @@ const { router } = Astro.props;
 				href="/"
 				aria-label="Click to return to Home"
 			>
-				<img
-					src="/logo-small.webp"
-					width={40}
-					height={40}
-					alt="Logo"
-				/>
+				<Image src="/logo-small.webp" width={40} height={40} alt="Logo" />
 			</a>
 		</div>
 		<nav

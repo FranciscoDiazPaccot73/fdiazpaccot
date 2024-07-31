@@ -10,7 +10,9 @@ module.exports = {
         secondary: colors.pink,
         "main-bg": "#080305",
         orange: "#e9552f",
+        "orange-25": "#e9552f25",
         "orange-35": "#e9552f35",
+        "orange-50": "#e9552f50",
         "orange-dark": "#ca4a0a",
         "gray-bg": "#2a2a2a"
       },

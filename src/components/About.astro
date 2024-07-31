@@ -1,5 +1,10 @@
 ---
 import Button from "./Button.astro";
+const content = [
+  "As a seasoned web developer with over five years of experience, I have a strong passion for building innovative and user-friendly web applications. I specialize in using JavaScript, Node.js, and React.js to design and develop scalable and high-performance web solutions.",
+  "I am particularly focused on optimizing web performance to ensure that web applications load quickly and efficiently, providing users with a seamless experience. I thrive in fast-paced and collaborative environments where I can leverage my problem-solving and analytical skills to deliver successful projects.",
+  "When I'm not coding, you can find me exploring new technologies and discovering ways to improve my craft.",
+];
 ---
 
 <section
@@ -10,24 +15,23 @@ import Button from "./Button.astro";
       id="about-title"
       class="font-semibold text-3xl mb-4 black-text eurostile"
     >
+      Hello, I'm Francisco
     </p>
-    <p id="about-first-text" class="text-xl tracking-wide mb-6"></p>
-    <p id="about-second-text" class="text-xl tracking-wide mb-6"></p>
-    <p id="about-third-text" class="text-xl tracking-wide mb-12"></p>
-    <div class="flex-col flex gap-4 items-center md:flex-row">
+    {content.map((text) => <p class="text-xl tracking-wide mb-6">{text}</p>)}
+    <div class="flex-col flex gap-4 mt-6 items-center md:flex-row">
       <a
         href="/about"
         class="font-semibold underline underline-offset-2 text-lg black-text eurostile mt-4"
         >Know more about me!</a
       >
-      <Button
+      <!-- <Button
         containerClass="w-56 font-bold"
         size="text-lg border border-black black-background orange-text"
         href="docs/FranciscoDiazPaccot-resume.pdf"
         download="Francisco Diaz Paccot - Resume"
       >
         Download Resume
-      </Button>
+      </Button> -->
     </div>
   </div>
 </section>

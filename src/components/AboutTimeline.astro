@@ -1,13 +1,21 @@
 ---
-import Button from "../components/Button.astro";
+// import Button from "../components/Button.astro";
 import TimelineItem from "./AboutTimelineSection.astro";
-import ArrowUp from "./icons/ArrowUp.astro";
 
 const steps = [
   {
+    job: `Frontend Software Engineer`,
+    title: "Deel",
+    duration: "July 2024",
+    link: "https://www.deel.com/",
+    logo: "/deel-logo.webp",
+    tId: "deel",
+    present: true,
+  },
+  {
     job: `Sr. Software Engineer`,
     title: "Strike",
-    duration: "May 2023",
+    duration: "May 2023 to July 2024 (1yr 2mo)",
     link: "https://strike.sh",
     logo: "/strike-logo.ico",
     tId: "strike",
@@ -15,7 +23,6 @@ const steps = [
       "As a prominent member of the team responsible for conceiving and bringing to life our company's innovative landing page, I have played a pivotal role in creating a fresh and rejuvenated image.",
       "I have taken on the full responsibility for the comprehensive development of the new pentest creation workflow, the cornerstone of our company and the essential tool to meet the needs of all our valuable clients.",
     ],
-    present: true,
   },
   {
     job: `Sr. Front-End Software Engineer`,
@@ -71,12 +78,12 @@ const steps = [
     <span class="relative inline-flex rounded-full h-4 w-4 orange-background"
     ></span>
   </span>
-  <Button
+  <!-- <Button
     href="docs/FranciscoDiazPaccot-resume.pdf"
     download="Francisco Diaz Paccot - Resume"
   >
     Download Resume
-  </Button>
+  </Button> -->
 </section>
 
 <style>

@@ -2,6 +2,7 @@
 import Chrome from "./icons/Chrome.astro";
 import Github from "./icons/Github.astro";
 import PerformanceMetrics from "./PerformanceMetrics";
+import { Image } from "astro:assets";
 
 const {
   link,
@@ -23,7 +24,7 @@ const {
   class={`w-full overflow-hidden mb-10 flex flex-col align-center rounded-xl justify-center border orange-border relative black-background shadow ${customClass}`}
 >
   <HeaderElem {...headerProps} class={headerClasses}>
-    {imageProps ? <img {...imageProps} /> : null}
+    {imageProps ? <Image {...imageProps} loading="lazy" /> : null}
     {
       lighthouse ? (
         <PerformanceMetrics

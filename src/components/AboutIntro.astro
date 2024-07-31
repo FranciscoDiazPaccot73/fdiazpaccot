@@ -1,28 +1,23 @@
 ---
-const p1 =
-  "As a seasoned web developer with over five years of experience, I have a strong passion for building innovative and user-friendly web applications. I specialize in using JavaScript, Node.js, and React.js to design and develop scalable and high-performance web solutions.";
-const p2 =
-  "I am particularly focused on optimizing web performance to ensure that web applications load quickly and efficiently, providing users with a seamless experience. I thrive in fast-paced and collaborative environments where I can leverage my problem-solving and analytical skills to deliver successful projects.";
-const p3 =
-  "When I'm not coding, you can find me exploring new technologies and discovering ways to improve my craft.";
+import { Image } from "astro:assets";
 ---
 
 <section
   class="px-8 py-12 relative text-gray-100 md:mx-auto md:w-full md:max-w-6xl"
 >
-  <p class="font-semibold text-3xl mb-4 pt-8 orange-text">
+  <p id="about-title" class="font-semibold text-3xl mb-4 pt-8 orange-text">
     Hello, I'm Francisco
   </p>
-  <p class="text-l tracking-wide mb-6">{p1}</p>
-  <p class="text-l tracking-wide mb-6">{p2}</p>
-  <p class="text-l tracking-wide mb-6">{p3}</p>
+  <p id="about-first-text" class="text-l tracking-wide mb-6"></p>
+  <p id="about-second-text" class="text-l tracking-wide mb-6"></p>
+  <p id="about-third-text" class="text-l tracking-wide mb-6"></p>
   <div
     id="me-about"
     class="w-full flex justify-center mt-20 relative md:mt-20 my-picture"
   >
     <div class="picture-border">
       <div class="image">
-        <img
+        <Image
           width={280}
           height={280}
           src="/me-hq.jpg"
@@ -68,3 +63,44 @@ const p3 =
     }
   }
 </style>
+
+<script type="text/javascript">
+  const userLang = navigator.language || navigator.userLanguage;
+  const enTitle = "Hello, I'm Francisco";
+  const esTitle = "Hola! Soy Francisco.";
+
+  const enFirst =
+    "As a seasoned web developer with over five years of experience, I have a strong passion for building innovative and user-friendly web applications. I specialize in using JavaScript, Node.js, and React.js to design and develop scalable and high-performance web solutions.";
+  const esFirst =
+    "Como desarrollador web experimentado con más de cinco años de experiencia, tengo una gran pasión por la construcción de aplicaciones web innovadoras y fáciles de usar. Me especializo en el uso de JavaScript, Node.js y React.js para diseñar y desarrollar soluciones web escalables y de alto rendimiento.";
+
+  const enSecond =
+    "I am particularly focused on optimizing web performance to ensure that web applications load quickly and efficiently, providing users with a seamless experience. I thrive in fast-paced and collaborative environments where I can leverage my problem-solving and analytical skills to deliver successful projects.";
+  const esSecond =
+    "Estoy especialmente centrado en la optimización del rendimiento web para garantizar que las aplicaciones web se cargan de forma rápida y eficiente, proporcionando a los usuarios una experiencia fluida. Me desenvuelvo bien en entornos dinámicos y de colaboración en los que puedo aprovechar mi capacidad analítica y de resolución de problemas para llevar a cabo proyectos con éxito.";
+
+  const enThird =
+    "When I'm not coding, you can find me exploring new technologies and discovering ways to improve my craft.";
+  const esThird =
+    "Cuando no estoy programando, me encuentro explorando nuevas tecnologías y descubriendo formas de mejorar mi oficio.";
+
+  const aboutTitleComponent = document.getElementById("about-title");
+  const aboutFirstComponent = document.getElementById("about-first-text");
+  const aboutSecondComponent = document.getElementById("about-second-text");
+  const aboutThirdComponent = document.getElementById("about-third-text");
+
+  if (aboutTitleComponent && aboutFirstComponent && aboutSecondComponent) {
+    aboutTitleComponent.innerText = `${
+      userLang.includes("en") ? enTitle : esTitle
+    }`;
+    aboutFirstComponent.innerText = `${
+      userLang.includes("en") ? enFirst : esFirst
+    }`;
+    aboutSecondComponent.innerText = `${
+      userLang.includes("en") ? enSecond : esSecond
+    }`;
+    aboutThirdComponent.innerText = `${
+      userLang.includes("en") ? enThird : esThird
+    }`;
+  }
+</script>

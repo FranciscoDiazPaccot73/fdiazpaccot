@@ -52,7 +52,7 @@ const Content = ({ posts }) => {
         return (
           <a href={`/blog/${hasEnglish ? 'en/' : ''}${post.slug}/`} key={`${post.timestamp}-${post.slug}`} className='border-b border-opacity-40 border-b-orange py-6 px-1'>
             <li className='py-6 px-1'>
-              <article className="flex max-w-xl flex-col items-start justify-between">
+              <article className="flex max-w-5xl flex-col items-start justify-between">
                 <div className="flex items-center gap-x-4 text-xs">
                   <p className="text-gray-400">{`${month} ${day}, ${year}`}</p>
                   {stack && (
@@ -79,7 +79,7 @@ const Content = ({ posts }) => {
                 <div className="relative mt-8 flex items-center md:items-start">
                   <div className="text-sm leading-6">
                     {post.data.image &&
-                      <img className="object-contain order-first" width={720} src={post.data.image} alt="" />
+                      <img className="object-contain order-first" width={944} src={post.data.image} alt="" />
                     }
                   </div>
                 </div>
