@@ -1,7 +1,7 @@
 {
   "name": "fdiazpaccot",
   "type": "module",
-  "version": "3.4.1",
+  "version": "3.4.2",
   "private": true,
   "homepage": "https://www.franciscodiazpaccot.dev/",
   "author": {
@@ -12,7 +12,7 @@
   "scripts": {
     "dev": "astro dev --port 3000",
     "start": "astro dev",
-    "build": "astro build --output public",
+    "build": "astro build --output dist",
     "preview": "astro preview",
     "astro": "astro",
     "open": "code . & yarn dev"
