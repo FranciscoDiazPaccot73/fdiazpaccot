@@ -14,15 +14,30 @@ const meta = {
 
 const dataPosts = await getCollection(
   "blog",
-  ({ data }) => data.blogLanguage === "es"
+  ({ data }) => data.blogLanguage === "es",
 );
 
+const posts: any = {};
+let years: number[] = [];
+
 dataPosts.forEach((post: any) => {
-  const timestamp = new Date(post.data.pubDate).getTime();
+  const pubDate = new Date(post.data.pubDate);
+  const timestamp = pubDate.getTime();
   post.timestamp = timestamp;
+
+  const year = pubDate.getFullYear();
+
+  if (posts[year]) {
+    posts[year].push(post);
+
+    posts[year].sort((a: any, b: any) => b.timestamp - a.timestamp);
+  } else {
+    posts[year] = [post];
+    years = [...new Set([...years, year])];
+  }
 });
 
-const posts = dataPosts;
+years.sort((a, b) => b - a);
 ---
 
 <PageLayout {meta} router="/blog">
@@ -39,6 +54,6 @@ const posts = dataPosts;
         Some of my ideas, thoughts and knowledge.
       </p>
     </div>
-    <Content client:load posts={posts} />
+    <Content client:load years={years} posts={posts} />
   </section>
 </PageLayout>
