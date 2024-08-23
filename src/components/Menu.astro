@@ -27,7 +27,7 @@ const settings = {
 ---
 
 <div
-  class="md:hidden z-20 flex h-14 justify-center fixed w-full bottom-0 black-background"
+  class="md:hidden z-20 flex h-20 justify-center fixed w-full bottom-0 black-background"
 >
   <div class="flex w-full flex-1 justify-between">
     {
@@ -41,11 +41,31 @@ const settings = {
             class="items-center flex justify-center relative w-3/12"
             aria-label={`${setting.name} page`}
           >
-            <div class="items-center h-14 flex font-semibold justify-center w-full">
-              <Home hidden={value !== "home"} color={iconColor} />
-              <Info hidden={value !== "about"} color={iconColor} />
-              <Portfolio hidden={value !== "portfolio"} color={iconColor} />
-              <Contact hidden={value !== "contact"} color={iconColor} />
+            <div class="items-center h-20 flex font-semibold justify-center w-full">
+              <Home
+                width={28}
+                height={28}
+                hidden={value !== "home"}
+                color={iconColor}
+              />
+              <Info
+                width={28}
+                height={28}
+                hidden={value !== "about"}
+                color={iconColor}
+              />
+              <Portfolio
+                width={28}
+                height={28}
+                hidden={value !== "portfolio"}
+                color={iconColor}
+              />
+              <Contact
+                width={28}
+                height={28}
+                hidden={value !== "contact"}
+                color={iconColor}
+              />
               <span class="hidden">{setting.name}</span>
             </div>
           </a>
