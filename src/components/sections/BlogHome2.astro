@@ -1,0 +1,66 @@
+---
+const blogs = [
+  {
+    title: "Webpack stats file",
+    date: "Mar 18, 2024",
+    description:
+      "Analyze the amount of JavaScript we are adding in a pull request (PR) in a Next.js application using the Webpack stats file.",
+    link: "/blog/en/webpack-stats-file/",
+    img: "/blog/webpack-stats-file/webpack-react.webp",
+  },
+  {
+    title: "Python and Selenium, Unleashed without Docker",
+    date: "Jan 30, 2024",
+    description:
+      "Deploying Python + Selenium applications without the need for dockerize it.",
+    link: "/blog/en/python-selenium-example/",
+    img: "/blog/python-selenium-example/python-selenium-example.webp",
+  },
+];
+---
+
+<section
+  class="w-full py-12 text-white md:py-16 lg:py-20 md:mx-auto md:w-full md:max-w-6xl"
+>
+  <div class="container px-4 md:px-6">
+    <div class="flex items-center justify-between mb-6 md:mb-8 lg:mb-10">
+      <p class="text-2xl font-bold tracking-tight text-orange sm:text-3xl">
+        Latest from the Blog
+      </p>
+      <a
+        href="/blog"
+        class="text-sm font-medium text-primary hover:underline underline-offset-4"
+      >
+        View All
+      </a>
+    </div>
+    <div class="grid gap-12 md:gap-6 md:grid-cols-2">
+      {
+        blogs.map((blog) => (
+          <article class="group rounded-lg bg-background shadow-sm transition-all hover:shadow-md">
+            <a href={blog.link} class="block">
+              <div class="aspect-[4/3] overflow-hidden rounded-t-lg">
+                <img
+                  src={blog.img}
+                  alt={blog.title}
+                  width={600}
+                  height={450}
+                  class="h-full w-full object-cover transition-all opacity-75 group-hover:scale-105"
+                  style={{ aspectRatio: "600/450", objectFit: "cover" }}
+                />
+              </div>
+              <div class="p-4">
+                <h3 class="text-lg font-semibold tracking-tight">
+                  {blog.title}
+                </h3>
+                <p class="mt-2 text-gray-300 text-muted-foreground line-clamp-3">
+                  {blog.description}
+                </p>
+              </div>
+            </a>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

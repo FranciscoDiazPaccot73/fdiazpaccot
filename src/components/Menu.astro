@@ -27,11 +27,12 @@ const settings = {
 ---
 
 <div
-  class="md:hidden z-20 flex h-20 justify-center fixed w-full bottom-0 black-background"
+  class="md:hidden z-20 flex h-[72px] justify-center fixed w-full bottom-0 black-background border-t border-orange-12"
 >
   <div class="flex w-full flex-1 justify-between">
     {
       ["home", "about", "portfolio", "contact"].map((value) => {
+        // @ts-ignore
         const setting = settings[value] ?? {};
         const iconColor = setting.link === router ? "#e9552f" : "#c9c9c9";
 
