@@ -1,14 +1,61 @@
 ---
 import GithubIcon from "./icons/GithubMinimal.astro";
+
+const PROJECTS = [
+  {
+    title: "Blabi webpages",
+    description:
+      "Blabi offers the possibility to create a website quickly and easily.",
+    image: "/projects/blabi.webp",
+    ariaWebpageLabel: "Click to go to Blabi webpage",
+    link: "https://blabi.com.ar/",
+    logo: {
+      src: "/blabi-logo.webp",
+      alt: "Blabi webpages",
+      width: 40,
+      height: 40,
+    },
+  },
+  {
+    title: "Blabi webpages",
+    description:
+      "¿Que Puedo Ver? it's a website that recommends tv series and movies to watch",
+    image: "/qpv.jpg",
+    ariaWebpageLabel: "Click to go to Que Puedo ver? webpage",
+    link: "https://www.quepuedover.online/",
+    github: "https://github.com/FranciscoDiazPaccot73/que-mirar",
+    logo: {
+      src: "/qpv.webp",
+      alt: "quepuedover.online",
+      width: 90,
+      height: 60,
+    },
+  },
+  {
+    title: "Markdown Generator",
+    description:
+      "A simple markdown file generator. You could generate, preview and download your markdown file.",
+    image: "/markdown.jpg",
+    ariaWebpageLabel: "Click to go to Markdown Generator Github",
+    link: "https://markdown.franciscodiazpaccot.dev/",
+    github: "https://github.com/FranciscoDiazPaccot73/markdown-generator",
+    logo: {
+      src: "/markdown.png",
+      alt: "markdown generator",
+      width: 60,
+      height: 60,
+    },
+  },
+];
 ---
 
 <section
-  class="w-full py-12 text-white md:mx-auto md:w-full md:max-w-6xl md:py-24 lg:py-32"
+  class="w-full py-12 md:py-24 lg:py-32 text-white md:mx-auto md:w-full md:max-w-6xl"
 >
   <div class="container space-y-10 px-4 md:px-6">
     <div class="text-center space-y-4">
       <h2
-        class="text-3xl font-bold eurostile tracking-tighter sm:text-4xl md:text-5xl"
+        class="text-3xl font-bold text-orange tracking-tighter sm:text-4xl md:text-5xl"
       >
         My Projects
       </h2>
@@ -16,102 +63,46 @@ import GithubIcon from "./icons/GithubMinimal.astro";
         Explore a selection of my past projects.
       </p>
     </div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <div
-        class="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
-      >
-        <a href="#" class="absolute inset-0 z-10">
-          <span class="sr-only">View Project</span>
-        </a>
-        <img
-          src="/placeholder.svg"
-          alt="Project 1"
-          width={600}
-          height={400}
-          class="w-full h-64 object-cover"
-          style={{ aspectRatio: "600/400", objectFit: "cover" }}
-        />
-        <div class="p-4 bg-background">
-          <h3 class="text-xl font-bold">Project 1</h3>
-          <p class="text-sm text-muted-foreground">
-            A brief description of the first project.
-          </p>
-          <div class="mt-4">
-            <a
-              href="#"
-              class="inline-flex items-center gap-2 text-sm font-medium hover:underline"
-            >
-              <GithubIcon classes="w-4 h-4 text-orange" />
-              View on GitHub
+    <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8">
+      {
+        PROJECTS.map((project) => (
+          <div class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+            <a href={project.link} aria-label={project.ariaWebpageLabel}>
+              <span class="sr-only">View Project</span>
+              <img
+                src={project.image}
+                alt={project.title}
+                width={600}
+                height={400}
+                class="w-full h-64 object-cover opacity-80"
+                style={{ aspectRatio: "600/400", objectFit: "cover" }}
+              />
             </a>
+            <div class="p-4 bg-orange-12">
+              <h3 class="text-xl font-bold">{project.title}</h3>
+              <p class="text-sm text-muted-foreground line-clamp-1 text-gray-300">
+                {project.description}
+              </p>
+              <div class="mt-4 h-8 group inline-block">
+                {project.github ? (
+                  <a
+                    href={project.github}
+                    class="inline-flex items-center gap-2 text-sm font-medium hover:underline underline-offset-2 group-hover:text-orange transition-colors"
+                  >
+                    <GithubIcon class="w-4 h-4 group-hover:text-orange transition-colors" />
+                    View on GitHub
+                  </a>
+                ) : null}
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <div
-        class="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
-      >
-        <a href="#" class="absolute inset-0 z-10">
-          <span class="sr-only">View Project</span>
-        </a>
-        <img
-          src="/placeholder.svg"
-          alt="Project 2"
-          width={600}
-          height={400}
-          class="w-full h-64 object-cover"
-          style={{ aspectRatio: "600/400", objectFit: "cover" }}
-        />
-        <div class="p-4 bg-background">
-          <h3 class="text-xl font-bold">Project 2</h3>
-          <p class="text-sm text-muted-foreground">
-            A brief description of the second project.
-          </p>
-          <div class="mt-4">
-            <a
-              href="#"
-              class="inline-flex items-center gap-2 text-sm font-medium hover:underline"
-            >
-              <GithubIcon classes="w-4 h-4 text-orange" />
-              View on GitHub
-            </a>
-          </div>
-        </div>
-      </div>
-      <div
-        class="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
-      >
-        <a href="#" class="absolute inset-0 z-10">
-          <span class="sr-only">View Project</span>
-        </a>
-        <img
-          src="/placeholder.svg"
-          alt="Project 3"
-          width={600}
-          height={400}
-          class="w-full h-64 object-cover"
-          style={{ aspectRatio: "600/400", objectFit: "cover" }}
-        />
-        <div class="p-4 bg-background">
-          <h3 class="text-xl font-bold">Project 3</h3>
-          <p class="text-sm text-muted-foreground">
-            A brief description of the third project.
-          </p>
-          <div class="mt-4">
-            <a
-              href="#"
-              class="inline-flex items-center gap-2 text-sm font-medium hover:underline"
-            >
-              <GithubIcon classes="w-4 h-4 text-orange" />
-              View on GitHub
-            </a>
-          </div>
-        </div>
-      </div>
+        ))
+      }
     </div>
     <div class="flex justify-center">
       <a
-        href="#"
-        class="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+        href="/portfolio"
+        class="text-sm font-medium text-primary hover:underline underline-offset-4"
       >
         View Full Portfolio
       </a>
