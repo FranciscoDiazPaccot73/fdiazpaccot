@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+
 const blogs = [
   {
     title: "Webpack stats file",
@@ -40,11 +42,12 @@ const blogs = [
           <article class="group rounded-lg bg-orange-25 shadow-sm transition-all hover:shadow-md">
             <a href={blog.link} class="block">
               <div class="aspect-[4/3] overflow-hidden rounded-t-lg">
-                <img
+                <Image
                   src={blog.img}
                   alt={blog.title}
                   width={600}
                   height={450}
+                  loading="lazy"
                   class="h-full w-full object-cover transition-all opacity-75 group-hover:scale-105"
                   style={{ aspectRatio: "600/450", objectFit: "cover" }}
                 />
