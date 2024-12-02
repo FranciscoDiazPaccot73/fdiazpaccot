@@ -5,7 +5,7 @@ import PageLayout from "../../layouts/PageLayout.astro";
 import { PICTURES } from "./pictures";
 
 const meta = {
-  title: "Portfolio | Francisco Diaz Paccot",
+  title: "Gallery | About | Francisco Diaz Paccot",
   description: "Francisco Diaz Paccot | Software Engineer.",
   logoUrl: "https://i.ibb.co/mFYW5QJ/new-logo-small.webp",
   url: "https://franciscodiazpaccot.dev",
@@ -44,14 +44,10 @@ const images3 = [
       <div
         class="pt-10 mt-10 flex flex-col gap-16 border-t border-orange-35 md:pt-16 md:mt-16 md:gap-32"
       >
-        <ImagePreview client:load>
-          <ImageGallery client:load images={images1} borders={{ top: true }} />
-          <ImageGallery client:load images={images2} />
-          <ImageGallery
-            client:load
-            images={images3}
-            borders={{ bottom: true }}
-          />
+        <ImagePreview>
+          <ImageGallery images={images1} borders={{ top: true }} />
+          <ImageGallery images={images2} />
+          <ImageGallery images={images3} borders={{ bottom: true }} />
         </ImagePreview>
       </div>
     </div>

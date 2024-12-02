@@ -14,6 +14,7 @@ const extraClass = withPreview ? "preview-image" : "";
       <img
         alt={first.alt}
         src={first.src}
+        loading="lazy"
         class=`cursor-pointer w-full object-fit transition-all duration-300 hover:scale-105 ${extraClass}`
       />
     </div>
@@ -25,6 +26,7 @@ const extraClass = withPreview ? "preview-image" : "";
       <img
         alt={second.alt}
         src={second.src}
+        loading="lazy"
         class=`cursor-pointer w-full object-fit transition-all duration-300 hover:scale-105 ${extraClass}`
       />
     </div>
@@ -36,6 +38,7 @@ const extraClass = withPreview ? "preview-image" : "";
       <img
         alt={third.alt}
         src={third.src}
+        loading="lazy"
         class=`cursor-pointer w-full object-fit transition-all duration-300 hover:scale-105 ${extraClass}`
       />
     </div>
@@ -46,6 +49,7 @@ const extraClass = withPreview ? "preview-image" : "";
       <img
         alt={fourth.alt}
         src={fourth.src}
+        loading="lazy"
         class=`cursor-pointer w-full object-fit transition-all duration-300 hover:scale-105 ${extraClass}`
       />
     </div>
