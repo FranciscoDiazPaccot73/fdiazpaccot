@@ -1,0 +1,53 @@
+---
+const { images, withPreview = true, borders = {} } = Astro.props;
+
+const [first, second, third, fourth] = images;
+
+const extraClass = withPreview ? "preview-image" : "";
+---
+
+<div class="mt-10 grid grid-cols-1 gap-4 md:grid-cols-6">
+  <div class="flex p-[1px] col-span-4 md:h-[556px]">
+    <div
+      class=`overflow-hidden rounded-lg shadow-md w-full ${borders.top ? "md:rounded-tl-[2rem]" : ''}`
+    >
+      <img
+        alt={first.alt}
+        src={first.src}
+        class=`cursor-pointer w-full object-fit transition-all duration-300 hover:scale-105 ${extraClass}`
+      />
+    </div>
+  </div>
+  <div class="flex p-[1px] h-[556px] col-span-4 md:col-span-2">
+    <div
+      class=`overflow-hidden rounded-lg shadow-md w-full ${borders.top ? "md:rounded-tr-[2rem]" : ''}`
+    >
+      <img
+        alt={second.alt}
+        src={second.src}
+        class=`cursor-pointer w-full object-fit transition-all duration-300 hover:scale-105 ${extraClass}`
+      />
+    </div>
+  </div>
+  <div class="flex p-[1px] h-[556px] col-span-4 md:col-span-2">
+    <div
+      class=`overflow-hidden rounded-lg shadow-md w-full ${borders.bottom ? "md:rounded-bl-[2rem]" : ""}`
+    >
+      <img
+        alt={third.alt}
+        src={third.src}
+        class=`cursor-pointer w-full object-fit transition-all duration-300 hover:scale-105 ${extraClass}`
+      />
+    </div>
+  </div><div class="flex p-[1px] md:h-[556px] col-span-4">
+    <div
+      class=`overflow-hidden rounded-lg shadow-md w-full ${borders.bottom ? "md:rounded-br-[2rem]" : ""}`
+    >
+      <img
+        alt={fourth.alt}
+        src={fourth.src}
+        class=`cursor-pointer w-full object-fit transition-all duration-300 hover:scale-105 ${extraClass}`
+      />
+    </div>
+  </div>
+</div>

@@ -18,7 +18,7 @@ const PROJECTS = [
     },
   },
   {
-    title: "Blabi webpages",
+    title: "¿Que Puedo Ver?",
     description:
       "¿Que Puedo Ver? it's a website that recommends tv series and movies to watch",
     image: "/qpv.jpg",
@@ -54,15 +54,16 @@ const PROJECTS = [
   class="w-full py-12 md:py-24 lg:py-32 text-white md:mx-auto md:w-full md:max-w-6xl"
 >
   <div class="container space-y-10 px-4 md:px-6">
-    <div class="text-center space-y-4">
-      <h2
-        class="text-3xl font-bold text-orange tracking-tighter sm:text-4xl md:text-5xl"
-      >
+    <div class="flex items-center justify-between mb-6 md:mb-8 lg:mb-10">
+      <p class="text-2xl font-bold tracking-tight text-orange sm:text-3xl">
         My Projects
-      </h2>
-      <p class="max-w-[700px] mx-auto text-muted-foreground md:text-xl">
-        Explore a selection of my past projects.
       </p>
+      <a
+        href="/portfolio"
+        class="text-sm font-medium text-primary hover:underline underline-offset-4"
+      >
+        View Full Portfolio
+      </a>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8">
       {
@@ -100,14 +101,6 @@ const PROJECTS = [
           </div>
         ))
       }
-    </div>
-    <div class="flex justify-center">
-      <a
-        href="/portfolio"
-        class="text-sm font-medium text-primary hover:underline underline-offset-4"
-      >
-        View Full Portfolio
-      </a>
     </div>
   </div>
 </section>

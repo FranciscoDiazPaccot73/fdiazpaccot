@@ -1,0 +1,67 @@
+---
+import ImageGallery from "../../components/ImageGallery.astro";
+import ImagePreview from "../../components/ImagePreview.astro";
+import PageLayout from "../../layouts/PageLayout.astro";
+import { PICTURES } from "./pictures";
+
+const meta = {
+  title: "Portfolio | Francisco Diaz Paccot",
+  description: "Francisco Diaz Paccot | Software Engineer.",
+  logoUrl: "https://i.ibb.co/mFYW5QJ/new-logo-small.webp",
+  url: "https://franciscodiazpaccot.dev",
+};
+
+const images1 = [
+  PICTURES.faroSF,
+  PICTURES.graffiti,
+  PICTURES.mcSF,
+  PICTURES.bridgeAndSculturebnw,
+];
+
+const images2 = [
+  PICTURES.staFeStreet,
+  PICTURES.puestaSolMuelleSF,
+  PICTURES.pnaStairs,
+  PICTURES.bridgeAtNight,
+];
+
+const images3 = [
+  PICTURES.gamingKeyboard,
+  PICTURES.pcPool,
+  PICTURES.sfStreetBv,
+  PICTURES.meTakingAPhoto,
+];
+---
+
+<PageLayout {meta} router="/portfolio">
+  <section class="py-4 px-2 md:px-4 md:py-16">
+    <div class="px-4 max-w-2xl mx-auto my-10 md:max-w-7xl">
+      <div class="max-w-3xl">
+        <p class="font-semibold text-gray-100 text-3xl mb-8 eurostile">
+          Gallery
+        </p>
+      </div>
+      <div
+        class="pt-10 mt-10 flex flex-col gap-16 border-t border-orange-35 md:pt-16 md:mt-16 md:gap-32"
+      >
+        <ImagePreview client:load>
+          <ImageGallery client:load images={images1} borders={{ top: true }} />
+          <ImageGallery client:load images={images2} />
+          <ImageGallery
+            client:load
+            images={images3}
+            borders={{ bottom: true }}
+          />
+        </ImagePreview>
+      </div>
+    </div>
+  </section>
+</PageLayout>
+
+<script>
+  window.addEventListener("scroll", () => {
+    const calculation =
+      window.scrollY / (document.body.offsetHeight - window.innerHeight);
+    document.body.style.setProperty("--scroll", calculation.toString()), false;
+  });
+</script>

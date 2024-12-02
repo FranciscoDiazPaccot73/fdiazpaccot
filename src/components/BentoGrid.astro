@@ -1,0 +1,80 @@
+---
+const { elements, imgCustomClass = "" } = Astro.props;
+
+const [first, second, third, fourth] = elements;
+---
+
+<div class="brelative overflow-hidden isolate md:mx-0">
+  <div class="mx-auto max-w-2xl lg:max-w-7xl">
+    <div class="grid gap-4 mt-12 lg:grid-cols-3 lg:grid-rows-2">
+      <div class="relative lg:row-span-2">
+        <div class="absolute inset-px"></div>
+        <div class="relative flex h-full flex-col overflow-hidden">
+          <div class="relative min-h-[30rem] w-full grow">
+            <div
+              class="absolute w-full bottom-1/2 translate-y-1/2 right-0 flex justify-center shadow-2xl"
+            >
+              <img
+                class=`cursor-pointer w-full max-lg:max-w-xs object-fit transition-all duration-300 hover:scale-105 ${imgCustomClass}`
+                src={first.src}
+                alt={first.alt}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="relative max-lg:row-start-1">
+        <div class="relative flex h-full flex-col overflow-hidden">
+          <div
+            class="flex flex-1 items-center justify-center max-lg:pb-12 max-lg:pt-10 lg:pb-2"
+          >
+            <img
+              class=`cursor-pointer w-full max-lg:max-w-lg transition-all duration-300 hover:scale-105 ${imgCustomClass}`
+              src={second.src}
+              alt={second.alt}
+            />
+          </div>
+        </div>
+        <div
+          class="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 max-lg:rounded-t-[2rem]"
+        >
+        </div>
+      </div>
+      <div class="relative max-lg:row-start-3 lg:col-start-2 lg:row-start-2">
+        <div class="relative flex h-full flex-col overflow-hidden">
+          <div
+            class="flex flex-1 items-center justify-center max-lg:pb-12 max-lg:pt-10 lg:pb-2"
+          >
+            <img
+              class=`cursor-pointer w-full max-lg:max-w-xs transition-all duration-300 hover:scale-105 ${imgCustomClass}`
+              src={third.src}
+              alt={third.alt}
+            />
+          </div>
+        </div>
+        <div
+          class="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5"
+        >
+        </div>
+      </div>
+      <div class="relative overflow-hidden lg:row-span-2">
+        <div class="absolute inset-px"></div>
+        <div class="relative flex h-full flex-col overflow-hidden">
+          <div
+            class="relative align-center min-h-[30rem] md:min-h-[30rem] w-full grow"
+          >
+            <div
+              class="absolute w-full flex justify-center bottom-1/2 translate-y-1/2 overflow-hidden right-0 shadow-2xl"
+            >
+              <img
+                class=`cursor-pointer w-full max-lg:max-w-xs transition-all duration-300 hover:scale-105 ${imgCustomClass}`
+                src={fourth.src}
+                alt={fourth.alt}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
