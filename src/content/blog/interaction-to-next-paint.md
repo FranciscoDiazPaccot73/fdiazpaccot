@@ -2,11 +2,11 @@
 title: "INP ¡¿Qué es eso?!"
 description: "Interaction to Next Paint (INP), el reemplazo del First Input Delay (FID)."
 pubDate: "06/02/2023"
-image: "/INP.png"
+image: "https://i.ibb.co/f4bK07g/INP.png"
 tags: "PERFORMANCE,WEB VITALS"
 readingTime: "6"
-languages: ['es']
-blogLanguage: 'es'
+languages: ["es"]
+blogLanguage: "es"
 ---
 
 Siendo que falta menos de 1 año para su lanzamiento (Marzo de 2024) el INP es la
@@ -63,7 +63,7 @@ web con gran cantidad de interacciones, se toma el percentil 99 o 98.
 <br/>
 
 <a href="/blog/inp.png" alt="The life of an interaction." target="_blank">
-<img src="/blog/inp.png" alt="The life of an interaction." />
+<img src="https://i.ibb.co/nqy7Fcc/inp.png" alt="The life of an interaction." />
 </a>
 
 <br/>
@@ -101,7 +101,7 @@ general de respuesta del sitio web a lo largo de todo su ciclo de vida
 <br/>
 
 <a href="/blog/multiple-interactions.png" alt="A depiction of an interaction with multiple event handlers." target="_blank">
-<img src="/blog/multiple-interactions.png" alt="A depiction of an interaction with multiple event handlers." />
+<img src="https://i.ibb.co/7WQXK13/multiple-interactions.png" alt="A depiction of an interaction with multiple event handlers." />
 </a>
 
 <br/>

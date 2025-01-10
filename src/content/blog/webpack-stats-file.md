@@ -2,10 +2,10 @@
 title: "Webpack stats file"
 description: "Analizar la cantidad de JavaScript que estamos añadiendo en un pull request (PR) en una aplicación Next.js utilizando el archivo de estadísticas de Webpack."
 pubDate: "03/18/2024"
-image: "/blog/webpack-stats-file/webpack-react.webp"
+image: "https://i.ibb.co/199Dks8/webpack-react.webp"
 tags: "WEBPACK,NEXTJS,CLI,PERFORMANCE"
 readingTime: "5"
-languages: ["es", 'en']
+languages: ["es", "en"]
 blogLanguage: "es"
 ---
 
@@ -54,6 +54,7 @@ Una vez instalada la librería, es necesario ajustar la configuración de Webpac
 <br />
 
 <span style="color:#ffffff">**next.config.js**</span>
+
 <pre style="background: #2a2a2a; border-left: 1px solid #e9552f; color: #89cff0; page-break-inside: avoid; font-family: monospace; font-size: 15px; line-height: 1.6; margin-bottom: 1.6em; overflow: auto; padding: 10px; display: block; word-wrap: break-word;overflow-x: auto;max-width:calc(100vw - 20px)">
 const { StatsWriterPlugin } = require('webpack-stats-plugin')
 
@@ -210,7 +211,7 @@ Con esto deberíamos obtener como resultado, una tabla que compare la cantidad d
 
 <br />
 
-<img src="/blog/webpack-stats-file/console-exit.webp" alt="Script console exit" />
+<img src="https://i.ibb.co/WvgqYyJ/console-exit.webp" alt="Script console exit" />
 
 <br />
 
@@ -229,6 +230,7 @@ Para lograr esto, necesitaríamos generar un token desde nuestro perfil de npm y
 <br />
 
 <span style="color:#ffffff">**.github/workflows/publish.yml within the CLI**</span>
+
 <pre style="background: #2a2a2a; border-left: 1px solid #e9552f; color: #89cff0; page-break-inside: avoid; font-family: monospace; font-size: 15px; line-height: 1.6; margin-bottom: 1.6em; overflow: auto; padding: 10px; display: block; word-wrap: break-word;overflow-x: auto;max-width:calc(100vw - 20px)">
 name: "Publish package to npm"
 
@@ -260,6 +262,7 @@ Ahora, simplemente debemos crear la acción en nuestra aplicación Next.js para 
 <br />
 
 <span style="color:#ffffff">**.github/workflows/analize.yml within the application to measure**</span>
+
 <pre style="background: #2a2a2a; border-left: 1px solid #e9552f; color: #89cff0; page-break-inside: avoid; font-family: monospace; font-size: 15px; line-height: 1.6; margin-bottom: 1.6em; overflow: auto; padding: 10px; display: block; word-wrap: break-word;overflow-x: auto;max-width:calc(100vw - 20px)">
 name: "Analyze webpack stats"
 
@@ -296,6 +299,7 @@ Al ejecutarlo en un entorno de Integración Continua (CI) ya no podríamos ver l
 <br />
 
 <span style="color:#ffffff">**.github/workflows/analize.yml within the application to measure**</span>
+
 <pre style="background: #2a2a2a; border-left: 1px solid #e9552f; color: #89cff0; page-break-inside: avoid; font-family: monospace; font-size: 15px; line-height: 1.6; margin-bottom: 1.6em; overflow: auto; padding: 10px; display: block; word-wrap: break-word;overflow-x: auto;max-width:calc(100vw - 20px)">
 async function addComment(values: any[]) {
   const token = process.env.GH_TOKEN;
@@ -335,7 +339,7 @@ Cuando el github action finalice, podremos observar un resultado similar al sigu
 
 <br/>
 
-<img src="/blog/webpack-stats-file/comment.webp" alt="Pull request comment example" />
+<img src="https://i.ibb.co/4g5MrJj/comment.webp" alt="Pull request comment example" />
 
 <br />
 

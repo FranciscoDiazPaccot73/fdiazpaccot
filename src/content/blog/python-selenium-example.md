@@ -2,11 +2,11 @@
 title: "Python y Selenium, sin Docker"
 description: "Desplegar aplicaciones Python + Selenium sin la necesidad de dockerizar."
 pubDate: "01/30/2024"
-image: "/blog/python-selenium-example/python-selenium-example.webp"
+image: "https://i.ibb.co/bgJxcg8/python-selenium-example.webp"
 tags: "PYTHON,SELENIUM,API"
 readingTime: "2"
-languages: ['es', 'en']
-blogLanguage: 'es'
+languages: ["es", "en"]
+blogLanguage: "es"
 ---
 
 <br/>
@@ -58,13 +58,17 @@ Al concluir el script, incorporamos la instalación de las dependencias necesari
 <br/>
 
 En la etapa final, resulta crucial dirigirse a las configuraciones en la sección **"Build & Deploy"** de render.com. En particular, se busca la opción denominada **"Build Command"**, donde se especifica la ejecución de nuestro script de bash mediante el comando:
+
 <pre style="background: #2a2a2a; border-left: 1px solid #e9552f; color: #89cff0; page-break-inside: avoid; font-family: monospace; font-size: 15px; line-height: 1.6; margin-bottom: 1.6em; overflow: auto; padding: 10px; display: block; word-wrap: break-word;overflow-x: auto;max-width:calc(100vw - 20px)">
 ./render-build.sh
 </pre>
+
 Un aspecto adicional de relevancia consiste en añadir el siguiente comando en la sección **"Start Command"**:
+
 <pre style="background: #2a2a2a; border-left: 1px solid #e9552f; color: #89cff0; page-break-inside: avoid; font-family: monospace; font-size: 15px; line-height: 1.6; margin-bottom: 1.6em; overflow: auto; padding: 10px; display: block; word-wrap: break-word;overflow-x: auto;max-width:calc(100vw - 20px)">
 export PATH="${PATH}:/opt/render/project/.render/chrome/opt/google/chrome" && gunicorn app:app
 </pre>
+
 En esta instrucción, la primera parte establece la ruta donde se encuentra el ejecutable de Chrome, y además, empleamos gunicorn para ejecutar la aplicación.
 
 <br/>

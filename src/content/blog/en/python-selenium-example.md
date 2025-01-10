@@ -3,13 +3,13 @@ title: "Python and Selenium, Unleashed without Docker"
 description: "Deploying Python + Selenium applications without the need for dockerize it."
 pubDate: "01/30/2024"
 updatedDate: "02/14/2024"
-image: "/blog/python-selenium-example/python-selenium-example.webp"
+image: "https://i.ibb.co/bgJxcg8/python-selenium-example.webp"
 tags: "PYTHON,SELENIUM,API"
 mediumBlog: "https://medium.com/@fran.diazpaccot/python-and-selenium-unleashed-without-docker-c526b3a6c2aa"
 devBlog: "https://dev.to/frandiazpaccot/python-and-selenium-unleashed-without-docker-4kcm"
 readingTime: "2"
-languages: ['es', 'en']
-blogLanguage: 'en'
+languages: ["es", "en"]
+blogLanguage: "en"
 ---
 
 <br/>
@@ -23,7 +23,7 @@ In this way, I discovered that by using <a style="text-decoration:underline" hre
 
 <br/>
 
-For this purpose, through this simple bash script,  Chrome can be installed on the server if it is not already present.
+For this purpose, through this simple bash script, Chrome can be installed on the server if it is not already present.
 
 <br/>
 
@@ -61,13 +61,17 @@ Upon concluding the script, we include the installation of the necessary depende
 <br/>
 
 In the final stage, it is crucial to navigate to the settings in the **"Build & Deploy"**section of render.com. Specifically, look for the option labeled **"Build Command"**, where the execution of the bash script that is specified using the command:
+
 <pre style="background: #2a2a2a; border-left: 1px solid #f36d33; color: #89cff0; page-break-inside: avoid; font-family: monospace; font-size: 15px; line-height: 1.6; margin-bottom: 1.6em; overflow: auto; padding: 10px; display: block; word-wrap: break-word;overflow-x: auto;max-width:calc(100vw - 20px)">
 ./render-build.sh
 </pre>
+
 An additional relevant aspect involves adding the following command in the **"Start Command"** section:
+
 <pre style="background: #2a2a2a; border-left: 1px solid #f36d33; color: #89cff0; page-break-inside: avoid; font-family: monospace; font-size: 15px; line-height: 1.6; margin-bottom: 1.6em; overflow: auto; padding: 10px; display: block; word-wrap: break-word;overflow-x: auto;max-width:calc(100vw - 20px)">
 export PATH="${PATH}:/opt/render/project/.render/chrome/opt/google/chrome" && gunicorn app:app
 </pre>
+
 In this instruction, the first part establishes the path where the Chrome executable is located, and we use gunicorn to run the application.
 
 <br/>

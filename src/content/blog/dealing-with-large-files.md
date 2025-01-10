@@ -2,12 +2,12 @@
 title: "Manejar grandes archivos, evitando timeouts"
 description: "Optimizando la Subida de Grandes Archivos a tu Servidor Web: Evitando los Problemas de timeouts."
 pubDate: "09/02/2023"
-image: "/blog/timeout.webp"
+image: "https://i.ibb.co/djxWM44/timeout.webp"
 tags: "JAVASCRIPT,NODEJS,FILES"
 mediumBlog: "https://medium.com/@fran.diazpaccot/manejar-grandes-archivos-evitando-timeouts-4e248b27e3e4"
 readingTime: "6"
-languages: ['es']
-blogLanguage: 'es'
+languages: ["es"]
+blogLanguage: "es"
 ---
 
 <br/>
@@ -41,7 +41,7 @@ archivos como tipo Blob, podemos usar la función
 
 <br/>
 
-<img src="/blog/dealing-with-large-files/slice-file.webp" alt="Code: slice file" />
+<img src="https://i.ibb.co/WHRpRJV/slice-file.webp" alt="Code: slice file" />
 
 <br/>
 
@@ -60,7 +60,7 @@ que necesitamos para realizar las request.
 
 <br/>
 
-<img src="/blog/dealing-with-large-files/body-request.webp" alt="Code: Construct body request." />
+<img src="https://i.ibb.co/N1jzyxh/body-request.webp" alt="Code: Construct body request." />
 
 <br/>
 
@@ -134,13 +134,13 @@ chunk que queremos procesar y que la carpeta que va a contener todos los chunks
 ya esté creada, usamos la función **move** de fs-extra para guardar el chunk en
 nuestra carpeta contenedora.
 
-<img src="/blog/dealing-with-large-files/handle-form.webp" alt="Code: Handling form data." />
+<img src="https://i.ibb.co/KF8SYtB/handle-form.webp" alt="Code: Handling form data." />
 
 <br/>
 
 Con esto obtendremos algo como lo siguiente:
 
-<img src="/blog/dealing-with-large-files/loaded-chunks.webp" alt="Loaded chunks." />
+<img src="https://i.ibb.co/yNDzhGj/loaded-chunks.webp" alt="Loaded chunks." />
 
 <br />
 
@@ -178,14 +178,14 @@ elimina el chunk del directorio donde lo tenemos guardado. Para finalizar usamos
 **Promise.all()** para ejecutar todas estas promesas. Una vez terminado esto, ya
 podemos eliminar el directorio donde estaban todos los chunks.
 
-<img src="/blog/dealing-with-large-files/pipe-stream.webp" alt="Code: Pipe stream" />
+<img src="https://i.ibb.co/mhLZqbv/pipe-stream.webp" alt="Code: Pipe stream" />
 
 <br />
 
 De esta forma, vamos a obtener nuevamente el archivo original, quedándonos de
 esta manera:
 
-<img src="/blog/dealing-with-large-files/final-result.webp" alt="Final result" />
+<img src="https://i.ibb.co/XJn977Z/final-result.webp" alt="Final result" />
 
 <br />
 <br />

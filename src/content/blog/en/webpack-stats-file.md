@@ -2,12 +2,12 @@
 title: "Webpack stats file"
 description: "Analyze the amount of JavaScript we are adding in a pull request (PR) in a Next.js application using the Webpack stats file."
 pubDate: "03/18/2024"
-image: "/blog/webpack-stats-file/webpack-react.webp"
+image: "https://i.ibb.co/199Dks8/webpack-react.webp"
 tags: "WEBPACK,NEXTJS,CLI,PERFORMANCE"
 mediumBlog: "https://medium.com/@fran.diazpaccot/webpack-stats-file-84179474101a"
 devBlog: "https://dev.to/frandiazpaccot/webpack-stats-file-3hi2"
 readingTime: "5"
-languages: ["es", 'en']
+languages: ["es", "en"]
 blogLanguage: "en"
 ---
 
@@ -56,6 +56,7 @@ Once the library is installed, it is necessary to adjust the Webpack configurati
 <br />
 
 <span style="color:#ffffff">**next.config.js**</span>
+
 <pre style="background: #2a2a2a; border-left: 1px solid #e9552f; color: #89cff0; page-break-inside: avoid; font-family: monospace; font-size: 15px; line-height: 1.6; margin-bottom: 1.6em; overflow: auto; padding: 10px; display: block; word-wrap: break-word;overflow-x: auto;max-width:calc(100vw - 20px)">
 const { StatsWriterPlugin } = require('webpack-stats-plugin')
 
@@ -212,7 +213,7 @@ With this we should obtain as a result, a table that compares the amount of Java
 
 <br />
 
-<img src="/blog/webpack-stats-file/console-exit.webp" alt="Script console exit" />
+<img src="https://i.ibb.co/WvgqYyJ/console-exit.webp" alt="Script console exit" />
 
 <br />
 
@@ -231,6 +232,7 @@ To accomplish this, we would need to generate a token from our npm profile and t
 <br />
 
 <span style="color:#ffffff">**.github/workflows/publish.yml within the CLI**</span>
+
 <pre style="background: #2a2a2a; border-left: 1px solid #e9552f; color: #89cff0; page-break-inside: avoid; font-family: monospace; font-size: 15px; line-height: 1.6; margin-bottom: 1.6em; overflow: auto; padding: 10px; display: block; word-wrap: break-word;overflow-x: auto;max-width:calc(100vw - 20px)">
 name: "Publish package to npm"
 
@@ -262,6 +264,7 @@ Now, we simply create the action in our Next.js application to execute our CLI e
 <br />
 
 <span style="color:#ffffff">**.github/workflows/analize.yml within the application to measure**</span>
+
 <pre style="background: #2a2a2a; border-left: 1px solid #e9552f; color: #89cff0; page-break-inside: avoid; font-family: monospace; font-size: 15px; line-height: 1.6; margin-bottom: 1.6em; overflow: auto; padding: 10px; display: block; word-wrap: break-word;overflow-x: auto;max-width:calc(100vw - 20px)">
 name: "Analyze webpack stats"
 
@@ -298,6 +301,7 @@ When running it in a Continuous Integration (CI) environment we would no longer 
 <br />
 
 <span style="color:#ffffff">**.github/workflows/analize.yml within the application to measure**</span>
+
 <pre style="background: #2a2a2a; border-left: 1px solid #e9552f; color: #89cff0; page-break-inside: avoid; font-family: monospace; font-size: 15px; line-height: 1.6; margin-bottom: 1.6em; overflow: auto; padding: 10px; display: block; word-wrap: break-word;overflow-x: auto;max-width:calc(100vw - 20px)">
 async function addComment(values: any[]) {
   const token = process.env.GH_TOKEN;
@@ -337,7 +341,7 @@ When the github action finishes, we will see a result similar to the following:
 
 <br/>
 
-<img src="/blog/webpack-stats-file/comment.webp" alt="Pull request comment example" />
+<img src="https://i.ibb.co/4g5MrJj/comment.webp" alt="Pull request comment example" />
 
 <br />
 
