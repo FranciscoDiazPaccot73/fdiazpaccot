@@ -1,19 +1,21 @@
 ---
 import MetaTags from "../components/MetaTags.astro";
+import { ClientRouter } from "astro:transitions";
 
 export interface Props {
-	title: string;
+  title: string;
 }
 
 const { meta = {} } = Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="black-background">
-	<head>
-		<MetaTags {...meta} />
-	</head>
-	<body class="m-0 left-0 relative overflow-x-hidden">
-		<slot />
-	</body>
+  <head>
+    <MetaTags {...meta} />
+    <ClientRouter />
+  </head>
+  <body class="m-0 left-0 relative overflow-x-hidden">
+    <slot />
+  </body>
 </html>
