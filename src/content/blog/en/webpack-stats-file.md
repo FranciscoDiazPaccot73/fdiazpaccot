@@ -1,4 +1,5 @@
 ---
+id: 4
 title: "Webpack stats file"
 description: "Analyze the amount of JavaScript we are adding in a pull request (PR) in a Next.js application using the Webpack stats file."
 pubDate: "03/18/2024"
@@ -9,6 +10,7 @@ devBlog: "https://dev.to/frandiazpaccot/webpack-stats-file-3hi2"
 readingTime: "5"
 languages: ["es", "en"]
 blogLanguage: "en"
+published: true
 ---
 
 <br/>

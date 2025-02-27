@@ -12,10 +12,31 @@ const meta = {
   url: "https://franciscodiazpaccot.dev",
 };
 
-const dataPosts = await getCollection(
+const blogs = await getCollection(
   "blog",
-  ({ data }) => data.blogLanguage === "es",
+  ({ data }) => data.published === true
 );
+
+const blogsEs = blogs.filter((post) => post.data.blogLanguage === "es");
+const blogsEn = blogs.filter((post) => post.data.blogLanguage === "en");
+
+const idsUsed: number[] = [];
+
+const dataPosts = blogsEn.map((blog) => {
+  idsUsed.push(blog.data.id);
+
+  return blog;
+});
+
+blogsEs.forEach((blog) => {
+  if (idsUsed.includes(blog.data.id)) {
+    return;
+  }
+
+  idsUsed.push(blog.data.id);
+
+  dataPosts.push(blog);
+});
 
 const posts: any = {};
 let years: number[] = [];

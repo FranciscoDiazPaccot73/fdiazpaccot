@@ -47,51 +47,54 @@ const Content = ({ posts, years }) => {
         return (
           <article key={`articles-${year}`}>
             <h2 className='text-3xl text-orange mt-10'>{year}</h2>
-            {postsToShow.map((post) => {
-              const description = post.data.description ?? '';
-              const { month, day, year } = getDateLabels(post?.data?.pubDate)
-              const stack = post.data.tags?.split(',') ?? [];
-              const hasEnglish = post.data.languages?.includes('en')
+            <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {postsToShow.map((post) => {
+                const description = post.data.description ?? '';
+                const { month, day, year } = getDateLabels(post?.data?.pubDate)
+                const stack = post.data.tags?.split(',') ?? [];
 
-              return (
-                <a href={`/blog/${hasEnglish ? 'en/' : ''}${post.slug}/`} key={`${post.timestamp}-${post.slug}`} className='border-b border-opacity-40 border-b-orange py-6 px-1'>
-                  <li className='py-6 px-1'>
-                    <article className="flex max-w-5xl flex-col items-start justify-between">
-                      <div className="flex items-center gap-x-4 text-xs">
-                        <p className="text-gray-400">{`${month} ${day}, ${year}`}</p>
-                        {stack && (
-                          <ul className="ml-2 flex gap-2 flex-wrap">
-                            {stack.map((tec) => (
-                              <li key={`${post.timestamp}-${tec}`} className="relative z-10 rounded-md text-[10px] orange-background px-1 py-[2px] font-medium black-text">
-                                {tec}
-                              </li>
-                            ))}
-                          </ul>
-                        )}
-                      </div>
-                      <div className="font-bold relative">
-                        <h3 className='text-orange text-xl'>{post.data.title}</h3>
-                        <p title={description.toString()} className="mt-5 font-normal line-clamp-3 text-sm leading-6 text-gray-200">
-                          {post.data.description}
-                        </p>
-                      </div>
-                      <p className='text-xs text-orange opacity-80 h-4 flex justify-between items-center mt-2'>
-                        {post.data.readingTime ? `~${post.data.readingTime} min read` : ''}
-                        {post.data.languages?.includes('en') && <img alt='English' src='/usa.png' width={18} height={18} className='ml-4' />}
-                        {post.data.languages?.includes('es') && <img alt='Spanish' src='/spain.svg' width={18} height={18} className='ml-4' />}
-                      </p>
-                      <div className="relative mt-8 flex items-center md:items-start">
-                        <div className="text-sm leading-6">
-                          {post.data.image &&
-                            <img className="object-contain order-first" width={944} src={post.data.image} alt="" />
-                          }
+                return (
+                  <a href={`/blog/${post.slug}/`} key={`${post.timestamp}-${post.slug}`} className='py-6 px-1'>
+                    <li className='border border-orange-50 max-w-[944px] h-full'>
+                      <article className="flex flex-col items-start justify-between h-full">
+                        <div className='py-4 px-3 w-full'>
+                          <div className="relative gap-x-2 text-xs w-full">
+                            <p className="text-gray-400 text-[10px]">{`${month} ${day}, ${year}`}</p>
+                            {stack && (
+                              <ul className="flex gap-2 flex-wrap absolute max-w-[75%] -top-1 -right-1">
+                                {stack.map((tec) => (
+                                  <li key={`${post.timestamp}-${tec}`} className="relative z-10 rounded-md text-[8px] orange-background p-1 font-medium black-text">
+                                    {tec}
+                                  </li>
+                                ))}
+                              </ul>
+                            )}
+                          </div>
+                          <div className="font-bold relative">
+                            <h3 className='text-orange text-xl'>{post.data.title}</h3>
+                            <p title={description.toString()} className="mt-5 font-normal line-clamp-3 text-sm leading-6 text-gray-200">
+                              {post.data.description}
+                            </p>
+                          </div>
+                          <p className='text-xs text-orange opacity-80 h-4 flex gap-2 items-center mt-2'>
+                            {post.data.readingTime ? <span className='mr-4'>{`~${post.data.readingTime} min read`}</span> : null}
+                            {post.data.languages?.includes('en') && <span className='text-gray-200'>EN</span>}
+                            {post.data.languages?.includes('es') && <span className='text-gray-200'>ES</span>}
+                          </p>
                         </div>
-                      </div>
-                    </article>
-                  </li>
-                </a>
-              )
-            })}
+                        <div className="relative mt-8 flex items-center md:items-start">
+                          <div className="text-sm leading-6">
+                            {post.data.image &&
+                              <img className="object-contain order-first" width={944} src={post.data.image} alt="" />
+                            }
+                          </div>
+                        </div>
+                      </article>
+                    </li>
+                  </a>
+                )
+              })}
+            </section>
           </article>
         )
       })}

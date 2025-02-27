@@ -1,4 +1,5 @@
 ---
+id: 1
 title: "Manejar grandes archivos, evitando timeouts"
 description: "Optimizando la Subida de Grandes Archivos a tu Servidor Web: Evitando los Problemas de timeouts."
 pubDate: "09/02/2023"
@@ -8,6 +9,7 @@ mediumBlog: "https://medium.com/@fran.diazpaccot/manejar-grandes-archivos-evitan
 readingTime: "6"
 languages: ["es"]
 blogLanguage: "es"
+published: true
 ---
 
 <br/>

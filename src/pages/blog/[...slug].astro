@@ -19,7 +19,7 @@ type Props = CollectionEntry<"blog">;
 
 const post = Astro.props;
 
-const hasLanguageSelector = post.data.languages?.length > 1;
+const hasLanguageSelector = (post.data.languages?.length || 0) > 1;
 
 const { Content } = await post.render();
 
@@ -104,7 +104,7 @@ const meta = {
           </div>
         )
       }
-      <p class="my-4 text-center text-xl text-orange">
+      <p class="my-4 text-center text-sm text-orange">
         {post.data.description}
       </p>
       <Content />

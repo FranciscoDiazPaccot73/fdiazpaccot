@@ -1,4 +1,5 @@
 ---
+id: 3
 title: "Python and Selenium, Unleashed without Docker"
 description: "Deploying Python + Selenium applications without the need for dockerize it."
 pubDate: "01/30/2024"
@@ -10,6 +11,7 @@ devBlog: "https://dev.to/frandiazpaccot/python-and-selenium-unleashed-without-do
 readingTime: "2"
 languages: ["es", "en"]
 blogLanguage: "en"
+published: true
 ---
 
 <br/>

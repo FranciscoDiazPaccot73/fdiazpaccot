@@ -1,4 +1,5 @@
 ---
+id: 2
 title: "INP ¡¿Qué es eso?!"
 description: "Interaction to Next Paint (INP), el reemplazo del First Input Delay (FID)."
 pubDate: "06/02/2023"
@@ -7,6 +8,7 @@ tags: "PERFORMANCE,WEB VITALS"
 readingTime: "6"
 languages: ["es"]
 blogLanguage: "es"
+published: true
 ---
 
 Siendo que falta menos de 1 año para su lanzamiento (Marzo de 2024) el INP es la

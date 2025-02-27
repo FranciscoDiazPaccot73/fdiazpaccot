@@ -1,4 +1,5 @@
 ---
+id: 4
 title: "Webpack stats file"
 description: "Analizar la cantidad de JavaScript que estamos añadiendo en un pull request (PR) en una aplicación Next.js utilizando el archivo de estadísticas de Webpack."
 pubDate: "03/18/2024"
@@ -7,6 +8,7 @@ tags: "WEBPACK,NEXTJS,CLI,PERFORMANCE"
 readingTime: "5"
 languages: ["es", "en"]
 blogLanguage: "es"
+published: true
 ---
 
 <br/>

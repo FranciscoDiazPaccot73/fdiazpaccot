@@ -1,7 +1,7 @@
 {
   "name": "fdiazpaccot",
   "type": "module",
-  "version": "3.9.0",
+  "version": "3.10.0",
   "private": true,
   "homepage": "https://www.franciscodiazpaccot.dev/",
   "author": {
@@ -22,6 +22,7 @@
     "@astrojs/tailwind": "^5.1.0",
     "@tailwindcss/typography": "^0.5.9",
     "astro": "^5.1.2",
+    "not-found-pages": "^0.0.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "tailwindcss": "^3.4.3"

@@ -1,4 +1,5 @@
 ---
+id: 3
 title: "Python y Selenium, sin Docker"
 description: "Desplegar aplicaciones Python + Selenium sin la necesidad de dockerizar."
 pubDate: "01/30/2024"
@@ -7,6 +8,7 @@ tags: "PYTHON,SELENIUM,API"
 readingTime: "2"
 languages: ["es", "en"]
 blogLanguage: "es"
+published: true
 ---
 
 <br/>

@@ -1,6 +1,5 @@
 ---
 import PageLayout from "../layouts/PageLayout.astro";
-import Button from "../components/Button.astro";
 
 const meta = {
   title: "Francisco Diaz Paccot",
@@ -12,100 +11,15 @@ const meta = {
 ---
 
 <PageLayout {meta} router="/404">
-  <section
-    style={{ height: "60vh" }}
-    class="flex items-center flex-col grow justify-center"
-  >
-    <div class="text-center not-found">
-      <p id="code">4<span class="first">0</span><span class="last">4</span></p>
-    </div>
-    <div class="not-found-text">
-      <span class="not_found__text_oops">Oops!</span> I think you are lost.
-    </div>
-    <Button href="/" target="_self">Take me Home</Button>
-  </section>
+  <neon-404
+    color="#e9552f"
+    secondary-color="#ca4a0a"
+    tertiary-color="#973403"
+    title="Oops!"
+    text="I think you are lost."
+    button-label="Take me home"></neon-404>
 </PageLayout>
 
-<style>
-  .not-found {
-    color: var(--orange);
-    font-size: 120px;
-    padding: 20px;
-    text-shadow:
-      0 0 80px var(--orange),
-      0 0 30px #ca4a0a,
-      0 0 6px #973403;
-  }
-  .not_found__404 p {
-    margin: 0;
-  }
-  .first {
-    opacity: 0.4;
-    text-shadow: none;
-  }
-  .not-found-text {
-    color: var(--orange);
-    font-size: 18px;
-    letter-spacing: 1px;
-    text-align: center;
-  }
-  .not_found__text_oops {
-    font-size: 24px;
-    font-weight: bold;
-  }
-  .not_found__button {
-    text-decoration: none;
-    color: var(--orange);
-    font-size: 12px;
-    margin-top: 60px;
-  }
-  .not_found__button:hover {
-    background-color: rgba(23, 23, 23, 0.9);
-    border: 1px solid var(--orange);
-  }
-  .last {
-    animation: lower 10s linear infinite;
-  }
-  @keyframes lower {
-    0%,
-    12%,
-    18.999%,
-    23%,
-    31.999%,
-    37%,
-    44.999%,
-    46%,
-    49.999%,
-    51%,
-    58.999%,
-    61%,
-    68.999%,
-    71%,
-    85.999%,
-    96%,
-    100% {
-      opacity: 0.99;
-      text-shadow:
-        0 0 80px var(--orange),
-        0 0 30px #ca4a0a,
-        0 0 6px #973403;
-    }
-    19%,
-    22.99%,
-    32%,
-    36.999%,
-    45%,
-    45.999%,
-    50%,
-    50.99%,
-    59%,
-    60.999%,
-    69%,
-    70.999%,
-    86%,
-    95.999% {
-      opacity: 0.4;
-      text-shadow: none;
-    }
-  }
-</style>
+<script>
+  import("not-found-pages");
+</script>
