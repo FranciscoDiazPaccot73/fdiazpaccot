@@ -1,24 +1,26 @@
 ---
 import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
 
-const blogs = [
-  {
-    title: "Webpack stats file",
-    date: "Mar 18, 2024",
-    description:
-      "Analyze the amount of JavaScript we are adding in a pull request (PR) in a Next.js application using the Webpack stats file.",
-    link: "/blog/en/webpack-stats-file/",
-    img: "https://i.ibb.co/199Dks8/webpack-react.webp",
-  },
-  {
-    title: "Python and Selenium, Unleashed without Docker",
-    date: "Jan 30, 2024",
-    description:
-      "Deploying Python + Selenium applications without the need for dockerize it.",
-    link: "/blog/en/python-selenium-example/",
-    img: "https://i.ibb.co/bgJxcg8/python-selenium-example.webp",
-  },
-];
+const blogsData = await getCollection(
+  "blog",
+  ({ data }) => data.published === true && data.blogLanguage === "en"
+);
+
+const blogs = blogsData.map((blog) => {
+  const pubDate = new Date(blog.data.pubDate);
+  const timestamp = pubDate.getTime();
+
+  return {
+    title: blog.data.title,
+    description: blog.data.description,
+    link: `/blog/${blog.slug}/`,
+    img: blog.data.image as string,
+    timestamp,
+  };
+});
+
+blogs.sort((a, b) => b.timestamp - a.timestamp).slice(0, 3);
 ---
 
 <section
@@ -36,7 +38,7 @@ const blogs = [
         View All
       </a>
     </div>
-    <div class="grid gap-12 md:gap-6 md:grid-cols-2">
+    <div class="grid gap-12 md:gap-6 md:grid-cols-3">
       {
         blogs.map((blog) => (
           <article class="group rounded-lg bg-orange-25 shadow-sm transition-all hover:shadow-md">
