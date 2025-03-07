@@ -15,7 +15,8 @@ const { siteTitle, title, description, logoUrl, url } = Astro.props;
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:site_name" content={siteTitle} />
-  <meta property="og:image" content={logoUrl} />
+  <meta name="image" property="og:image" content={logoUrl} />
+  <meta name="author" content="Francisco Diaz Paccot" />
   <meta property="og:url" content={url} />
   <meta property="twitter:card" content="summary_large_image" />
   <meta property="twitter:creator" content="@Pancho_xor" />
