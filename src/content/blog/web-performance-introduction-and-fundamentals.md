@@ -1,6 +1,6 @@
 ---
 id: 5
-title: "Web performance - Introducción e información básica."
+title: "Web performance - Introducción e información básica"
 description: "Optimice el rendimiento de su sitio web con guías rápidas y prácticas sobre Web Vitals."
 pubDate: "03/04/2025"
 image: "https://i.ibb.co/XxsJzvQB/core-web-vitals.webp"
