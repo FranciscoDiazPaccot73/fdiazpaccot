@@ -6,17 +6,10 @@ pubDate: "06/02/2023"
 image: "https://i.ibb.co/f4bK07g/INP.png"
 tags: "PERFORMANCE,WEB VITALS"
 readingTime: "6"
-languages: ["es"]
+languages: ["es", "en"]
 blogLanguage: "es"
 published: true
 ---
-
-Siendo que falta menos de 1 año para su lanzamiento (Marzo de 2024) el INP es la
-nueva métrica de las Core Web Vitals que incorpora Google. Es importante que
-podamos entender cómo funcionara, cómo medir nuestros sitios web en base al INP
-y cómo mejorar esos resultados.
-
-<br/>
 
 Las Core Web Vitals miden actualmente tres métricas principales en un sitio web:
 la carga, con el **Largest Contentful Paint (LCP)**; la interactividad, con el
