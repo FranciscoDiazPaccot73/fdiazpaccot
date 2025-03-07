@@ -240,10 +240,6 @@ Common issues in GSC
 
 <br />
 
-> _`Note: If you have any knowledge of web performance, at this point you may be thinking “he's talking about web vitals, but what about INP?”. Well, for that I have a complete dedicated blog that you can check here :)`_ <a style="text-decoration:underline" href="https://www.franciscodiazpaccot.dev/blog/en/interaction-to-next-paint/" target="_blank"> **What is INP?**</a>
-
-<br />
-
 <p style="color:#e9552f;margin-top:24px;margin-bottom:10px;font-size:20px;font-weight:600">
 Final thoughts
 </p>
@@ -257,6 +253,10 @@ Final thoughts
 #### Chrome DevTools is an **essential** tool for debugging performance. Try running a test and see how your site scores!
 
 #### GSC is great for monitoring real user performance over time. Check your report and start improving your scores!
+
+<br />
+
+> _`Note: If you have any knowledge of web performance, at this point you may be thinking “he's talking about web vitals, but what about INP?”. Well, for that I have a complete dedicated blog that you can check here :)`_ <a style="text-decoration:underline" href="https://www.franciscodiazpaccot.dev/blog/en/interaction-to-next-paint/" target="_blank"> **What is INP?**</a>
 
 <br />
 

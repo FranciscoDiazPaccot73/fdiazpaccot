@@ -239,10 +239,6 @@ Problemas comunes en GSC
 
 <br />
 
-> _`Nota: Si tienes algo de conocimiento de web performance, en este punto tal vez estes pensando: "Esta hablando de web vitals, pero por que no ha dicho nada de INP?". Bueno, para ese caso tengo un blog entero dedicado a ese tema. Te invito a revisarlo aqui: :)`_ <a style="text-decoration:underline" href="https://www.franciscodiazpaccot.dev/blog/interaction-to-next-paint/" target="_blank"> **¿Qué es INP?**</a>
-
-<br />
-
 <p style="color:#e9552f;margin-top:24px;margin-bottom:10px;font-size:20px;font-weight:600">
 Pensamientos finales.
 </p>
@@ -256,6 +252,10 @@ Pensamientos finales.
 #### Chrome DevTools es una herramienta **esencial** para la depuración de errores de rendimiento. Prueba corriendo un test y revisando el puntaje que obtiene tu sitio web!
 
 #### GSC es una gran herramienta para monitorear el rendimiento de usuarios reales a lo largo del tiempo. Revisa tus reportes y empieza a optimizar los puntajes!
+
+<br />
+
+> _`Nota: Si tienes algo de conocimiento de web performance, en este punto tal vez estes pensando: "Esta hablando de web vitals, pero por que no ha dicho nada de INP?". Bueno, para ese caso tengo un blog entero dedicado a ese tema. Te invito a revisarlo aqui: :)`_ <a style="text-decoration:underline" href="https://www.franciscodiazpaccot.dev/blog/interaction-to-next-paint/" target="_blank"> **¿Qué es INP?**</a>
 
 <br />
 
