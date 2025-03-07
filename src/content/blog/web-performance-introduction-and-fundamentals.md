@@ -255,7 +255,7 @@ Pensamientos finales.
 
 <br />
 
-> _`Nota: Si tienes algo de conocimiento de web performance, en este punto tal vez estes pensando: "Esta hablando de web vitals, pero por que no ha dicho nada de INP?". Bueno, para ese caso tengo un blog entero dedicado a ese tema. Te invito a revisarlo aqui: :)`_ <a style="text-decoration:underline" href="https://www.franciscodiazpaccot.dev/blog/interaction-to-next-paint/" target="_blank"> **¿Qué es INP?**</a>
+> _`Nota: Si tienes algo de conocimiento de web performance, en este punto tal vez estes pensando: "Esta hablando de web vitals, pero por que no ha dicho nada de INP?". Bueno, para ese caso tengo un blog entero dedicado a ese tema. Te invito a revisarlo aqui: :)`_ <a style="text-decoration:underline" href="https://www.franciscodiazpaccot.dev/blog/interaction-to-next-paint/"> **¿Qué es INP?**</a>
 
 <br />
 
