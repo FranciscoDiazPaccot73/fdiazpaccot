@@ -2354,10 +2354,10 @@ normalize-range@^0.1.2:
   resolved "https://registry.npmjs.org/normalize-range/-/normalize-range-0.1.2.tgz"
   integrity sha512-bdok/XvKII3nUpklnV6P2hxtMNrCboOjAcyBuQnWEhO665FwrSNRxU+AqpsyvO6LgGYPspN+lu5CLtw4jPRKNA==
 
-not-found-pages@^0.0.2:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/not-found-pages/-/not-found-pages-0.0.2.tgz#d35832d90c9bc6692fee591cc15a2b249dab7eb6"
-  integrity sha512-EHJ6rXFAQP9358oRLE7PcqFPDkiQ2ei3ERE5BhVClfW2Go9rcsKgwevuzCpgg2OVmsCakI/IZ4JkWcGjE5i8Sg==
+not-found-pages@^0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/not-found-pages/-/not-found-pages-0.0.3.tgz#d1f1b221fe4f9eb5e92de6863bb898c14ebdbcf6"
+  integrity sha512-KUxj/AF2zyD8Qhuqr9LPQ+18iCif99mq0MGcpOMOcrkuIZo2kt7INnDy2xzIMOR6i+075+YkGzXSSf92r3/Brw==
 
 object-assign@^4.0.1:
   version "4.1.1"
