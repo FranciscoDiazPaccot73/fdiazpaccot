@@ -1,13 +1,15 @@
 ---
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
+import Pin from "../icons/Pin.astro";
+import Badge from "../Badge.astro";
 
 const blogsData = await getCollection(
   "blog",
   ({ data }) => data.published === true && data.blogLanguage === "en"
 );
 
-const blogs = blogsData.map((blog) => {
+const allBlogs = blogsData.map((blog) => {
   const pubDate = new Date(blog.data.pubDate);
   const timestamp = pubDate.getTime();
 
@@ -20,7 +22,15 @@ const blogs = blogsData.map((blog) => {
   };
 });
 
-blogs.sort((a, b) => b.timestamp - a.timestamp).slice(0, 3);
+const webpackStatsFileBlog = allBlogs.find(
+  (blog) => blog.title === "Webpack stats file"
+)!;
+const blogs = [
+  { ...webpackStatsFileBlog, isPinned: true, isRecommended: true },
+  ...allBlogs.sort((a, b) => b.timestamp - a.timestamp).slice(0, 2),
+];
+
+console.log(blogs);
 ---
 
 <section
@@ -43,7 +53,7 @@ blogs.sort((a, b) => b.timestamp - a.timestamp).slice(0, 3);
         blogs.map((blog) => (
           <article class="group rounded-lg bg-orange-25 shadow-sm transition-all hover:shadow-md">
             <a href={blog.link} class="block">
-              <div class="aspect-[4/3] overflow-hidden rounded-t-lg">
+              <div class="aspect-[4/3] overflow-hidden rounded-t-lg relative">
                 <Image
                   src={blog.img}
                   alt={blog.title}
@@ -53,8 +63,19 @@ blogs.sort((a, b) => b.timestamp - a.timestamp).slice(0, 3);
                   class="h-full w-full object-cover transition-all opacity-75 group-hover:scale-105"
                   style={{ aspectRatio: "600/450", objectFit: "cover" }}
                 />
+                {blog.isPinned ? (
+                  <div class="absolute top-0 right-0 z-10 p-2">
+                    <Pin color="#2a2a2a" />
+                  </div>
+                ) : null}
               </div>
-              <div class="p-4">
+              <div class="p-4 relative">
+                {blog.isRecommended ? (
+                  <Badge
+                    label="Recommended"
+                    classes="w-fit absolute top-2 right-2"
+                  />
+                ) : null}
                 <h3 class="text-lg font-semibold tracking-tight">
                   {blog.title}
                 </h3>

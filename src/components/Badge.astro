@@ -1,0 +1,9 @@
+---
+const { label, classes = "" } = Astro.props;
+---
+
+<div
+  class={`px-2 py-1 text-center text-xs uppercase rounded-md bg-orange-35 text-orange ${classes}`}
+>
+  {label}
+</div>
