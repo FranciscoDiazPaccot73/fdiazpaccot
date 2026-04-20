@@ -1,8 +1,22 @@
 ---
 import { Image } from "astro:assets";
-import GithubIcon from "./icons/GithubMinimal.astro";
 
 const PROJECTS = [
+  {
+    title: "Turnox",
+    description:
+      "Turnox is a simple, fast platform to set up your business and let clients easily book appointments online. Perfect for barbershops, beauty salons, and more—start managing your bookings in minutes.",
+ 
+    image: "https://i.ibb.co/m5qgvQPd/Screenshot-2026-04-20-at-13-10-08.png",
+    ariaWebpageLabel: "Click to go to Wanna Work webpage",
+    link: "https://www.turnox.online/",
+    logo: {
+      src: "https://i.ibb.co/jkrN6rfQ/turnero.png",
+      alt: "Turnox",
+      width: 40,
+      height: 40,
+    },
+  },
   {
     title: "Wanna Work",
     description:
@@ -29,21 +43,6 @@ const PROJECTS = [
       alt: "Blabi webpages",
       width: 40,
       height: 40,
-    },
-  },
-  {
-    title: "¿Que Puedo Ver?",
-    description:
-      "¿Que Puedo Ver? it's a website that recommends tv series and movies to watch",
-    image: "https://i.ibb.co/ZWnsLFt/qpv-page.png",
-    ariaWebpageLabel: "Click to go to Que Puedo ver? webpage",
-    link: "https://www.quepuedover.online/",
-    github: "https://github.com/FranciscoDiazPaccot73/que-mirar",
-    logo: {
-      src: "https://i.ibb.co/M8hmjkr/qpv.webp",
-      alt: "quepuedover.online",
-      width: 90,
-      height: 60,
     },
   },
 ];
@@ -85,7 +84,7 @@ const PROJECTS = [
               <p class="text-sm text-muted-foreground line-clamp-1 text-gray-300">
                 {project.description}
               </p>
-              <div class="mt-4 h-8 group inline-block">
+              {/* <div class="mt-4 h-8 group inline-block">
                 {project.github ? (
                   <a
                     href={project.github}
@@ -95,7 +94,7 @@ const PROJECTS = [
                     View on GitHub
                   </a>
                 ) : null}
-              </div>
+              </div> */}
             </div>
           </div>
         ))
