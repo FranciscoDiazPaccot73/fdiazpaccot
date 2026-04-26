@@ -21,7 +21,7 @@ export const POST: APIRoute = async ({ request }) => {
     body: JSON.stringify({
       email: data.email,
       name: data.name,
-      message: data.message,
+      content: data.message,
     }),
   });
 
