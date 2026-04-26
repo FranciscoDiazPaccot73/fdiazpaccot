@@ -11,82 +11,168 @@ const blogsData = await getCollection(
 
 const allBlogs = blogsData.map((blog) => {
   const pubDate = new Date(blog.data.pubDate);
-  const timestamp = pubDate.getTime();
-
   return {
     title: blog.data.title,
     description: blog.data.description,
     link: `/blog/${blog.slug}/`,
     img: blog.data.image as string,
-    timestamp,
+    timestamp: pubDate.getTime(),
   };
 });
 
-const webpackStatsFileBlog = allBlogs.find(
-  (blog) => blog.title === "Webpack stats file"
-)!;
-const blogs = [
-  { ...webpackStatsFileBlog, isPinned: true, isRecommended: true },
-  ...allBlogs.sort((a, b) => b.timestamp - a.timestamp).slice(0, 2),
-];
+const sorted = [...allBlogs].sort((a, b) => b.timestamp - a.timestamp);
+const featuredBase =
+  sorted.find((b) => b.title === "Webpack stats file") ?? sorted[0];
+const others = sorted
+  .filter((b) => b.link !== featuredBase?.link)
+  .slice(0, 2);
+const articles = [featuredBase, ...others]
+  .filter(
+    (b) => b != null
+  ) as Array<{
+  title: string;
+  description: string;
+  link: string;
+  img: string;
+}>;
 
-console.log(blogs);
+const isFeaturedPick = (link: string) => link === featuredBase?.link;
 ---
 
 <section
-  class="w-full py-12 text-white md:py-16 lg:py-20 md:mx-auto md:w-full md:max-w-6xl"
+  class="w-full border-t border-[#e9552f]/[0.14]"
+  aria-labelledby="writing-heading"
 >
-  <div class="container px-4 md:px-6">
-    <div class="flex items-center justify-between mb-6 md:mb-8 lg:mb-10">
-      <p class="text-2xl font-bold tracking-tight text-orange sm:text-3xl">
-        Latest from the Blog
-      </p>
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-20 md:py-24">
+    <div
+      class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 sm:gap-4 mb-12 sm:mb-16"
+    >
+      <div class="max-w-xl">
+        <p
+          class="text-[0.7rem] sm:text-xs font-medium tracking-[0.2em] uppercase text-[#e9552f]/85 mb-3"
+        >
+          Writing
+        </p>
+        <h2
+          id="writing-heading"
+          class="eurostile text-3xl sm:text-4xl font-semibold text-zinc-50 tracking-tight"
+        >
+          Performance, tooling, and practice
+        </h2>
+        <p
+          class="mt-3 text-sm text-zinc-500 font-light leading-relaxed"
+        >
+          Shorter pieces on the craft: metrics, build tooling, and how the web
+          actually behaves in the field.
+        </p>
+      </div>
       <a
         href="/blog"
-        class="text-sm font-medium text-primary hover:underline underline-offset-4"
+        class="text-sm font-medium text-zinc-500 hover:text-[#e9552f]/85 shrink-0 self-start sm:self-auto w-fit"
       >
-        View All
+        All articles
+        <span class="ml-0.5" aria-hidden="true">→</span>
       </a>
     </div>
-    <div class="grid gap-12 md:gap-6 md:grid-cols-3">
-      {
-        blogs.map((blog) => (
-          <article class="group rounded-lg bg-orange-25 shadow-sm transition-all hover:shadow-md">
-            <a href={blog.link} class="block">
-              <div class="aspect-[4/3] overflow-hidden rounded-t-lg relative">
-                <Image
-                  src={blog.img}
-                  alt={blog.title}
-                  width={600}
-                  height={450}
-                  loading="lazy"
-                  class="h-full w-full object-cover transition-all opacity-75 group-hover:scale-105"
-                  style={{ aspectRatio: "600/450", objectFit: "cover" }}
-                />
-                {blog.isPinned ? (
-                  <div class="absolute top-0 right-0 z-10 p-2">
-                    <Pin color="#2a2a2a" />
-                  </div>
-                ) : null}
-              </div>
-              <div class="p-4 relative">
-                {blog.isRecommended ? (
+
+    {articles[0] ? (
+      <article class="mb-10 sm:mb-12">
+        <a
+          href={articles[0].link}
+          class="group block rounded-2xl sm:rounded-3xl overflow-hidden border border-[#e9552f]/10 bg-zinc-950/20 focus-visible:ring-2 focus-visible:ring-[#e9552f]/30 focus-visible:outline-none"
+        >
+          <div
+            class="grid grid-cols-1 md:grid-cols-12 gap-0 md:gap-10 items-stretch"
+          >
+            <div
+              class="md:col-span-5 aspect-[4/3] sm:aspect-[3/2] md:aspect-auto min-h-[200px] md:min-h-[240px] overflow-hidden bg-zinc-900/30 relative"
+            >
+              <Image
+                src={articles[0].img}
+                alt=""
+                width={800}
+                height={480}
+                loading="lazy"
+                class="h-full w-full object-cover transition duration-700 group-hover:scale-[1.02] opacity-90"
+                style={{ objectFit: "cover" }}
+              />
+              {articles[0].title === "Webpack stats file" ? (
+                <div
+                  class="absolute top-3 right-3 z-10 p-1.5 bg-black/40 rounded-md backdrop-blur-sm"
+                >
+                  <Pin color="#e9552f" />
+                </div>
+              ) : null}
+            </div>
+            <div
+              class="md:col-span-7 flex flex-col justify-center px-1 sm:px-0 py-8 md:py-0 md:pr-6"
+            >
+              {isFeaturedPick(articles[0].link) ? (
+                <div class="mb-3 w-fit">
                   <Badge
-                    label="Recommended"
-                    classes="w-fit absolute top-2 right-2"
+                    label="Editor’s pick"
+                    classes="!bg-[#e9552f]/12 !text-[#e9552f]/80 !text-[0.6rem] tracking-wider !border !border-[#e9552f]/20"
                   />
-                ) : null}
-                <h3 class="text-lg font-semibold tracking-tight">
-                  {blog.title}
-                </h3>
-                <p class="mt-2 text-gray-300 text-muted-foreground line-clamp-3">
-                  {blog.description}
-                </p>
-              </div>
+                </div>
+              ) : null}
+              <h3
+                class="eurostile text-2xl sm:text-3xl font-semibold text-zinc-100 group-hover:text-white transition-colors"
+              >
+                {articles[0].title}
+              </h3>
+              <p
+                class="mt-4 text-sm sm:text-base text-zinc-500 group-hover:text-zinc-400 font-light leading-relaxed line-clamp-3"
+              >
+                {articles[0].description}
+              </p>
+              <span
+                class="mt-6 text-sm font-medium text-[#e9552f]/75 group-hover:text-[#e9552f] inline-flex items-center gap-1"
+              >
+                Read
+                <span
+                  class="group-hover:translate-x-0.5 transition-transform"
+                  aria-hidden="true"
+                >
+                  →
+                </span>
+              </span>
+            </div>
+          </div>
+        </a>
+      </article>
+    ) : null}
+
+    {articles.length > 1 ? (
+      <ul
+        class="space-y-0 border-t border-zinc-800/50 divide-y divide-zinc-800/50"
+        role="list"
+      >
+        {articles.slice(1).map((blog) => (
+          <li>
+            <a
+              href={blog.link}
+              class="group flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-8 py-6 sm:py-7 -mx-1 px-1 sm:px-0 hover:bg-zinc-950/40 sm:hover:bg-transparent transition-colors rounded-lg"
+            >
+              <h3
+                class="eurostile min-w-0 sm:flex-1 text-lg sm:text-xl text-zinc-200 group-hover:text-zinc-50"
+              >
+                {blog.title}
+              </h3>
+              <p
+                class="min-w-0 sm:max-w-md text-sm text-zinc-500 font-light line-clamp-2 sm:line-clamp-1"
+              >
+                {blog.description}
+              </p>
+              <span
+                class="text-xs sm:text-sm text-zinc-600 group-hover:text-zinc-300 shrink-0"
+                aria-hidden="true"
+              >
+                →
+              </span>
             </a>
-          </article>
-        ))
-      }
-    </div>
+          </li>
+        ))}
+      </ul>
+    ) : null}
   </div>
 </section>

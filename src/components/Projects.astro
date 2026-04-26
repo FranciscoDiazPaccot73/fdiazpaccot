@@ -1,104 +1,44 @@
 ---
-import { Image } from "astro:assets";
-
-const PROJECTS = [
-  {
-    title: "Turnox",
-    description:
-      "Turnox is a simple, fast platform to set up your business and let clients easily book appointments online. Perfect for barbershops, beauty salons, and more—start managing your bookings in minutes.",
- 
-    image: "https://i.ibb.co/m5qgvQPd/Screenshot-2026-04-20-at-13-10-08.png",
-    ariaWebpageLabel: "Click to go to Wanna Work webpage",
-    link: "https://www.turnox.online/",
-    logo: {
-      src: "https://i.ibb.co/jkrN6rfQ/turnero.png",
-      alt: "Turnox",
-      width: 40,
-      height: 40,
-    },
-  },
-  {
-    title: "Wanna Work",
-    description:
-      "Create the perfect resume with Wanna Work's professional templates. Explore modern, creative, and classic designs tailored to your needs. Start building your career for free today—it's fast and easy!",
-    image: "https://i.ibb.co/KGp0cGd/wanna-work-page.png",
-    ariaWebpageLabel: "Click to go to Wanna Work webpage",
-    link: "https://wannawork.xyz/",
-    logo: {
-      src: "https://i.ibb.co/4fV6Bnj/logo.webp",
-      alt: "Wanna Work",
-      width: 40,
-      height: 40,
-    },
-  },
-  {
-    title: "Blabi webpages",
-    description:
-      "Blabi offers the possibility to create a website quickly and easily.",
-    image: "https://i.ibb.co/mXYD7cX/blabi.webp",
-    ariaWebpageLabel: "Click to go to Blabi webpage",
-    link: "https://blabi.com.ar/",
-    logo: {
-      src: "https://i.ibb.co/sK5LQDq/blabi-logo.webp",
-      alt: "Blabi webpages",
-      width: 40,
-      height: 40,
-    },
-  },
-];
+import CaseStudyBlock from "./CaseStudyBlock.astro";
+import { FEATURED_CASE_STUDIES } from "../data/featuredCaseStudies";
 ---
 
 <section
-  class="w-full py-12 md:py-24 lg:py-32 text-white md:mx-auto md:w-full md:max-w-6xl"
+  id="case-studies"
+  class="w-full scroll-mt-24 sm:scroll-mt-28"
+  aria-labelledby="case-studies-heading"
 >
-  <div class="container space-y-10 px-4 md:px-6">
-    <div class="flex items-center justify-between mb-6 md:mb-8 lg:mb-10">
-      <p class="text-2xl font-bold tracking-tight text-orange sm:text-3xl">
-        My Projects
+  <div
+    class="max-w-6xl mx-auto px-4 sm:px-6 pt-16 sm:pt-20 md:pt-28 pb-8 sm:pb-10"
+  >
+    <div class="max-w-2xl">
+      <p
+        class="text-[0.7rem] sm:text-xs font-medium tracking-[0.2em] uppercase text-[#e9552f]/85 mb-3"
+      >
+        Case studies
+      </p>
+      <h2
+        id="case-studies-heading"
+        class="eurostile text-3xl sm:text-4xl font-semibold text-zinc-50 tracking-tight"
+      >
+        How engineering choices surface in the product
+      </h2>
+      <p
+        class="mt-4 sm:mt-5 text-sm sm:text-base text-zinc-500 font-light leading-relaxed"
+      >
+        A sample of work where architecture, performance, and product tradeoffs
+        are explicit. For a broader list, use the full portfolio.
       </p>
       <a
         href="/portfolio"
-        class="text-sm font-medium text-primary hover:underline underline-offset-4"
+        class="inline-block mt-6 sm:mt-7 text-sm font-medium text-zinc-400 hover:text-[#e9552f]/90 border-b border-zinc-600 border-dotted hover:border-[#e9552f]/40 transition-colors w-fit"
       >
-        View Full Portfolio
+        View full portfolio
       </a>
     </div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8">
-      {
-        PROJECTS.map((project) => (
-          <div class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-            <a href={project.link} aria-label={project.ariaWebpageLabel}>
-              <span class="sr-only">View Project</span>
-              <Image
-                src={project.image}
-                alt={project.title}
-                width={600}
-                height={400}
-                class="w-full h-64 object-cover opacity-80"
-                style={{ aspectRatio: "600/400", objectFit: "cover" }}
-                loading="lazy"
-              />
-            </a>
-            <div class="p-4 bg-orange-12">
-              <h3 class="text-xl font-bold">{project.title}</h3>
-              <p class="text-sm text-muted-foreground line-clamp-1 text-gray-300">
-                {project.description}
-              </p>
-              {/* <div class="mt-4 h-8 group inline-block">
-                {project.github ? (
-                  <a
-                    href={project.github}
-                    class="inline-flex items-center gap-2 text-sm font-medium hover:underline underline-offset-2 group-hover:text-orange transition-colors"
-                  >
-                    <GithubIcon class="w-4 h-4 group-hover:text-orange transition-colors" />
-                    View on GitHub
-                  </a>
-                ) : null}
-              </div> */}
-            </div>
-          </div>
-        ))
-      }
-    </div>
+  </div>
+
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 pb-16 sm:pb-20 md:pb-28">
+    {FEATURED_CASE_STUDIES.map((cs, i) => <CaseStudyBlock cs={cs} index={i} />)}
   </div>
 </section>

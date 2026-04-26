@@ -1,0 +1,53 @@
+---
+const metrics = [
+  {
+    value: "7+",
+    label: "Years in production frontends",
+    sub: "Org products and customer-facing performance work",
+  },
+  {
+    value: "Deel",
+    label: "Current",
+    sub: "Org, planning, and integrations on customer-critical surfaces",
+  },
+  {
+    value: "Perf / platform",
+    label: "Recurring remit",
+    sub: "Web quality, build ergonomics, how UI ships under constraint",
+  },
+  {
+    value: "Bilingual work",
+    label: "EN · ES",
+    sub: "Same rigor, same craft—regardless of market",
+  },
+];
+---
+
+<section
+  class="w-full border-b border-zinc-800/50 border-t-2 border-t-[#e9552f]/[0.22] bg-zinc-950/25"
+  aria-label="Selected impact signals"
+>
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-14">
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 sm:gap-y-10 sm:gap-x-8 lg:gap-10"
+    >
+      {
+        metrics.map((m) => (
+          <div class="min-w-0">
+            <p
+              class="eurostile text-2xl sm:text-[1.65rem] md:text-3xl font-semibold tracking-tight [text-shadow:0_0_32px_rgba(233,85,47,0.12)]"
+            >
+              <span class="text-[#e9552f]/[0.92]">{m.value}</span>
+            </p>
+            <p class="mt-2 text-sm font-medium text-zinc-400 leading-snug">
+              {m.label}
+            </p>
+            <p class="mt-1.5 text-xs text-zinc-600 leading-relaxed font-light">
+              {m.sub}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

@@ -1,36 +1,38 @@
 ---
 import PageLayout from "../../layouts/PageLayout.astro";
-import Code from "../../components/icons/Code.astro";
-import AboutIntro from "../../components/AboutIntro.astro";
+import AboutManifesto from "../../components/about/AboutManifesto.astro";
 import AboutTimeline from "../../components/AboutTimeline.astro";
 import AboutHobies from "../../components/AboutHobies.astro";
 
 const meta = {
   title: "About | Francisco Diaz Paccot",
-  description: "Francisco Diaz Paccot | Software Engineer.",
+  description:
+    "Engineering practice, principles, and track record — senior frontend, performance, platform, and product architecture. Francisco Diaz Paccot.",
   logoUrl: "https://i.ibb.co/mFYW5QJ/new-logo-small.webp",
-  url: "https://franciscodiazpaccot.dev",
+  url: "https://franciscodiazpaccot.dev/about",
 };
 ---
 
 <PageLayout {meta} router="/about">
-  <AboutIntro />
-  <div class="w-full flex items-center justify-center mt-3">
-    <Code />
+  <AboutManifesto />
+  <div
+    class="max-w-6xl mx-auto w-full h-px bg-zinc-800/60 my-4"
+    aria-hidden="true"
+  >
   </div>
   <AboutTimeline />
   <AboutHobies />
 </PageLayout>
 
-<script>
+<script is:inline>
   window.addEventListener("scroll", () => {
     const calculation =
       window.scrollY / (document.body.offsetHeight - window.innerHeight);
-    document.body.style.setProperty("--scroll", calculation.toString()), false;
+    document.body.style.setProperty("--scroll", String(calculation));
 
     const me = document.getElementById("me-about");
-    if (window.scrollY >= 50 && !me?.classList.contains("show")) {
-      me?.classList.add("show");
+    if (window.scrollY >= 50 && me && !me.classList.contains("show")) {
+      me.classList.add("show");
     }
   });
 </script>

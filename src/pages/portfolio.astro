@@ -1,201 +1,124 @@
 ---
+import PageLayout from "../layouts/PageLayout.astro";
+import CaseStudyBlock from "../components/CaseStudyBlock.astro";
 import Button from "../components/Button.astro";
 import Github from "../components/icons/Github.astro";
 import PortfolioItem from "../components/PortfolioItem.astro";
-import PageLayout from "../layouts/PageLayout.astro";
+import { FEATURED_CASE_STUDIES } from "../data/featuredCaseStudies";
+import { EXPERIMENTS } from "../data/experiments";
 
 const meta = {
-  title: "Portfolio | Francisco Diaz Paccot",
-  description: "Francisco Diaz Paccot | Software Engineer.",
-  logoUrl: "https://i.ibb.co/mFYW5QJ/new-logo-small.webp",
-  url: "https://franciscodiazpaccot.dev",
-};
-
-const qpv = {
-  id: "qpv",
-  github: "https://github.com/FranciscoDiazPaccot73/que-mirar",
-  link: "https://www.quepuedover.online",
-  text: "¿Qué puedo ver?",
-  logoUrl: "https://i.ibb.co/M8hmjkr/qpv.webp",
-  bg: "https://i.ibb.co/ZWnsLFt/qpv-page.png",
-  logoWidth: 110,
-  logoHeight: 80,
-  stack: ["NextJs", "NodeJs", "SASS", "TypeScript"],
-  description: `¿Que Puedo Ver? it's a website that recommends tv series and movies to watch`,
-  lighthouse: {
-    performance: 99,
-    accessibility: 97,
-    bestPracticies: 92,
-    seo: 100,
-  },
-};
-
-const gma = {
-  id: "gma",
-  github: "https://github.com/FranciscoDiazPaccot73/que-mirar",
-  link: "https://alias.franciscodiazpaccot.dev",
-  text: "Mac Bash Aliases",
-  bg: "https://i.ibb.co/fdTYzV2Z/Screenshot-2025-02-06-at-20-04-39.webp",
-  logoWidth: 110,
-  logoHeight: 80,
-  stack: ["Astro", "Javascript", "Tailwindcss"],
-  description: `Mac Bash Aliases`,
-};
-
-const wannawork = {
-  id: "wannawork",
-  link: "https://wannawork.xyz/",
-  text: "Wanna Work",
-  logoUrl: "https://i.ibb.co/4fV6Bnj/logo.webp",
-  bg: "https://i.ibb.co/KGp0cGd/wanna-work-page.png",
-  logoWidth: 80,
-  logoHeight: 80,
-  stack: ["NestJs", "Tailwind", "TypeScript"],
+  title: "Work | Francisco Diaz Paccot",
   description:
-    "Create the perfect resume with Wanna Work's professional templates. Explore modern, creative, and classic designs tailored to your needs. Start building your career for free today—it's fast and easy!",
+    "Curated case studies and smaller experiments in web performance, product surfaces, and frontend platform work. Francisco Diaz Paccot.",
+  logoUrl: "https://i.ibb.co/mFYW5QJ/new-logo-small.webp",
+  url: "https://franciscodiazpaccot.dev/portfolio",
 };
-
-const blabi = {
-  id: "blabi",
-  link: "https://blabi.com.ar/",
-  text: "Blabi Websites",
-  logoUrl: "https://i.ibb.co/sK5LQDq/blabi-logo.webp",
-  bg: "https://i.ibb.co/mXYD7cX/blabi.webp",
-  logoWidth: 60,
-  logoHeight: 60,
-  stack: ["Astro", "JavaScript", "Tailwindcss"],
-  description: `Blabi offers the possibility to create a website quickly and easily.`,
-  lighthouse: {
-    performance: 100,
-    accessibility: 100,
-    bestPracticies: 100,
-    seo: 100,
-  },
-};
-
-const hiringjr = {
-  id: "hiringjr",
-  github: "https://github.com/FranciscoDiazPaccot73/first-steps-it",
-  link: "https://first-steps-it.vercel.app",
-  text: "Hiring Jr",
-  logoUrl: "https://i.ibb.co/6ZdzDdb/logo-hiring-jr.png",
-  bg: "https://i.ibb.co/T0kFyRZ/hiringjr.webp",
-  logoWidth: 80,
-  logoHeight: 80,
-  stack: ["NextJs", "NodeJs", "SASS", "Google Sheets"],
-  description: `HiringJr it's a webpage for connect corporates placed in Entre Rios, Santa Fe or Cordoba with Junior or Trainee developers who are looking for their first job or change their current one.`,
-};
-
-const ejcalierno = {
-  id: "ejcalierno",
-  link: "https://calierno-schumacher.com.ar/",
-  text: "Estudio Jurídico Calierno & Schumacher",
-  bg: "https://i.ibb.co/wMRgqYM/ejcalierno.webp",
-  logoUrl: "https://i.ibb.co/F49T84b/logo.webp",
-  logoWidth: 80,
-  logoHeight: 80,
-  stack: ["Astro", "JavaScript", "Tailwindcss", "TypeScript"],
-  description: `A landing page for a lawyer firm.`,
-};
-
-const markdown = {
-  id: "markdown",
-  github: "https://github.com/FranciscoDiazPaccot73/markdown-generator",
-  link: "https://markdown.franciscodiazpaccot.dev",
-  text: "Markdown Generator",
-  logoUrl: "https://i.ibb.co/PYq5Lf4/markdown.png",
-  logoWidth: 80,
-  logoHeight: 80,
-  bg: "https://i.ibb.co/C9rZL2w/markdown.webp",
-  stack: ["NextJs", "Javascript", "CSS"],
-  description: `A simple markdown file generator. You could generate, preview and download your markdown file.`,
-  lighthouse: {
-    performance: 100,
-    accessibility: 92,
-    bestPracticies: 92,
-    seo: 100,
-  },
-};
-
-const dossiers = {
-  id: "dossiers",
-  link: "https://demo-cases.franciscodiazpaccot.dev/casos",
-  text: "Dossiers",
-  bg: "https://i.ibb.co/Jyq9RrP/dossiers.jpg",
-  stack: ["NextJs", "JavaScript", "Sass", "Firebase"],
-  description: `It's a website to administer and manage the dossiers of a lawyer firm.`,
-  lighthouse: {
-    performance: 100,
-    accessibility: 100,
-    bestPracticies: 100,
-    seo: 100,
-  },
-};
-
-const turnox = {
-  id: "turnox",
-  link: "https://www.turnox.online/",
-  text: "Turnox",
-  logoUrl: "https://i.ibb.co/jkrN6rfQ/turnero.png",
-  bg: "https://i.ibb.co/m5qgvQPd/Screenshot-2026-04-20-at-13-10-08.png",
-  logoWidth: 40,
-  logoHeight: 40,
-  stack: ["NextJs", "NodeJs", "SASS", "TypeScript"],
-  description: `Turnox is a simple, fast platform to set up your business and let clients easily book appointments online. Perfect for barbershops, beauty salons, and more—start managing your bookings in minutes.`,
-};
-
-const PORTFOLIO_ITEMS = [
-  turnox,
-  wannawork,
-  blabi,
-  qpv,
-  gma,
-  markdown,
-  ejcalierno,
-  dossiers,
-  hiringjr,
-];
 ---
 
 <PageLayout {meta} router="/portfolio">
-  <section class="py-4 px-2 md:px-4 md:py-16">
-    <div class="px-4 max-w-2xl mx-auto my-10 md:max-w-7xl">
-      <div class="max-w-3xl">
-        <p class="font-semibold text-gray-100 text-3xl mb-8 eurostile">
-          My Portfolio
-        </p>
-        <p class="text-gray-400 mt-4">Some of my personal projects.</p>
-      </div>
-      <div
-        class="pt-10 mt-10 flex flex-col gap-16 border-t border-orange-35 md:pt-16 md:mt-16 md:gap-32"
+  <div class="min-w-0 w-full max-w-6xl mx-auto px-4 sm:px-6 pt-12 sm:pt-16 md:pt-20 pb-8">
+    <header class="max-w-2xl">
+      <p
+        class="text-[0.7rem] sm:text-xs font-medium tracking-[0.2em] uppercase text-[#e9552f]/85 mb-3"
       >
-        {
-          PORTFOLIO_ITEMS?.map((item, index) => (
-            <PortfolioItem {...item} isReverse={index % 2 !== 0} />
-          ))
-        }
-      </div>
-    </div>
-    <Button href="https://github.com/FranciscoDiazPaccot73">
-      GO TO MY <span class="mx-1"
-        ><Github color="#16080e" height={20} width={20} />
-      </span> PROFILE
-    </Button>
+        Work
+      </p>
+      <h1
+        class="eurostile text-3xl sm:text-4xl md:text-5xl text-zinc-50 font-semibold leading-tight tracking-tight"
+      >
+        A curated case library, not a project dump
+      </h1>
+      <p
+        class="mt-5 sm:mt-6 text-sm sm:text-base text-zinc-500 font-light leading-[1.75]"
+      >
+        First: three flagship case studies. Below: experiments and
+        one-off product work—still real constraints, with less narrative
+        around them. Prefer depth over list length.
+      </p>
+    </header>
+  </div>
+
+  <section
+    class="w-full min-w-0 max-w-6xl mx-auto px-4 sm:px-6 pb-12"
+    aria-labelledby="flagship-heading"
+  >
+    <h2
+      class="eurostile text-2xl sm:text-3xl text-zinc-100 font-semibold mb-2 flex items-baseline gap-2 flex-wrap"
+      id="flagship-heading"
+    >
+      <span class="inline-block h-5 w-1 rounded-full bg-[#e9552f]/[0.65] shrink-0" aria-hidden="true"></span>
+      Flagship work
+    </h2>
+    <p
+      class="text-sm text-zinc-500 font-light max-w-2xl mb-12 sm:mb-16 leading-relaxed"
+    >
+      The same case studies you see on the home page—narrated as problem,
+      solution, architecture, tradeoff, and outcome. One story per product.
+    </p>
+    {
+      FEATURED_CASE_STUDIES.map((cs, i) => <CaseStudyBlock cs={cs} index={i} />)
+    }
   </section>
+
+  <section
+    class="w-full min-w-0 max-w-6xl mx-auto px-4 sm:px-6 pb-16 sm:pb-20 border-t border-[#e9552f]/[0.12] pt-12 sm:pt-16"
+    aria-labelledby="labs-heading"
+  >
+    <h2
+      class="eurostile text-2xl sm:text-3xl text-zinc-100 font-semibold mb-2 flex items-baseline gap-2 flex-wrap"
+      id="labs-heading"
+    >
+      <span class="inline-block h-5 w-1 rounded-full bg-[#e9552f]/[0.4] shrink-0" aria-hidden="true"></span>
+      Experiments and labs
+    </h2>
+    <p
+      class="text-sm sm:text-base text-zinc-500 font-light max-w-2xl leading-relaxed mb-10 sm:mb-12"
+    >
+      Smaller surfaces, spikes, and client work—useful to show range without
+      pretending they all have the same depth as the featured row.
+    </p>
+    <div class="flex flex-col gap-20 sm:gap-24 md:gap-28">
+      {
+        EXPERIMENTS.map((item, index) => (
+          <PortfolioItem
+            isReverse={index % 2 !== 0}
+            id={item.id}
+            link={item.link}
+            text={item.text}
+            description={item.description}
+            stack={[...item.stack]}
+            logoUrl={item.logoUrl}
+            logoWidth={item.logoWidth}
+            logoHeight={item.logoHeight}
+            bg={item.bg}
+            github={"github" in item ? item.github : undefined}
+            lighthouse={"lighthouse" in item ? item.lighthouse : undefined}
+          />
+        ))
+      }
+    </div>
+  </section>
+
+  <div
+    class="flex justify-center pb-20 sm:pb-24 w-full min-w-0 min-h-px px-4"
+  >
+    <Button
+      href="https://github.com/FranciscoDiazPaccot73"
+      containerClass="w-full max-w-xs flex justify-center"
+    >
+      <span>GitHub profile</span>
+      <span class="inline-flex ml-1.5 align-middle" aria-hidden="true"
+        ><Github color="#16080e" height={20} width={20} />
+      </span>
+    </Button>
+  </div>
 </PageLayout>
 
-<style>
-  @media (min-width: 768px) {
-    .grid-portfolio {
-      grid-template-columns: repeat(2, fit-content(100%));
-    }
-  }
-</style>
-
-<script>
+<script is:inline>
   window.addEventListener("scroll", () => {
-    const calculation =
-      window.scrollY / (document.body.offsetHeight - window.innerHeight);
-    document.body.style.setProperty("--scroll", calculation.toString()), false;
+    const h = document.body.offsetHeight - window.innerHeight;
+    if (h <= 0) return;
+    document.body.style.setProperty("--scroll", String(window.scrollY / h));
   });
 </script>

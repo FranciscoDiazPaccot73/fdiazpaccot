@@ -1,13 +1,16 @@
 ---
 import PageLayout from "../layouts/PageLayout.astro";
 import Home from "../components/Home.astro";
+import ImpactMetrics from "../components/ImpactMetrics.astro";
 import About from "../components/About.astro";
 import Projects from "../components/Projects.astro";
 import BlogHome from "../components/sections/BlogHome2.astro";
+import ContactCTA from "../components/ContactCTA.astro";
 
 const meta = {
-	title: "Francisco Diaz Paccot",
-	description: "Francisco Diaz Paccot | Software Engineer.",
+	title: "Francisco Diaz Paccot | Senior Frontend, Performance & Platform",
+	description:
+		"Senior/Staff-leaning frontend: web performance, platform engineering, and product architecture—Deel, Mercado Libre, and shipped products. Francisco Diaz Paccot.",
 	logoUrl: "https://i.ibb.co/mFYW5QJ/new-logo-small.webp",
 	url: "https://franciscodiazpaccot.dev",
 };
@@ -15,7 +18,9 @@ const meta = {
 
 <PageLayout {meta} router="/">
 	<Home />
+	<ImpactMetrics />
+	<Projects />
 	<About />
 	<BlogHome />
-	<Projects />
+	<ContactCTA />
 </PageLayout>

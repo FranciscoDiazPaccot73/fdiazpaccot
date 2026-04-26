@@ -62,27 +62,53 @@ const steps = [
 ---
 
 <section
-  class="px-8 py-10 relative text-gray-100 md:mx-auto md:w-full md:max-w-6xl"
+  class="px-4 sm:px-6 py-14 sm:py-20 relative text-zinc-300 max-w-6xl mx-auto w-full"
+  aria-labelledby="track-record-heading"
 >
-  <p class="font-semibold text-4xl mb-16 orange-text eurostile">Resume</p>
-  <ol class="relative border-l border-orange-35">
-    {
-      steps.map(({ tId, ...others }, index) => (
-        <TimelineItem
-          color={tId}
-          {...others}
-          order={(index + 1) % 2 ? "left" : "right"}
+  <p
+    class="text-[0.7rem] sm:text-xs font-medium tracking-[0.2em] uppercase text-[#e9552f]/85 mb-3"
+  >
+    History
+  </p>
+  <h2
+    class="eurostile text-2xl sm:text-3xl font-semibold text-zinc-100 mb-3"
+    id="track-record-heading"
+  >
+    Where the practice met production
+  </h2>
+  <p
+    class="text-sm sm:text-base text-zinc-500 font-light max-w-2xl leading-relaxed mb-12 sm:mb-16"
+  >
+    A concise record of the environments where the philosophy above was
+    pressure-tested. Bullets are outcomes, not a job description.
+  </p>
+  <div class="about-tl relative w-full min-w-0">
+    <!-- Línea vertical continua: un solo eje, los iconos la tapan (z-index + anillo) -->
+    <div class="about-tl-spine" aria-hidden="true"></div>
+    <ol class="relative z-[1] m-0 list-none p-0" role="list">
+      {
+        steps.map((item) => {
+          const { tId: _tid, ...itemProps } = item;
+          return <TimelineItem {...itemProps} />;
+        })
+      }
+    </ol>
+    <div
+      class="relative z-[1] -mt-0.5 flex w-full min-w-0 flex-row gap-3 sm:gap-4"
+    >
+      <div class="flex w-8 shrink-0 flex-col items-center justify-center sm:w-9" aria-hidden="true">
+        <div
+          class="relative z-20 h-2.5 w-2.5 shrink-0 rounded-full border border-[#e9552f]/45 bg-zinc-950/95 ring-[3px] ring-[#0a0a0b] shadow-sm"
+          title="Start of career (chronological, oldest entry above)"
         />
-      ))
-    }
-  </ol>
-  <span class="relative flex h-4 w-4 -ml-2 mt-2">
-    <span
-      class="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 orange-background"
-    ></span>
-    <span class="relative inline-flex rounded-full h-4 w-4 orange-background"
-    ></span>
-  </span>
+      </div>
+      <p
+        class="m-0 pt-0.5 text-[0.7rem] font-medium uppercase tracking-[0.2em] text-zinc-500 sm:text-xs"
+      >
+        <span class="text-[#e9552f]/85">·</span> Career start
+      </p>
+    </div>
+  </div>
   <!-- <Button
     href="docs/FranciscoDiazPaccot-resume.pdf"
     download="Francisco Diaz Paccot - Resume"
@@ -91,11 +117,32 @@ const steps = [
   </Button> -->
 </section>
 
-<style>
-  .steps:first-of-type .separator {
-    display: none;
+<style is:global>
+  .about-tl {
+    position: relative;
+    z-index: 0;
   }
-  .separator {
-    top: -46px;
+  .about-tl-spine {
+    position: absolute;
+    z-index: 0;
+    pointer-events: none;
+    top: 1rem;
+    bottom: 0.45rem;
+    width: 1.5px;
+    border-radius: 9999px;
+    /* Centered on the icon column: w-8 = 1rem, sm:w-9 = 1.125rem from column origin */
+    left: calc(1rem - 0.75px);
+    background: linear-gradient(
+      180deg,
+      rgba(233, 85, 47, 0.92) 0%,
+      rgba(233, 85, 47, 0.38) 10%,
+      rgba(82, 82, 91, 0.92) 40%,
+      rgba(63, 63, 70, 0.96) 100%
+    );
+  }
+  @media (min-width: 640px) {
+    .about-tl-spine {
+      left: calc(1.125rem - 0.75px);
+    }
   }
 </style>

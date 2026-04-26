@@ -4,124 +4,147 @@ import PageLayout from "../layouts/PageLayout.astro";
 
 const meta = {
   title: "Contact | Francisco Diaz Paccot",
-  description: "Francisco Diaz Paccot | Software Engineer.",
+  description:
+    "Get in touch about senior frontend, performance, and platform work — Francisco Diaz Paccot.",
   logoUrl: "https://i.ibb.co/mFYW5QJ/new-logo-small.webp",
-  url: "https://franciscodiazpaccot.dev",
+  url: "https://franciscodiazpaccot.dev/contact",
 };
 ---
 
 <PageLayout {meta} router="/contact">
-  <div class="isolate px-6 py-24 sm:py-32 lg:px-8">
-    <div class="mx-auto max-w-2xl text-center">
-      <h2
-        class="text-balance text-4xl font-semibold tracking-tight text-orange sm:text-5xl"
+  <div
+    class="w-full min-w-0 max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-20 md:py-24 lg:py-28 pb-24 md:pb-28"
+  >
+    <header class="max-w-2xl">
+      <p
+        class="text-[0.7rem] sm:text-xs font-medium tracking-[0.2em] uppercase text-[#e9552f]/85 mb-3"
       >
-        Let's talk
-      </h2>
-      <p class="mt-2 text-lg/8 text-gray-300">
-        Do not hesitate to reach out with any questions or to start a project
-        together!
+        Contact
       </p>
-    </div>
-    <form id="contact-form" class="mx-auto mt-8 max-w-xl sm:mt-12">
-      <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
-        <div>
-          <label
-            for="firstName"
-            class="block text-sm/6 font-semibold text-orange/90"
-            >First name</label
-          >
-          <div class="mt-2.5">
+      <h1
+        class="eurostile text-3xl sm:text-4xl md:text-5xl text-zinc-100 font-semibold leading-[1.08] tracking-tight"
+      >
+        Let’s build something that holds up in production
+      </h1>
+      <p
+        class="mt-4 sm:mt-5 text-sm sm:text-base text-zinc-500 font-light leading-[1.75] max-w-xl"
+      >
+        If you are hiring for a senior/ staff-level frontend or platform-leaning
+        role, or you want a thoughtful take on a product or performance
+        problem, send a note. I read everything.
+      </p>
+    </header>
+
+    <div
+      class="mt-10 sm:mt-12 md:mt-14 rounded-2xl sm:rounded-3xl border border-zinc-800/60 bg-zinc-950/30 p-5 sm:p-7 md:p-8 shadow-[0_0_0_1px_rgba(0,0,0,0.2)]"
+    >
+      <form
+        id="contact-form"
+        class="space-y-0"
+        method="post"
+        novalidate
+      >
+        <div
+          class="grid grid-cols-1 gap-x-6 gap-y-5 sm:grid-cols-2 sm:gap-y-6"
+        >
+          <div class="min-w-0">
+            <label
+              for="firstName"
+              class="block text-xs font-medium tracking-wide text-zinc-500 mb-1.5"
+              >First name <span class="text-[#e9552f]/60">·</span> required</label
+            >
             <input
               type="text"
               name="firstName"
               id="firstName"
               autocomplete="given-name"
               required
-              class="block w-full rounded-md bg-orange-12 px-3.5 py-2 text-base text-white outline outline-1 -outline-offset-1 outline-orange-50 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-orange-50"
+              placeholder="Ada"
+              class="contact-input"
             />
           </div>
-        </div>
-        <div>
-          <label
-            for="lastName"
-            class="block text-sm/6 font-semibold text-orange/90"
-            >Last name</label
-          >
-          <div class="mt-2.5">
+          <div class="min-w-0">
+            <label
+              for="lastName"
+              class="block text-xs font-medium tracking-wide text-zinc-500 mb-1.5"
+              >Last name</label
+            >
             <input
               type="text"
               name="lastName"
               id="lastName"
               autocomplete="family-name"
-              class="block w-full rounded-md bg-orange-12 px-3.5 py-2 text-base text-white outline outline-1 -outline-offset-1 outline-orange-50 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-orange-50"
+              placeholder="Lovelace"
+              class="contact-input"
             />
           </div>
-        </div>
-        <div class="sm:col-span-2">
-          <label
-            for="email"
-            class="block text-sm/6 font-semibold text-orange/90">Email</label
-          >
-          <div class="mt-2.5">
+          <div class="min-w-0 sm:col-span-2">
+            <label
+              for="email"
+              class="block text-xs font-medium tracking-wide text-zinc-500 mb-1.5"
+              >Email <span class="text-[#e9552f]/60">·</span> required</label
+            >
             <input
               type="email"
               name="email"
               id="email"
               autocomplete="email"
-              class="block w-full rounded-md bg-orange-12 px-3.5 py-2 text-base text-white outline outline-1 -outline-offset-1 outline-orange-50 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-orange-50"
+              required
+              placeholder="you@company.com"
+              class="contact-input"
             />
           </div>
-        </div>
-        <div class="sm:col-span-2">
-          <label
-            for="message"
-            class="block text-sm/6 font-semibold text-orange/90">Message</label
-          >
-          <div class="mt-2.5">
+          <div class="min-w-0 sm:col-span-2">
+            <label
+              for="message"
+              class="block text-xs font-medium tracking-wide text-zinc-500 mb-1.5"
+              >Message <span class="text-[#e9552f]/60">·</span> required</label
+            >
             <textarea
               name="message"
               id="message"
               required
-              rows="4"
-              class="block w-full rounded-md bg-orange-12 px-3.5 py-2 text-base text-white outline outline-1 -outline-offset-1 outline-orange-50 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-orange-50"
+              rows="5"
+              placeholder="Context, timeline, and what a good outcome looks like for you."
+              class="contact-input min-h-[7.5rem] sm:min-h-32 resize-y"
             ></textarea>
           </div>
         </div>
-        <div class="flex gap-x-4 sm:col-span-2">
-          <label class="text-sm/6 text-gray-400" id="switch-1-label">
-            Or send me an email at
-            <a
-              href="mailto:fran.diazpaccot@gmail.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="font-semibold text-orange">fran.diazpaccot@gmail.com</a
-            >.
-          </label>
-        </div>
-      </div>
-      <div class="mt-10">
-        <button
-          id="submit-button"
-          type="submit"
-          class="block w-full rounded-md bg-orange px-3.5 py-2.5 text-center text-sm font-semibold text-black shadow-sm hover:bg-orange-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-50 transition-colors"
-          >Let's talk</button
+
+        <p
+          class="mt-6 sm:mt-7 text-sm text-zinc-500 font-light leading-relaxed border-t border-zinc-800/50 pt-5"
         >
-      </div>
-    </form>
+          Prefer email? Reach me at
+          <a
+            href="mailto:fran.diazpaccot@gmail.com"
+            class="text-[#e9552f]/90 hover:text-[#e9552f] font-medium border-b border-dotted border-[#e9552f]/30 hover:border-[#e9552f]/60 transition-colors"
+            >fran.diazpaccot@gmail.com</a
+          >.
+        </p>
+
+        <div class="mt-6 sm:mt-8">
+          <button
+            id="submit-button"
+            type="submit"
+            class="w-full sm:w-auto sm:min-w-[12rem] inline-flex items-center justify-center rounded-full bg-[#e9552f] px-6 py-3.5 text-sm font-medium text-zinc-950 shadow-[0_0_24px_rgba(233,85,47,0.18)] hover:bg-[#f06a45] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e9552f]/[0.5] disabled:opacity-50 disabled:pointer-events-none transition-colors"
+          >
+            Send message
+          </button>
+        </div>
+      </form>
+    </div>
   </div>
   <Toast text="Successfully sent." />
 </PageLayout>
 
 <script>
   window.addEventListener("scroll", () => {
-    const calculation =
-      window.scrollY / (document.body.offsetHeight - window.innerHeight);
-    document.body.style.setProperty("--scroll", calculation.toString()), false;
-
-    const me = document.getElementById("me-about");
-    if (window.scrollY >= 50 && !me?.classList.contains("show")) {
-      me?.classList.add("show");
+    const h = document.body.offsetHeight - window.innerHeight;
+    if (h > 0) {
+      document.body.style.setProperty(
+        "--scroll",
+        (window.scrollY / h).toString()
+      );
     }
   });
 
@@ -135,40 +158,63 @@ const meta = {
     toast?.classList.add("hidden");
   });
 
+  const CONTACT_API = "/api/contact";
+
   async function handleSubmit(e: { preventDefault: VoidFunction }) {
     e.preventDefault();
 
-    const name = form.firstName.value + " " + form.lastName.value;
-    const email = form.email.value;
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    const first = form.firstName.value.trim();
+    const last = form.lastName.value.trim();
+    const name = [first, last].filter(Boolean).join(" ") || "—";
+    const email = form.email.value.trim();
     const message = form.message.value;
 
     button.disabled = true;
-    button.textContent = "Sending...";
+    button.textContent = "Sending…";
 
     try {
-      await fetch("/api/submit", {
+      const res = await fetch(CONTACT_API, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, name, message }),
       });
-
-      toast?.classList.remove("hidden");
-      toast?.classList.add("fixed");
+      if (!res.ok) {
+        throw new Error(String(res.status));
+      }
 
       form.reset();
-    } catch (error) {
-    } finally {
-      button.disabled = false;
-      button.textContent = "Let's talk";
-
+      toast?.classList.remove("hidden");
+      toast?.classList.add("fixed");
       setTimeout(() => {
         toast?.classList.remove("fixed");
         toast?.classList.add("hidden");
       }, 5000);
+      button.textContent = "Send message";
+    } catch {
+      button.textContent = "Try again";
+      setTimeout(() => {
+        button.textContent = "Send message";
+      }, 4000);
+    } finally {
+      button.disabled = false;
     }
   }
 
   form.addEventListener("submit", handleSubmit);
 </script>
+
+<style>
+  .contact-input {
+    @apply block w-full rounded-xl border border-zinc-800/80 bg-zinc-900/30 px-4 py-2.5 sm:py-3 text-sm sm:text-base text-zinc-100;
+    @apply placeholder:text-zinc-600;
+    @apply focus:border-[#e9552f]/[0.3] focus:ring-2 focus:ring-[#e9552f]/[0.2] focus:ring-offset-0 focus:outline-none;
+  }
+  .contact-input:hover:not(:focus) {
+    @apply border-zinc-700/90;
+  }
+</style>

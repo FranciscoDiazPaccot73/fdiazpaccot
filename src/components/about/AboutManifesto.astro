@@ -1,0 +1,245 @@
+---
+import { Image } from "astro:assets";
+
+const es = {
+  pageKicker: "Sobre mí",
+  h1: "Práctica de ingeniería, no biografía",
+  lead:
+    "Trabajo en el borde entre producto y plataforma: rendimiento, sistemas reutilizables, y criterio claro cuando el negocio pide un compromiso. Esto no es un CV. Es lo que hago, cómo pienso, y a qué le digo que no.",
+  whoH: "Quién soy",
+  whoP:
+    "Soy ingeniero frontend senior, hoy en Deel (org chart y producto adyacente). Antes: Mercado Libre, Strike, y raíces full stack. Cuenta menos el número de años que el patrón: dejar el sistema mejor que lo encontré, y explicar el porqué.",
+  thinkH: "Cómo pienso la ingeniería",
+  thinkP:
+    "El frontend es disciplina de elección: qué asumir, dónde optimizar, qué abstracción paga. Prefiero tradeoffs explícitos a dogma. Si un PM o un diseñador no entiende la apuesta, yo tampoco.",
+  princH: "Principios a los que vuelvo",
+  p1: "Carga, interacción, percepción: el usuario no lee tu stack, siente el resultado.",
+  p2: "Acoplamiento: cada contrato nombra deuda. La administrás o vuelve con interés.",
+  p3: "Consistencia de producto: diseño, build, CI: no son lujo, son abstracción compartida.",
+  specH: "En qué me especializo",
+  specP:
+    "Rendimiento web, plataforma de frontend, y arquitectura de producto: perfiles reales, bundles, trazas de UX, cimientos reutilizables, y lenguaje con producto y datos.",
+  exH: "Qué estoy explorando ahora",
+  exP:
+    "Dónde los frameworks ceden en apps grandes, interacción bajo carga más allá de acrónimos, e IA en el flujo: palanca o caja negra. Si leés esto, intercambio notas.",
+};
+---
+
+<div class="about-manifesto w-full min-w-0 text-zinc-300">
+  <header class="px-4 sm:px-6 pt-8 sm:pt-12 md:pt-16 pb-4 max-w-6xl mx-auto">
+    <p
+      id="about-m-page-kicker"
+      class="text-[0.7rem] sm:text-xs font-medium tracking-[0.2em] uppercase text-[#e9552f]/85"
+    >
+      About
+    </p>
+    <h1
+      class="eurostile text-3xl sm:text-4xl md:text-5xl text-zinc-50 font-semibold leading-[1.08] tracking-tight max-w-3xl mt-4"
+      id="about-m-h1"
+    >
+      Engineering practice, not a biography
+    </h1>
+    <p
+      class="mt-6 sm:mt-8 text-sm sm:text-base text-zinc-500 font-light leading-[1.75] max-w-2xl"
+      id="about-m-lead"
+    >
+      I work at the intersection of product and platform: performance,
+      reusable systems, and clear tradeoffs when the business asks for one.
+      This is not a resume. It is what I do, how I think, and what I say no
+      to.
+    </p>
+  </header>
+
+  <div
+    class="px-4 sm:px-6 max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 py-8 sm:py-12"
+  >
+    <div
+      class="lg:col-span-5 order-2 lg:order-1 w-full max-w-sm mx-auto lg:max-w-none"
+    >
+      <div
+        id="me-about"
+        class="w-full my-picture max-w-sm mx-auto lg:mx-0"
+      >
+        <div
+          class="p-[1px] rounded-2xl bg-gradient-to-br from-zinc-600/40 to-zinc-800/20"
+        >
+          <div class="rounded-2xl overflow-hidden ring-1 ring-zinc-800/60">
+            <Image
+              width={400}
+              height={400}
+              src="/me-hq.jpg"
+              alt="Francisco Diaz Paccot"
+              class="w-full h-auto object-cover"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="lg:col-span-7 order-1 lg:order-2 space-y-14 sm:space-y-16"
+    >
+      <section class="space-y-4" aria-labelledby="about-who">
+        <h2
+          class="eurostile text-lg sm:text-xl text-zinc-200 font-medium"
+          id="about-who"
+        >
+          <span id="about-m-who-h">Who I am</span>
+        </h2>
+        <p
+          class="text-sm sm:text-base text-zinc-500 font-light leading-[1.8] max-w-xl"
+          id="about-m-who-p"
+        >
+          I am a senior frontend engineer—currently at Deel, on org chart and
+          adjacent product work. Before that: Mercado Libre, Strike, and
+          full-stack roots. The tenure matters less than a repeated pattern: I
+          care about leaving systems better than I found them, and teaching the
+          why, not just the what.
+        </p>
+      </section>
+
+      <section class="space-y-4" aria-labelledby="about-think">
+        <h2
+          class="eurostile text-lg sm:text-xl text-zinc-200 font-medium"
+          id="about-think"
+        >
+          <span id="about-m-think-h">How I think about engineering</span>
+        </h2>
+        <p
+          class="text-sm sm:text-base text-zinc-500 font-light leading-[1.8] max-w-xl"
+          id="about-m-think-p"
+        >
+          Frontend is the discipline of choice: what to take as a given, where
+          to optimize, which abstraction actually pays for itself. I would
+          rather be explicit with tradeoffs than pious with dogma. If I cannot
+          explain the bet to a PM or a designer, I have not fully understood
+          it yet.
+        </p>
+      </section>
+
+      <section class="space-y-5" aria-labelledby="about-principles">
+        <h2
+          class="eurostile text-lg sm:text-xl text-zinc-200 font-medium"
+          id="about-principles"
+        >
+          <span id="about-m-princ-h">Principles I return to</span>
+        </h2>
+        <ol class="list-none space-y-4" role="list">
+          <li class="border-l-2 border-zinc-800 pl-4 sm:pl-5">
+            <p
+              class="text-sm sm:text-base text-zinc-500 font-light leading-relaxed"
+            >
+              <span class="text-zinc-600 text-xs font-medium block mb-1"
+                >01</span
+              >
+              <span id="about-txt-p1"
+                >Payload, interaction, perception—users do not read your
+                stack; they feel the result.</span
+              >
+            </p>
+          </li>
+          <li class="border-l-2 border-zinc-800 pl-4 sm:pl-5">
+            <p
+              class="text-sm sm:text-base text-zinc-500 font-light leading-relaxed"
+            >
+              <span class="text-zinc-600 text-xs font-medium block mb-1"
+                >02</span
+              >
+              <span id="about-txt-p2"
+                >Coupling is a contract: you name it and manage it, or it
+                costs you more later.</span
+              >
+            </p>
+          </li>
+          <li class="border-l-2 border-zinc-800 pl-4 sm:pl-5">
+            <p
+              class="text-sm sm:text-base text-zinc-500 font-light leading-relaxed"
+            >
+              <span class="text-zinc-600 text-xs font-medium block mb-1"
+                >03</span
+              >
+              <span id="about-txt-p3"
+                >Product consistency is not cosmetic—shared systems (design,
+                build, CI) are the abstraction tax that buys speed.</span
+              >
+            </p>
+          </li>
+        </ol>
+      </section>
+
+      <section class="space-y-4" aria-labelledby="about-spec">
+        <h2
+          class="eurostile text-lg sm:text-xl text-zinc-200 font-medium"
+          id="about-spec"
+        >
+          <span id="about-m-spec-h">What I specialize in</span>
+        </h2>
+        <p
+          class="text-sm sm:text-base text-zinc-500 font-light leading-[1.8] max-w-xl"
+          id="about-m-spec-p"
+        >
+          Web performance, frontend platform work, and product
+          architecture—lighthouse in the field, not only locally; bundles and
+          loading; how UX shows up in traces; reusable foundations; language
+          that lands with product and data, not just engineering.
+        </p>
+      </section>
+
+      <section class="space-y-4" aria-labelledby="about-explore">
+        <h2
+          class="eurostile text-lg sm:text-xl text-zinc-200 font-medium"
+          id="about-explore"
+        >
+          <span id="about-m-ex-h">What I am exploring now</span>
+        </h2>
+        <p
+          class="text-sm sm:text-base text-zinc-500 font-light leading-[1.8] max-w-xl"
+          id="about-m-ex-p"
+        >
+          Where large-app frameworks start to creak, how to measure
+          interaction under load without hiding behind acronyms, and when AI in
+          the dev loop is leverage versus a black box. If you are reading
+          this, I would trade notes.
+        </p>
+      </section>
+    </div>
+  </div>
+</div>
+
+<style is:global>
+  .my-picture {
+    opacity: 0;
+    transition: opacity 500ms ease;
+  }
+  .my-picture.show {
+    opacity: 1;
+  }
+</style>
+
+<script define:vars={{ es }}>
+  (function () {
+    if (typeof navigator === "undefined") return;
+    const lang = (navigator.language || "").toLowerCase();
+    if (lang.includes("en")) return;
+
+    const g = (id) => document.getElementById(id);
+    const r = (id, s) => {
+      const n = g(id);
+      if (n) n.textContent = s;
+    };
+    r("about-m-page-kicker", es.pageKicker);
+    r("about-m-h1", es.h1);
+    r("about-m-lead", es.lead);
+    r("about-m-who-h", es.whoH);
+    r("about-m-who-p", es.whoP);
+    r("about-m-think-h", es.thinkH);
+    r("about-m-think-p", es.thinkP);
+    r("about-m-princ-h", es.princH);
+    r("about-m-spec-h", es.specH);
+    r("about-m-spec-p", es.specP);
+    r("about-m-ex-h", es.exH);
+    r("about-m-ex-p", es.exP);
+    r("about-txt-p1", es.p1);
+    r("about-txt-p2", es.p2);
+    r("about-txt-p3", es.p3);
+  })();
+</script>

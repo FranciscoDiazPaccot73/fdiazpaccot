@@ -18,7 +18,7 @@ module.exports = {
         "gray-bg": "#2a2a2a"
       },
       fontFamily: {
-        sans: ["'InterVariable'", ...defaultTheme.fontFamily.sans],
+        sans: ["Inter", ...defaultTheme.fontFamily.sans],
       },
     },
   },

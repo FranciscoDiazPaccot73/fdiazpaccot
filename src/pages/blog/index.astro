@@ -6,10 +6,11 @@ import PageLayout from "../../layouts/PageLayout.astro";
 import Content from "../../components/blog/Content";
 
 const meta = {
-  title: "Blog | Francisco Diaz Paccot",
-  description: "Francisco Diaz Paccot | Sr. Software Engineer.",
+  title: "Writing | Francisco Diaz Paccot",
+  description:
+    "Notes on web performance, systems, and frontend practice — Francisco Diaz Paccot.",
   logoUrl: "https://i.ibb.co/HXYhwjK/blog-portrait.png",
-  url: "https://franciscodiazpaccot.dev",
+  url: "https://franciscodiazpaccot.dev/blog",
 };
 
 const blogs = await getCollection(
@@ -63,16 +64,26 @@ years.sort((a, b) => b - a);
 
 <PageLayout {meta} router="/blog">
   <section
-    class="py-12 px-4 relative text-gray-100 md:px-8 md:mx-auto md:w-full md:max-w-5xl"
+    class="w-full min-w-0 max-w-5xl mx-auto px-4 sm:px-6 py-12 sm:py-16 md:py-20"
+    aria-labelledby="writing-page-title"
   >
-    <div class="mx-auto max-w-2xl lg:mx-0">
-      <h2
-        class="text-3xl font-semibold tracking-tight text-gray-100 sm:text-4xl"
+    <div class="max-w-2xl">
+      <p
+        class="text-[0.7rem] sm:text-xs font-medium tracking-[0.2em] uppercase text-[#e9552f]/85 mb-3"
       >
-        Blog
-      </h2>
-      <p class="mt-2 text-lg leading-8 text-gray-400">
-        Some of my ideas, thoughts and knowledge.
+        Journal
+      </p>
+      <h1
+        class="eurostile text-3xl sm:text-4xl md:text-5xl text-zinc-100 font-semibold tracking-tight"
+        id="writing-page-title"
+      >
+        Writing
+      </h1>
+      <p
+        class="mt-4 sm:mt-5 text-sm sm:text-base text-zinc-500 font-light leading-[1.75]"
+      >
+        A running log on performance, systems, and frontend
+        practice—enough context to be useful, not a dump of every draft.
       </p>
     </div>
     <Content client:load years={years} posts={posts} />

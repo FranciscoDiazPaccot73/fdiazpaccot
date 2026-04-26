@@ -1,43 +1,69 @@
 ---
 const { job, title, link, logo, description, duration, present } = Astro.props;
+/** Disc over the single spine; ring matches page bg so the line is hidden under the icon. */
+const iconHalo =
+  "ring-[3px] ring-[#0a0a0b] ring-offset-0 shadow-[0_0_0_1px_rgba(233,85,47,0.25)]";
 ---
 
-<li class="mb-10 ml-6 last-of-type:mb-0">
-  <span
-    class="absolute flex items-center justify-center w-6 h-6 bg-orange-35 rounded-full -left-3 ring-8 ring-orange-35"
-  >
-    <img src={logo} class="rounded-full" />
-  </span>
-  <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-100 ml-2">
-    {title}
-    {
-      present && (
-        <span class="bg-orange-35 text-orange text-sm font-medium mr-2 px-2.5 py-0.5 rounded ml-3">
-          Present
-        </span>
-      )
-    }
-  </h3>
-  <div class="flex flex-col gap-2 ml-2 mb-2 md:flex-row md:items-center">
-    <p>{job}</p>
-    {
-      duration && (
-        <time class="block text-sm font-normal leading-none text-orange-dark">
-          {duration}
-        </time>
-      )
-    }
+<li class="flex min-w-0 flex-row flex-nowrap gap-3 sm:gap-4">
+  <div class="flex w-8 shrink-0 sm:w-9 flex-col items-center justify-center" aria-hidden="true">
+    <div
+      class:list={[
+        "relative z-20 flex h-8 w-8 sm:h-9 sm:w-9 shrink-0 items-center justify-center overflow-hidden rounded-full",
+        "bg-zinc-950/95 ring-1",
+        "ring-zinc-600/70",
+        iconHalo,
+      ]}
+    >
+      <img src={logo} alt="" class="h-5 w-5 object-contain" width="20" height="20" />
+    </div>
   </div>
-  <div class="flex flex-col ml-2">
-    {
-      description?.map((descr: string) => (
-        <p class="mb-4 text-base font-normal text-gray-400">- {descr}</p>
-      ))
-    }
+
+  <div class="-mt-0.5 min-w-0 flex-1 pb-10 sm:pb-12">
+    <h3
+      class="eurostile m-0 break-words text-lg font-medium text-zinc-100 sm:text-xl flex flex-wrap items-center gap-2"
+    >
+      {title}
+      {
+        present && (
+          <span
+            class="text-[0.6rem] font-medium uppercase tracking-[0.12em] text-[#e9552f]/90 border border-[#e9552f]/25 bg-zinc-900/60 px-2 py-0.5 rounded"
+          >
+            Now
+          </span>
+        )
+      }
+    </h3>
+    <div
+      class="mt-1 flex flex-col gap-0.5 sm:flex-row sm:items-baseline sm:gap-2"
+    >
+      <p class="m-0 text-sm text-zinc-500">{job}</p>
+      {
+        duration && (
+          <time class="m-0 text-xs text-zinc-600" datetime={String(duration)}>
+            {duration}
+          </time>
+        )
+      }
+    </div>
+    <div class="mt-3 flex max-w-2xl flex-col">
+      {
+        description?.map((descr: string) => (
+          <p
+            class="m-0 mb-3 pl-0.5 text-sm font-light leading-[1.75] text-zinc-500 last:mb-0 sm:text-base"
+          >
+            {descr}
+          </p>
+        ))
+      }
+    </div>
+    <a
+      href={link}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="mt-0.5 inline-block break-words text-xs text-zinc-500 hover:text-[#e9552f]/90 sm:text-sm"
+    >
+      {link.replace(/^https?:\/\//, "")}
+    </a>
   </div>
-  <a
-    href={link}
-    class="inline-flex items-center px-3 py-1 text-sm font-medium text-orange bg-orange-35 border border-orange-35 rounded-lg hover:bg-orange hover:text-gray-900"
-    >{link}</a
-  >
 </li>

@@ -1,84 +1,102 @@
 ---
-import Button from "./Button.astro";
-const content = [
-  "As a seasoned web developer with over seven years of experience, I have a strong passion for building innovative and user-friendly web applications. I specialize in using JavaScript, Node.js, and React.js to design and develop scalable and high-performance web solutions.",
-  "I am particularly focused on optimizing web performance to ensure that web applications load quickly and efficiently, providing users with a seamless experience. I thrive in fast-paced and collaborative environments where I can leverage my problem-solving and analytical skills to deliver successful projects.",
-  "When I'm not coding, you can find me exploring new technologies and discovering ways to improve my craft.",
-];
 ---
 
 <section
-  class="px-8 py-20 relative text-stone-900 transition-300 orange-background"
+  class="relative w-full text-zinc-100 border-t border-zinc-800/50 bg-gradient-to-b from-zinc-950/90 to-zinc-950/40"
+  aria-labelledby="about-title"
 >
-  <div class="md:mx-auto md:w-full md:max-w-6xl">
-    <p
-      id="about-title"
-      class="font-semibold text-3xl mb-4 black-text eurostile"
+  <div
+    class="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-20 md:py-28 flex flex-col lg:flex-row gap-12 lg:gap-16 lg:items-start"
+  >
+    <div
+      class="shrink-0 w-full max-w-sm lg:max-w-[12rem] lg:pt-1"
     >
-      Hello, I'm Francisco
-    </p>
-    {content.map((text) => <p class="text-xl tracking-wide mb-6">{text}</p>)}
-    <div class="flex-col flex gap-4 mt-6 items-center md:flex-row">
-      <a
-        href="/about"
-        class="font-semibold underline underline-offset-2 text-lg black-text eurostile mt-4"
-        >Know more about me!</a
+      <p
+        class="text-[0.7rem] sm:text-xs font-medium tracking-[0.2em] uppercase text-[#e9552f]/85"
       >
-      <!-- <Button
-        containerClass="w-56 font-bold"
-        size="text-lg border border-black black-background orange-text"
-        href="docs/FranciscoDiazPaccot-resume.pdf"
-        download="Francisco Diaz Paccot - Resume"
+        Philosophy
+      </p>
+      <h2
+        id="about-title"
+        class="eurostile mt-3 text-2xl sm:text-3xl font-semibold tracking-tight"
       >
-        Download Resume
-      </Button> -->
+        How I work
+      </h2>
+    </div>
+    <div
+      class="min-w-0 flex-1 space-y-6 sm:space-y-7 text-sm sm:text-base text-zinc-400 font-light leading-[1.75] max-w-2xl"
+    >
+      <p id="about-first-text">
+        Performance is a product feature. I treat web vitals, bundle shape, and
+        data-fetching as design constraints—because they decide whether a
+        feature feels “premium” in production, not in a local demo. That mindset
+        scales to teams: shared foundations beat one-off heroics.
+      </p>
+      <p id="about-second-text">
+        Platform work is how frontend seniority compounds: design systems,
+        build pipelines, and clear boundaries between product surfaces. I
+        invest there so the next project ships faster with fewer regressions,
+        and so engineers can reason about the system a year from now.
+      </p>
+      <p id="about-third-text">
+        I work best in cross-functional teams with strong product
+        ownership—where tradeoffs are explicit, written down, and tied to
+        business outcomes, not just ticket throughput.
+      </p>
+      <p class="pt-2">
+        <a
+          href="/about"
+          class="text-sm font-medium text-zinc-300 border-b border-zinc-600 border-dotted hover:text-[#e9552f]/90 hover:border-[#e9552f]/40 transition-colors"
+        >
+          Extended background
+        </a>
+      </p>
     </div>
   </div>
 </section>
 
-<style>
-  .transition-300 {
-    transition: all 300ms ease-in-out;
-  }
-</style>
-
 <script type="text/javascript">
   const userLang = navigator.language || navigator.userLanguage;
-  const enTitle = "Hello, I'm Francisco";
-  const esTitle = "Hola! Soy Francisco.";
+  const isEn = userLang.includes("en");
+  const enTitle = "How I work";
+  const esTitle = "Cómo trabajo";
 
-  const enFirst =
-    "As a seasoned web developer with over seven years of experience, I have a strong passion for building innovative and user-friendly web applications. I specialize in using JavaScript, Node.js, and React.js to design and develop scalable and high-performance web solutions.";
-  const esFirst =
-    "Como desarrollador web experimentado con más de siete años de experiencia, tengo una gran pasión por la construcción de aplicaciones web innovadoras y fáciles de usar. Me especializo en el uso de JavaScript, Node.js y React.js para diseñar y desarrollar soluciones web escalables y de alto rendimiento.";
+  const enFirst = `Performance is a product feature. I treat web vitals, bundle shape, and
+        data-fetching as design constraints—because they decide whether a
+        feature feels “premium” in production, not in a local demo. That mindset
+        scales to teams: shared foundations beat one-off heroics.`;
+  const esFirst = `El rendimiento es parte del producto. Trato los Web Vitals, el bundle y
+        el fetching de datos como restricciones de diseño, porque definen si
+        una funcionalidad se siente sólida en producción, no en un entorno
+        local. Esa lógica escala al equipo: bases compartidas superan
+        hazañas aisladas.`;
 
-  const enSecond =
-    "I am particularly focused on optimizing web performance to ensure that web applications load quickly and efficiently, providing users with a seamless experience. I thrive in fast-paced and collaborative environments where I can leverage my problem-solving and analytical skills to deliver successful projects.";
-  const esSecond =
-    "Estoy especialmente centrado en la optimización del rendimiento web para garantizar que las aplicaciones web se cargan de forma rápida y eficiente, proporcionando a los usuarios una experiencia fluida. Me desenvuelvo bien en entornos dinámicos y de colaboración en los que puedo aprovechar mi capacidad analítica y de resolución de problemas para llevar a cabo proyectos con éxito.";
+  const enSecond = `Platform work is how frontend seniority compounds: design systems,
+        build pipelines, and clear boundaries between product surfaces. I
+        invest there so the next project ships faster with fewer regressions,
+        and so engineers can reason about the system a year from now.`;
+  const esSecond = `La plataforma es donde se multiplica el impacto: sistemas de diseño,
+        pipelines de build y límites claros entre superficies. Ese esfuerzo
+        acelera el siguiente producto, reduce regresiones y mantiene el
+        sistema entendible al año.`;
 
-  const enThird =
-    "When I'm not coding, you can find me exploring new technologies and discovering ways to improve my craft.";
-  const esThird =
-    "Cuando no estoy programando, me encuentro explorando nuevas tecnologías y descubriendo formas de mejorar mi oficio.";
+  const enThird = `I work best in cross-functional teams with strong product
+        ownership—where tradeoffs are explicit, written down, and tied to
+        business outcomes, not just ticket throughput.`;
+  const esThird = `Me integro mejor con equipos multidisciplinares y con ownership
+        de producto: tradeoffs explícitos, documentados, alineados al negocio
+        y no solo al flujo de tareas.`;
 
-  const aboutTitleComponent = document.getElementById("about-title");
-  const aboutFirstComponent = document.getElementById("about-first-text");
-  const aboutSecondComponent = document.getElementById("about-second-text");
-  const aboutThirdComponent = document.getElementById("about-third-text");
-
-  if (aboutTitleComponent && aboutFirstComponent && aboutSecondComponent) {
-    aboutTitleComponent.innerText = `${
-      userLang.includes("en") ? enTitle : esTitle
-    }`;
-    aboutFirstComponent.innerText = `${
-      userLang.includes("en") ? enFirst : esFirst
-    }`;
-    aboutSecondComponent.innerText = `${
-      userLang.includes("en") ? enSecond : esSecond
-    }`;
-    aboutThirdComponent.innerText = `${
-      userLang.includes("en") ? enThird : esThird
-    }`;
+  const aboutTitle = document.getElementById("about-title");
+  const p1 = document.getElementById("about-first-text");
+  const p2 = document.getElementById("about-second-text");
+  const p3 = document.getElementById("about-third-text");
+  if (aboutTitle && p1 && p2 && p3) {
+    if (!isEn) {
+      aboutTitle.innerText = esTitle;
+      p1.innerText = esFirst.replace(/\s+/g, " ").trim();
+      p2.innerText = esSecond.replace(/\s+/g, " ").trim();
+      p3.innerText = esThird.replace(/\s+/g, " ").trim();
+    }
   }
 </script>
