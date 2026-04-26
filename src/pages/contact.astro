@@ -181,7 +181,7 @@ const meta = {
       const res = await fetch(CONTACT_API, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, name, message }),
+        body: JSON.stringify({ email, name, content: message }),
       });
       if (!res.ok) {
         throw new Error(String(res.status));
