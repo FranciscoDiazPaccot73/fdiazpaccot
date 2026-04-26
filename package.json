@@ -3,6 +3,9 @@
   "type": "module",
   "version": "3.10.5",
   "private": true,
+  "engines": {
+    "node": ">=20"
+  },
   "homepage": "https://www.franciscodiazpaccot.dev/",
   "author": {
     "name": "Francisco Diaz Paccot",

@@ -7,7 +7,15 @@ import { defineConfig } from "astro/config";
 // Adapter required for non-prerendered API routes (see src/pages/api/*.ts).
 export default defineConfig({
   output: "static",
-  adapter: vercel(),
+  // includeFiles: paths are project-relative; do not use globs (they are not expanded).
+  adapter: vercel({
+    includeFiles: [
+      "dist/server/entry.mjs",
+      "dist/server/renderers.mjs",
+      "dist/server/_noop-middleware.mjs",
+      "dist/server/manifest_*.mjs",
+    ],
+  }),
   integrations: [
     tailwind({
       config: {
