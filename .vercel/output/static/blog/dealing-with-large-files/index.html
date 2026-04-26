@@ -1,0 +1,172 @@
+<!DOCTYPE html><html lang="en" class="black-background"> <head><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><title>Manejar grandes archivos, evitando timeouts | Writing | Francisco Diaz Paccot</title><meta name="title" content="Manejar grandes archivos, evitando timeouts | Writing | Francisco Diaz Paccot"><meta name="description" content="Optimizando la Subida de Grandes Archivos a tu Servidor Web: Evitando los Problemas de timeouts."><meta property="og:type" content="website"><meta property="og:title" content="Manejar grandes archivos, evitando timeouts | Writing | Francisco Diaz Paccot"><meta property="og:description" content="Optimizando la Subida de Grandes Archivos a tu Servidor Web: Evitando los Problemas de timeouts."><meta property="og:site_name"><meta name="image" property="og:image" content="https://i.ibb.co/HXYhwjK/blog-portrait.png"><meta name="author" content="Francisco Diaz Paccot"><meta property="og:url" content="https://franciscodiazpaccot.dev"><meta property="twitter:card" content="summary_large_image"><meta property="twitter:creator" content="@Pancho_xor"><meta property="twitter:image" content="https://i.ibb.co/HXYhwjK/blog-portrait.png"><meta property="twitter:url" content="https://franciscodiazpaccot.dev"><meta property="twitter:title" content="Manejar grandes archivos, evitando timeouts | Writing | Francisco Diaz Paccot"><meta property="twitter:description" content="Optimizando la Subida de Grandes Archivos a tu Servidor Web: Evitando los Problemas de timeouts."><link rel="canonical" href="https://franciscodiazpaccot.dev"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="manifest" href="/site.webmanifest"><link rel="preload" href="/fonts/eurostile.woff2" as="font" type="font/woff2" crossorigin="anonymous"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet"><link rel="stylesheet" href="/_astro/gallery.CrT3mg9R.css">
+<style>.article-surface{max-width:100%}
+</style></head><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.rasoniT7.js"></script></head> <body class="m-0 left-0 relative overflow-x-hidden">  <div class="progress" data-astro-cid-3zbxo6iv></div> <div class="md:hidden z-20 flex h-[72px] justify-center fixed w-full bottom-0 bg-[#0a0a0b] border-t border-zinc-800/40 backdrop-blur-md"> <div class="flex w-full flex-1 justify-between"> <a href="/" class="items-center flex justify-center relative w-3/12" aria-label="Home page"> <div class="items-center h-20 flex font-semibold justify-center w-full"> <svg class viewBox="0 0 576 512" height="28" width="28" fill="#c9c9c9"> <path d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z"></path> </svg> <svg class="hidden" viewBox="0 0 16 16" height="28" width="28" fill="#c9c9c9"> <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"></path> </svg> <svg class="hidden" viewBox="0 0 24 24" height="28" width="28" fill="#c9c9c9"> <path fill="none" d="M0 0h24v24H0z"></path> <path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"></path> </svg> <svg class="hidden" viewBox="0 0 24 24" height="28" width="28" fill="#c9c9c9"> <path fill-rule="evenodd" d="M23,20 L23,6 L12,15 L1,6 L1,20 L23,20 Z M12,12 L22,4 L2,4 L12,12 Z"></path> </svg> <span class="hidden">Home</span> </div> </a><a href="/about" class="items-center flex justify-center relative w-3/12" aria-label="About me page"> <div class="items-center h-20 flex font-semibold justify-center w-full"> <svg class="hidden" viewBox="0 0 576 512" height="28" width="28" fill="#c9c9c9"> <path d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z"></path> </svg> <svg class viewBox="0 0 16 16" height="28" width="28" fill="#c9c9c9"> <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"></path> </svg> <svg class="hidden" viewBox="0 0 24 24" height="28" width="28" fill="#c9c9c9"> <path fill="none" d="M0 0h24v24H0z"></path> <path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"></path> </svg> <svg class="hidden" viewBox="0 0 24 24" height="28" width="28" fill="#c9c9c9"> <path fill-rule="evenodd" d="M23,20 L23,6 L12,15 L1,6 L1,20 L23,20 Z M12,12 L22,4 L2,4 L12,12 Z"></path> </svg> <span class="hidden">About me</span> </div> </a><a href="/portfolio" class="items-center flex justify-center relative w-3/12" aria-label="Portfolio page"> <div class="items-center h-20 flex font-semibold justify-center w-full"> <svg class="hidden" viewBox="0 0 576 512" height="28" width="28" fill="#c9c9c9"> <path d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z"></path> </svg> <svg class="hidden" viewBox="0 0 16 16" height="28" width="28" fill="#c9c9c9"> <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"></path> </svg> <svg class viewBox="0 0 24 24" height="28" width="28" fill="#c9c9c9"> <path fill="none" d="M0 0h24v24H0z"></path> <path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"></path> </svg> <svg class="hidden" viewBox="0 0 24 24" height="28" width="28" fill="#c9c9c9"> <path fill-rule="evenodd" d="M23,20 L23,6 L12,15 L1,6 L1,20 L23,20 Z M12,12 L22,4 L2,4 L12,12 Z"></path> </svg> <span class="hidden">Portfolio</span> </div> </a><a href="/contact" class="items-center flex justify-center relative w-3/12" aria-label="Contact page"> <div class="items-center h-20 flex font-semibold justify-center w-full"> <svg class="hidden" viewBox="0 0 576 512" height="28" width="28" fill="#c9c9c9"> <path d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z"></path> </svg> <svg class="hidden" viewBox="0 0 16 16" height="28" width="28" fill="#c9c9c9"> <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"></path> </svg> <svg class="hidden" viewBox="0 0 24 24" height="28" width="28" fill="#c9c9c9"> <path fill="none" d="M0 0h24v24H0z"></path> <path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"></path> </svg> <svg class viewBox="0 0 24 24" height="28" width="28" fill="#c9c9c9"> <path fill-rule="evenodd" d="M23,20 L23,6 L12,15 L1,6 L1,20 L23,20 Z M12,12 L22,4 L2,4 L12,12 Z"></path> </svg> <span class="hidden">Contact</span> </div> </a> </div> </div> <header class="hidden md:block md:sticky top-0 z-40 flex-none mx-auto w-full border-b border-zinc-800/30 backdrop-blur-md bg-[#0a0a0b]/85" data-astro-cid-5blmo7yk> <div class="py-3.5 mx-auto w-full flex justify-between max-w-6xl px-4 sm:px-5" data-astro-cid-5blmo7yk> <div class="flex justify-between" data-astro-cid-5blmo7yk> <a class="flex items-center" href="/" aria-label="Click to return to Home" data-astro-cid-5blmo7yk> <img src="/logo-small.webp" alt="Logo" data-astro-cid-5blmo7yk="true" width="40" height="40" loading="lazy" decoding="async"> </a> </div> <nav class="w-auto flex text-zinc-400 h-auto" aria-label="Main navigation" id="menu" data-astro-cid-5blmo7yk> <ul class="flex pt-0 flex-row self-center collapse w-auto collapsed text-base md:visible" data-astro-cid-5blmo7yk> <li data-astro-cid-5blmo7yk> <a aria-label="Click to go to Home page" class="font-medium hover:text-white px-4 py-3 flex items-center transition duration-150 ease-in-out " href="/" data-astro-cid-5blmo7yk>Home
+</a> </li> <li data-astro-cid-5blmo7yk> <a aria-label="Click to go to About page" class="font-medium hover:text-white px-4 py-3 flex items-center transition duration-150 ease-in-out " href="/about" data-astro-cid-5blmo7yk>About Me
+</a> </li> <li data-astro-cid-5blmo7yk> <a aria-label="Click to go to Portfolio page" class="font-medium hover:text-white px-4 py-3 flex items-center transition duration-150 ease-in-out " href="/portfolio" data-astro-cid-5blmo7yk>Portfolio
+</a> </li> <li data-astro-cid-5blmo7yk> <a aria-label="Click to send an email to Francisco" class="font-medium hover:text-white px-4 py-3 flex items-center transition duration-150 ease-in-out " href="/contact" data-astro-cid-5blmo7yk>Contact
+</a> </li> <li data-astro-cid-5blmo7yk> <a aria-label="Click to go to Blog page" class="font-medium hover:text-white px-4 py-3 flex items-center transition duration-150 ease-in-out border-l border-l-zinc-700/50 active" href="/blog" data-astro-cid-5blmo7yk>
+Writing
+</a> </li> </ul> <div class="self-center flex items-center mb-0 ml-2" data-astro-cid-5blmo7yk> <div class="items-center flex" data-astro-cid-5blmo7yk> <a href="https://github.com/FranciscoDiazPaccot73" class="inline-block text-gray-400 hover:bg-neutral-900 focus:outline-none focus:ring-4 focus:ring-neutral-900 rounded-lg text-sm p-2.5" aria-label="Click to go to Github" data-astro-cid-5blmo7yk> <svg class viewBox="0 0 496 512" height="28" width="28" fill="#e9552f"> <path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path> </svg> </a> </div> </div> </nav> </div> </header>  <main class="m-0 p-0 mb-10 relative height-calc" data-astro-cid-3zbxo6iv>  <div class="reading-progress fixed top-0 left-0 h-[2.5px] z-[100] will-change-[width] motion-reduce:hidden bg-[#e9552f] shadow-[0_0_12px_rgba(233,85,47,0.4)]" style="width: calc((var(--scroll, 0) * 100%))" aria-hidden="true" data-astro-cid-7jjqptxk></div> <article class="article-surface w-full min-w-0 max-w-3xl mx-auto px-4 sm:px-5 pb-20 sm:pb-28 antialiased" data-astro-cid-7jjqptxk>  <div class="pt-8 sm:pt-10" data-astro-cid-7jjqptxk> <a href="/blog" class="inline-flex items-center gap-2 text-sm text-zinc-500 hover:text-[#e9552f]/85 transition mb-6 sm:mb-8" aria-label="Back to all writing" data-astro-cid-7jjqptxk> <span class="inline-block scale-100" data-astro-cid-7jjqptxk><svg viewBox="0 0 24 24" height="28" width="28" fill="none" stroke="#e9552f" stroke-width="2" stoke-line-cap="round" stoke-line-join="join"> <polyline points="15 18 9 12 15 6"></polyline> </svg></span> <span data-astro-cid-7jjqptxk>Writing</span> </a> <h1 class="eurostile text-2xl sm:text-3xl md:text-[2rem] leading-tight text-zinc-100 font-semibold m-0" data-astro-cid-7jjqptxk> Manejar grandes archivos, evitando timeouts </h1> <div class="mt-3 flex flex-wrap items-baseline gap-x-3 gap-y-1 text-sm text-zinc-500" data-astro-cid-7jjqptxk> <time class="text-zinc-500 m-0" datetime="2023-09-02T03:00:00.000Z"> Sep 2, 2023 </time> <span class="text-zinc-600" data-astro-cid-7jjqptxk>~6 min read</span>  </div> </div> <div class="mt-6 sm:mt-8 w-full -mx-1 max-w-4xl overflow-hidden rounded-xl sm:rounded-2xl" data-astro-cid-7jjqptxk> <img class="w-full h-auto object-cover" width="800" height="450" src="https://i.ibb.co/djxWM44/timeout.webp" alt="Manejar grandes archivos, evitando timeouts" data-astro-cid-7jjqptxk> </div> <p class="eurostile text-base sm:text-lg text-zinc-500 font-light leading-relaxed mt-6 sm:mt-7 border-l-2 border-l-[#e9552f]/[0.35] pl-4 m-0" data-astro-cid-7jjqptxk> Optimizando la Subida de Grandes Archivos a tu Servidor Web: Evitando los Problemas de timeouts. </p> <div class="article-body prose-article mt-8 sm:mt-10
+        prose prose-invert prose-sm sm:prose-base max-w-none
+        prose-headings:font-sans prose-headings:font-medium prose-headings:tracking-tight
+        prose-h1:text-2xl prose-h2:mt-10 prose-h2:text-xl
+        prose-h2:border-b prose-h2:border-zinc-800 prose-h2:pb-2
+        prose-p:text-zinc-400 prose-p:leading-[1.75] prose-p:font-light
+        prose-a:text-[#e9552f]/[0.88] prose-a:underline prose-a:decoration-[#e9552f]/[0.35]
+        prose-a:underline-offset-2 hover:prose-a:text-[#e9552f] hover:prose-a:decoration-[#e9552f]/[0.6]
+        prose-code:text-zinc-300 prose-code:before:content-none prose-code:after:content-none
+        prose-pre:bg-zinc-900/80 prose-pre:border prose-pre:border-zinc-800
+        prose-li:text-zinc-400
+        [&_h1]:!text-2xl sm:[&_h1]:!text-3xl
+        [&_h2]:!text-xl
+        [&_h3]:!text-lg
+      " data-astro-cid-7jjqptxk> <br>
+<blockquote>
+<p><em><code>Nota: Para este artículo, vamos a usar como ejemplo una aplicación hecha en React y un servidor creado en NodeJs, los cuales usaremos para procesar y guardar los archivos en el sistema.</code></em></p>
+</blockquote>
+<br>
+<p>En este blog, lo que haremos será dividir un archivo cargado del lado del
+cliente en chunks con un tamaño máximo fijo. Luego, vamos a subir cada uno de
+esos chunks a nuestro servidor -lugar donde finalmente volveremos a juntar cada
+uno de los chunks- para obtener nuevamente el archivo original que cargamos en
+el cliente.</p>
+<p style="color:#e9552f;margin-top:32px;margin-bottom:16px;font-size:20px;font-weight:600">
+1- El cliente
+</p>
+<br>
+<blockquote>
+<p><em><code>Nota: Para el lado del cliente, vamos a concentrarnos en la función que va a procesar el archivo una vez cargado en nuestro input.</code></em></p>
+</blockquote>
+<br>
+<p>Lo primero que deberíamos hacer es procesar el archivo que cargamos en nuestra
+aplicación cliente, para poder separarlo en porciones mas pequeñas -denominadas
+chunks- y así subirlo a nuestro servidor. Dado que el navegador procesa los
+archivos como tipo Blob, podemos usar la función
+<a style="text-decoration:underline" href=" https://developer.mozilla.org/en-US/docs/Web/API/Blob/slice" target="_blank">
+<strong>slice()</strong></a> para realizar la división.</p>
+<br>
+<img src="https://i.ibb.co/WHRpRJV/slice-file.webp" alt="Code: slice file">
+<br>
+<p>La función que vemos arriba, opera de la siguiente manera: recibiendo como
+parámetro el archivo y el tamaño máximo que queremos que tenga cada chunk (en
+este caso, vemos que SIZE = 5Mb), iterar el archivo para ir dividiéndolo usando
+la función slice. Cada uno de estos chunks que generamos, lo vamos sumando a un
+array. Por esto, al terminar de iterar el archivo, vamos a obtener un array de n
+elementos, donde n-1 elementos van a tener el tamaño que le indicamos a la
+función (en este caso, 5Mb), y solo 1 va a tener como tamaño máximo 5Mb.</p>
+<br>
+<p>Una vez que ya tenemos esta lista de chunks, podemos armar cada uno de los body
+que necesitamos para realizar las request.</p>
+<br>
+<img src="https://i.ibb.co/N1jzyxh/body-request.webp" alt="Code: Construct body request.">
+<br>
+<p>Los datos que vamos a necesitar para todo el proceso son, como mínimo:</p>
+<br>
+<p><strong>fileHash:</strong> Indica el nombre que tiene el archivo original, lo cual vamos a
+usar para crear la carpeta que contenga todos los chunks. Este hash lo podemos
+generar de la manera que nos parezca más conveniente.<br> <strong>index:</strong> Es
+simplemente la posición del chunk dentro de nuestro array.<br> <strong>hash:</strong> Este
+dato nos va a servir para diferenciar a cada chunk que vamos a subir. Es muy
+importante poder darle alguna forma de orden. En este caso, usamos el index para
+poder darle el orden mencionado.<br> <strong>size:</strong> El tamaño total del archivo que
+queremos subir a nuestro servidor.<br> <strong>chunk:</strong> Es el chunk en sí mismo. Una
+porción del archivo original.</p>
+<br>
+<p>En este punto ya simplemente deberiamos armar un FormData para cada elemento del
+array de chunks. Luego usando algún método para paralelizar request (como usar
+Promise.all() o Promise.allSettled()) enviamos cada uno de nuestro chunk al
+servidor. Para este ejemplo, llamaremos al endpoint como <strong>/upload</strong></p>
+<br>
+<p>Por último, una vez que recibimos el status 200 de cada una de la request, y
+sabemos que todos los chunks se subieron correctamente, queda “avisarle” a
+nuestro servidor que debe juntar nuevamente todos los chunks, y así poder volver
+a tener el archivo en su formato original. En este endpoint (al cual llamaremos
+<strong>/merge</strong>) lo que deberemos enviar en su body, son los atributos: fileHash y
+size. Pero, adicionalmente, deberíamos enviar también el nombre original de
+nuestro archivo.</p>
+<p style="color:#e9552f;margin-top:32px;margin-bottom:16px;font-size:20px;font-weight:600">
+2- El Servidor
+</p>
+<blockquote>
+<p><em><code>Nota: Suponiendo que ya tenemos un servidor NodeJs configurado y funcionando, vamos a pasar directamente a los endpoints que consumimos desde nuestro cliente.</code></em></p>
+</blockquote>
+<br>
+<p>En nuestro servidor, por el momento, tenemos que agregar 2 endpoints. El
+primero, para recibir cada uno de los chunks y un segundo endpoint, para volver
+a convertir ese conjunto de chunks en el archivo original.</p>
+<br>
+<blockquote>
+<p><em><code>Nota: Vamos a usar la librería fs-extra para el manejo de nuestros archivos y multiparty para procesar el body de la request.</code></em></p>
+</blockquote>
+<br>
+<p>Para el primer endpoint, al cual llamamos <strong>/upload</strong>, lo que necesitamos
+realizar es bastante simple. Solamente usaremos la librería <strong>multiparty</strong> para
+extraer cada una de los atributos de nuestro chunk que enviamos en el body.</p>
+<br>
+<p>Luego vamos a definir tanto, la carpeta donde guardaremos todos los chunks (esto
+deberia ser siempre el mismo path para todos los chunks que recibamos), así como
+también la ubicacion donde guardaremos el chunk en especifico que estamos
+procesando. Una vez que tenemos toda esta información, simplemente nos queda
+hacer algunas validaciones usando algún método de manejo de archivos, como por
+ejemplo, con la librería fs-extra.</p>
+<br>
+<p>Una vez que verificamos que no exista en nuestro servidor el archivo en su
+formato final final (para evitar cargarlo más de una vez), que no exista el
+chunk que queremos procesar y que la carpeta que va a contener todos los chunks
+ya esté creada, usamos la función <strong>move</strong> de fs-extra para guardar el chunk en
+nuestra carpeta contenedora.</p>
+<img src="https://i.ibb.co/KF8SYtB/handle-form.webp" alt="Code: Handling form data.">
+<br>
+<p>Con esto obtendremos algo como lo siguiente:</p>
+<img src="https://i.ibb.co/yNDzhGj/loaded-chunks.webp" alt="Loaded chunks.">
+<br>
+<p>En este punto ya deberíamos tener todos los chunks guardados en una carpeta, de
+manera ordenada. Por lo que es momento de realizar la función de juntar todos
+los chunks en el archivo original nuevamente, es decir el endpoint al cual
+llamamos <strong>/merge</strong>.</p>
+<br>
+<p>Lo primero que deberíamos hacer, es calcular el path donde están nuestros
+chunks. Con el path que calculamos, el hash de nuestro file y el tamaño de cada
+chunk (que nos llega por el body de la request), podemos realizar la
+funcionalidad en sí, es decir, el volver a juntar los chunks para obtener el
+archivo original.</p>
+<br>
+<p>Luego, deberíamos leer la carpeta que contiene todos los chunks usando la
+función <strong>readdir</strong> de fs-extra. Posteriormente, un paso muy importante es
+ordenar esta lista de chunks, para asegurarnos de volver a armar el archivo de
+la forma correcta.</p>
+<br>
+<p>Una vez que tengamos la lista de chunks ordenada, vamos a iterarla para
+generarle a cada uno de sus elementos una promesa que se encargue de leer cada
+uno de estos archivos, y luego haga un pipe del mismo al lugar donde vamos a
+guardar el archivo final. Para esta parte de escritura en el archivo final, es
+importante tener en cuenta a qué porción de nuestro archivo pertenece cada
+chunk. Para ello, si usamos la función <strong>createWriteStream</strong> de fs-extra podemos
+pasarle como option un valor <strong>start</strong>, que va a indicar en qué lugar del
+archivo vamos a escribir la porción que se esta está iterando. Y por último, se
+elimina el chunk del directorio donde lo tenemos guardado. Para finalizar usamos
+<strong>Promise.all()</strong> para ejecutar todas estas promesas. Una vez terminado esto, ya
+podemos eliminar el directorio donde estaban todos los chunks.</p>
+<img src="https://i.ibb.co/mhLZqbv/pipe-stream.webp" alt="Code: Pipe stream">
+<br>
+<p>De esta forma, vamos a obtener nuevamente el archivo original, quedándonos de
+esta manera:</p>
+<img src="https://i.ibb.co/XJn977Z/final-result.webp" alt="Final result">
+<br>
+<br>
+<p>Con este método, podríamos disminuir la cantidad de timeouts y errores al
+momento de subir archivos de gran tamaño, sobre todo para conexiones inestables
+o que no sean optimas.</p>
+<br>
+<h2 id="muchas-gracias-por-leer"><strong>Muchas gracias por leer :)</strong></h2> </div> <div class="mt-10 pt-6 border-t border-zinc-800/80" data-astro-cid-7jjqptxk> <p class="text-xs uppercase tracking-wider text-zinc-500 mb-3 m-0" data-astro-cid-7jjqptxk>
+Also on
+</p> <div class="flex flex-wrap gap-2" data-astro-cid-7jjqptxk> <a href="https://medium.com/@fran.diazpaccot/manejar-grandes-archivos-evitando-timeouts-4e248b27e3e4" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1.5 text-xs text-zinc-300 rounded border border-zinc-700/80 hover:border-zinc-500 transition" data-astro-cid-7jjqptxk>
+Medium
+</a>  </div> </div> </article>  </main> <footer class="w-full pt-6 pb-56 h-56 md:pb-10 md:h-48 md:mt-0 relative orange-background" data-astro-cid-sz7xmlte> <div class="relative" data-astro-cid-sz7xmlte> <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto" data-astro-cid-sz7xmlte> <defs data-astro-cid-sz7xmlte> <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" data-astro-cid-sz7xmlte></path> </defs> <g class="parallax" data-astro-cid-sz7xmlte> <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(233,85,47,0.7)" data-astro-cid-sz7xmlte></use> <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(233,85,47,0.5)" data-astro-cid-sz7xmlte></use> <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(233,85,47,0.3)" data-astro-cid-sz7xmlte></use> <use xlink:href="#gentle-wave" x="48" y="7" fill="rgba(233,85,47,1)" data-astro-cid-sz7xmlte></use> </g> </svg> </div> <div class="px-5 sm:px-6 md:mx-auto md:w-full md:max-w-6xl" data-astro-cid-sz7xmlte> <div class="flex justify-between md:block" data-astro-cid-sz7xmlte> <a href="mailto:fran.diazpaccot@gmail.com" class="font-medium text-sm sm:text-base no-underline tracking-tight text-[#0a0a0b] eurostile opacity-90 hover:opacity-100" data-astro-cid-sz7xmlte>Say hello</a> <a href="/blog" class="font-medium text-sm sm:text-base no-underline text-[#0a0a0b] eurostile md:hidden opacity-90 hover:opacity-100" data-astro-cid-sz7xmlte>Writing</a> </div> <div class="flex items-center flex-row justify-center my-4 mx-auto container" data-astro-cid-sz7xmlte> <a href="https://github.com/FranciscoDiazPaccot73" target="_blank" class="item" rel="noopener noreferrer" aria-label="Click to go to Github" data-astro-cid-sz7xmlte> <svg class viewBox="0 0 496 512" height="30" width="30" fill="#16080e"> <path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path> </svg><span class="hidden" data-astro-cid-sz7xmlte>Github</span> </a> <a href="https://www.instagram.com/frandiazpaccot/" target="_blank" class="item" rel="noopener noreferrer" aria-label="Click to go to Instagram" data-astro-cid-sz7xmlte> <svg class viewBox="0 0 448 512" height="30" width="30" fill="#16080e"> <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path> </svg><span class="hidden" data-astro-cid-sz7xmlte>Instagram</span> </a> <a href="https://www.linkedin.com/in/francisco-diaz-paccot-a98a36130/" target="_blank" class="item" rel="noopener noreferrer" aria-label="Click to go to Linkedin" data-astro-cid-sz7xmlte> <svg class viewBox="0 0 448 512" height="30" width="30" fill="#16080e"> <path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"></path> </svg><span class="hidden" data-astro-cid-sz7xmlte>Linkedin</span> </a> <a href="https://twitter.com/Pancho_xor" target="_blank" class="item" rel="noopener noreferrer" aria-label="Click to go to Twitter" data-astro-cid-sz7xmlte> <svg class viewBox="0 0 512 512" height="30" width="30" fill="#16080e"> <path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path> </svg><span class="hidden" data-astro-cid-sz7xmlte>Twitter</span> </a> <a href="https://medium.com/@fran.diazpaccot" target="_blank" class="item" rel="noopener noreferrer" aria-label="Click to go to Medium" data-astro-cid-sz7xmlte> <svg class viewBox="0 0 24 24" fill="none" height="30" width="30"> <path d="M13 12C13 15.3137 10.3137 18 7 18C3.68629 18 1 15.3137 1 12C1 8.68629 3.68629 6 7 6C10.3137 6 13 8.68629 13 12Z" fill="#16080e"></path> <path d="M23 12C23 14.7614 22.5523 17 22 17C21.4477 17 21 14.7614 21 12C21 9.23858 21.4477 7 22 7C22.5523 7 23 9.23858 23 12Z" fill="#16080e"></path> <path d="M17 18C18.6569 18 20 15.3137 20 12C20 8.68629 18.6569 6 17 6C15.3431 6 14 8.68629 14 12C14 15.3137 15.3431 18 17 18Z" fill="#16080e"></path> </svg><span class="hidden" data-astro-cid-sz7xmlte>Medium</span> </a> </div> <div class="cursor-default w-full flex mt-8 text-xs justify-center black-text" data-astro-cid-sz7xmlte> Made with <span class="hearth" data-astro-cid-sz7xmlte> &#9829;</span> by <a class="cursor-pointer font-semibold ml-0.5 decoration-0 black-text" href="/about" aria-label="Click to go to Francisco's About page" data-astro-cid-sz7xmlte>
+Francisco Diaz Paccot</a> <span class="flex ml-2 items-center" data-astro-cid-sz7xmlte><svg class viewBox="0 0 1024 1024" height="12" width="12" fill="#16080e"> <path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372zm5.6-532.7c53 0 89 33.8 93 83.4.3 4.2 3.8 7.4 8 7.4h56.7c2.6 0 4.7-2.1 4.7-4.7 0-86.7-68.4-147.4-162.7-147.4C407.4 290 344 364.2 344 486.8v52.3C344 660.8 407.4 734 517.3 734c94 0 162.7-58.8 162.7-141.4 0-2.6-2.1-4.7-4.7-4.7h-56.8c-4.2 0-7.6 3.2-8 7.3-4.2 46.1-40.1 77.8-93 77.8-65.3 0-102.1-47.9-102.1-133.6v-52.6c.1-87 37-135.5 102.2-135.5z"></path> </svg><span class="ml-0.5" data-astro-cid-sz7xmlte>2018-2026</span> </span> </div> </div> </footer>   </body></html>  <script>
+  window.addEventListener("scroll", () => {
+    const h = document.body.offsetHeight - window.innerHeight;
+    if (h <= 0) return;
+    document.body.style.setProperty("--scroll", String(window.scrollY / h));
+  });
+</script> 
