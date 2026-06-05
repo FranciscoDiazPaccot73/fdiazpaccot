@@ -25,7 +25,7 @@ const { meta, router } = Astro.props;
     width: 0%;
     background-color: var(--orange-darkest);
     position: fixed;
-    bottom: 72px;
+    bottom: calc(88px + env(safe-area-inset-bottom, 0px));
     left: 0;
     animation: progress 1s linear;
     z-index: 1000;
