@@ -1,6 +1,10 @@
 ---
 import type { WorldCupMatch } from "../../types/worldCup";
-import FormattedDate from "../FormattedDate.astro";
+import {
+  formatKickoffDate,
+  getCenterAriaLabel,
+  getCenterLabel,
+} from "../../data/worldCup/matchFormat";
 
 interface Props {
   match: WorldCupMatch;
@@ -8,16 +12,8 @@ interface Props {
 
 const { match } = Astro.props;
 
-const kickoffDate = new Date(match.kickoff);
-const isFinished = match.status === "finished";
-
-const centerLabel = isFinished
-  ? `${match.homeScore} – ${match.awayScore}`
-  : kickoffDate.toLocaleTimeString("en-US", {
-      hour: "numeric",
-      minute: "2-digit",
-      hour12: false,
-    });
+const centerLabel = getCenterLabel(match);
+const centerAria = getCenterAriaLabel(match);
 ---
 
 <article
@@ -30,7 +26,7 @@ const centerLabel = isFinished
     </span>
     <span
       class="text-sm text-zinc-400 tabular-nums font-light shrink-0 px-2 sm:px-4"
-      aria-label={isFinished ? `Score: ${centerLabel}` : `Kickoff: ${centerLabel}`}
+      aria-label={centerAria}
     >
       {centerLabel}
     </span>
@@ -38,8 +34,10 @@ const centerLabel = isFinished
       {match.awayTeam}
     </span>
   </div>
-  <FormattedDate
-    date={kickoffDate}
-    className="text-xs text-zinc-600 mt-2 block max-w-2xl mx-auto w-full"
-  />
+  <time
+    class="text-xs text-zinc-600 mt-2 block max-w-2xl mx-auto w-full"
+    datetime={match.kickoff}
+  >
+    {formatKickoffDate(match.kickoff)}
+  </time>
 </article>

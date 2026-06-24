@@ -1,11 +1,5 @@
----
-import { getWorldCupData } from "../../data/worldCup/worldCupProvider";
-import MatchRow from "./MatchRow.astro";
-
-const { recentResults, upcomingMatches } = await getWorldCupData();
----
-
 <section
+  id="world-cup-section"
   class="px-4 sm:px-6 py-14 sm:py-20 flex flex-col gap-8 sm:gap-10 border-t border-zinc-800/60 max-w-6xl w-full mx-auto"
   aria-labelledby="world-cup-heading"
 >
@@ -29,15 +23,22 @@ const { recentResults, upcomingMatches } = await getWorldCupData();
   </header>
 
   <div class="flex flex-col gap-10 sm:gap-12">
+    <div class="hidden" data-world-cup-live-block>
+      <h3
+        class="text-[0.7rem] sm:text-xs font-medium uppercase tracking-[0.2em] text-zinc-600 mb-4"
+      >
+        Live Now
+      </h3>
+      <div role="list" data-world-cup-live aria-busy="true"></div>
+    </div>
+
     <div>
       <h3
         class="text-[0.7rem] sm:text-xs font-medium uppercase tracking-[0.2em] text-zinc-600 mb-4"
       >
         Recent Results
       </h3>
-      <div role="list">
-        {recentResults.map((match) => <MatchRow match={match} />)}
-      </div>
+      <div role="list" data-world-cup-recent aria-busy="true"></div>
     </div>
 
     <div>
@@ -46,9 +47,13 @@ const { recentResults, upcomingMatches } = await getWorldCupData();
       >
         Upcoming Matches
       </h3>
-      <div role="list">
-        {upcomingMatches.map((match) => <MatchRow match={match} />)}
-      </div>
+      <div role="list" data-world-cup-upcoming aria-busy="true"></div>
     </div>
   </div>
 </section>
+
+<script>
+  import { subscribeWorldCupSection } from "../../data/worldCup/worldCupClient";
+
+  subscribeWorldCupSection();
+</script>

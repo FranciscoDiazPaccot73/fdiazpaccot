@@ -1,16 +1,15 @@
-import type { OpenFootballWorldCup } from "../../types/openfootball";
+import type { WorldCup26Response } from "../../types/worldcup26";
 import type { WorldCupData } from "../../types/worldCup";
-import { mapOpenFootballWorldCup } from "./openfootballMapper";
+import { mapWorldCup26Response } from "./worldcup26Mapper";
 
-const WORLDCUP_JSON_URL =
-  "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json";
+const WORLDCUP_GAMES_URL = "https://worldcup26.ir/get/games";
 
 /**
  * World Cup data provider.
- * Fetches from openfootball/worldcup.json and maps into the site model.
+ * Called client-side on each About page visit via worldCupClient.ts.
  */
 export async function getWorldCupData(): Promise<WorldCupData> {
-  const response = await fetch(WORLDCUP_JSON_URL);
+  const response = await fetch(WORLDCUP_GAMES_URL);
 
   if (!response.ok) {
     throw new Error(
@@ -18,6 +17,6 @@ export async function getWorldCupData(): Promise<WorldCupData> {
     );
   }
 
-  const data = (await response.json()) as OpenFootballWorldCup;
-  return mapOpenFootballWorldCup(data);
+  const data = (await response.json()) as WorldCup26Response;
+  return mapWorldCup26Response(data);
 }
