@@ -1,0 +1,54 @@
+---
+import { getWorldCupData } from "../../data/worldCup/worldCupProvider";
+import MatchRow from "./MatchRow.astro";
+
+const { recentResults, upcomingMatches } = await getWorldCupData();
+---
+
+<section
+  class="px-4 sm:px-6 py-14 sm:py-20 flex flex-col gap-8 sm:gap-10 border-t border-zinc-800/60 max-w-6xl w-full mx-auto"
+  aria-labelledby="world-cup-heading"
+>
+  <header class="flex flex-col gap-3">
+    <p
+      class="text-[0.7rem] sm:text-xs font-medium tracking-[0.2em] uppercase text-zinc-500"
+    >
+      World Cup
+    </p>
+    <h2
+      class="eurostile text-2xl sm:text-3xl text-zinc-100 font-semibold"
+      id="world-cup-heading"
+    >
+      Following the World Cup
+    </h2>
+    <p
+      class="text-sm sm:text-base text-zinc-500 font-light max-w-xl leading-relaxed"
+    >
+      A few recent results and upcoming matches.
+    </p>
+  </header>
+
+  <div class="flex flex-col gap-10 sm:gap-12">
+    <div>
+      <h3
+        class="text-[0.7rem] sm:text-xs font-medium uppercase tracking-[0.2em] text-zinc-600 mb-4"
+      >
+        Recent Results
+      </h3>
+      <div role="list">
+        {recentResults.map((match) => <MatchRow match={match} />)}
+      </div>
+    </div>
+
+    <div>
+      <h3
+        class="text-[0.7rem] sm:text-xs font-medium uppercase tracking-[0.2em] text-zinc-600 mb-4"
+      >
+        Upcoming Matches
+      </h3>
+      <div role="list">
+        {upcomingMatches.map((match) => <MatchRow match={match} />)}
+      </div>
+    </div>
+  </div>
+</section>

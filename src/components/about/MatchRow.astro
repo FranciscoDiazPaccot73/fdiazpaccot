@@ -1,0 +1,45 @@
+---
+import type { WorldCupMatch } from "../../types/worldCup";
+import FormattedDate from "../FormattedDate.astro";
+
+interface Props {
+  match: WorldCupMatch;
+}
+
+const { match } = Astro.props;
+
+const kickoffDate = new Date(match.kickoff);
+const isFinished = match.status === "finished";
+
+const centerLabel = isFinished
+  ? `${match.homeScore} – ${match.awayScore}`
+  : kickoffDate.toLocaleTimeString("en-US", {
+      hour: "numeric",
+      minute: "2-digit",
+      hour12: false,
+    });
+---
+
+<article
+  class="border-b border-zinc-800/60 py-4 sm:py-5 last:border-b-0"
+  aria-label={`${match.homeTeam} vs ${match.awayTeam}`}
+>
+  <div class="flex items-baseline justify-between gap-3 min-w-0 max-w-2xl mx-auto w-full">
+    <span class="text-sm text-zinc-300 min-w-0 flex-1">
+      {match.homeTeam}
+    </span>
+    <span
+      class="text-sm text-zinc-400 tabular-nums font-light shrink-0 px-2 sm:px-4"
+      aria-label={isFinished ? `Score: ${centerLabel}` : `Kickoff: ${centerLabel}`}
+    >
+      {centerLabel}
+    </span>
+    <span class="text-sm text-zinc-300 min-w-0 flex-1 text-right">
+      {match.awayTeam}
+    </span>
+  </div>
+  <FormattedDate
+    date={kickoffDate}
+    className="text-xs text-zinc-600 mt-2 block max-w-2xl mx-auto w-full"
+  />
+</article>
